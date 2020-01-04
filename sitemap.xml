@@ -3,26 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/posts/first-blog/</loc>
-    <lastmod>2020-01-03T15:35:51-08:00</lastmod>
+    <loc>http://zhixiukang.com/posts/first-blog/</loc>
+    <lastmod>2020-01-02T15:35:51-08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/</loc>
-    <lastmod>2020-01-03T15:35:51-08:00</lastmod>
+    <loc>http://zhixiukang.com/posts/</loc>
+    <lastmod>2020-01-02T15:35:51-08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
-    <lastmod>2020-01-03T15:35:51-08:00</lastmod>
+    <loc>http://zhixiukang.com/</loc>
+    <lastmod>2020-01-02T15:35:51-08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>http://zhixiukang.com/categories/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>http://zhixiukang.com/tags/</loc>
   </url>
   
 </urlset>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 修的个人博客</title>
-    <link>http://example.org/posts/</link>
+    <link>http://zhixiukang.com/posts/</link>
     <description>Recent content in Posts on 修的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 03 Jan 2020 15:35:51 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jan 2020 15:35:51 -0800</lastBuildDate>
     
-	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>First Blog</title>
-      <link>http://example.org/posts/first-blog/</link>
-      <pubDate>Fri, 03 Jan 2020 15:35:51 -0800</pubDate>
+      <link>http://zhixiukang.com/posts/first-blog/</link>
+      <pubDate>Thu, 02 Jan 2020 15:35:51 -0800</pubDate>
       
-      <guid>http://example.org/posts/first-blog/</guid>
+      <guid>http://zhixiukang.com/posts/first-blog/</guid>
       <description>大家好 我的博客开通了，希望我能写出好文章给大家看</description>
     </item>
     
