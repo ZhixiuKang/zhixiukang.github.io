@@ -6,18 +6,27 @@
     <description>Recent content in Posts on 修的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 02 Jan 2020 15:35:51 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jan 2020 18:56:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>First Blog</title>
-      <link>http://zhixiukang.com/posts/first-blog/</link>
-      <pubDate>Thu, 02 Jan 2020 15:35:51 -0800</pubDate>
+      <title>用Hugo搭建个人博客</title>
+      <link>http://zhixiukang.com/posts/%E5%AE%89%E8%A3%85hugo/</link>
+      <pubDate>Fri, 03 Jan 2020 18:56:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/first-blog/</guid>
-      <description>大家好 我的博客开通了，希望我能写出好文章给大家看</description>
+      <guid>http://zhixiukang.com/posts/%E5%AE%89%E8%A3%85hugo/</guid>
+      <description>安装Hugo 官方教程 Hugo官方教程
+Mac安装方式 brew install hugo hugo version  快速搭建博客 使用Hugo搭建博客 按照Quick Start | Hugo操作。
+注意:
+ 当新建站点时，可以自定义参数，举个例子:  当写完每篇.md后， 可以将draft:true改为draft:false以达到发布的目的。  把 Hugo 生成的博客托管在 GitHub Pages 教程讲完了，现在问题是怎么把public这个目录挂到网上。
+步骤如下:
+ 新建.gitignore,添加/public/ 进入public，git init,git add .,git commit -v素质三连。现在需要做的就是上传了。 怎么上传呢？需要做的就是在github上新建一个仓库。仓库名为#用户名(全部小写).github.io 然后在本地public目录下: 目标就是把public上传到单独的一个仓库。 之后git open来到我们的GitHub仓库。 接下来, 点击项目里右上角的Settings，走到最下面,  选到master。当然如果你和我一样就不用做多余操作了。
+点击博客地址。当当当当，done~！  问题：   如何持续更新博客?
+每次写完新的博客， 进入public目录, git add .,git commit -v,git push素质三连。
+  如果不想要这个皮肤怎么办？
+Complete List | Hugo Themes 你想来什么主题就来什么主题。</description>
     </item>
     
   </channel>
