@@ -136,7 +136,7 @@
 <img src="http://zhixiukang.com/images/learn-more.png" alt="">
 并进入<code>Managing a custom domain for your GitHub Pages Site</code>. 找到<code>Configuring an apex domain</code>里的<code>4 A records</code>。
 <img src="http://zhixiukang.com/images/configure-apex-domain.png" alt="">
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// 这里注意每个人的ip都不一样，根据自己显示的ip来操作
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// 这里注意每个人的ip都不一样，根据自己显示的ip来操作
 18X.XXX.XXX.15X
 18X.XXX.XXX.15X
 18X.XXX.XXX.15X
@@ -147,7 +147,7 @@ Add A record, 这4条A record根据上面的<code>4 A records</code>来填写，
 </li>
 <li>上述过程依次完成后，Mac用户通过:</li>
 </ol>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> dig noall answer #userdomain.com
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> dig noall answer #userdomain.com
 </code></pre></div><p>来查看4个A records是否和上面的四个<code>ip</code>地址吻合，吻合的话就配置成功啦~</p>
 <p>注意: 这个过程可能需要一段时间，因为原始网页配置的<code>TTL(Time to live)</code>可能还没有过期，所以不会刷新新的DNS配置，所以如果有问题请先等一下(TTL为3600最多等1小时(3600s)，TTL为7200最多等7200s)。</p>
 <h2 id="heading-1">问题</h2>
