@@ -43,5 +43,40 @@ Mac安装方式 brew install hugo hugo version  快速搭建博客 使用Hugo搭
 Complete List | Hugo Themes 你想来什么主题就来什么主题。</description>
     </item>
     
+    <item>
+      <title>[歌詞]BIGBANG - BAE BAE[中韩对照]</title>
+      <link>http://zhixiukang.com/explore/bae-bae-lyrics/</link>
+      <pubDate>Sat, 03 Aug 2019 18:56:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/explore/bae-bae-lyrics/</guid>
+      <description> Bae bae
+BABY BABY
+지금처럼만 아름다워 줄래 넌
+能不能就像現在一樣這麼的美麗
+시간이 지나도
+即使時間流逝
+내가 설렐 수 있게
+也能讓我心動不已
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://zhixiukang.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhixiukang.com/about/</guid>
+      <description>Email: zhixiukang@gmail.com</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://zhixiukang.com/bucket-list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://zhixiukang.com/bucket-list/</guid>
+      <description> 跳伞 考持枪证 考飞行员证 考潜水证 去 Apple Park 参观 打枪 爬美国最高峰 在荒漠大公路上急速飙车 玩一次骑行 冲个浪 去漂流 尝试做个 Vlog 在沙漠过夜 坐纽约的破地铁 坐美国的火车 坐直升飞机 划橡皮艇 钓一条大鱼 打场高尔夫 打个保龄球 去滑雪  </description>
+    </item>
+    
   </channel>
 </rss>
