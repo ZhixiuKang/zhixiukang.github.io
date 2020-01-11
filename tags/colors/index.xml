@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Colors on 修的个人网站</title>
+    <link>http://zhixiukang.com/tags/colors/</link>
+    <description>Recent content in Colors on 修的个人网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 05 Jan 2020 20:17:11 -0800</lastBuildDate>
+    
+	<atom:link href="http://zhixiukang.com/tags/colors/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>韩语中的颜色</title>
+      <link>http://zhixiukang.com/explore/colors/</link>
+      <pubDate>Sun, 05 Jan 2020 20:17:11 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/explore/colors/</guid>
+      <description> 白色 흰색/하얀색
+黑色 검은색
+黄色 노랑색/황색
+红色 빨간색（红茶：홍차;红铅笔:빨간 연필）
+绿色 녹색（绿茶：녹차）
+蓝色 푸른색 （蔚蓝的天空 푸른 하늘）
+蓝色 파란색（比푸른색淡，蓝衬衫：파란 셔츠）
+深蓝 남색
+粉红 분홍색/핑크색
+紫色 보라색
+褐色 갈색
+灰色 회색 (灰色的天 회색의 하늘)
+咖啡色 커피색
+肉色 살색/육색
+ </description>
+    </item>
+    
+  </channel>
+</rss>
