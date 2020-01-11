@@ -6,10 +6,33 @@
     <description>Recent content on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 03 Jan 2020 18:56:33 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2020 20:17:11 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>韩语中的颜色</title>
+      <link>http://zhixiukang.com/explore/colors/</link>
+      <pubDate>Sun, 05 Jan 2020 20:17:11 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/explore/colors/</guid>
+      <description> 白色 흰색/하얀색
+黑色 검은색
+黄色 노랑색/황색
+红色 빨간색（红茶：홍차;红铅笔:빨간 연필）
+绿色 녹색（绿茶：녹차）
+蓝色 푸른색 （蔚蓝的天空 푸른 하늘）
+蓝色 파란색（比푸른색淡，蓝衬衫：파란 셔츠）
+深蓝 남색
+粉红 분홍색/핑크색
+紫色 보라색
+褐色 갈색
+灰色 회색 (灰色的天 회색의 하늘)
+咖啡色 커피색
+肉色 살색/육색
+ </description>
+    </item>
     
     <item>
       <title>购买域名及配置DNS和GitHub Pages</title>
@@ -75,7 +98,7 @@ BABY BABY
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://zhixiukang.com/bucket-list/</guid>
-      <description> 跳伞 考持枪证 考飞行员证 考潜水证 去 Apple Park 参观 打枪 爬美国最高峰 在荒漠大公路上急速飙车 玩一次骑行 冲个浪 去漂流 尝试做个 Vlog 在沙漠过夜 坐纽约的破地铁 坐美国的火车 坐直升飞机 划橡皮艇 钓一条大鱼 打场高尔夫 打个保龄球 去滑雪  </description>
+      <description> 跳伞 考持枪证 考飞行员证 考潜水证 打枪 爬美国最高峰 在荒漠大公路上急速飙车 玩一次骑行 冲个浪 去漂流 尝试做个vlog 在沙漠过夜 坐纽约的破地铁 坐美国的火车 坐直升飞机 划橡皮艇 钓一条大鱼 打场高尔夫 打个保龄球 去滑雪  </description>
     </item>
     
   </channel>

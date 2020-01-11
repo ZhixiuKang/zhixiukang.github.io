@@ -3,12 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://zhixiukang.com/posts/</loc>
-    <lastmod>2020-01-03T18:56:33-08:00</lastmod>
+    <loc>http://zhixiukang.com/explore/</loc>
+    <lastmod>2020-01-05T20:17:11-08:00</lastmod>
   </url>
   
   <url>
     <loc>http://zhixiukang.com/</loc>
+    <lastmod>2020-01-05T20:17:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhixiukang.com/explore/colors/</loc>
+    <lastmod>2020-01-05T20:17:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhixiukang.com/posts/</loc>
     <lastmod>2020-01-03T18:56:33-08:00</lastmod>
   </url>
   
@@ -24,11 +34,6 @@
   
   <url>
     <loc>http://zhixiukang.com/explore/bae-bae-lyrics/</loc>
-    <lastmod>2019-08-03T18:56:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/explore/</loc>
     <lastmod>2019-08-03T18:56:33-08:00</lastmod>
   </url>
   
