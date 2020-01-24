@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTML标签"/>
+<meta name="twitter:description" content="学习工具 网道HTML教程
+ 三上:马上，枕上，厕上
+ VSCode插件推荐  Prettier更好地格式化工具 cmd&#43;shift&#43;p-&gt; format doc  两个工具  jsbin 饥人谷 偏好 JShint关闭 codesandbox settings: auto save   可以将需要纠错的URL分享给别人
+ HTML起手式&ndash;Emmet感叹号 在空的html文件中，输入!&#43;tab。
+&lt;!— 文档类型 --&gt; &lt;!DOCTYPE html&gt; &lt;!— html标签，可以把lang改成zh-CN —&gt; &lt;html lang=“en”&gt; &lt;head&gt; &lt;!— 文件的字符编码 —&gt; &lt;meta charset=“UTF-8” /&gt; &lt;!— 禁用缩放 —&gt; &lt;meta name=“viewport” content=“width=device-width, initial-scale=1.0” /&gt; &lt;!— 兼容手机，告诉IE使用最新内核 —&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;ie=edge&#34; /&gt; &lt;!--标题 --&gt; &lt;title&gt;Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;/body&gt; &lt;/html&gt; 章节标签  标题h1-h6 章节section 文章article 段落p 头部header 脚部footer 主要内容main 旁支内容aside 划分div   全局属性 所有标签都有的属性"/>
+
+    <meta property="og:title" content="HTML标签" />
+<meta property="og:description" content="学习工具 网道HTML教程
+ 三上:马上，枕上，厕上
+ VSCode插件推荐  Prettier更好地格式化工具 cmd&#43;shift&#43;p-&gt; format doc  两个工具  jsbin 饥人谷 偏好 JShint关闭 codesandbox settings: auto save   可以将需要纠错的URL分享给别人
+ HTML起手式&ndash;Emmet感叹号 在空的html文件中，输入!&#43;tab。
+&lt;!— 文档类型 --&gt; &lt;!DOCTYPE html&gt; &lt;!— html标签，可以把lang改成zh-CN —&gt; &lt;html lang=“en”&gt; &lt;head&gt; &lt;!— 文件的字符编码 —&gt; &lt;meta charset=“UTF-8” /&gt; &lt;!— 禁用缩放 —&gt; &lt;meta name=“viewport” content=“width=device-width, initial-scale=1.0” /&gt; &lt;!— 兼容手机，告诉IE使用最新内核 —&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;ie=edge&#34; /&gt; &lt;!--标题 --&gt; &lt;title&gt;Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;/body&gt; &lt;/html&gt; 章节标签  标题h1-h6 章节section 文章article 段落p 头部header 脚部footer 主要内容main 旁支内容aside 划分div   全局属性 所有标签都有的属性" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/html-labels/" />
+<meta property="article:published_time" content="2020-01-24T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-01-24T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/html-labels/">
+    
+    <title>
+HTML标签 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/html-labels/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">HTML标签</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-01-24T15:21:33-08:00'>
+              January 24, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/html/">HTML</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h1 id="heading">学习工具</h1>
+<p><a href="https://wangdoc.com/">网道HTML教程</a></p>
+<blockquote>
+<p>三上:马上，枕上，厕上</p>
+</blockquote>
+<h1 id="vscode">VSCode插件推荐</h1>
+<ul>
+<li>Prettier更好地格式化工具
+<code>cmd+shift+p</code>-&gt; <code>format doc</code></li>
+</ul>
+<h1 id="heading-1">两个工具</h1>
+<ul>
+<li>jsbin 饥人谷
+偏好 JShint关闭</li>
+<li><a href="https://codesandbox.io/">codesandbox</a>
+settings: auto save</li>
+</ul>
+<blockquote>
+<p>可以将需要纠错的URL分享给别人</p>
+</blockquote>
+<h1 id="html--emmet">HTML起手式&ndash;Emmet感叹号</h1>
+<p>在空的html文件中，输入<code>!</code>+<code>tab</code>。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!— 文档类型 --&gt;</span>
+<span style="color:#0f0;font-weight:bold">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#0f0;font-weight:bold">&lt;!— html标签，可以把lang改成zh-CN —&gt;</span>
+&lt;<span style="font-weight:bold">html</span> <span style="color:#007f7f">lang</span>=<span style="color:#0ff;font-weight:bold">“en”</span>&gt;
+&lt;<span style="font-weight:bold">head</span>&gt;
+    <span style="color:#0f0;font-weight:bold">&lt;!— 文件的字符编码 —&gt;</span>
+    &lt;<span style="font-weight:bold">meta</span> <span style="color:#007f7f">charset</span>=<span style="color:#0ff;font-weight:bold">“UTF-8”</span> /&gt;
+    <span style="color:#0f0;font-weight:bold">&lt;!— 禁用缩放 —&gt;</span>
+    &lt;<span style="font-weight:bold">meta</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">“viewport”</span> <span style="color:#007f7f">content</span>=<span style="color:#0ff;font-weight:bold">“width=device-width,</span> <span style="color:#007f7f">initial-scale</span>=<span style="color:#0ff;font-weight:bold">1.0”</span> /&gt;
+    <span style="color:#0f0;font-weight:bold">&lt;!— 兼容手机，告诉IE使用最新内核 —&gt;</span>
+    &lt;<span style="font-weight:bold">meta</span> <span style="color:#007f7f">http-equiv</span>=<span style="color:#0ff;font-weight:bold">&#34;X-UA-Compatible&#34;</span> <span style="color:#007f7f">content</span>=<span style="color:#0ff;font-weight:bold">&#34;ie=edge&#34;</span> /&gt;
+    <span style="color:#007f7f">&lt;!--</span><span style="color:#007f7f"> 标题 </span><span style="color:#007f7f">--&gt;</span>
+    &lt;<span style="font-weight:bold">title</span>&gt;Document&lt;/<span style="font-weight:bold">title</span>&gt;
+&lt;/<span style="font-weight:bold">head</span>&gt;
+&lt;<span style="font-weight:bold">body</span>&gt;
+
+&lt;/<span style="font-weight:bold">body</span>&gt;
+&lt;/<span style="font-weight:bold">html</span>&gt;
+</code></pre></div><h1 id="heading-2">章节标签</h1>
+<ul>
+<li>标题<code>h1</code>-<code>h6</code></li>
+<li>章节<code>section</code></li>
+<li>文章<code>article</code></li>
+<li>段落<code>p</code></li>
+<li>头部<code>header</code></li>
+<li>脚部<code>footer</code></li>
+<li>主要内容<code>main</code></li>
+<li>旁支内容<code>aside</code></li>
+<li>划分<code>div</code>
+<img src="http://zhixiukang.com/images/section-labels.png" alt=""></li>
+</ul>
+<h1 id="heading-3">全局属性</h1>
+<p>所有标签都有的属性</p>
+<h2 id="class-"><code>class</code>: 给标签一个标记</h2>
+<p><img src="http://zhixiukang.com/images/html-label-class.png" alt=""></p>
+<h2 id="contenteditable-"><code>contenteditable</code>: 可以使任何一个元素可以被编辑</h2>
+<p><img src="http://zhixiukang.com/images/html-label-contenteditable.png" alt=""></p>
+<h2 id="hidden"><code>hidden</code></h2>
+<p>要知道<code>&lt;head&gt;``&lt;\head&gt;</code>里面的内容是看不见的，那么我们可不可以让他看见呢？
+将原本应该隐藏的<code>style</code>标签中加入：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">style{display:block;}
+</code></pre></div><p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-01-1516.00.09.png" alt="">
+会发现<code>style</code>被取消隐藏并已经显示出来了。
+用处：可以和<code>contenteditable</code>复合使用
+比如
+<img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-01-1516.08.24.png" alt="">
+如果用户自己在右侧中的<code>style</code>中改变内容：
+<img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-01-1516.09.58.png" alt="">
+如图所示，这个文档可以让用户自己改自己的样式。</p>
+<blockquote>
+<p>这是一个非常好用的调试技巧：可以将<code>style</code>显示出来并进行编辑。<br>
+下面介绍<code>hidden</code>，<code>hidden</code>可以直接使当前内容隐藏。比如：</p>
+</blockquote>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">header</span> <span style="color:#007f7f">hidden</span>&gt;#content&lt;/<span style="font-weight:bold">header</span>&gt;
+</code></pre></div><p>此时整个<code>header</code>都会被隐藏。但是直接注意的是，<code>hidden</code>可以用<code>css</code>来挽回。</p>
+<h2 id="id"><code>id</code></h2>
+<p>这个很简单，就是<code>id=xxx</code>。
+问题：那么我是用<code>id</code>还是用<code>class</code>呢？
+结论：如果这个元素是全页面唯一的，就用<code>id</code>，如果这个元素不是全页面唯一的，那么就用<code>class</code>。
+所以现在问题又来了，如果我现在这个<code>class</code>是全页面唯一的呢？比如：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">footer</span> <span style="color:#007f7f">class</span>=<span style="color:#0ff;font-weight:bold">&#34;footer&#34;</span>&gt;&amp;copy;版权所有&lt;/<span style="font-weight:bold">footer</span>&gt;
+</code></pre></div><p>其实答案应该是：**不到万不得已，千万不要用<code>id</code>.因为<code>id</code>不报错。**因为浏览器允许多个相同的<code>id</code>，所以<code>id</code>其实就没有唯一性，上面的第一个结论就完全不成立。所以，不到万不得已，千万不要用<code>id</code>。用<code>class</code>就够了。
+<code>id</code>有两个作用: css和Js. 因为Js可以直接获取<code>id</code>.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">xxx.style.border = <span style="color:#f00">&#39;</span><span style="color:#ff0;font-weight:bold">1</span>px solid green<span style="color:#f00">’</span>
+</code></pre></div><p>但是平时不要这么写，因为<code>id</code>不可以命名为<code>window</code>的所有<code>keyword</code>，如果这么做的话，可能会有麻烦。如果我就是想拿呢？彳亍口巴：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.getElementByID(<span style="color:#f00">’</span>parent<span style="color:#f00">’</span>)
+</code></pre></div><h2 id="style"><code>style</code></h2>
+<p>对于每一个元素有一个<code>style</code>属性，</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">header</span> <span style="color:#007f7f">style</span>=<span style="color:#0ff;font-weight:bold">&#34;border:1px</span> <span style="color:#007f7f">solid</span> <span style="color:#007f7f">red</span><span style="color:#f00">”</span>&gt;#content&lt;/<span style="font-weight:bold">header</span>&gt;
+</code></pre></div><p>这个其实是和<code>&lt;style&gt;</code>中写是一样的。那问题又来了，如果我在上面的<code>&lt;style&gt;</code>标签中写了，在下面的<code>style</code>属性中也写了，那么哪个的优先级高呢？
+直接告诉你吧，<code>style</code>属性的优先级高。注意这个<code>style</code><strong>不是</strong><code>css</code>，它是<code>html</code>的属性。
+同时，这个<code>style</code>可以通过<code>js</code>来设置：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">xxx.style.border = <span style="color:#f00">&#34;</span><span style="color:#ff0;font-weight:bold">10</span>px solid green<span style="color:#f00">“</span>
+</code></pre></div><p>如果<code>style</code>,<code>css</code>,<code>js</code>里都写了呢？那么最终效果以<code>js</code>为准。因为<code>js</code>会覆盖<code>style</code>。</p>
+<h2 id="tabindex"><code>tabindex</code></h2>
+<p>我们的页面上所有可交互的地方都可以用<code>tab</code>访问，因为有的人没有鼠标。用法：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">header</span> <span style="color:#007f7f">tabindex</span>=<span style="color:#0ff;font-weight:bold">1</span>&gt;顶部广告&lt;/<span style="font-weight:bold">header</span>&gt;
+</code></pre></div><blockquote>
+<p>用<code>shift</code>+<code>tab</code>往回切。<br>
+注意：<code>tabindex=1</code>说明是最后访问的位置。<code>tabindex=-1</code>说明是无法访问到的位置。</p>
+</blockquote>
+<h2 id="title"><code>title</code></h2>
+<p>鼠标停留的时候会浮现<code>title</code>的内容。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">style</span>&gt;
+	#xxx{
+  	<span style="color:#fff;font-weight:bold">border</span>: <span style="color:#ff0;font-weight:bold">10</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#fff;font-weight:bold">solid</span> <span style="color:#fff;font-weight:bold">yellow</span>;
+      <span style="color:#fff;font-weight:bold">white-space</span>: <span style="color:#fff;font-weight:bold">nowrap</span>;
+      <span style="color:#fff;font-weight:bold">overflow</span>: <span style="color:#fff;font-weight:bold">hidden</span>;
+      <span style="color:#fff;font-weight:bold">text-overflow</span>:<span style="color:#fff;font-weight:bold">ellipsis</span>;
+    }
+&lt;/<span style="font-weight:bold">style</span>&gt;
+&lt;<span style="font-weight:bold">header</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">&#34;xxx&#34;</span> <span style="color:#007f7f">title </span>= <span style="color:#0ff;font-weight:bold">&#34;完整的广告&#34;</span> <span style="color:#007f7f">style</span>=<span style="color:#0ff;font-weight:bold">&#34;border:1px solid red&#34;</span> <span style="color:#007f7f">tabindex</span>=<span style="color:#0ff;font-weight:bold">1</span>&gt;顶部广告&lt;/<span style="font-weight:bold">header</span>&gt;
+</code></pre></div><h1 id="heading-4">默认样式</h1>
+<ul>
+<li>
+<p>为什么有默认样式？</p>
+<p>因为HTML被发明的时候,CSS还没出生。</p>
+</li>
+<li>
+<p>怎么看默认样式？</p>
+<p>Chrome开发者工具
+<code>Elements</code>-&gt;<code>Styles</code>-&gt;<code>user agent stylesheet</code></p>
+</li>
+<li>
+<p>User Agent</p>
+<p>就是浏览器</p>
+</li>
+<li>
+<p>CSS reset</p>
+</li>
+</ul>
+<p>默认样式已经不符合我们的需求，自己重写。
+常见的CSS reset:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">
+* {
+
+  <span style="color:#fff;font-weight:bold">margin</span>: <span style="color:#ff0;font-weight:bold">0</span>;
+
+  <span style="color:#fff;font-weight:bold">padding</span>: <span style="color:#ff0;font-weight:bold">0</span>;
+
+  <span style="color:#fff;font-weight:bold">box-sizing</span>: <span style="color:#fff;font-weight:bold">border-box</span>;
+
+}
+
+*::before,
+
+*::after {
+
+  <span style="color:#fff;font-weight:bold">box-sizing</span>: <span style="color:#fff;font-weight:bold">border-box</span>;
+
+}
+
+<span style="font-weight:bold">a</span> {
+
+  <span style="color:#fff;font-weight:bold">color</span>: <span style="color:#fff;font-weight:bold">inherit</span>;
+
+  <span style="color:#fff;font-weight:bold">text-decoration</span>: <span style="color:#fff;font-weight:bold">none</span>;
+
+}
+
+<span style="font-weight:bold">input</span>,
+
+<span style="font-weight:bold">button</span> {
+
+  <span style="color:#fff;font-weight:bold">font-family</span>: <span style="color:#fff;font-weight:bold">inherit</span>;
+
+}
+
+<span style="font-weight:bold">ol</span>,
+
+<span style="font-weight:bold">ul</span> {
+
+  <span style="color:#fff;font-weight:bold">list-style</span>: <span style="color:#fff;font-weight:bold">none</span>;
+
+}
+
+<span style="font-weight:bold">table</span> {
+
+  <span style="color:#fff;font-weight:bold">border-collapse</span>: <span style="color:#fff;font-weight:bold">collapse</span>;
+
+  <span style="color:#fff;font-weight:bold">border-spacing</span>: <span style="color:#ff0;font-weight:bold">0</span>;
+
+}
+</code></pre></div><p>当然，你还可以抄大厂的代码:).真香。
+注意一下，<code>table</code>的样式一定要reset一下，因为原本的<code>table</code>样式真是是太丑了：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="font-weight:bold">table</span> {
+	<span style="color:#fff;font-weight:bold">border-collapse</span>: <span style="color:#fff;font-weight:bold">collapse</span>;
+	<span style="color:#fff;font-weight:bold">border-spacing</span>: <span style="color:#ff0;font-weight:bold">0</span>;
+}
+</code></pre></div><h1 id="heading-5">内容标签</h1>
+<h2 id="olli"><code>ol</code>＋<code>li</code></h2>
+<p>有顺序列表</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">ol</span>&gt;
+	&lt;<span style="font-weight:bold">li</span>&gt;list item&lt;/<span style="font-weight:bold">li</span>&gt;
+&lt;/<span style="font-weight:bold">ol</span>&gt;
+</code></pre></div><h2 id="ulli"><code>ul</code>＋<code>li</code></h2>
+<p>无顺序列表</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">ul</span>&gt;
+	&lt;<span style="font-weight:bold">li</span>&gt;list item&lt;/<span style="font-weight:bold">li</span>&gt;
+&lt;/<span style="font-weight:bold">ul</span>&gt;
+</code></pre></div><h2 id="dldtdd"><code>dl</code>＋<code>dt</code>+<code>dd</code></h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!— description list --&gt;</span>
+&lt;<span style="font-weight:bold">dl</span>&gt;
+  <span style="color:#0f0;font-weight:bold">&lt;!— description term —&gt;</span>
+  &lt;<span style="font-weight:bold">dt</span>&gt;Ella&lt;/<span style="font-weight:bold">dt</span>&gt;
+  <span style="color:#0f0;font-weight:bold">&lt;!— description data —&gt;</span>
+  &lt;<span style="font-weight:bold">dd</span>&gt;大美女&lt;/<span style="font-weight:bold">dd</span>&gt;
+&lt;/<span style="font-weight:bold">dl</span>&gt;
+</code></pre></div><h2 id="pre"><code>pre</code></h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!— html如果有连续多个空格，会被缩成一个，如果有回车，也会被缩成一个空格 —&gt;</span>
+&lt;<span style="font-weight:bold">h2</span>&gt;
+  &lt;<span style="font-weight:bold">pre</span>&gt;保留空格     回车     tab&lt;/<span style="font-weight:bold">pre</span>&gt;
+&lt;/<span style="font-weight:bold">h2</span>&gt;
+</code></pre></div><h2 id="code"><code>code</code></h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!— 设置所有字体等宽 --&gt;</span>
+&lt;<span style="font-weight:bold">code</span>&gt;
+  var a = 1
+  console.log(a)
+&lt;/<span style="font-weight:bold">code</span>&gt;
+</code></pre></div><p>可以用<code>pre</code>包裹<code>code</code>，写代码很方便。</p>
+<h2 id="hr"><code>hr</code></h2>
+<p>加个分割线</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!— 之前的内容 --&gt;</span>
+&lt;<span style="font-weight:bold">hr</span> /&gt;
+<span style="color:#0f0;font-weight:bold">&lt;!— 之后的内容 —&gt;</span>
+</code></pre></div><h2 id="br"><code>br</code></h2>
+<p>换行</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">br</span>&gt;
+</code></pre></div><h2 id="a"><code>a</code></h2>
+<p>超链接</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">p</span>&gt;
+  访问网站 &lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;http://zhixiukang.com”</span>&gt;修的个人网站&lt;/<span style="font-weight:bold">a</span>&gt;
+&lt;/<span style="font-weight:bold">p</span>&gt;
+
+<span style="color:#0f0;font-weight:bold">&lt;!— 在新的窗口打开 --&gt;</span>
+&lt;<span style="font-weight:bold">p</span>&gt;
+  访问网站 &lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">“http://zhixiukang.com”</span> <span style="color:#007f7f">target</span>=<span style="color:#0ff;font-weight:bold">“_blank”</span>&gt;修的个人网站&lt;/<span style="font-weight:bold">a</span>&gt;
+&lt;/<span style="font-weight:bold">p</span>&gt;
+</code></pre></div><h2 id="em"><code>em</code></h2>
+<p>emphasis表示强调,会倾斜字体(后续样式还可以改)。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">p</span>&gt;我们期末考试重点是 &lt;<span style="font-weight:bold">em</span>&gt;JavaScript&lt;/<span style="font-weight:bold">em</span>&gt;&lt;/<span style="font-weight:bold">p</span>&gt;
+</code></pre></div><h2 id="strong"><code>strong</code></h2>
+<p>加粗。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">p</span>&gt;我们期末考试重点是 &lt;<span style="font-weight:bold">strong</span>&gt;JavaScript&lt;/<span style="font-weight:bold">strong</span>&gt;&lt;/<span style="font-weight:bold">p</span>&gt;
+</code></pre></div><p><code>em</code>表示语气很重要，<code>strong</code>表示本身很重要。</p>
+<h2 id="quote"><code>quote</code></h2>
+<p>普通引用,行内引用。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">欧阳修说过&lt;<span style="font-weight:bold">quote</span>&gt;三上：马上，枕上，厕上&lt;/<span style="font-weight:bold">quote</span>&gt;
+</code></pre></div><h2 id="blockquote"><code>blockquote</code></h2>
+<p>块级引用</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">欧阳修说过&lt;<span style="font-weight:bold">blockquote</span>&gt;三上：马上，枕上，厕上&lt;/<span style="font-weight:bold">blockquote</span>&gt;
+</code></pre></div>
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

@@ -6,10 +6,23 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 03 Jan 2020 18:56:33 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTML标签</title>
+      <link>http://zhixiukang.com/posts/html-labels/</link>
+      <pubDate>Fri, 24 Jan 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/html-labels/</guid>
+      <description>学习工具 网道HTML教程
+ 三上:马上，枕上，厕上
+ VSCode插件推荐  Prettier更好地格式化工具 cmd+shift+p-&amp;gt; format doc  两个工具  jsbin 饥人谷 偏好 JShint关闭 codesandbox settings: auto save   可以将需要纠错的URL分享给别人
+ HTML起手式&amp;ndash;Emmet感叹号 在空的html文件中，输入!+tab。
+&amp;lt;!— 文档类型 --&amp;gt; &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!— html标签，可以把lang改成zh-CN —&amp;gt; &amp;lt;html lang=“en”&amp;gt; &amp;lt;head&amp;gt; &amp;lt;!— 文件的字符编码 —&amp;gt; &amp;lt;meta charset=“UTF-8” /&amp;gt; &amp;lt;!— 禁用缩放 —&amp;gt; &amp;lt;meta name=“viewport” content=“width=device-width, initial-scale=1.0” /&amp;gt; &amp;lt;!— 兼容手机，告诉IE使用最新内核 —&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34; /&amp;gt; &amp;lt;!--标题 --&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 章节标签  标题h1-h6 章节section 文章article 段落p 头部header 脚部footer 主要内容main 旁支内容aside 划分div   全局属性 所有标签都有的属性</description>
+    </item>
     
     <item>
       <title>购买域名及配置DNS和GitHub Pages</title>

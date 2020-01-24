@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://zhixiukang.com/explore/possess/</loc>
-    <lastmod>2020-01-10T20:34:38-08:00</lastmod>
+    <loc>http://zhixiukang.com/categories/</loc>
+    <lastmod>2020-01-24T15:21:33-08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://zhixiukang.com/categories/</loc>
+    <loc>http://zhixiukang.com/tags/html/</loc>
+    <lastmod>2020-01-24T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhixiukang.com/posts/html-labels/</loc>
+    <lastmod>2020-01-24T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhixiukang.com/posts/</loc>
+    <lastmod>2020-01-24T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhixiukang.com/tags/</loc>
+    <lastmod>2020-01-24T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhixiukang.com/categories/tech/</loc>
+    <lastmod>2020-01-24T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhixiukang.com/</loc>
+    <lastmod>2020-01-24T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhixiukang.com/explore/possess/</loc>
     <lastmod>2020-01-10T20:34:38-08:00</lastmod>
   </url>
   
@@ -24,16 +54,6 @@
   
   <url>
     <loc>http://zhixiukang.com/tags/possess/</loc>
-    <lastmod>2020-01-10T20:34:38-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/tags/</loc>
-    <lastmod>2020-01-10T20:34:38-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/</loc>
     <lastmod>2020-01-10T20:34:38-08:00</lastmod>
   </url>
   
@@ -78,17 +98,7 @@
   </url>
   
   <url>
-    <loc>http://zhixiukang.com/posts/</loc>
-    <lastmod>2020-01-03T18:56:33-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://zhixiukang.com/tags/purchase-domain/</loc>
-    <lastmod>2020-01-03T18:56:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/categories/tech/</loc>
     <lastmod>2020-01-03T18:56:33-08:00</lastmod>
   </url>
   
