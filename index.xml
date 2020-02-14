@@ -6,10 +6,29 @@
     <description>Recent content on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 24 Jan 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTML重难点</title>
+      <link>http://zhixiukang.com/posts/html-key-parts/</link>
+      <pubDate>Thu, 13 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/html-key-parts/</guid>
+      <description>a 标签 属性  href hyper reference.  新建终端，执行：
+yarn global add http-server
+在本地运行，不保留缓存：
+http-server -c-1或者
+http-server . -c-1
+使用http-server预览html,不要双击打开。
+可以使用hs -c-1缩写版本，快一点。
+    还可以使用parcel：
+yarn global add parcel
+parcel #filename.suffix
+  target  &amp;lt;!— 可以指定在哪个地方打开超链接 (在空白页打开)—&amp;gt; &amp;lt;a href=“https://google.com” target=“_blank”&amp;gt;hyper link&amp;lt;/a&amp;gt;  download  &amp;lt;!--下载这个网页，基本不能用—&amp;gt; &amp;lt;a href=“https://google.com” download&amp;gt;hyper link&amp;lt;/a&amp;gt;  rel=noopener 防止一个 js 的 bug。  作用  跳转外部页面 跳转内部锚点 跳转到邮箱或电话等  a的href的取值  网址  https://google.com http://google.</description>
+    </item>
     
     <item>
       <title>HTML标签</title>
