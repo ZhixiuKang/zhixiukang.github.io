@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on 修的个人网站</title>
+    <link>http://zhixiukang.com/tags/css/</link>
+    <description>Recent content in CSS on 修的个人网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 16 Feb 2020 15:21:33 -0800</lastBuildDate>
+    
+	<atom:link href="http://zhixiukang.com/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>盒模型</title>
+      <link>http://zhixiukang.com/posts/box-model/</link>
+      <pubDate>Sun, 16 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/box-model/</guid>
+      <description>概念 盒模型有四个概念，从外到内分别是外边距(margin)、border、内边距(padding)和 content。如果是 content box，那么只包含最里面的 content。如果是 border box，那么只包含 content、padding 和 border(如果是 border box，那么除了 margin 都包含)。
+ 请说一下 css 的盒模型?  css 盒模型分两种，一种是 content-box,一种是 border-box，content-box 的宽度只包含 content，border-box 的宽度包含到 border(border, padding and content)。
+   两种盒模型 分别是  content-box 内容盒-内容就是盒子的边界。 border-box 边框盒-边框才是盒子的边界。  公式  content-box width = 内容宽度 border-box width = 内容宽度 + padding + border  哪个好用  border-box好用 同时指定padding、width、border就知道为什么了 如果没有指定padding和border，看不出来这俩的区别。  margin合并 哪些情况会合并  父子 margin 合并 上面边距有可能重叠。 兄弟 margin 合并 其实 css 这么设计是有道理的:   如何阻止合并  父子合并用 padding/border 挡住  padding-top: 1px; border-top: 1px solid green;  父子合并用 overflow:hidden 挡住 父子合并用 display:flex，不知道为什么 兄弟合并是符合预期的 兄弟合并可以用 inline-block 消除 总之要一条一条死记 而且 CSS 的属性逐年增多，每年都有可能有新的  基本单位 长度单位  px 像素 em 相对于自身 font-size 的倍数 百分数 整数 rem:等你把 em 滚瓜烂熟了再问 rem vw 和 vh 其他长度单位都用得很少，不用了解  颜色  十六进制#FF6600或者#F60(两个两个一对的可以缩写) RGBA 颜色 rgb(0,0,0)或者 rgba(0,0,0,1) hsl 颜色 hsl(360,100%,100%) (0 度正红色-360, 鲜艳程度, 亮度)  做个彩虹练习一下 点我后自己试试吧</description>
+    </item>
+    
+    <item>
+      <title>文档流</title>
+      <link>http://zhixiukang.com/posts/normal-flow/</link>
+      <pubDate>Sat, 15 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/normal-flow/</guid>
+      <description>基本概念 文档流是指文档中元素流动的方向。
+哪些是 inline 元素，哪些是 block 元素
+文档流 | MDN
+要理解几个重要的概念  文档流 Normal Flow span元素从左到右， div元素从上到下。 块、内联、内联块 margin 合并 两种盒模型(border-box 更符合人类思维)  inline 元素里不要写 block 元素。不知道会遇到什么 bug。
+style width:100%就不要这么用。
+   流动方向  inline元素从左到右，到达最右边才会换行 block元素从上到下，每一个都另起一行 inline-block也是从左到右,但是到达最后的时候，不会把自己分成两块。  宽度  inline宽度为内部inline元素的和，不能用width指定 block默认自动计算宽度，可用width指定 inline-block结合前两者特点，可用width  高度  inline高度由line-height间接确定，跟height无关 block高度由内部文档流元素决定，可以设height inline-block跟block类似，可以设置height  overflow 溢出 当内容大于容器  当内容的宽度或高度大于容器的，会溢出 可用overflow来设置是否显示滚动条 auto是灵活设置(常用) scroll是永远显示 hidden是直接隐藏溢出部分(常用) visible是直接显示溢出部分(常用) overflow可以分为overflow-x和overflow-y(不好用)  脱离文档流 回忆一下  block 高度由内部文档流元素决定，可以设 height。  这句话的意思是说，有些元素可以不在文档流中。</description>
+    </item>
+    
+  </channel>
+</rss>
