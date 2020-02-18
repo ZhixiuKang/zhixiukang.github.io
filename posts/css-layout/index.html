@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CSS布局和一图流"/>
+<meta name="twitter:description" content="布局是什么 把页面分成一块一块，按左中右、上中下等排列。
+布局分类 两种  固定宽度布局，一般宽度为 960/1000/1024px  比如淘宝就是固定宽度布局，到了一定宽度你再怎么拉，他还是这个宽度。
+  不固定宽度布局，主要靠文档流的原理来布局  一般在手机上用
+   还记得吗  文档流本来就是自适应的，不需要加额外的样式  不用加width这种属性，页面本身就是响应式的。
+   第三种布局  响应式布局 意思就是 PC 上固定宽度，手机上不固定宽度  其实就是前两种布局的合并，但为什么叫第三种布局，起了个新名字？CSS 就这个毛病。
+  也就是一种混合布局  布局的两种思路 从大到小  先定下大局 然后完善每个部分的小布局  从小到大  先完成小布局 然后组合成大布局  两种均可  新人推荐用第二种，因为小的简单 老手一般用第一种，因为熟练有大局观  一图流  草图软件工具推荐
+Balsamiq for Desktop | Balsamiq
+Figma
+墨刀
+Adobe XD
+ "/>
+
+    <meta property="og:title" content="CSS布局和一图流" />
+<meta property="og:description" content="布局是什么 把页面分成一块一块，按左中右、上中下等排列。
+布局分类 两种  固定宽度布局，一般宽度为 960/1000/1024px  比如淘宝就是固定宽度布局，到了一定宽度你再怎么拉，他还是这个宽度。
+  不固定宽度布局，主要靠文档流的原理来布局  一般在手机上用
+   还记得吗  文档流本来就是自适应的，不需要加额外的样式  不用加width这种属性，页面本身就是响应式的。
+   第三种布局  响应式布局 意思就是 PC 上固定宽度，手机上不固定宽度  其实就是前两种布局的合并，但为什么叫第三种布局，起了个新名字？CSS 就这个毛病。
+  也就是一种混合布局  布局的两种思路 从大到小  先定下大局 然后完善每个部分的小布局  从小到大  先完成小布局 然后组合成大布局  两种均可  新人推荐用第二种，因为小的简单 老手一般用第一种，因为熟练有大局观  一图流  草图软件工具推荐
+Balsamiq for Desktop | Balsamiq
+Figma
+墨刀
+Adobe XD
+ " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/css-layout/" />
+<meta property="article:published_time" content="2020-01-28T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-01-28T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/css-layout/">
+    
+    <title>
+CSS布局和一图流 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/css-layout/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">CSS布局和一图流</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-01-28T15:21:33-08:00'>
+              January 28, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/css/">CSS</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h1 id="heading">布局是什么</h1>
+<p>把页面分成一块一块，按左中右、上中下等排列。</p>
+<h1 id="heading-1">布局分类</h1>
+<h2 id="heading-2">两种</h2>
+<ul>
+<li>固定宽度布局，一般宽度为 960/1000/1024px
+<blockquote>
+<p>比如<a href="https://taobao.com/">淘宝</a>就是固定宽度布局，到了一定宽度你再怎么拉，他还是这个宽度。</p>
+</blockquote>
+</li>
+<li>不固定宽度布局，主要靠文档流的原理来布局
+<blockquote>
+<p>一般在手机上用</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="heading-3">还记得吗</h2>
+<ul>
+<li>文档流本来就是自适应的，不需要加额外的样式
+<blockquote>
+<p>不用加<code>width</code>这种属性，页面本身就是响应式的。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="heading-4">第三种布局</h2>
+<ul>
+<li>响应式布局</li>
+<li>意思就是 PC 上固定宽度，手机上不固定宽度
+<blockquote>
+<p>其实就是前两种布局的合并，但为什么叫第三种布局，起了个新名字？CSS 就这个毛病。</p>
+</blockquote>
+</li>
+<li>也就是一种混合布局</li>
+</ul>
+<h1 id="heading-5">布局的两种思路</h1>
+<h2 id="heading-6">从大到小</h2>
+<ul>
+<li>先定下大局</li>
+<li>然后完善每个部分的小布局</li>
+</ul>
+<h2 id="heading-7">从小到大</h2>
+<ul>
+<li>先完成小布局</li>
+<li>然后组合成大布局</li>
+</ul>
+<h2 id="heading-8">两种均可</h2>
+<ul>
+<li>新人推荐用第二种，因为小的简单</li>
+<li>老手一般用第一种，因为熟练有大局观</li>
+</ul>
+<h1 id="heading-9">一图流</h1>
+<p><img src="http://zhixiukang.com/images/%E4%B8%80%E5%9B%BE%E6%B5%81.jpg" alt=""></p>
+<blockquote>
+<p>草图软件工具推荐<br>
+<a href="https://balsamiq.com/wireframes/desktop/">Balsamiq for Desktop | Balsamiq</a><br>
+<a href="https://www.figma.com/">Figma</a><br>
+<a href="https://modao.cc/">墨刀</a><br>
+<a href="https://www.adobe.com/products/xd.html">Adobe XD</a></p>
+</blockquote>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Float 布局(Floats)"/>
+<meta name="twitter:description" content="步骤  在子元素上加float:left和width :::在父元素上加.clearfix:::，这个超级重要。  .clearfix:after { content: &#34;&#34;; display: block; clear: both; } 代码在这里
+经验  有经验者会留一些空间或者最后一个不设width（最后一个不设宽度，会让它自己拓展，当然了，可以给一个最大宽度。） 如果用 float 布局，不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的。 IE6/7 存在双倍 margin bug，解决办法有两个: 1. 将错就错，针对 IE6 或者 IE7 把 margin 减半: margin-left:10px _margin-left:5px 这样一来，普通浏览器就是 10px, 但是 IE 是 5*2=10px 还是 10px。 3. 神来一笔，再加一个display:inline-block  实践 不同布局  用 float 做两栏布局(如顶部条) 用 float 做三栏布局(如内容区) 用 float 做四栏布局(如导航) 点我看看 用 float 做平均布局(如产品展示区) 曾经淘宝的前端发明了双飞翼布局，不要学，已过时  float 实例代码
+    有的时候 border 会干扰宽度，这个时候可以把 border 改成 outline。"/>
+
+    <meta property="og:title" content="Float 布局(Floats)" />
+<meta property="og:description" content="步骤  在子元素上加float:left和width :::在父元素上加.clearfix:::，这个超级重要。  .clearfix:after { content: &#34;&#34;; display: block; clear: both; } 代码在这里
+经验  有经验者会留一些空间或者最后一个不设width（最后一个不设宽度，会让它自己拓展，当然了，可以给一个最大宽度。） 如果用 float 布局，不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的。 IE6/7 存在双倍 margin bug，解决办法有两个: 1. 将错就错，针对 IE6 或者 IE7 把 margin 减半: margin-left:10px _margin-left:5px 这样一来，普通浏览器就是 10px, 但是 IE 是 5*2=10px 还是 10px。 3. 神来一笔，再加一个display:inline-block  实践 不同布局  用 float 做两栏布局(如顶部条) 用 float 做三栏布局(如内容区) 用 float 做四栏布局(如导航) 点我看看 用 float 做平均布局(如产品展示区) 曾经淘宝的前端发明了双飞翼布局，不要学，已过时  float 实例代码
+    有的时候 border 会干扰宽度，这个时候可以把 border 改成 outline。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/floats/" />
+<meta property="article:published_time" content="2020-01-29T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-01-29T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/floats/">
+    
+    <title>
+Float 布局(Floats) · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/floats/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">Float 布局(Floats)</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-01-29T15:21:33-08:00'>
+              January 29, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/css/">CSS</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h2 id="heading">步骤</h2>
+<ul>
+<li>在子元素上加<code>float:left</code>和<code>width</code></li>
+<li>:::在父元素上加<code>.clearfix</code>:::，<strong>这个超级重要。</strong></li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.clearfix:after {
+  <span style="color:#fff;font-weight:bold">content</span>: <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>;
+  <span style="color:#fff;font-weight:bold">display</span>: <span style="color:#fff;font-weight:bold">block</span>;
+  <span style="color:#fff;font-weight:bold">clear</span>: <span style="color:#fff;font-weight:bold">both</span>;
+}
+</code></pre></div><p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1721.02.53.png" alt="">
+<a href="http://js.jirengu.com/nokov/2/edit">代码在这里</a></p>
+<h2 id="heading-1">经验</h2>
+<ul>
+<li>有经验者会留一些空间或者最后一个不设<code>width</code>（最后一个不设宽度，会让它自己拓展，当然了，可以给一个最大宽度。）</li>
+<li>如果用 float 布局，不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的。</li>
+<li>IE6/7 存在双倍 margin bug，解决办法有两个: 1. 将错就错，针对 IE6 或者 IE7 把 margin 减半:
+<code>margin-left:10px</code>
+<code>_margin-left:5px</code>
+这样一来，普通浏览器就是 10px, 但是 IE 是 5*2=10px 还是 10px。 3. 神来一笔，再加一个<code>display:inline-block</code></li>
+</ul>
+<h1 id="heading-2">实践</h1>
+<h2 id="heading-3">不同布局</h2>
+<ul>
+<li>用 float 做两栏布局(如顶部条)</li>
+<li>用 float 做三栏布局(如内容区)</li>
+<li>用 float 做四栏布局(如导航)
+<img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1721.22.11.png" alt="">
+<a href="http://js.jirengu.com/rorud/1/edit?html,css,output">点我看看</a></li>
+<li>用 float 做平均布局(如产品展示区)</li>
+<li>曾经淘宝的前端发明了双飞翼布局，不要学，已过时
+<blockquote>
+<p><a href="http://js.jirengu.com/wiwuh/3/edit?html,css,output">float 实例代码</a></p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>有的时候 border 会干扰宽度，这个时候可以把 border 改成 outline。</strong></p>
+</blockquote>
+<blockquote>
+<p><code>margin-left: auto; margin-right: auto;</code>可以让 block 元素居中</p>
+</blockquote>
+<blockquote>
+<p><strong>必要时候采用负的 margin</strong>。<br>
+例如:新加一个父的 div(记得改 clearfix)，然后<code>margin-right:-12px;</code>，搞定，高手。<br>
+总结：如果你想做平均布局，你只需要在布局中加入一个 x 图层，他的多余的右边距是个负的，他的值就是每个 y 的值，-12.</p>
+</blockquote>
+<blockquote>
+<p>float 元素的外边距不会合并。</p>
+</blockquote>
+<h2 id="heading-4">经验</h2>
+<ul>
+<li>加上头尾，即可满足所有 PC 页面需求</li>
+<li>手机页面傻子才用 float</li>
+<li>float 要程序员自己计算宽度，不灵活</li>
+<li>float 用来应付 IE 足以</li>
+</ul>
+<h1 id="heading-5">扩展阅读</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/25808995">深入理解 CSS：字体度量、line-height 和 vertical-align </a></p>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
