@@ -6,10 +6,31 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 31 Jan 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CSS定位</title>
+      <link>http://zhixiukang.com/posts/css-positioning/</link>
+      <pubDate>Sat, 01 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/css-positioning/</guid>
+      <description>布局和定位有啥区别?
+区别大了，布局是屏幕平面上的，定位是垂直于屏幕的
+还得从文档流和盒模型说起
+复习一下盒模型
+ 一个div的分层  文字在最上层，border在第二层，background在第三层。
+  Q: 浮动元素和块级子元素是什么意思呢？
+A: 这里有一个例子
+  Q: 浮动元素脱离文档流是什么意思?
+A: 其实就是浮起来了一点点
+ 新属性 - position static默认值，待在文档流里 relative相对定位，升起来，但不脱离文档流 .demo { position: relative; top: 10px; left: 10px; }  站的位置一样，但是显示的地方有一定的偏移量。
+ 使用场景  用于做位移(很少用) 用于给absolute元素做爸爸   爸爸用relative，儿子用absolute
+ 配合z-index  z-index:auto默认值，不创建新层叠上下文 z-index: 0/ 1/ 2 z-index: -1/ -2   默认为z-index: auto;，auto其实等于0, 但是你不可以写z-index: 0;。
+ 经验  写z-index: 9999的都是菜🐔 学会管理z-index  absolute绝对定位，定位基准是祖先里的非static .</description>
+    </item>
     
     <item>
       <title>Grid布局(Grid)</title>
