@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CSS动画的原理和浏览器渲染原理"/>
+<meta name="twitter:description" content="动画的原理 一个最简单的例子 将 div 从左往右移动 点我看例子
+原理  每过一段时间(用 setInterval 做到) 将 div 移动一小段距离 直到移动到目标地点  注意性能  绿色表示重新绘制(repaint)了  Console→Rendering→ 勾选 Paint flashing
+  CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform(变形)  示例代码
+ 原理 - transform: translateX(0=&gt;300px) - 直接修改会被合成，需要等一会修改 - transition过渡属性可以自动脑补中间帧  注意性能  并没有 repaint(重新绘制) 比改 left 性能好  浏览器渲染原理 参考文章  渲染树构建、布局及绘制 渲染性能 使用 transform 来实现动画 查看 CSS 个属性触发什么: CSS Triggers  Q: Blink, Gecko, WebKit, EdgeHTML 是啥？"/>
+
+    <meta property="og:title" content="CSS动画的原理和浏览器渲染原理" />
+<meta property="og:description" content="动画的原理 一个最简单的例子 将 div 从左往右移动 点我看例子
+原理  每过一段时间(用 setInterval 做到) 将 div 移动一小段距离 直到移动到目标地点  注意性能  绿色表示重新绘制(repaint)了  Console→Rendering→ 勾选 Paint flashing
+  CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform(变形)  示例代码
+ 原理 - transform: translateX(0=&gt;300px) - 直接修改会被合成，需要等一会修改 - transition过渡属性可以自动脑补中间帧  注意性能  并没有 repaint(重新绘制) 比改 left 性能好  浏览器渲染原理 参考文章  渲染树构建、布局及绘制 渲染性能 使用 transform 来实现动画 查看 CSS 个属性触发什么: CSS Triggers  Q: Blink, Gecko, WebKit, EdgeHTML 是啥？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/browser-rendering/" />
+<meta property="article:published_time" content="2020-02-02T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-02-02T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/browser-rendering/">
+    
+    <title>
+CSS动画的原理和浏览器渲染原理 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/browser-rendering/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">CSS动画的原理和浏览器渲染原理</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-02-02T15:21:33-08:00'>
+              February 2, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/css/">CSS</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h1 id="heading">动画的原理</h1>
+<h2 id="heading-1">一个最简单的例子</h2>
+<h3 id="-div-">将 div 从左往右移动</h3>
+<p><a href="http://js.jirengu.com/gamet/1/edit?html,css,js,output">点我看例子</a></p>
+<h3 id="heading-2">原理</h3>
+<ul>
+<li>每过一段时间(用 setInterval 做到)</li>
+<li>将 div 移动一小段距离</li>
+<li>直到移动到目标地点</li>
+</ul>
+<h3 id="heading-3">注意性能</h3>
+<ul>
+<li>绿色表示重新绘制(repaint)了
+<blockquote>
+<p><strong>Console→Rendering→ 勾选 Paint flashing</strong></p>
+</blockquote>
+</li>
+<li>CSS 渲染过程依次包含布局、绘制、合成</li>
+<li>其中布局和绘制有可能被省略</li>
+</ul>
+<h2 id="-left-">前端高手不用 left 做动画</h2>
+<h3 id="-transform">用 transform(变形)</h3>
+<blockquote>
+<p><a href="http://js.jirengu.com/detoz/2/edit">示例代码</a></p>
+</blockquote>
+<h3 id="heading-4">原理</h3>
+<pre><code>- transform: translateX(0=&gt;300px)
+- 直接修改会被合成，需要等一会修改
+- transition过渡属性可以自动脑补中间帧
+</code></pre>
+<h3 id="heading-5">注意性能</h3>
+<ul>
+<li>并没有 repaint(重新绘制)</li>
+<li>比改 left 性能好</li>
+</ul>
+<h1 id="heading-6">浏览器渲染原理</h1>
+<h2 id="heading-7">参考文章</h2>
+<ul>
+<li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction">渲染树构建、布局及绘制</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/">渲染性能</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count">使用 transform 来实现动画</a></li>
+<li>查看 CSS 个属性触发什么: <a href="https://csstriggers.com/">CSS Triggers</a>
+<blockquote>
+<p>Q: Blink, Gecko, WebKit, EdgeHTML 是啥？<br>
+A: <a href="https://en.wikipedia.org/wiki/Comparison_of_browser_engines">Comparison of browser engines</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="heading-8">浏览器渲染过程</h2>
+<ul>
+<li>根据 HTML 构建 HTML 树(DOM)</li>
+<li>根据 CSS 构建 CSS 树(CSSOM)</li>
+<li>将两棵树合并成一颗渲染树(render tree)</li>
+<li>Layout 布局(文档流、盒模型、计算大小和位置)</li>
+<li>Paint 绘制(把边框颜色、文字颜色、阴影等画出来)</li>
+<li>Composite 合成(根据层叠关系展示画面)</li>
+</ul>
+<h2 id="heading-9">三棵树</h2>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2120.12.32.png" alt=""></p>
+<h2 id="heading-10">如何更新样式</h2>
+<ul>
+<li>一般我们用 JS 来更新样式
+<blockquote>
+<p>比如<code>div.style.background = ‘red’</code><br>
+比如<code>div.style.display = ‘none’</code><br>
+比如<code>div.classList.add(‘red’)</code><br>
+比如<code>div.remove()</code>直接删掉节点</p>
+</blockquote>
+</li>
+<li>那么这些方法有什么不同吗？
+<blockquote>
+<p>有三种不同的渲染方式</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="heading-11">三种更新方式</h2>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2120.37.27.png" alt=""></p>
+<ul>
+<li>第一种，全走
+<blockquote>
+<p><a href="http://js.jirengu.com/muyap/1/edit">div.remove()</a> 会触发当前消失，其他元素 relayout</p>
+</blockquote>
+</li>
+<li>第二种，跳过 layout
+<blockquote>
+<p><a href="http://js.jirengu.com/pizov/1/edit">改变背景颜色</a>，直接 repaint ＋ composite</p>
+</blockquote>
+</li>
+<li>第三种，跳过 layout 和 paint
+<blockquote>
+<p><a href="http://js.jirengu.com/ceqaj/1/edit">改变 transform</a>，只需 composite<br>
+注意必须全屏查看效果，在 iframe 里看有问题</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="css-">CSS 动画优化</h1>
+<h2 id="heading-12">没有什么技术含量</h2>
+<ul>
+<li>
+<p>答案都在谷歌写的这几篇文章里，谁看完谁 🐂🍺</p>
+<blockquote>
+<p><a href="https://developers.google.com/web/fundamentals/performance/rendering">渲染性能 </a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://developers.google.com/web/fundamentals/performance/rendering/optimize-javascript-execution">优化 JavaScript 执行</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations">缩小样式计算的范围并降低其复杂性</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing">避免大型、复杂的布局和布局抖动</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://developers.google.com/web/fundamentals/performance/rendering/simplify-paint-complexity-and-reduce-paint-areas">简化绘制的复杂度、减小绘制区域</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count">坚持仅合成器的属性和管理层计数</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://developers.google.com/web/fundamentals/performance/rendering/debounce-your-input-handlers">使输入处理程序去除抖动</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="js-">JS 优化</h2>
+<ul>
+<li>使用<code>requestAnimationFrame</code>代替<code>setTimeout</code>或者<code>setInterval</code></li>
+</ul>
+<h2 id="css--1">CSS 优化</h2>
+<ul>
+<li>使用<code>will-change</code>或<code>translate</code></li>
+</ul>
+<h2 id="heading-13">没错</h2>
+<ul>
+<li>完全就是死记硬背</li>
+</ul>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

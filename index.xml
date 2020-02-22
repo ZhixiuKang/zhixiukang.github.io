@@ -6,10 +6,47 @@
     <description>Recent content on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 01 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CSS动画中的transition过渡和animation</title>
+      <link>http://zhixiukang.com/posts/transition-and-animation/</link>
+      <pubDate>Tue, 04 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/transition-and-animation/</guid>
+      <description>transition 过渡 完整文档: transition | MDN
+作用  补充中间帧  语法:  transition: 属性名 时长 过渡方式 延迟时间 transition: left 200ms linear 可以用逗号分隔两个不同属性 transition: left 200ms, top 400ms 可以用 all 代表所有属性 transition: all 200ms 过渡方式有:  &amp;lt;timing-function&amp;gt; = linear | &amp;lt;cubic-bezier-timing-function&amp;gt; | &amp;lt;step-timing-function&amp;gt; where &amp;lt;cubic-bezier-timing-function&amp;gt; = ease | ease-in | ease-out | ease-in-out | cubic-bezier(&amp;lt;number&amp;gt;, &amp;lt;number&amp;gt;, &amp;lt;number&amp;gt;, &amp;lt;number&amp;gt;) &amp;lt;step-timing-function&amp;gt; = step-start | step-end | steps(&amp;lt;integer&amp;gt;[, &amp;lt;step-position&amp;gt;]?)  的具体含义要靠数学知识
+ 注意  并不是所有属性都能过渡 display: none=&amp;gt;block没法过渡 一般改成visibility:hidden=&amp;gt;visible background 颜色可以过渡吗？可以。 opacity 透明度可以过渡吗？可以。  过渡必须要有起始。</description>
+    </item>
+    
+    <item>
+      <title>CSS动画中的transform</title>
+      <link>http://zhixiukang.com/posts/transform/</link>
+      <pubDate>Mon, 03 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/transform/</guid>
+      <description>完整文档: transform - CSS（层叠样式表） | MDN
+四个常用功能  位移 translate 缩放 scale 旋转 rotate 倾斜 skew  经验:
+一般都需要配合 transition 过渡
+inline 元素不支持 transform,需要先变成 block
+   transform 之 translate 常用写法 &amp;lt;translateX()&amp;gt; = translateX( &amp;lt;length-percentage&amp;gt; ) &amp;lt;translateY()&amp;gt; = translateY( &amp;lt;length-percentage&amp;gt; ) &amp;lt;translateZ()&amp;gt; = translateZ( &amp;lt;length&amp;gt; )且父容器perspective &amp;lt;translate()&amp;gt; = translate( &amp;lt;length-percentage&amp;gt; , &amp;lt;length-percentage&amp;gt; ) &amp;lt;translate3d()&amp;gt; = translate3d( &amp;lt;length-percentage&amp;gt; , &amp;lt;length-percentage&amp;gt; , &amp;lt;length&amp;gt; )  示例代码
+ 经验  要学会看懂 MDN 的语法示例 translate(-50%, -50%)可做绝对定位元素的居中  #demo { left: 50%; right: 50%; transform: translate(-50%, -50%); } transform 之 scale 常用写法 &amp;lt;scaleX()&amp;gt; = scaleX( &amp;lt;number&amp;gt; ) &amp;lt;scaleY()&amp;gt; = scaleY( &amp;lt;number&amp;gt; ) &amp;lt;scale()&amp;gt; = scale( &amp;lt;number&amp;gt; , &amp;lt;number&amp;gt;?</description>
+    </item>
+    
+    <item>
+      <title>CSS动画的原理和浏览器渲染原理</title>
+      <link>http://zhixiukang.com/posts/browser-rendering/</link>
+      <pubDate>Sun, 02 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/browser-rendering/</guid>
+      <description>动画的原理 一个最简单的例子 将 div 从左往右移动 点我看例子
+原理  每过一段时间(用 setInterval 做到) 将 div 移动一小段距离 直到移动到目标地点  注意性能  绿色表示重新绘制(repaint)了  Console→Rendering→ 勾选 Paint flashing
+  CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform(变形)  示例代码
+ 原理 - transform: translateX(0=&amp;gt;300px) - 直接修改会被合成，需要等一会修改 - transition过渡属性可以自动脑补中间帧  注意性能  并没有 repaint(重新绘制) 比改 left 性能好  浏览器渲染原理 参考文章  渲染树构建、布局及绘制 渲染性能 使用 transform 来实现动画 查看 CSS 个属性触发什么: CSS Triggers  Q: Blink, Gecko, WebKit, EdgeHTML 是啥？</description>
+    </item>
     
     <item>
       <title>CSS定位</title>
