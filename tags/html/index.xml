@@ -6,10 +6,31 @@
     <description>Recent content in HTML on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Jan 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/tags/html/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IP、端口、域名、URL</title>
+      <link>http://zhixiukang.com/posts/ip-port-domain-url/</link>
+      <pubDate>Wed, 05 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/ip-port-domain-url/</guid>
+      <description>Tim Berners-Lee发明了WWW
+WWW = URL + HTTP + HTML
+ IP 什么是IP Internet Protocol主要约定了两件事:
+ 如何定位一台设备 如何封装数据报文，以跟其他设备交流  IP分为内网和外网  Difference between External and Local IP Addresses
+ 几个特殊的IP  127.0.0.1表示自己 localhost通过hosts指定为自己 0.0.0.0不表示任何设备   hosts 文件在哪？
+在 Windows 系统中，hosts 位于 C:\Windows\System32\drivers\etc\hosts 。在 macOS / Linux系统中，hosts 位于 /etc/hosts
+ 端口 端口号 一台机器可以提供很多服务，每个服务一个号码，这个号码就叫端口号port。
+ 要提供HTTP服务最好使用80端口
+要提供HTTPS服务最好使用443端口
+要提供FTP服务最好使用21端口
+一共有65535个端口(基本够用)
+  TCP/UDP端口列表
+ 端口使用的其他规则  0到1023号端口是留给系统使用的 你只有拥有了管理员权限后，才能使用这1024个端口 其他端口可以给普通用户使用 比如http-server默认使用8080端口 一个端口如果被占用，你就只能换一个端口   hs -c -1 -p 53545利用http-server开启端口</description>
+    </item>
     
     <item>
       <title>HTML重难点</title>
