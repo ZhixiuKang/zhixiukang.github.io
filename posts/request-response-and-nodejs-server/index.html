@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="请求和响应 &amp; Node.js Server"/>
+<meta name="twitter:description" content="请求与响应模型  帮你发请求的工具叫做User-Agent
+ 如何做出一个响应  Node.js 有一个 http 模块可以做到  初始代码
+   注意事项  这些代码就是服务器代码，一般放在服务器上 path 是不带查询参数的路径 /x query 是查询参数的对象形式{a:’1’} queryString 是查询参数的字符串形式?a=1 pathWithQuery 是带查询参数的路径，一般不用 request 是请求对象 response 是响应对象  代码逻辑  每次收到请求都会把中间的代码执行一遍 用 if else 判断路径，并返回响应 如果是已知路径，一律返回 200 如果是未知路径，一律返回 404 Content-Type 表示内容的类型/语法 response.write()可以填写返回的内容 response.end()表示响应可以发给用户了   URL 里的后缀没有用, /y.css 不一定是 CSS 内容
+  Content-Type 才是决定文件类型的关键
+ HTTP 基础概念之请求  请求动词 路径加查询参数 协议名/版本 Host: 域名或 IP Accept: text/html Content-Type: 请求体的格式 回车 请求体(也就是上传内容)  细节  三部分: 请求行、请求头、请求体 请求动词有 GET/POST/PUT/PATCH/DELETE 等   GET 用来获取内容，POST 用来上传内容"/>
+
+    <meta property="og:title" content="请求和响应 &amp; Node.js Server" />
+<meta property="og:description" content="请求与响应模型  帮你发请求的工具叫做User-Agent
+ 如何做出一个响应  Node.js 有一个 http 模块可以做到  初始代码
+   注意事项  这些代码就是服务器代码，一般放在服务器上 path 是不带查询参数的路径 /x query 是查询参数的对象形式{a:’1’} queryString 是查询参数的字符串形式?a=1 pathWithQuery 是带查询参数的路径，一般不用 request 是请求对象 response 是响应对象  代码逻辑  每次收到请求都会把中间的代码执行一遍 用 if else 判断路径，并返回响应 如果是已知路径，一律返回 200 如果是未知路径，一律返回 404 Content-Type 表示内容的类型/语法 response.write()可以填写返回的内容 response.end()表示响应可以发给用户了   URL 里的后缀没有用, /y.css 不一定是 CSS 内容
+  Content-Type 才是决定文件类型的关键
+ HTTP 基础概念之请求  请求动词 路径加查询参数 协议名/版本 Host: 域名或 IP Accept: text/html Content-Type: 请求体的格式 回车 请求体(也就是上传内容)  细节  三部分: 请求行、请求头、请求体 请求动词有 GET/POST/PUT/PATCH/DELETE 等   GET 用来获取内容，POST 用来上传内容" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/request-response-and-nodejs-server/" />
+<meta property="article:published_time" content="2020-02-06T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-02-06T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/request-response-and-nodejs-server/">
+    
+    <title>
+请求和响应 &amp; Node.js Server · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/request-response-and-nodejs-server/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">请求和响应 &amp; Node.js Server</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-02-06T15:21:33-08:00'>
+              February 6, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/html/">HTML</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h1 id="heading">请求与响应模型</h1>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2319.19.18.png" alt=""></p>
+<blockquote>
+<p>帮你发请求的工具叫做<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/User-Agent">User-Agent</a></p>
+</blockquote>
+<h1 id="heading-1">如何做出一个响应</h1>
+<ul>
+<li>Node.js 有一个 http 模块可以做到
+<blockquote>
+<p><a href="https://github.com/ZhixiuKang/nodejs-test/blob/master/server.js">初始代码</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="heading-2">注意事项</h2>
+<ul>
+<li>这些代码就是服务器代码，一般放在服务器上</li>
+<li>path 是不带查询参数的路径 /x</li>
+<li>query 是查询参数的对象形式{a:’1’}</li>
+<li>queryString 是查询参数的字符串形式?a=1</li>
+<li>pathWithQuery 是带查询参数的路径，一般不用</li>
+<li>request 是请求对象</li>
+<li>response 是响应对象</li>
+</ul>
+<h2 id="heading-3">代码逻辑</h2>
+<ul>
+<li>每次收到请求都会把中间的代码执行一遍</li>
+<li>用 if else 判断路径，并返回响应</li>
+<li>如果是已知路径，一律返回 200</li>
+<li>如果是未知路径，一律返回 404</li>
+<li>Content-Type 表示内容的类型/语法</li>
+<li>response.write()可以填写返回的内容</li>
+<li>response.end()表示响应可以发给用户了</li>
+</ul>
+<blockquote>
+<p>URL 里的后缀没有用, /y.css 不一定是 CSS 内容</p>
+</blockquote>
+<blockquote>
+<p>Content-Type 才是决定文件类型的关键</p>
+</blockquote>
+<h1 id="http-">HTTP 基础概念之请求</h1>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2320.37.32.png" alt=""></p>
+<ul>
+<li><strong>请求动词 路径加查询参数 协议名/版本</strong></li>
+<li>Host: 域名或 IP</li>
+<li>Accept: text/html</li>
+<li>Content-Type: 请求体的格式</li>
+<li>回车</li>
+<li>请求体(也就是上传内容)</li>
+</ul>
+<h2 id="heading-4">细节</h2>
+<ul>
+<li>三部分: 请求行、请求头、请求体</li>
+<li>请求动词有 GET/POST/PUT/PATCH/DELETE 等</li>
+</ul>
+<blockquote>
+<p>GET 用来获取内容，POST 用来上传内容</p>
+</blockquote>
+<blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP request methods | MDN</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages">HTTP Messages | MDN</a></p>
+</blockquote>
+<ul>
+<li>请求体在 GET 请求中一般为空</li>
+<li>文档位于<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html">RFC 2612 Chapter 5</a></li>
+<li>大小写不敏感(随意)</li>
+</ul>
+<h1 id="http--1">HTTP 基础概念之响应</h1>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2320.37.48.png" alt=""></p>
+<ul>
+<li><strong>协议名/版本 状态码 状态字符串</strong></li>
+<li>Content-Type: 响应体的格式</li>
+<li>回车</li>
+<li>响应体(也就是下载内容)</li>
+</ul>
+<h2 id="heading-5">细节</h2>
+<ul>
+<li>三部分: 状态行、 响应头、 响应体</li>
+<li>常见的状态码是考点
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status">HTTP 响应代码 | MDN</a></p>
+</blockquote>
+</li>
+<li>文档位于<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html">RFC 2612 Chapter 6</a></li>
+</ul>
+<h1 id="-curl-">用 curl 构造请求</h1>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -v http://localhost:8888/
+</code></pre></div><p>可以得到</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">*   Trying ::1...
+* TCP_NODELAY set
+* Connected to localhost (::1) port 8888 (#0)
+&gt; GET / HTTP/1.1
+&gt; Host: localhost:8888
+&gt; User-Agent: curl/7.64.1
+&gt; Accept: */*
+&gt;
+&lt; HTTP/1.1 200 OK
+&lt; Content-Type: text/html;charset=utf-8
+&lt; Date: Mon, 24 Feb 2020 04:40:59 GMT
+&lt; Connection: keep-alive
+&lt; Transfer-Encoding: chunked
+&lt;
+
+        &lt;!DOCTYPE html&gt;
+        &lt;head&gt;
+            &lt;link rel=&#34;stylesheet&#34; href=&#34;/x&#34;&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;我是一个h1标签&lt;/h1&gt;
+        &lt;/body&gt;
+* Connection #0 to host localhost left intact
+    * Closing connection 0
+</code></pre></div><p>再试试</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -v -X POST http://localhost:8888/
+</code></pre></div><p>可以得到</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&gt; POST / HTTP/1.1
+</code></pre></div><p>加上锚点再试试</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -v -X POST http://localhost:8888/xxxx<span style="color:#0ff;font-weight:bold">\?</span>wd=hi#nihao
+</code></pre></div><p>得到了:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">* Connected to localhost (::1) port 8888 (#0)
+&gt; POST /xxxx?wd=hi HTTP/1.1
+&gt; Host: localhost:8888
+&gt; User-Agent: curl/7.64.1
+&gt; Accept: */*
+</code></pre></div><blockquote>
+<p>这里可以看到，<strong>锚点</strong>#nihao<strong>是不会发到服务器的。</strong><br>
+还可以更改请求头：</p>
+</blockquote>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -v -X POST -H ‘Accept: text/html’ http://localhost:8888/xxxx<span style="color:#0ff;font-weight:bold">\?</span>wd=hi#nihao
+</code></pre></div><p>还可以更改请求体内容:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -v -X POST -H ‘xiu: niubi’ -H <span style="color:#f00">&#39;</span>Content-Type: text/plain;charset=utf—8’ -d ‘请求体内容’ http://localhost:8888/xxxx<span style="color:#0ff;font-weight:bold">\?</span>wd=hi#nihao
+</code></pre></div><p>总结一下：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -v http://127.0.0.1:8888
+</code></pre></div><h2 id="heading-6">设置请求动词</h2>
+<ul>
+<li><code>-X POST</code></li>
+<li>注意大小写</li>
+</ul>
+<h2 id="heading-7">设置路径和查询参数</h2>
+<ul>
+<li>直接在 url 后面加</li>
+</ul>
+<h2 id="heading-8">设置请求头</h2>
+<ul>
+<li><code>-H ’Name: Value’</code>或者<code>—header 'Name: Value’</code></li>
+</ul>
+<h2 id="heading-9">设置请求体</h2>
+<ul>
+<li><code>-d ‘内容’</code>或者<code>—data ‘内容’</code></li>
+</ul>
+<h1 id="-nodejs-">用 Node.js 读取请求</h1>
+<h2 id="heading-10">读取请求动词</h2>
+<ul>
+<li>request.method</li>
+</ul>
+<h2 id="heading-11">读取路径</h2>
+<ul>
+<li>request.url 路径，带查询参数</li>
+<li>path 纯路径，不带查询参数</li>
+<li>query 只有查询参数</li>
+</ul>
+<h2 id="heading-12">读取请求头</h2>
+<ul>
+<li><code>request.headers[‘accept']</code></li>
+</ul>
+<h2 id="heading-13">读取请求体</h2>
+<ul>
+<li>比较复杂，先不说</li>
+</ul>
+<h1 id="-nodejs--1">用 Node.js 设置响应</h1>
+<h2 id="heading-14">设置响应状态码</h2>
+<ul>
+<li><code>response.statusCode = 200</code></li>
+</ul>
+<h2 id="heading-15">设置响应头</h2>
+<ul>
+<li><code>response.setHeader(‘Content-Type', 'text/html’)</code></li>
+</ul>
+<h2 id="heading-16">设置响应体</h2>
+<ul>
+<li><code>response.write(’内容’)</code></li>
+<li>可追加内容</li>
+</ul>
+<h1 id="heading-17">经验</h1>
+<blockquote>
+<p>console.log 可以验证对错，不要相信自己，要相信 console.log</p>
+</blockquote>
+<blockquote>
+<p>我不要你觉得，<strong>我要</strong> <del>我觉得</del><strong>console.log 觉得</strong></p>
+</blockquote>
+<h1 id="-nodejs--2">部署 Node.js 应用到云服务器</h1>
+<h2 id="ssh-">ssh 远程登录</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#fff;font-weight:bold">echo</span> ‘复制本地~/.ssh/id_rsa.pub内容<span style="color:#f00">&#39;</span> &gt;&gt; ~/.ssh/authorized_keys
+</code></pre></div><h2 id="-ssh-">防止 ssh 卡住</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#fff;font-weight:bold">echo</span> “Host *” &gt;&gt; /etc/ssh/ssh_config
+<span style="color:#fff;font-weight:bold">echo</span> “  ServerAliveInterval 30” &gt;&gt; /etc/ssh/ssh_config
+</code></pre></div><h2 id="heading-18">创建应用账户</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adduser frank
+mkdir  /home/frank/.ssh
+cp ~/.ssh/authorized_keys /home/frank/.ssh/
+chmod <span style="color:#ff0;font-weight:bold">755</span> /home/frank/.ssh/authorized_keys
+chown frank:frank /home/frank/.ssh/authorized_keys
+
+adduser frank sudo
+</code></pre></div><h2 id="-nodejs-8">安装 Node.js 8</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+sudo sed -i ’s/deb.nodesource.com<span style="color:#0ff;font-weight:bold">\/</span>node_8.x/mirrors.tuna.tsinghua.edu.cn<span style="color:#0ff;font-weight:bold">\/</span>nodesource<span style="color:#0ff;font-weight:bold">\/</span>deb_8.x/g’ /etc/apt/sources.list.d/nodesource.list
+sudo apt-get update
+sudo apt-get install -y nodejs
+node -v
+npm -v
+npx -v
+
+sudo apt install git
+</code></pre></div><h2 id="heading-19">部署应用</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/FrankFang/nodejs-test.git
+<span style="color:#fff;font-weight:bold">cd</span> nodejs-test
+touch log
+启动命令：node server.js <span style="color:#ff0;font-weight:bold">8888</span> &gt; log 2&gt;&amp;<span style="color:#ff0;font-weight:bold">1</span> &amp;
+把启动命令做成 start 文件
+添加执行权限 chmod +x ./start
+运行 sh ./start 得到一个进程号 pid
+tail log 看 log 内容
+<span style="color:#fff;font-weight:bold">kill</span> -9 pid 可以关掉进程
+killall node 可以关掉所有 node 进程
+</code></pre></div><h2 id="heading-20">如何重启应用</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh frank@实例ip
+<span style="color:#fff;font-weight:bold">cd</span> nodejs-test
+git pull
+killall node（因为忘了进程号，实际上可以记下来）
+sh ./start
+</code></pre></div>
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

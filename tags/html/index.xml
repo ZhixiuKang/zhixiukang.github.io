@@ -6,10 +6,23 @@
     <description>Recent content in HTML on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 05 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/tags/html/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>请求和响应 &amp; Node.js Server</title>
+      <link>http://zhixiukang.com/posts/request-response-and-nodejs-server/</link>
+      <pubDate>Thu, 06 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/request-response-and-nodejs-server/</guid>
+      <description>请求与响应模型  帮你发请求的工具叫做User-Agent
+ 如何做出一个响应  Node.js 有一个 http 模块可以做到  初始代码
+   注意事项  这些代码就是服务器代码，一般放在服务器上 path 是不带查询参数的路径 /x query 是查询参数的对象形式{a:’1’} queryString 是查询参数的字符串形式?a=1 pathWithQuery 是带查询参数的路径，一般不用 request 是请求对象 response 是响应对象  代码逻辑  每次收到请求都会把中间的代码执行一遍 用 if else 判断路径，并返回响应 如果是已知路径，一律返回 200 如果是未知路径，一律返回 404 Content-Type 表示内容的类型/语法 response.write()可以填写返回的内容 response.end()表示响应可以发给用户了   URL 里的后缀没有用, /y.css 不一定是 CSS 内容
+  Content-Type 才是决定文件类型的关键
+ HTTP 基础概念之请求  请求动词 路径加查询参数 协议名/版本 Host: 域名或 IP Accept: text/html Content-Type: 请求体的格式 回车 请求体(也就是上传内容)  细节  三部分: 请求行、请求头、请求体 请求动词有 GET/POST/PUT/PATCH/DELETE 等   GET 用来获取内容，POST 用来上传内容</description>
+    </item>
     
     <item>
       <title>IP、端口、域名、URL</title>
@@ -17,19 +30,15 @@
       <pubDate>Wed, 05 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/ip-port-domain-url/</guid>
-      <description>Tim Berners-Lee发明了WWW
+      <description>Tim Berners-Lee 发明了 WWW
 WWW = URL + HTTP + HTML
- IP 什么是IP Internet Protocol主要约定了两件事:
- 如何定位一台设备 如何封装数据报文，以跟其他设备交流  IP分为内网和外网  Difference between External and Local IP Addresses
- 几个特殊的IP  127.0.0.1表示自己 localhost通过hosts指定为自己 0.0.0.0不表示任何设备   hosts 文件在哪？
-在 Windows 系统中，hosts 位于 C:\Windows\System32\drivers\etc\hosts 。在 macOS / Linux系统中，hosts 位于 /etc/hosts
- 端口 端口号 一台机器可以提供很多服务，每个服务一个号码，这个号码就叫端口号port。
- 要提供HTTP服务最好使用80端口
-要提供HTTPS服务最好使用443端口
-要提供FTP服务最好使用21端口
-一共有65535个端口(基本够用)
-  TCP/UDP端口列表
- 端口使用的其他规则  0到1023号端口是留给系统使用的 你只有拥有了管理员权限后，才能使用这1024个端口 其他端口可以给普通用户使用 比如http-server默认使用8080端口 一个端口如果被占用，你就只能换一个端口   hs -c -1 -p 53545利用http-server开启端口</description>
+ IP 什么是 IP Internet Protocol 主要约定了两件事:
+ 如何定位一台设备 如何封装数据报文，以跟其他设备交流  IP 分为内网和外网  Difference between External and Local IP Addresses
+ 几个特殊的 IP  127.0.0.1 表示自己 localhost 通过 hosts 指定为自己 0.0.0.0 不表示任何设备  hosts 文件在哪？
+在 Windows 系统中，hosts 位于 C:\Windows\System32\drivers\etc\hosts 。
+在 macOS / Linux 系统中，hosts 位于 /etc/hosts
+可以给其他的 ip 起别名，方便访问。
+   端口 端口号 一台机器可以提供很多服务，每个服务一个号码，这个号码就叫端口号 port。</description>
     </item>
     
     <item>
