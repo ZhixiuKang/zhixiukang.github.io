@@ -6,10 +6,21 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 06 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavaScript的诞生</title>
+      <link>http://zhixiukang.com/posts/birth-of-javascript/</link>
+      <pubDate>Sat, 15 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/birth-of-javascript/</guid>
+      <description>JavaScript 的历史 始于网景 1993 年，伊利诺伊大学厄巴纳-尚佩恩分校的国家超级电脑应用中心（NCSA）发表了 NCSA Mosaic，这是最早流行的图形接口网页浏览器，它在万维网的普及上发挥了重要作用。1994 年，一家名为 Mosaic Communications 的公司在加州芒廷维尤成立了，并雇用了许多原来的 NCSA Mosaic 开发者用来开发 Mosaic Netscape，该公司的目标是取代 NCSA Mosaic 成为世界第一的网页浏览器。第一个版本的网页浏览器 Mosaic Netscape 0.9 于 1994 年底发布。在四个月内，已经占据了四分之三的浏览器市场，并成为 1990 年代互联网的主要浏览器。为避免 NCSA 的商标所有权问题，该浏览器于同年更名为 Netscape Navigator，该公司命名为 Netscape Communications。网景预见到网络需要变得更动态。公司的创始人马克·安德森认为 HTML 需要一种胶水语言，让网页设计师和兼职程序员可以很容易地使用它来组装图片和插件之类的组件，且代码可以直接编写在网页标记中。
+1995 年，网景招募了布兰登·艾克，目标是把 Scheme 语言嵌入到 Netscape Navigator 浏览器当中。但更早之前，网景已经跟昇阳合作在 Netscape Navigator 中支持 Java，这时网景内部产生激烈的争论。后来网景决定发明一种与 Java 搭配使用的辅助脚本语言并且语法上有些类似，这个决策导致排除了采用现有的语言，例如 Perl、Python、Tcl 或 Scheme。为了在其他竞争提案中捍卫 JavaScript 这个想法，公司需要有一个可以运作的原型。艾克在 1995 年 5 月仅花了十天时间就把原型设计出来了。
+最初命名为 Mocha，1995 年 9 月在 Netscape Navigator 2.0 的 Beta 版中改名为 LiveScript，同年 12 月，Netscape Navigator 2.</description>
+    </item>
     
     <item>
       <title>请求和响应 &amp; Node.js Server</title>

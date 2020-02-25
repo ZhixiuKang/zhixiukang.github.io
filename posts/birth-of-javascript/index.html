@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavaScript的诞生"/>
+<meta name="twitter:description" content="JavaScript 的历史 始于网景 1993 年，伊利诺伊大学厄巴纳-尚佩恩分校的国家超级电脑应用中心（NCSA）发表了 NCSA Mosaic，这是最早流行的图形接口网页浏览器，它在万维网的普及上发挥了重要作用。1994 年，一家名为 Mosaic Communications 的公司在加州芒廷维尤成立了，并雇用了许多原来的 NCSA Mosaic 开发者用来开发 Mosaic Netscape，该公司的目标是取代 NCSA Mosaic 成为世界第一的网页浏览器。第一个版本的网页浏览器 Mosaic Netscape 0.9 于 1994 年底发布。在四个月内，已经占据了四分之三的浏览器市场，并成为 1990 年代互联网的主要浏览器。为避免 NCSA 的商标所有权问题，该浏览器于同年更名为 Netscape Navigator，该公司命名为 Netscape Communications。网景预见到网络需要变得更动态。公司的创始人马克·安德森认为 HTML 需要一种胶水语言，让网页设计师和兼职程序员可以很容易地使用它来组装图片和插件之类的组件，且代码可以直接编写在网页标记中。
+1995 年，网景招募了布兰登·艾克，目标是把 Scheme 语言嵌入到 Netscape Navigator 浏览器当中。但更早之前，网景已经跟昇阳合作在 Netscape Navigator 中支持 Java，这时网景内部产生激烈的争论。后来网景决定发明一种与 Java 搭配使用的辅助脚本语言并且语法上有些类似，这个决策导致排除了采用现有的语言，例如 Perl、Python、Tcl 或 Scheme。为了在其他竞争提案中捍卫 JavaScript 这个想法，公司需要有一个可以运作的原型。艾克在 1995 年 5 月仅花了十天时间就把原型设计出来了。
+最初命名为 Mocha，1995 年 9 月在 Netscape Navigator 2.0 的 Beta 版中改名为 LiveScript，同年 12 月，Netscape Navigator 2."/>
+
+    <meta property="og:title" content="JavaScript的诞生" />
+<meta property="og:description" content="JavaScript 的历史 始于网景 1993 年，伊利诺伊大学厄巴纳-尚佩恩分校的国家超级电脑应用中心（NCSA）发表了 NCSA Mosaic，这是最早流行的图形接口网页浏览器，它在万维网的普及上发挥了重要作用。1994 年，一家名为 Mosaic Communications 的公司在加州芒廷维尤成立了，并雇用了许多原来的 NCSA Mosaic 开发者用来开发 Mosaic Netscape，该公司的目标是取代 NCSA Mosaic 成为世界第一的网页浏览器。第一个版本的网页浏览器 Mosaic Netscape 0.9 于 1994 年底发布。在四个月内，已经占据了四分之三的浏览器市场，并成为 1990 年代互联网的主要浏览器。为避免 NCSA 的商标所有权问题，该浏览器于同年更名为 Netscape Navigator，该公司命名为 Netscape Communications。网景预见到网络需要变得更动态。公司的创始人马克·安德森认为 HTML 需要一种胶水语言，让网页设计师和兼职程序员可以很容易地使用它来组装图片和插件之类的组件，且代码可以直接编写在网页标记中。
+1995 年，网景招募了布兰登·艾克，目标是把 Scheme 语言嵌入到 Netscape Navigator 浏览器当中。但更早之前，网景已经跟昇阳合作在 Netscape Navigator 中支持 Java，这时网景内部产生激烈的争论。后来网景决定发明一种与 Java 搭配使用的辅助脚本语言并且语法上有些类似，这个决策导致排除了采用现有的语言，例如 Perl、Python、Tcl 或 Scheme。为了在其他竞争提案中捍卫 JavaScript 这个想法，公司需要有一个可以运作的原型。艾克在 1995 年 5 月仅花了十天时间就把原型设计出来了。
+最初命名为 Mocha，1995 年 9 月在 Netscape Navigator 2.0 的 Beta 版中改名为 LiveScript，同年 12 月，Netscape Navigator 2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/birth-of-javascript/" />
+<meta property="article:published_time" content="2020-02-15T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-02-15T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/birth-of-javascript/">
+    
+    <title>
+JavaScript的诞生 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/birth-of-javascript/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">JavaScript的诞生</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-02-15T15:21:33-08:00'>
+              February 15, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/javascript/">JavaScript</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h1 id="javascript-">JavaScript 的历史</h1>
+<h2 id="heading">始于网景</h2>
+<p>1993 年，伊利诺伊大学厄巴纳-尚佩恩分校的国家超级电脑应用中心（NCSA）发表了 NCSA Mosaic，这是最早流行的图形接口网页浏览器，它在万维网的普及上发挥了重要作用。1994 年，一家名为 Mosaic Communications 的公司在加州芒廷维尤成立了，并雇用了许多原来的 NCSA Mosaic 开发者用来开发 Mosaic Netscape，该公司的目标是取代 NCSA Mosaic 成为世界第一的网页浏览器。第一个版本的网页浏览器 Mosaic Netscape 0.9 于 1994 年底发布。在四个月内，已经占据了四分之三的浏览器市场，并成为 1990 年代互联网的主要浏览器。为避免 NCSA 的商标所有权问题，该浏览器于同年更名为 Netscape Navigator，该公司命名为 Netscape Communications。网景预见到网络需要变得更动态。公司的创始人马克·安德森认为 HTML 需要一种胶水语言，让网页设计师和兼职程序员可以很容易地使用它来组装图片和插件之类的组件，且代码可以直接编写在网页标记中。</p>
+<p>1995 年，网景招募了布兰登·艾克，目标是把 Scheme 语言嵌入到 Netscape Navigator 浏览器当中。但更早之前，网景已经跟昇阳合作在 Netscape Navigator 中支持 Java，这时网景内部产生激烈的争论。后来网景决定发明一种与 Java 搭配使用的辅助脚本语言并且语法上有些类似，这个决策导致排除了采用现有的语言，例如 Perl、Python、Tcl 或 Scheme。为了在其他竞争提案中捍卫 JavaScript 这个想法，公司需要有一个可以运作的原型。艾克在 1995 年 5 月仅花了十天时间就把原型设计出来了。</p>
+<p>最初命名为 Mocha，1995 年 9 月在 Netscape Navigator 2.0 的 Beta 版中改名为 LiveScript，同年 12 月，Netscape Navigator 2.0 Beta 3 中部署时被重命名为 JavaScript，当时网景公司与昇阳电脑公司组成的开发联盟为了让这门语言搭上 Java 这个编程语言“热词”，因此将其临时改名为 JavaScript，日后这成为大众对这门语言有诸多误解的原因之一。</p>
+<h2 id="heading-1">微软采纳</h2>
+<p>JavaScript 推出后在浏览器上大获成功，微软公司在不久后就为 Internet Explorer 3 浏览器推出了 JScript，以与处于市场领导地位的网景产品同台竞争。JScript 也是一种 JavaScript 实现，这两个 JavaScript 语言版本在浏览器端共存意味着语言标准化的缺失，发展初期，JavaScript 的标准并未确定，同期有网景的 JavaScript，微软的 JScript 双峰并峙。除此之外，微软也在网页技术上加入了不少专属对象，使不少网页使用非微软平台及浏览器无法正常显示，导致在浏览器大战期间网页设计者通常会把“用 Netscape 可达到最佳效果”或“用 IE 可达到最佳效果”的标志放在主页。随着 Internet Explorer 4 的发布，微软引入了动态 HTML 的概念，但语言实现和不同专有化的文档对象模型的差异仍然存在，成为网络上普及使用 JavaScript 的阻碍。</p>
+<h2 id="heading-2">标准化</h2>
+<p>1996 年 11 月，网景正式向 ECMA（欧洲计算机制造商协会）提交语言标准。1997 年 6 月，ECMA 以 JavaScript 语言为基础制定了 ECMAScript 标准规范 ECMA-262。JavaScript 成为了 ECMAScript 最著名的实现之一。除此之外，ActionScript 和 JScript 也都是 ECMAScript 规范的实现语言。尽管 JavaScript 作为给非程序人员的脚本语言，而非作为给程序人员的脚本语言来推广和宣传，但是 JavaScript 具有非常丰富的特性。</p>
+<h1 id="javascript--1">JavaScript 诞生记</h1>
+<p>1994 年，网景公司（Netscape）发布了 Navigator 浏览器 0.9 版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。……网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。</p>
+<p>网页脚本语言到底是什么语言？网景公司当时有两个选择：一个是采用现有的语言，比如 Perl、Python、Tcl、Scheme 等等，允许它们直接嵌入网页；另一个是发明一种全新的语言。
+这两个选择各有利弊。第一个选择，有利于充分利用现有代码和程序员资源，推广起来比较容易；第二个选择，有利于开发出完全适用的语言，实现起来比较容易。
+到底采用哪一个选择，网景公司内部争执不下，管理层一时难以下定决心。</p>
+<p>就在这时，发生了另外一件大事：1995 年 Sun 公司将 Oak 语言改名为 Java，正式向市场推出。
+Sun 公司大肆宣传，许诺这种语言可以”一次编写，到处运行”（Write Once, Run Anywhere），它看上去很可能成为未来的主宰。网景公司动了心，决定与 Sun 公司结成联盟。它不仅允许 Java 程序以 applet（小程序）的形式，直接在浏览器中运行；甚至还考虑直接将 Java 作为脚本语言嵌入网页，只是因为这样会使 HTML 网页过于复杂，后来才不得不放弃。
+总之，当时的形势就是，网景公司的整个管理层，都是 Java 语言的信徒，Sun 公司完全介入网页脚本语言的决策。因此，Javascript 后来就是网景和 Sun 两家公司一起携手推向市场的，这种语言被命名为”Java+script”并不是偶然的。</p>
+<p>此时，34 岁的系统程序员 Brendan Eich 登场了。1995 年 4 月，网景公司录用了他。
+Brendan Eich 的主要方向和兴趣是函数式编程，网景公司招聘他的目的，是研究将 Scheme 语言作为网页脚本语言的可能性。Brendan Eich 本人也是这样想的，以为进入新公司后，会主要与 Scheme 语言打交道。</p>
+<p>仅仅一个月之后，1995 年 5 月，网景公司做出决策，未来的网页脚本语言必须”看上去与 Java 足够相似”，但是比 Java 简单，使得非专业的网页作者也能很快上手。这个决策实际上将 Perl、Python、Tcl、Scheme 等非面向对象编程的语言都排除在外了。
+Brendan Eich 被指定为这种”简化版 Java 语言”的设计师。</p>
+<h1 id="javascript--10-">JavaScript 的 10 个设计缺陷</h1>
+<ol>
+<li>不适合开发大型程序
+Javascript 没有名称空间（namespace），很难模块化；没有如何将代码分布在多个文件的规范；允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。</li>
+<li>非常小的标准库
+Javascript 提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。</li>
+<li>null 和 undefined
+null 属于对象（object）的一种，意思是该对象为空；undefined 则是一种数据类型，表示未定义。两者非常容易混淆，但是含义完全不同。在编程实践中，null 几乎没用，根本不应该设计它。</li>
+<li>全局变量难以控制
+Javascript 的全局变量，在所有模块中都是可见的；任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。</li>
+<li>自动插入行尾分号
+Javascript 的所有语句，都必须以分号结尾。但是，如果你忘记加分号，解释器并不报错，而是为你自动加上分号。有时候，这会导致一些难以发现的错误。</li>
+<li>加号运算符 +号作为运算符，有两个含义，可以表示数字与数字的和，也可以表示字符与字符的连接。如果一个操作项是字符，另一个操作项是数字，则数字自动转化为字符。这样的设计，不必要地加剧了运算的复杂性，完全可以另行设置一个字符连接的运算符。</li>
+<li>NaN
+NaN 是一种数字，表示超出了解释器的极限。与其设计 NaN，不如解释器直接报错，反而有利于简化程序。</li>
+<li>数组和对象的区分
+由于 Javascript 的数组也属于对象（object），所以要区分一个对象到底是不是数组，相当麻烦。</li>
+<li>== 和 ===
+==用来判断两个值是否相等。当两个值类型不同时，会发生自动转换，得到的结果非常不符合直觉。因此，推荐任何时候都使用”===“（精确判断）比较符。</li>
+<li>基本类型的包装对象
+Javascript 有三种基本数据类型：字符串、数字和布尔值。它们都有相应的建构函数，可以生成字符串对象、数字对象和布尔值对象。与基本数据类型对应的对象类型，作用很小，造成的混淆却很大。</li>
+</ol>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
