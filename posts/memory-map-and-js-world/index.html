@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="内存图和 JS 世界"/>
+<meta name="twitter:description" content="JS 小知识:
+JavaScript 的历史
+Javascript 诞生记
+Javascript 的 10 个设计缺陷
+ 操作系统常识 一切都运行在内存里 开机  操作系统在 C 盘里(macOS 的在根目录下多个目录里) 当你按下开机键，主板通电，开始读取固件 固件就是固定在主板上的存储设备，里面有开机程序 开机程序会将文件里的操作系统加载到内存中运行  操作系统(以 Linux 为例)  首先加载操作系统内核 然后启动初始化进程，编号为 1，每个进程都有编号 启动系统服务: 文件、安全、联网 等待用户登录: 输入密码登录/ssh 登录 登录后，运行 shell，用户就可以和操作系统对话了 bash 是一种 shell，图形化界面可认为是一种 shell  打开浏览器 chrome.exe  你双击 Chrome 图标，就会运行 chrome.exe 文件 开启 Chrome 进程，作为主进程 主进程会开启一些辅助进程，如网络服务、GPU 加速 你每新建一个网页，就有可能会开启一个子进程  浏览器的功能   发起请求，下载 HTML，解析 HTML，下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等"/>
+
+    <meta property="og:title" content="内存图和 JS 世界" />
+<meta property="og:description" content="JS 小知识:
+JavaScript 的历史
+Javascript 诞生记
+Javascript 的 10 个设计缺陷
+ 操作系统常识 一切都运行在内存里 开机  操作系统在 C 盘里(macOS 的在根目录下多个目录里) 当你按下开机键，主板通电，开始读取固件 固件就是固定在主板上的存储设备，里面有开机程序 开机程序会将文件里的操作系统加载到内存中运行  操作系统(以 Linux 为例)  首先加载操作系统内核 然后启动初始化进程，编号为 1，每个进程都有编号 启动系统服务: 文件、安全、联网 等待用户登录: 输入密码登录/ssh 登录 登录后，运行 shell，用户就可以和操作系统对话了 bash 是一种 shell，图形化界面可认为是一种 shell  打开浏览器 chrome.exe  你双击 Chrome 图标，就会运行 chrome.exe 文件 开启 Chrome 进程，作为主进程 主进程会开启一些辅助进程，如网络服务、GPU 加速 你每新建一个网页，就有可能会开启一个子进程  浏览器的功能   发起请求，下载 HTML，解析 HTML，下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/memory-map-and-js-world/" />
+<meta property="article:published_time" content="2020-02-07T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-02-07T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/memory-map-and-js-world/">
+    
+    <title>
+内存图和 JS 世界 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/memory-map-and-js-world/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">内存图和 JS 世界</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-02-07T15:21:33-08:00'>
+              February 7, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/javascript/">JavaScript</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <blockquote>
+<p>JS 小知识:</p>
+<p><a href="https://zh.wikipedia.org/wiki/JavaScript#%E5%8E%86%E5%8F%B2">JavaScript 的历史</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2011/06/birth_of_javascript.html">Javascript 诞生记</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2011/06/10_design_defects_in_javascript.html">Javascript 的 10 个设计缺陷</a></p>
+</blockquote>
+<h1 id="heading">操作系统常识</h1>
+<h2 id="heading-1">一切都运行在内存里</h2>
+<h3 id="heading-2">开机</h3>
+<ul>
+<li>操作系统在 C 盘里(macOS 的在根目录下多个目录里)</li>
+<li>当你按下开机键，主板通电，开始读取固件</li>
+<li>固件就是固定在主板上的存储设备，里面有开机程序</li>
+<li>开机程序会将文件里的操作系统加载到内存中运行</li>
+</ul>
+<h3 id="-linux-">操作系统(以 Linux 为例)</h3>
+<ul>
+<li>首先加载操作系统内核</li>
+<li>然后启动初始化进程，编号为 1，每个进程都有编号</li>
+<li>启动系统服务: 文件、安全、联网</li>
+<li>等待用户登录: 输入密码登录/ssh 登录</li>
+<li>登录后，运行 shell，用户就可以和操作系统对话了</li>
+<li>bash 是一种 shell，图形化界面可认为是一种 shell</li>
+</ul>
+<h2 id="heading-3">打开浏览器</h2>
+<h3 id="chromeexe">chrome.exe</h3>
+<ul>
+<li>你双击 Chrome 图标，就会运行 chrome.exe 文件</li>
+<li>开启 Chrome 进程，作为主进程</li>
+<li>主进程会开启一些辅助进程，如网络服务、GPU 加速</li>
+<li>你每新建一个网页，就有可能会开启一个子进程</li>
+</ul>
+<h3 id="heading-4">浏览器的功能</h3>
+<ul>
+<li>
+<p>发起请求，下载 HTML，解析 HTML，下载 CSS，解析 CSS，渲染界面，下载 JS，解析 JS，执行 JS 等</p>
+</li>
+<li>
+<p>功能模块: 用户界面，渲染引擎、JS 引擎、存储等</p>
+</li>
+<li>
+<p>上面的功能模块一般各处于不同的线程(比进程小)</p>
+</li>
+<li>
+<p>如果进程是车间，那么线程就是车间里的流水线</p>
+<blockquote>
+<p><a href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">进程与线程的一个简单解释 - 阮一峰的网络日志</a></p>
+</blockquote>
+<p><img src="http://zhixiukang.com/images/2981582695274_.pic.jpg" alt=""></p>
+</li>
+</ul>
+<h2 id="js-">JS 引擎</h2>
+<h3 id="js--1">JS 引擎举例</h3>
+<ul>
+<li>Chrome 用的是 V8 引擎, C++编写</li>
+<li>网景用的是 SpiderMonkey, 后被 Firefox 使用, C++</li>
+<li>Safari 用的是 JavaScriptCore</li>
+<li>IE 用的是 Chakra(JScript9)</li>
+<li>Edge 用的是 Chakra(JavaScript)</li>
+<li>Node.js 用的是 V8 引擎</li>
+</ul>
+<h3 id="heading-5">主要功能</h3>
+<ul>
+<li>编译: 把 JS 代码翻译为机器能执行的字节码或机器码</li>
+<li>优化: 改写代码，使其更高效</li>
+<li>执行: 执行上面的字节码或者机器码</li>
+<li>垃圾回收: 把 JS 用完的内存回收，方便之后再次使用</li>
+</ul>
+<h1 id="heading-6">内存图</h1>
+<h2 id="heading-7">瓜分内存</h2>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2521.48.49.png" alt=""></p>
+<h2 id="heading-8">红色区域</h2>
+<h3 id="heading-9">作用</h3>
+<ul>
+<li>红色专门用来存放数据，我们目前只研究该区域</li>
+<li>红色区域并不存变量名</li>
+<li>每种浏览器的分配规则并不一样</li>
+<li>上图的区域并不完整，还没有画调用栈、任务队列等区域</li>
+</ul>
+<h3 id="stack--heap">Stack 和 Heap</h3>
+<ul>
+<li>红色区域分为 Stack 栈和 Heap 堆</li>
+<li>Stack 区特点: 每个数据顺序存放</li>
+<li>Heap 区特点: 每个数据随机存放</li>
+</ul>
+<h2 id="stack--heap-">Stack 和 Heap 举例</h2>
+<h3 id="heading-10">举例</h3>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> a = <span style="color:#ff0;font-weight:bold">1</span>
+<span style="color:#fff;font-weight:bold">var</span> b = a
+<span style="color:#fff;font-weight:bold">var</span> person = {name: <span style="color:#f00">&#39;</span>frank<span style="color:#f00">’</span>, child: {name: <span style="color:#f00">‘</span>jack<span style="color:#f00">’</span>}}
+<span style="color:#fff;font-weight:bold">var</span> person2 = person
+</code></pre></div><p>画出内存图如下:
+<img src="http://zhixiukang.com/images/3011582697488_.pic_hd.jpg" alt=""></p>
+<h3 id="heading-11">规律</h3>
+<ul>
+<li>数据分两种: 非对象和对象</li>
+<li>非对象都存在 Stack</li>
+<li>对象都存在 Heap
+<blockquote>
+<p>数组和函数都是对象</p>
+</blockquote>
+</li>
+<li>=号总是会把右边的东西复制到左边</li>
+</ul>
+<h1 id="js--window">JS 开发者说要有 window</h1>
+<p>就有了 window(浏览器提供)</p>
+<h2 id="heading-12">还要什么</h2>
+<h3 id="-console">要有 console</h3>
+<ul>
+<li>于是就有了 console，并且挂到 window 上</li>
+</ul>
+<h3 id="-document">要有 document</h3>
+<ul>
+<li>于是就有了 document，并且挂到 window 上</li>
+</ul>
+<h3 id="heading-13">要有对象</h3>
+<ul>
+<li>于是就有了 Object，并且挂到 window 上</li>
+<li>var person = {} 等价于 var person = new Object()</li>
+</ul>
+<h3 id="heading-14">要有数组(一种特殊的对象)</h3>
+<ul>
+<li>于是就有了 Array，并且挂到 window 上</li>
+<li>var a = [1, 2, 3]等价于 var a = new Array(1, 2, 3)</li>
+</ul>
+<h3 id="heading-15">要有函数(一种特殊的对象)</h3>
+<ul>
+<li>于是就有了 Function, 并且挂到 window 上</li>
+<li>funciton f(){} 等价于 var f = new Function()
+<blockquote>
+<p>怎么什么都挂载 window 上？</p>
+<p>因为方便，挂在 window 上的东西可以再任何地方直接用</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="-window-">把 window 用内存图画出来</h2>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2522.22.10.png" alt=""></p>
+<h2 id="heading-16">更简单的画法</h2>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2522.22.34.png" alt=""></p>
+<blockquote>
+<p>一般来说，第一个字母大写会有 prototype 属性。</p>
+</blockquote>
+<h2 id="heading-17">细节</h2>
+<h3 id="-window">关于 window</h3>
+<ul>
+<li>window 变量和 window 对象是两个东西</li>
+<li>window 变量是一个容器，存放 window 对象的地址</li>
+<li>window 对象是 Heap 里的一坨数据
+<blockquote>
+<p>不信的话，可以让 var x = window，那么这个 x 就只想了 window 对象，window 变量就 🈚️ 了。但是这样的代码用弄晕新手，所以不要这样写。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="heading-18">同理</h3>
+<ul>
+<li>console 和 console 对象不是同一个东西</li>
+<li>Object 和 Object 对象不是同一个东西</li>
+<li>前者是内存地址，后者是一坨内存</li>
+</ul>
+<h1 id="heading-19">原型链</h1>
+<blockquote>
+<p>思考: 图里的 prototype 是干什么用的</p>
+</blockquote>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2519.49.51.png" alt=""></p>
+<blockquote>
+<p>XXX.prototype 存储了 XXX 对象的共同属性，这就是原型。</p>
+</blockquote>
+<blockquote>
+<p>Q: 这个隐藏属性叫什么？</p>
+<p>A: <code>__proto__</code></p>
+</blockquote>
+<blockquote>
+<p>Q: <code>prototype</code>和<code>__proto__</code>区别是什么？</p>
+<p>A: 都存着原型的地址。只不过<code>prototype</code>挂在函数上，<code>__proto__</code>挂在每个新生成的对象上</p>
+</blockquote>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
