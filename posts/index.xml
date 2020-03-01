@@ -6,10 +6,22 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 07 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS语法</title>
+      <link>http://zhixiukang.com/posts/js-grammar/</link>
+      <pubDate>Sat, 08 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/js-grammar/</guid>
+      <description>JS 语法  参考资料: JavaScript 的基本语法 - JavaScript 教程 - 网道
+ JS 版本 历史版本  ES3, IE 6 支持，总体评价: 垃圾 ES5, 总体评价: 还是垃圾 ES6, 大部分浏览器支持,总体评价:一半垃圾一半好 ES2019 与 ES6 差别不大  为什么说 ES6 一半垃圾  因为 ES 不能删除以前的特性，要兼容旧网站 也就是说以前能运行的网站，以后都要能运行 对于 Python3 你就能知道兼容的好处: 稳定   JS 之父对 JS 的早期评价(ES6 前): 它的优秀之处并非原创，它的原创之处并不优秀。
+  取其精华，去其糟粕。是我们对待 JS 的态度。
+ 表达式、语句、标识符 表达式与语句 表达式  1+2 表达式的值为 3 add(1,2)表达式的值为函数的返回值 console.log 表达式的值为函数本身  Q: console.log(3)表达式的值为多少？</description>
+    </item>
     
     <item>
       <title>内存图和 JS 世界</title>
