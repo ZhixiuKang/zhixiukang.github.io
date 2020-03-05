@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="Zhixiu Kang, 康知修, 修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="字符编码、JS数据类型、变量声明、类型转换"/>
+<meta name="twitter:description" content="推荐阅读: 我用了两个月的时间才理解 let - 知乎
+  字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志
+ JS中的数据类型 7种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object   总结: 四基两空一对象
+ 以下不是数据类型  数组、函数、日期 它们都属于object  数字 number(64位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123或00123或0o123 十六进制写法: 0x3F或0X3F 二进制写法: 0b11或0B11  特殊值  正0和负0: 都等于0，要严谨 无穷大: Infinity、&#43;Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN false 64位浮点数 JS数字的存储形式:"/>
+
+    <meta property="og:title" content="字符编码、JS数据类型、变量声明、类型转换" />
+<meta property="og:description" content="推荐阅读: 我用了两个月的时间才理解 let - 知乎
+  字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志
+ JS中的数据类型 7种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object   总结: 四基两空一对象
+ 以下不是数据类型  数组、函数、日期 它们都属于object  数字 number(64位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123或00123或0o123 十六进制写法: 0x3F或0X3F 二进制写法: 0b11或0B11  特殊值  正0和负0: 都等于0，要严谨 无穷大: Infinity、&#43;Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN false 64位浮点数 JS数字的存储形式:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/" />
+<meta property="article:published_time" content="2020-02-09T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-02-09T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/">
+    
+    <title>
+字符编码、JS数据类型、变量声明、类型转换 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">字符编码、JS数据类型、变量声明、类型转换</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-02-09T15:21:33-08:00'>
+              February 9, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/javascript/">JavaScript</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <blockquote>
+<p>推荐阅读: <a href="https://zhuanlan.zhihu.com/p/28140450">我用了两个月的时间才理解 let - 知乎</a></p>
+</blockquote>
+<blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志</a></p>
+</blockquote>
+<h1 id="js">JS中的数据类型</h1>
+<h2 id="7">7种</h2>
+<ul>
+<li>数字 number</li>
+<li>字符串 string</li>
+<li>布尔 bool</li>
+<li>符号 symbol</li>
+<li>空 undefined</li>
+<li>空 null</li>
+<li>对象 object</li>
+</ul>
+<blockquote>
+<p>总结: 四基两空一对象</p>
+</blockquote>
+<h2 id="heading">以下不是数据类型</h2>
+<ul>
+<li>数组、函数、日期</li>
+<li>它们都属于object</li>
+</ul>
+<h1 id="-number64">数字 number(64位浮点数)</h1>
+<h2 id="heading-1">写法</h2>
+<ul>
+<li>整数写法: 1</li>
+<li>小数写法: 0.1</li>
+<li>科学计数法: 1.23e4</li>
+<li>八进制写法: 0123或00123或0o123</li>
+<li>十六进制写法: 0x3F或0X3F</li>
+<li>二进制写法: 0b11或0B11</li>
+</ul>
+<h2 id="heading-2">特殊值</h2>
+<ul>
+<li>正0和负0: 都等于0，要严谨</li>
+<li>无穷大: Infinity、+Infinity、-Infinity</li>
+<li>无法表示的数字: NaN(Not a Number), 但它是一个数字</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">NaN</span> === <span style="color:#fff;font-weight:bold">NaN</span>
+
+<span style="color:#fff;font-weight:bold">false</span>
+</code></pre></div><h2 id="64">64位浮点数</h2>
+<p>JS数字的存储形式:</p>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-03-0417.00.58.png" alt=""></p>
+<blockquote>
+<p>符号占1位，指数占11位(-1023到1024), 有效数字占52位(开头的1省略)</p>
+</blockquote>
+<h2 id="heading-3">范围和精度</h2>
+<h3 id="heading-4">范围</h3>
+<ul>
+<li>指数拉满、有效数字拉满，得到最大二进制数字</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Number.MAX_VALUE: 1.7976931348623157E+308
+</code></pre></div><ul>
+<li>指数负方向拉满、有效数字最小1，得到最小值</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Number.MIN_VALUE:5E-324
+</code></pre></div><h3 id="heading-5">精度(有效数字)</h3>
+<ul>
+<li>最多只能到52+1个二进制位表示有效数字</li>
+<li>2^53对应的十进制是9后面15个零</li>
+<li>所以15位有效数字都能精确表示</li>
+<li>16位有效数字如果小于90开头，也能精确表示</li>
+<li>9110000000000001就存不下来</li>
+</ul>
+<h1 id="heading-6">字符串</h1>
+<blockquote>
+<p>每个字符两个字节(阉割版UTF8)</p>
+</blockquote>
+<h2 id="heading-7">转义</h2>
+<ul>
+<li><code>\’</code>表示<code>’</code></li>
+<li><code>\n</code> 换行</li>
+<li><code>\r</code> 回车</li>
+<li><code>\t</code> 制表符</li>
+<li><code>\\</code> 表示 <code>\</code></li>
+<li><code>\uFFFF</code>表示对应的Unicode制表符</li>
+<li><code>xFF</code>表示前256个Unicode字符</li>
+</ul>
+<h2 id="heading-8">多行字符串</h2>
+<ul>
+<li>如果你想要在字符串里回车:</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> s = <span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold"> This should 
+</span><span style="color:#0ff;font-weight:bold">be fine, and it&#39;s easy to
+</span><span style="color:#0ff;font-weight:bold">make it 
+</span><span style="color:#0ff;font-weight:bold"></span><span style="color:#0ff;font-weight:bold">`</span>
+</code></pre></div><ul>
+<li>以前没有反引号的时候
+写起来很麻烦，可以看<a href="https://wangdoc.com/javascript/types/string.html">网道教程</a></li>
+</ul>
+<h2 id="base64-">base64 转码</h2>
+<ul>
+<li><code>window.btoa</code> 正常字符串转为Base64编码的字符串</li>
+<li><code>window.atob</code> Base64编码的字符串转为原来的字符串</li>
+<li>一般用来隐藏招聘启事里的简历:</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">邮箱: emhpeGl1a2FuZ0BnbWFpbC5jb20=
+
+邮箱: zhixiukang@gmail.com
+</code></pre></div><ul>
+<li>有时候也用来自欺欺人(所谓的加密🙅‍♂️)</li>
+</ul>
+<h1 id="boolean">布尔boolean</h1>
+<h2 id="falsy">五个falsy值</h2>
+<p>falsy就是相当于false但又不是false的值。分别是:</p>
+<ul>
+<li><code>undefined</code></li>
+<li><code>null</code></li>
+<li><code>0</code></li>
+<li><code>NaN</code></li>
+<li><code>’’</code></li>
+</ul>
+<h1 id="undefinednull">undefined和null两种空类型</h1>
+<blockquote>
+<p>JS的垃圾之处</p>
+</blockquote>
+<h2 id="heading-9">区别</h2>
+<ul>
+<li>没有本质区别</li>
+<li>细节一:
+如果一个变量声明了，但没有赋值，那么默认值就是undefined，而不是null</li>
+<li>细节二:
+如果一个函数，没有写return,那么默认return undefined,而不是null</li>
+<li>细节三:
+前端程序员习惯上，把非对象的空值写为undefined，把对象的空值写为null。</li>
+</ul>
+<blockquote>
+<p>但仅仅是习惯上而已</p>
+</blockquote>
+<h1 id="symbol">symbol符号</h1>
+<blockquote>
+<p>不怎么常用的数据类型</p>
+</blockquote>
+<blockquote>
+<p>直接看<a href="https://zhuanlan.zhihu.com/p/22652486">这篇文章</a></p>
+</blockquote>
+<hr>
+<h1 id="heading-10">变量声明</h1>
+<blockquote>
+<p>变量声明的时候，既指定了值，同时也指定了类型。但是值和类型都可以随意变化。</p>
+</blockquote>
+<h2 id="heading-11">三种声明方式</h2>
+<ul>
+<li>var a = 1</li>
+<li>let a = 1</li>
+<li>const a = 1</li>
+<li>a = 1</li>
+</ul>
+<h2 id="heading-12">区别</h2>
+<ul>
+<li>var是过时的，不好用的方式</li>
+<li>let是新的，更合理的方式</li>
+<li>const是声明时必须赋值，且不能再改的方式</li>
+<li>最后这种方式是错误的，不准这样声明</li>
+</ul>
+<blockquote>
+<p>不准🙅‍♂️用var, 请用let</p>
+</blockquote>
+<h2 id="var">var变量提升</h2>
+<blockquote>
+<p>可以看<a href="https://wangdoc.com/javascript/basic/grammar.html#%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87">网道教程</a></p>
+</blockquote>
+<h2 id="let">let声明的规则</h2>
+<ul>
+<li>遵循块作用域，即使用范围不能超出{}</li>
+<li>不能重复声明</li>
+<li>可以赋值，也可以不赋值</li>
+<li>必须先声明再使用，否则报错</li>
+<li>全局声明的let变量，不会变成window的属性</li>
+<li>for循环配合let有奇效:</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">var</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">5</span>; i++) {
+	setTimeout(()=&gt;{console.log(i)}, <span style="color:#ff0;font-weight:bold">0</span>)
+}
+<span style="color:#007f7f">/*
+</span><span style="color:#007f7f">	5
+</span><span style="color:#007f7f">	5
+</span><span style="color:#007f7f">	5
+</span><span style="color:#007f7f">	5
+</span><span style="color:#007f7f">	5
+</span><span style="color:#007f7f">*/</span>
+
+<span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">5</span>; i++) {
+	setTimeout(()=&gt;{
+		console.log(i)
+	}, <span style="color:#ff0;font-weight:bold">0</span>)
+}
+<span style="color:#007f7f">/*
+</span><span style="color:#007f7f">	0
+</span><span style="color:#007f7f">	1
+</span><span style="color:#007f7f">	2
+</span><span style="color:#007f7f">	3
+</span><span style="color:#007f7f">	4
+</span><span style="color:#007f7f">*/</span>
+} 
+</code></pre></div><h2 id="const">const声明的规则</h2>
+<ul>
+<li>跟let几乎一样</li>
+<li>只有一条不一样: 声明时就要赋值，赋值后不能改</li>
+</ul>
+<hr>
+<h1 id="heading-13">类型转换</h1>
+<ul>
+<li>number =&gt; string</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">String</span>(n)
+n + <span style="color:#f00">“</span><span style="color:#f00">”</span>
+</code></pre></div><ul>
+<li>string =&gt; number</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">Number</span>(s)
+<span style="color:#fff;font-weight:bold">parseInt</span>(s) <span style="color:#007f7f">// parseFloat(s)
+</span><span style="color:#007f7f"></span>s - <span style="color:#ff0;font-weight:bold">0</span> <span style="color:#007f7f">// +s
+</span></code></pre></div><ul>
+<li>x =&gt; bool</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">Boolean</span>(x)
+!!x <span style="color:#007f7f">// 取反再取反，其实就是取原始的布尔值
+</span></code></pre></div><ul>
+<li>x = &gt; string</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">String</span>(x)
+x.toString()
+
+<span style="color:#ff0;font-weight:bold">1.</span>toString()<span style="color:#007f7f">// 不行
+</span><span style="color:#007f7f"></span>(<span style="color:#ff0;font-weight:bold">1</span>).toString() <span style="color:#007f7f">// 可以
+</span><span style="color:#007f7f"></span><span style="color:#ff0;font-weight:bold">1.</span>.toString() <span style="color:#007f7f">// 可以
+</span></code></pre></div><blockquote>
+<p>JS的其他奇葩事情，可以看<a href="https://bonsaiden.github.io/JavaScript-Garden/zh/">JavaScript 秘密花园</a></p>
+</blockquote>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
