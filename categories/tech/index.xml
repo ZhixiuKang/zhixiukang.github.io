@@ -6,10 +6,28 @@
     <description>Recent content in Tech on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 09 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS对象的增删改查</title>
+      <link>http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/</link>
+      <pubDate>Mon, 10 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/</guid>
+      <description>七种数据类型？
+number string bool symbol
+null undefined
+object
+  五个 falsy 值？
+null undefined
+0 NaN
+‘’
+ 对象的语法 定义  无序的数据集合 键值对的集合  写法 let obj = {&amp;#39;name&amp;#39;: &amp;#39;frank’, ‘age’: 18} let obj = new Object({‘name’: ‘frank’}) console.log({&amp;#39;name&amp;#39;: ‘frank’, ‘age’: 18}) 细节  键名是字符串，不是标识符，可以包含任意字符 引号可省略，省略之后就只能写标识符 就算引号省略了，键名也还是字符串  Object.keys(object)可以得到 object 的所有 key
+   变量作属性名 如何用变量做属性名 let p1 = &amp;#39;name&amp;#39; // 这样写，属性名为&amp;#39;p1&amp;#39; let obj = {p1: &amp;#39;frank’} // 这样写，属性名为&amp;#39;name&amp;#39; let obj = {[p1]: &amp;#39;frank’} 对比  不加[]的属性名会自动变成字符串 加了[]的则会被当做变量求值 值如果不是字符串，则会自动变成字符串  对象的隐藏属性  JS 中每一个对象都有一个隐藏属性 这个隐藏属性存储着其共有属性组成的对象的地址 这个公有属性组成的对象叫做原型 也就是说，隐藏属性储存着原型的地址  var obj = {}; obj.</description>
+    </item>
     
     <item>
       <title>字符编码、JS数据类型、变量声明、类型转换</title>
