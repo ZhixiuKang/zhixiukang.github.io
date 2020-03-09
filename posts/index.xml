@@ -6,7 +6,7 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 10 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>JS对象的增删改查</title>
       <link>http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/</link>
-      <pubDate>Mon, 10 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Sun, 23 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/</guid>
       <description>七种数据类型？
@@ -32,19 +32,19 @@ null undefined
     <item>
       <title>字符编码、JS数据类型、变量声明、类型转换</title>
       <link>http://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/</link>
-      <pubDate>Sun, 09 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Thu, 20 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/</guid>
       <description>推荐阅读: 我用了两个月的时间才理解 let - 知乎
   字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志
- JS中的数据类型 7种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object   总结: 四基两空一对象
- 以下不是数据类型  数组、函数、日期 它们都属于object  数字 number(64位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123或00123或0o123 十六进制写法: 0x3F或0X3F 二进制写法: 0b11或0B11  特殊值  正0和负0: 都等于0，要严谨 无穷大: Infinity、+Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN false 64位浮点数 JS数字的存储形式:</description>
+ JS 中的数据类型 7 种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object  总结: 四基两空一对象
+   以下不是数据类型  数组、函数、日期 它们都属于 object  数字 number(64 位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123 或 00123 或 0o123 十六进制写法: 0x3F 或 0X3F 二进制写法: 0b11 或 0B11  特殊值  正 0 和负 0: 都等于 0，要严谨 无穷大: Infinity、+Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN; false; 64 位浮点数 JS 数字的存储形式:</description>
     </item>
     
     <item>
       <title>JS语法</title>
       <link>http://zhixiukang.com/posts/js-grammar/</link>
-      <pubDate>Sat, 08 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Tue, 18 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/js-grammar/</guid>
       <description>JS 语法  参考资料: JavaScript 的基本语法 - JavaScript 教程 - 网道
@@ -56,7 +56,7 @@ null undefined
     <item>
       <title>内存图和 JS 世界</title>
       <link>http://zhixiukang.com/posts/memory-map-and-js-world/</link>
-      <pubDate>Fri, 07 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Sat, 15 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/memory-map-and-js-world/</guid>
       <description>JS 小知识:
@@ -69,7 +69,7 @@ Javascript 的 10 个设计缺陷
     <item>
       <title>请求和响应 &amp; Node.js Server</title>
       <link>http://zhixiukang.com/posts/request-response-and-nodejs-server/</link>
-      <pubDate>Thu, 06 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Wed, 12 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/request-response-and-nodejs-server/</guid>
       <description>请求与响应模型  帮你发请求的工具叫做User-Agent
@@ -82,7 +82,7 @@ Javascript 的 10 个设计缺陷
     <item>
       <title>IP、端口、域名、URL</title>
       <link>http://zhixiukang.com/posts/ip-port-domain-url/</link>
-      <pubDate>Wed, 05 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Mon, 10 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/ip-port-domain-url/</guid>
       <description>Tim Berners-Lee 发明了 WWW
@@ -99,7 +99,7 @@ WWW = URL + HTTP + HTML
     <item>
       <title>CSS动画中的transition过渡和animation</title>
       <link>http://zhixiukang.com/posts/transition-and-animation/</link>
-      <pubDate>Tue, 04 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Fri, 07 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/transition-and-animation/</guid>
       <description>transition 过渡 完整文档: transition | MDN
@@ -110,7 +110,7 @@ WWW = URL + HTTP + HTML
     <item>
       <title>CSS动画中的transform</title>
       <link>http://zhixiukang.com/posts/transform/</link>
-      <pubDate>Mon, 03 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Wed, 05 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/transform/</guid>
       <description>完整文档: transform - CSS（层叠样式表） | MDN
@@ -136,28 +136,27 @@ inline 元素不支持 transform,需要先变成 block
     <item>
       <title>CSS定位</title>
       <link>http://zhixiukang.com/posts/css-positioning/</link>
-      <pubDate>Sat, 01 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Fri, 31 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/css-positioning/</guid>
       <description>布局和定位有啥区别?
 区别大了，布局是屏幕平面上的，定位是垂直于屏幕的
 还得从文档流和盒模型说起
 复习一下盒模型
- 一个div的分层  文字在最上层，border在第二层，background在第三层。
+ 一个 div 的分层  文字在最上层，border 在第二层，background 在第三层。
   Q: 浮动元素和块级子元素是什么意思呢？
 A: 这里有一个例子
   Q: 浮动元素脱离文档流是什么意思?
 A: 其实就是浮起来了一点点
  新属性 - position static默认值，待在文档流里 relative相对定位，升起来，但不脱离文档流 .demo { position: relative; top: 10px; left: 10px; }  站的位置一样，但是显示的地方有一定的偏移量。
- 使用场景  用于做位移(很少用) 用于给absolute元素做爸爸   爸爸用relative，儿子用absolute
- 配合z-index  z-index:auto默认值，不创建新层叠上下文 z-index: 0/ 1/ 2 z-index: -1/ -2   默认为z-index: auto;，auto其实等于0, 但是你不可以写z-index: 0;。
- 经验  写z-index: 9999的都是菜🐔 学会管理z-index  absolute绝对定位，定位基准是祖先里的非static .</description>
+ 使用场景  用于做位移(很少用) 用于给 absolute 元素做爸爸  爸爸用 relative，儿子用 absolute
+   配合 z-index  z-index:auto默认值，不创建新层叠上下文 z-index: 0/ 1/ 2 z-index: -1/ -2  默认为z-index: auto;，auto其实等于 0, 但是你不可以写z-index: 0;。</description>
     </item>
     
     <item>
       <title>Grid布局(Grid)</title>
       <link>http://zhixiukang.com/posts/grid-layout/</link>
-      <pubDate>Fri, 31 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Tue, 28 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/grid-layout/</guid>
       <description>完整参考资料:A Complete Guide to Grid | CSS-Tricks
@@ -171,7 +170,7 @@ A: 其实就是浮起来了一点点
     <item>
       <title>Flex 布局(Flexbox)</title>
       <link>http://zhixiukang.com/posts/flexbox/</link>
-      <pubDate>Thu, 30 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Sat, 25 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/flexbox/</guid>
       <description>完整参考资料: A Complete Guide to Flexbox | CSS-Tricks
@@ -185,7 +184,7 @@ A: 其实就是浮起来了一点点
     <item>
       <title>Float 布局(Floats)</title>
       <link>http://zhixiukang.com/posts/floats/</link>
-      <pubDate>Wed, 29 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Wed, 22 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/floats/</guid>
       <description>步骤  在子元素上加float:left和width :::在父元素上加.clearfix:::，这个超级重要。  .clearfix:after { content: &amp;#34;&amp;#34;; display: block; clear: both; } 代码在这里
@@ -196,7 +195,7 @@ A: 其实就是浮起来了一点点
     <item>
       <title>CSS布局和一图流</title>
       <link>http://zhixiukang.com/posts/css-layout/</link>
-      <pubDate>Tue, 28 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Mon, 20 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/css-layout/</guid>
       <description>布局是什么 把页面分成一块一块，按左中右、上中下等排列。
@@ -212,7 +211,7 @@ Balsamiq for Desktop | Balsamiq</description>
     <item>
       <title>盒模型</title>
       <link>http://zhixiukang.com/posts/box-model/</link>
-      <pubDate>Mon, 27 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Fri, 17 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/box-model/</guid>
       <description>概念 盒模型有四个概念，从外到内分别是外边距(margin)、border、内边距(padding)和 content。如果是 content box，那么只包含最里面的 content。如果是 border box，那么只包含 content、padding 和 border(如果是 border box，那么除了 margin 都包含)。
@@ -223,7 +222,7 @@ Balsamiq for Desktop | Balsamiq</description>
     <item>
       <title>文档流</title>
       <link>http://zhixiukang.com/posts/normal-flow/</link>
-      <pubDate>Sun, 26 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Wed, 15 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/normal-flow/</guid>
       <description>基本概念 文档流是指文档中元素流动的方向。
@@ -237,7 +236,7 @@ style width:100%就不要这么用。
     <item>
       <title>HTML重难点</title>
       <link>http://zhixiukang.com/posts/html-key-parts/</link>
-      <pubDate>Sat, 25 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Sat, 11 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/html-key-parts/</guid>
       <description>a 标签 属性  href hyper reference.  新建终端，执行：
@@ -256,28 +255,25 @@ parcel #filename.suffix
     <item>
       <title>HTML标签</title>
       <link>http://zhixiukang.com/posts/html-labels/</link>
-      <pubDate>Fri, 24 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Wed, 08 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/html-labels/</guid>
-      <description>学习工具 网道HTML教程
+      <description>学习工具 网道 HTML 教程
  三上:马上，枕上，厕上
- VSCode插件推荐  Prettier更好地格式化工具 cmd+shift+p-&amp;gt; format doc  两个工具  jsbin 饥人谷 偏好 JShint关闭 codesandbox settings: auto save   可以将需要纠错的URL分享给别人
- HTML起手式&amp;ndash;Emmet感叹号 在空的html文件中，输入!+tab。
-&amp;lt;!— 文档类型 --&amp;gt; &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!— html标签，可以把lang改成zh-CN —&amp;gt; &amp;lt;html lang=“en”&amp;gt; &amp;lt;head&amp;gt; &amp;lt;!— 文件的字符编码 —&amp;gt; &amp;lt;meta charset=“UTF-8” /&amp;gt; &amp;lt;!— 禁用缩放 —&amp;gt; &amp;lt;meta name=“viewport” content=“width=device-width, initial-scale=1.0” /&amp;gt; &amp;lt;!— 兼容手机，告诉IE使用最新内核 —&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34; /&amp;gt; &amp;lt;!--标题 --&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 章节标签  标题h1-h6 章节section 文章article 段落p 头部header 脚部footer 主要内容main 旁支内容aside 划分div   全局属性 所有标签都有的属性</description>
+ VSCode 插件推荐  Prettier 更好地格式化工具 cmd+shift+p-&amp;gt; format doc  两个工具  jsbin 饥人谷 偏好 JShint 关闭 codesandbox settings: auto save  可以将需要纠错的 URL 分享给别人
+   HTML 起手式&amp;ndash;Emmet 感叹号 在空的 html 文件中，输入!+tab。
+&amp;lt;!— 文档类型 --&amp;gt; &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!— html标签，可以把lang改成zh-CN —&amp;gt; &amp;lt;html lang=&amp;#34;“en”&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;!— 文件的字符编码 —&amp;gt; &amp;lt;meta charset=&amp;#34;“UTF-8”&amp;#34; /&amp;gt; &amp;lt;!— 禁用缩放 —&amp;gt; &amp;lt;meta name=“viewport” content=“width=device-width, initial-scale=1.0” /&amp;gt; &amp;lt;!— 兼容手机，告诉IE使用最新内核 —&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34; /&amp;gt; &amp;lt;!</description>
     </item>
     
     <item>
       <title>购买域名及配置DNS和GitHub Pages</title>
       <link>http://zhixiukang.com/posts/how-to-buy-domain/</link>
-      <pubDate>Fri, 03 Jan 2020 18:56:33 -0800</pubDate>
+      <pubDate>Sun, 05 Jan 2020 18:56:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/how-to-buy-domain/</guid>
       <description>购买域名 进入NameSilo，输入自己想要的域名并购买。
-配置DNS和GitHub Pages 购买后，进入右上角Manage My Domains查看自己的域名。 点击manage DNS(小地球)
- 打开github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain填入自己的域名并save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了HTTPS，那么和这个网站相关的所有网站你都要用HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这4条A record根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。
- 上述过程依次完成后，Mac用户通过:  dig noall answer #userdomain.com 来查看4个A records是否和上面的四个ip地址吻合，吻合的话就配置成功啦~
-注意: 这个过程可能需要一段时间，因为原始网页配置的TTL(Time to live)可能还没有过期，所以不会刷新新的DNS配置，所以如果有问题请先等一下(TTL为3600最多等1小时(3600s)，TTL为7200最多等7200s)。
-问题   Q: How long does it take name server changes to take effect?</description>
+配置 DNS 和 GitHub Pages 购买后，进入右上角Manage My Domains查看自己的域名。 点击 manage DNS(小地球)
+ 打开 github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain 填入自己的域名并 save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了 HTTPS，那么和这个网站相关的所有网站你都要用 HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这 4 条 A record 根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。 上述过程依次完成后，Mac 用户通过:  dig noall answer #userdomain.</description>
     </item>
     
     <item>

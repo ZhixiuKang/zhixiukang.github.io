@@ -6,7 +6,7 @@
     <description>Recent content in CSS on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 04 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>CSS动画中的transition过渡和animation</title>
       <link>http://zhixiukang.com/posts/transition-and-animation/</link>
-      <pubDate>Tue, 04 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Fri, 07 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/transition-and-animation/</guid>
       <description>transition 过渡 完整文档: transition | MDN
@@ -25,7 +25,7 @@
     <item>
       <title>CSS动画中的transform</title>
       <link>http://zhixiukang.com/posts/transform/</link>
-      <pubDate>Mon, 03 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Wed, 05 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/transform/</guid>
       <description>完整文档: transform - CSS（层叠样式表） | MDN
@@ -51,28 +51,27 @@ inline 元素不支持 transform,需要先变成 block
     <item>
       <title>CSS定位</title>
       <link>http://zhixiukang.com/posts/css-positioning/</link>
-      <pubDate>Sat, 01 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Fri, 31 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/css-positioning/</guid>
       <description>布局和定位有啥区别?
 区别大了，布局是屏幕平面上的，定位是垂直于屏幕的
 还得从文档流和盒模型说起
 复习一下盒模型
- 一个div的分层  文字在最上层，border在第二层，background在第三层。
+ 一个 div 的分层  文字在最上层，border 在第二层，background 在第三层。
   Q: 浮动元素和块级子元素是什么意思呢？
 A: 这里有一个例子
   Q: 浮动元素脱离文档流是什么意思?
 A: 其实就是浮起来了一点点
  新属性 - position static默认值，待在文档流里 relative相对定位，升起来，但不脱离文档流 .demo { position: relative; top: 10px; left: 10px; }  站的位置一样，但是显示的地方有一定的偏移量。
- 使用场景  用于做位移(很少用) 用于给absolute元素做爸爸   爸爸用relative，儿子用absolute
- 配合z-index  z-index:auto默认值，不创建新层叠上下文 z-index: 0/ 1/ 2 z-index: -1/ -2   默认为z-index: auto;，auto其实等于0, 但是你不可以写z-index: 0;。
- 经验  写z-index: 9999的都是菜🐔 学会管理z-index  absolute绝对定位，定位基准是祖先里的非static .</description>
+ 使用场景  用于做位移(很少用) 用于给 absolute 元素做爸爸  爸爸用 relative，儿子用 absolute
+   配合 z-index  z-index:auto默认值，不创建新层叠上下文 z-index: 0/ 1/ 2 z-index: -1/ -2  默认为z-index: auto;，auto其实等于 0, 但是你不可以写z-index: 0;。</description>
     </item>
     
     <item>
       <title>Grid布局(Grid)</title>
       <link>http://zhixiukang.com/posts/grid-layout/</link>
-      <pubDate>Fri, 31 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Tue, 28 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/grid-layout/</guid>
       <description>完整参考资料:A Complete Guide to Grid | CSS-Tricks
@@ -86,7 +85,7 @@ A: 其实就是浮起来了一点点
     <item>
       <title>Flex 布局(Flexbox)</title>
       <link>http://zhixiukang.com/posts/flexbox/</link>
-      <pubDate>Thu, 30 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Sat, 25 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/flexbox/</guid>
       <description>完整参考资料: A Complete Guide to Flexbox | CSS-Tricks
@@ -100,7 +99,7 @@ A: 其实就是浮起来了一点点
     <item>
       <title>Float 布局(Floats)</title>
       <link>http://zhixiukang.com/posts/floats/</link>
-      <pubDate>Wed, 29 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Wed, 22 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/floats/</guid>
       <description>步骤  在子元素上加float:left和width :::在父元素上加.clearfix:::，这个超级重要。  .clearfix:after { content: &amp;#34;&amp;#34;; display: block; clear: both; } 代码在这里
@@ -111,7 +110,7 @@ A: 其实就是浮起来了一点点
     <item>
       <title>CSS布局和一图流</title>
       <link>http://zhixiukang.com/posts/css-layout/</link>
-      <pubDate>Tue, 28 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Mon, 20 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/css-layout/</guid>
       <description>布局是什么 把页面分成一块一块，按左中右、上中下等排列。
@@ -127,7 +126,7 @@ Balsamiq for Desktop | Balsamiq</description>
     <item>
       <title>盒模型</title>
       <link>http://zhixiukang.com/posts/box-model/</link>
-      <pubDate>Mon, 27 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Fri, 17 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/box-model/</guid>
       <description>概念 盒模型有四个概念，从外到内分别是外边距(margin)、border、内边距(padding)和 content。如果是 content box，那么只包含最里面的 content。如果是 border box，那么只包含 content、padding 和 border(如果是 border box，那么除了 margin 都包含)。
@@ -138,7 +137,7 @@ Balsamiq for Desktop | Balsamiq</description>
     <item>
       <title>文档流</title>
       <link>http://zhixiukang.com/posts/normal-flow/</link>
-      <pubDate>Sun, 26 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Wed, 15 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/normal-flow/</guid>
       <description>基本概念 文档流是指文档中元素流动的方向。

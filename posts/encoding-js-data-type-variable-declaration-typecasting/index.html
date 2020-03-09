@@ -13,18 +13,18 @@
 <meta name="twitter:title" content="字符编码、JS数据类型、变量声明、类型转换"/>
 <meta name="twitter:description" content="推荐阅读: 我用了两个月的时间才理解 let - 知乎
   字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志
- JS中的数据类型 7种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object   总结: 四基两空一对象
- 以下不是数据类型  数组、函数、日期 它们都属于object  数字 number(64位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123或00123或0o123 十六进制写法: 0x3F或0X3F 二进制写法: 0b11或0B11  特殊值  正0和负0: 都等于0，要严谨 无穷大: Infinity、&#43;Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN false 64位浮点数 JS数字的存储形式:"/>
+ JS 中的数据类型 7 种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object  总结: 四基两空一对象
+   以下不是数据类型  数组、函数、日期 它们都属于 object  数字 number(64 位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123 或 00123 或 0o123 十六进制写法: 0x3F 或 0X3F 二进制写法: 0b11 或 0B11  特殊值  正 0 和负 0: 都等于 0，要严谨 无穷大: Infinity、&#43;Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN; false; 64 位浮点数 JS 数字的存储形式:"/>
 
     <meta property="og:title" content="字符编码、JS数据类型、变量声明、类型转换" />
 <meta property="og:description" content="推荐阅读: 我用了两个月的时间才理解 let - 知乎
   字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志
- JS中的数据类型 7种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object   总结: 四基两空一对象
- 以下不是数据类型  数组、函数、日期 它们都属于object  数字 number(64位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123或00123或0o123 十六进制写法: 0x3F或0X3F 二进制写法: 0b11或0B11  特殊值  正0和负0: 都等于0，要严谨 无穷大: Infinity、&#43;Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN false 64位浮点数 JS数字的存储形式:" />
+ JS 中的数据类型 7 种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object  总结: 四基两空一对象
+   以下不是数据类型  数组、函数、日期 它们都属于 object  数字 number(64 位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123 或 00123 或 0o123 十六进制写法: 0x3F 或 0X3F 二进制写法: 0b11 或 0B11  特殊值  正 0 和负 0: 都等于 0，要严谨 无穷大: Infinity、&#43;Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN; false; 64 位浮点数 JS 数字的存储形式:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/" />
-<meta property="article:published_time" content="2020-02-09T15:21:33-08:00" />
-<meta property="article:modified_time" content="2020-02-09T15:21:33-08:00" />
+<meta property="article:published_time" content="2020-02-20T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-02-20T15:21:33-08:00" />
 
 
     
@@ -111,8 +111,8 @@
         <div class="date">
           <span class="posted-on">
             <i class="fas fa-calendar"></i>
-            <time datetime='2020-02-09T15:21:33-08:00'>
-              February 9, 2020
+            <time datetime='2020-02-20T15:21:33-08:00'>
+              February 20, 2020
             </time>
           </span>
           
@@ -135,8 +135,8 @@
 <blockquote>
 <p><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志</a></p>
 </blockquote>
-<h1 id="js">JS中的数据类型</h1>
-<h2 id="7">7种</h2>
+<h1 id="js-">JS 中的数据类型</h1>
+<h2 id="7-">7 种</h2>
 <ul>
 <li>数字 number</li>
 <li>字符串 string</li>
@@ -144,40 +144,41 @@
 <li>符号 symbol</li>
 <li>空 undefined</li>
 <li>空 null</li>
-<li>对象 object</li>
-</ul>
+<li>对象 object
 <blockquote>
 <p>总结: 四基两空一对象</p>
 </blockquote>
+</li>
+</ul>
 <h2 id="heading">以下不是数据类型</h2>
 <ul>
 <li>数组、函数、日期</li>
-<li>它们都属于object</li>
+<li>它们都属于 object</li>
 </ul>
-<h1 id="-number64">数字 number(64位浮点数)</h1>
+<h1 id="-number64-">数字 number(64 位浮点数)</h1>
 <h2 id="heading-1">写法</h2>
 <ul>
 <li>整数写法: 1</li>
 <li>小数写法: 0.1</li>
 <li>科学计数法: 1.23e4</li>
-<li>八进制写法: 0123或00123或0o123</li>
-<li>十六进制写法: 0x3F或0X3F</li>
-<li>二进制写法: 0b11或0B11</li>
+<li>八进制写法: 0123 或 00123 或 0o123</li>
+<li>十六进制写法: 0x3F 或 0X3F</li>
+<li>二进制写法: 0b11 或 0B11</li>
 </ul>
 <h2 id="heading-2">特殊值</h2>
 <ul>
-<li>正0和负0: 都等于0，要严谨</li>
+<li>正 0 和负 0: 都等于 0，要严谨</li>
 <li>无穷大: Infinity、+Infinity、-Infinity</li>
 <li>无法表示的数字: NaN(Not a Number), 但它是一个数字</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">NaN</span> === <span style="color:#fff;font-weight:bold">NaN</span>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">NaN</span> === <span style="color:#fff;font-weight:bold">NaN</span>;
 
-<span style="color:#fff;font-weight:bold">false</span>
-</code></pre></div><h2 id="64">64位浮点数</h2>
-<p>JS数字的存储形式:</p>
+<span style="color:#fff;font-weight:bold">false</span>;
+</code></pre></div><h2 id="64-">64 位浮点数</h2>
+<p>JS 数字的存储形式:</p>
 <p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-03-0417.00.58.png" alt=""></p>
 <blockquote>
-<p>符号占1位，指数占11位(-1023到1024), 有效数字占52位(开头的1省略)</p>
+<p>符号占 1 位，指数占 11 位(-1023 到 1024), 有效数字占 52 位(开头的 1 省略)</p>
 </blockquote>
 <h2 id="heading-3">范围和精度</h2>
 <h3 id="heading-4">范围</h3>
@@ -186,20 +187,20 @@
 </ul>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Number.MAX_VALUE: 1.7976931348623157E+308
 </code></pre></div><ul>
-<li>指数负方向拉满、有效数字最小1，得到最小值</li>
+<li>指数负方向拉满、有效数字最小 1，得到最小值</li>
 </ul>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Number.MIN_VALUE:5E-324
 </code></pre></div><h3 id="heading-5">精度(有效数字)</h3>
 <ul>
-<li>最多只能到52+1个二进制位表示有效数字</li>
-<li>2^53对应的十进制是9后面15个零</li>
-<li>所以15位有效数字都能精确表示</li>
-<li>16位有效数字如果小于90开头，也能精确表示</li>
-<li>9110000000000001就存不下来</li>
+<li>最多只能到 52+1 个二进制位表示有效数字</li>
+<li>2^53 对应的十进制是 9 后面 15 个零</li>
+<li>所以 15 位有效数字都能精确表示</li>
+<li>16 位有效数字如果小于 90 开头，也能精确表示</li>
+<li>9110000000000001 就存不下来</li>
 </ul>
 <h1 id="heading-6">字符串</h1>
 <blockquote>
-<p>每个字符两个字节(阉割版UTF8)</p>
+<p>每个字符两个字节(阉割版 UTF8)</p>
 </blockquote>
 <h2 id="heading-7">转义</h2>
 <ul>
@@ -208,8 +209,8 @@
 <li><code>\r</code> 回车</li>
 <li><code>\t</code> 制表符</li>
 <li><code>\\</code> 表示 <code>\</code></li>
-<li><code>\uFFFF</code>表示对应的Unicode制表符</li>
-<li><code>xFF</code>表示前256个Unicode字符</li>
+<li><code>\uFFFF</code>表示对应的 Unicode 制表符</li>
+<li><code>xFF</code>表示前 256 个 Unicode 字符</li>
 </ul>
 <h2 id="heading-8">多行字符串</h2>
 <ul>
@@ -218,26 +219,26 @@
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> s = <span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold"> This should 
 </span><span style="color:#0ff;font-weight:bold">be fine, and it&#39;s easy to
 </span><span style="color:#0ff;font-weight:bold">make it 
-</span><span style="color:#0ff;font-weight:bold"></span><span style="color:#0ff;font-weight:bold">`</span>
+</span><span style="color:#0ff;font-weight:bold"></span><span style="color:#0ff;font-weight:bold">`</span>;
 </code></pre></div><ul>
 <li>以前没有反引号的时候
 写起来很麻烦，可以看<a href="https://wangdoc.com/javascript/types/string.html">网道教程</a></li>
 </ul>
 <h2 id="base64-">base64 转码</h2>
 <ul>
-<li><code>window.btoa</code> 正常字符串转为Base64编码的字符串</li>
-<li><code>window.atob</code> Base64编码的字符串转为原来的字符串</li>
+<li><code>window.btoa</code> 正常字符串转为 Base64 编码的字符串</li>
+<li><code>window.atob</code> Base64 编码的字符串转为原来的字符串</li>
 <li>一般用来隐藏招聘启事里的简历:</li>
 </ul>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">邮箱: emhpeGl1a2FuZ0BnbWFpbC5jb20=
 
 邮箱: zhixiukang@gmail.com
 </code></pre></div><ul>
-<li>有时候也用来自欺欺人(所谓的加密🙅‍♂️)</li>
+<li>有时候也用来自欺欺人(所谓的加密 🙅‍♂️)</li>
 </ul>
-<h1 id="boolean">布尔boolean</h1>
-<h2 id="falsy">五个falsy值</h2>
-<p>falsy就是相当于false但又不是false的值。分别是:</p>
+<h1 id="-boolean">布尔 boolean</h1>
+<h2 id="-falsy-">五个 falsy 值</h2>
+<p>falsy 就是相当于 false 但又不是 false 的值。分别是:</p>
 <ul>
 <li><code>undefined</code></li>
 <li><code>null</code></li>
@@ -245,24 +246,25 @@
 <li><code>NaN</code></li>
 <li><code>’’</code></li>
 </ul>
-<h1 id="undefinednull">undefined和null两种空类型</h1>
+<h1 id="undefined--null-">undefined 和 null 两种空类型</h1>
 <blockquote>
-<p>JS的垃圾之处</p>
+<p>JS 的垃圾之处</p>
 </blockquote>
 <h2 id="heading-9">区别</h2>
 <ul>
 <li>没有本质区别</li>
 <li>细节一:
-如果一个变量声明了，但没有赋值，那么默认值就是undefined，而不是null</li>
+如果一个变量声明了，但没有赋值，那么默认值就是 undefined，而不是 null</li>
 <li>细节二:
-如果一个函数，没有写return,那么默认return undefined,而不是null</li>
+如果一个函数，没有写 return,那么默认 return undefined,而不是 null</li>
 <li>细节三:
-前端程序员习惯上，把非对象的空值写为undefined，把对象的空值写为null。</li>
-</ul>
+前端程序员习惯上，把非对象的空值写为 undefined，把对象的空值写为 null。
 <blockquote>
 <p>但仅仅是习惯上而已</p>
 </blockquote>
-<h1 id="symbol">symbol符号</h1>
+</li>
+</ul>
+<h1 id="symbol-">symbol 符号</h1>
 <blockquote>
 <p>不怎么常用的数据类型</p>
 </blockquote>
@@ -283,26 +285,27 @@
 </ul>
 <h2 id="heading-12">区别</h2>
 <ul>
-<li>var是过时的，不好用的方式</li>
-<li>let是新的，更合理的方式</li>
-<li>const是声明时必须赋值，且不能再改的方式</li>
-<li>最后这种方式是错误的，不准这样声明</li>
-</ul>
+<li>var 是过时的，不好用的方式</li>
+<li>let 是新的，更合理的方式</li>
+<li>const 是声明时必须赋值，且不能再改的方式</li>
+<li>最后这种方式是错误的，不准这样声明
 <blockquote>
-<p>不准🙅‍♂️用var, 请用let</p>
+<p>不准 🙅‍♂️ 用 var, 请用 let</p>
 </blockquote>
-<h2 id="var">var变量提升</h2>
+</li>
+</ul>
+<h2 id="var-">var 变量提升</h2>
 <blockquote>
 <p>可以看<a href="https://wangdoc.com/javascript/basic/grammar.html#%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87">网道教程</a></p>
 </blockquote>
-<h2 id="let">let声明的规则</h2>
+<h2 id="let-">let 声明的规则</h2>
 <ul>
 <li>遵循块作用域，即使用范围不能超出{}</li>
 <li>不能重复声明</li>
 <li>可以赋值，也可以不赋值</li>
 <li>必须先声明再使用，否则报错</li>
-<li>全局声明的let变量，不会变成window的属性</li>
-<li>for循环配合let有奇效:</li>
+<li>全局声明的 let 变量，不会变成 window 的属性</li>
+<li>for 循环配合 let 有奇效:</li>
 </ul>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">var</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">5</span>; i++) {
 	setTimeout(()=&gt;{console.log(i)}, <span style="color:#ff0;font-weight:bold">0</span>)
@@ -327,10 +330,10 @@
 </span><span style="color:#007f7f">	3
 </span><span style="color:#007f7f">	4
 </span><span style="color:#007f7f">*/</span>
-} 
-</code></pre></div><h2 id="const">const声明的规则</h2>
+}
+</code></pre></div><h2 id="const-">const 声明的规则</h2>
 <ul>
-<li>跟let几乎一样</li>
+<li>跟 let 几乎一样</li>
 <li>只有一条不一样: 声明时就要赋值，赋值后不能改</li>
 </ul>
 <hr>
@@ -343,14 +346,14 @@ n + <span style="color:#f00">“</span><span style="color:#f00">”</span>
 </code></pre></div><ul>
 <li>string =&gt; number</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">Number</span>(s)
-<span style="color:#fff;font-weight:bold">parseInt</span>(s) <span style="color:#007f7f">// parseFloat(s)
-</span><span style="color:#007f7f"></span>s - <span style="color:#ff0;font-weight:bold">0</span> <span style="color:#007f7f">// +s
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">Number</span>(s);
+<span style="color:#fff;font-weight:bold">parseInt</span>(s); <span style="color:#007f7f">// parseFloat(s)
+</span><span style="color:#007f7f"></span>s - <span style="color:#ff0;font-weight:bold">0</span>; <span style="color:#007f7f">// +s
 </span></code></pre></div><ul>
 <li>x =&gt; bool</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">Boolean</span>(x)
-!!x <span style="color:#007f7f">// 取反再取反，其实就是取原始的布尔值
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">Boolean</span>(x);
+!!x; <span style="color:#007f7f">// 取反再取反，其实就是取原始的布尔值
 </span></code></pre></div><ul>
 <li>x = &gt; string</li>
 </ul>
@@ -361,7 +364,7 @@ x.toString()
 </span><span style="color:#007f7f"></span>(<span style="color:#ff0;font-weight:bold">1</span>).toString() <span style="color:#007f7f">// 可以
 </span><span style="color:#007f7f"></span><span style="color:#ff0;font-weight:bold">1.</span>.toString() <span style="color:#007f7f">// 可以
 </span></code></pre></div><blockquote>
-<p>JS的其他奇葩事情，可以看<a href="https://bonsaiden.github.io/JavaScript-Garden/zh/">JavaScript 秘密花园</a></p>
+<p>JS 的其他奇葩事情，可以看<a href="https://bonsaiden.github.io/JavaScript-Garden/zh/">JavaScript 秘密花园</a></p>
 </blockquote>
 
     </div>

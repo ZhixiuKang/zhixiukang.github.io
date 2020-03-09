@@ -6,7 +6,7 @@
     <description>Recent content in HTML on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 06 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/tags/html/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>请求和响应 &amp; Node.js Server</title>
       <link>http://zhixiukang.com/posts/request-response-and-nodejs-server/</link>
-      <pubDate>Thu, 06 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Wed, 12 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/request-response-and-nodejs-server/</guid>
       <description>请求与响应模型  帮你发请求的工具叫做User-Agent
@@ -27,7 +27,7 @@
     <item>
       <title>IP、端口、域名、URL</title>
       <link>http://zhixiukang.com/posts/ip-port-domain-url/</link>
-      <pubDate>Wed, 05 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Mon, 10 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/ip-port-domain-url/</guid>
       <description>Tim Berners-Lee 发明了 WWW
@@ -44,7 +44,7 @@ WWW = URL + HTTP + HTML
     <item>
       <title>HTML重难点</title>
       <link>http://zhixiukang.com/posts/html-key-parts/</link>
-      <pubDate>Sat, 25 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Sat, 11 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/html-key-parts/</guid>
       <description>a 标签 属性  href hyper reference.  新建终端，执行：
@@ -63,14 +63,14 @@ parcel #filename.suffix
     <item>
       <title>HTML标签</title>
       <link>http://zhixiukang.com/posts/html-labels/</link>
-      <pubDate>Fri, 24 Jan 2020 15:21:33 -0800</pubDate>
+      <pubDate>Wed, 08 Jan 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/html-labels/</guid>
-      <description>学习工具 网道HTML教程
+      <description>学习工具 网道 HTML 教程
  三上:马上，枕上，厕上
- VSCode插件推荐  Prettier更好地格式化工具 cmd+shift+p-&amp;gt; format doc  两个工具  jsbin 饥人谷 偏好 JShint关闭 codesandbox settings: auto save   可以将需要纠错的URL分享给别人
- HTML起手式&amp;ndash;Emmet感叹号 在空的html文件中，输入!+tab。
-&amp;lt;!— 文档类型 --&amp;gt; &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!— html标签，可以把lang改成zh-CN —&amp;gt; &amp;lt;html lang=“en”&amp;gt; &amp;lt;head&amp;gt; &amp;lt;!— 文件的字符编码 —&amp;gt; &amp;lt;meta charset=“UTF-8” /&amp;gt; &amp;lt;!— 禁用缩放 —&amp;gt; &amp;lt;meta name=“viewport” content=“width=device-width, initial-scale=1.0” /&amp;gt; &amp;lt;!— 兼容手机，告诉IE使用最新内核 —&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34; /&amp;gt; &amp;lt;!--标题 --&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 章节标签  标题h1-h6 章节section 文章article 段落p 头部header 脚部footer 主要内容main 旁支内容aside 划分div   全局属性 所有标签都有的属性</description>
+ VSCode 插件推荐  Prettier 更好地格式化工具 cmd+shift+p-&amp;gt; format doc  两个工具  jsbin 饥人谷 偏好 JShint 关闭 codesandbox settings: auto save  可以将需要纠错的 URL 分享给别人
+   HTML 起手式&amp;ndash;Emmet 感叹号 在空的 html 文件中，输入!+tab。
+&amp;lt;!— 文档类型 --&amp;gt; &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!— html标签，可以把lang改成zh-CN —&amp;gt; &amp;lt;html lang=&amp;#34;“en”&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;!— 文件的字符编码 —&amp;gt; &amp;lt;meta charset=&amp;#34;“UTF-8”&amp;#34; /&amp;gt; &amp;lt;!— 禁用缩放 —&amp;gt; &amp;lt;meta name=“viewport” content=“width=device-width, initial-scale=1.0” /&amp;gt; &amp;lt;!— 兼容手机，告诉IE使用最新内核 —&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34; /&amp;gt; &amp;lt;!</description>
     </item>
     
   </channel>

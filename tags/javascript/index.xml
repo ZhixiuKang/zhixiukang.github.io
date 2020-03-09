@@ -6,7 +6,7 @@
     <description>Recent content in JavaScript on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 10 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>JS对象的增删改查</title>
       <link>http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/</link>
-      <pubDate>Mon, 10 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Sun, 23 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/</guid>
       <description>七种数据类型？
@@ -32,19 +32,19 @@ null undefined
     <item>
       <title>字符编码、JS数据类型、变量声明、类型转换</title>
       <link>http://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/</link>
-      <pubDate>Sun, 09 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Thu, 20 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/</guid>
       <description>推荐阅读: 我用了两个月的时间才理解 let - 知乎
   字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志
- JS中的数据类型 7种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object   总结: 四基两空一对象
- 以下不是数据类型  数组、函数、日期 它们都属于object  数字 number(64位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123或00123或0o123 十六进制写法: 0x3F或0X3F 二进制写法: 0b11或0B11  特殊值  正0和负0: 都等于0，要严谨 无穷大: Infinity、+Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN false 64位浮点数 JS数字的存储形式:</description>
+ JS 中的数据类型 7 种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object  总结: 四基两空一对象
+   以下不是数据类型  数组、函数、日期 它们都属于 object  数字 number(64 位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123 或 00123 或 0o123 十六进制写法: 0x3F 或 0X3F 二进制写法: 0b11 或 0B11  特殊值  正 0 和负 0: 都等于 0，要严谨 无穷大: Infinity、+Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN; false; 64 位浮点数 JS 数字的存储形式:</description>
     </item>
     
     <item>
       <title>JS语法</title>
       <link>http://zhixiukang.com/posts/js-grammar/</link>
-      <pubDate>Sat, 08 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Tue, 18 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/js-grammar/</guid>
       <description>JS 语法  参考资料: JavaScript 的基本语法 - JavaScript 教程 - 网道
@@ -56,7 +56,7 @@ null undefined
     <item>
       <title>内存图和 JS 世界</title>
       <link>http://zhixiukang.com/posts/memory-map-and-js-world/</link>
-      <pubDate>Fri, 07 Feb 2020 15:21:33 -0800</pubDate>
+      <pubDate>Sat, 15 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/memory-map-and-js-world/</guid>
       <description>JS 小知识:

@@ -6,7 +6,7 @@
     <description>Recent content in DNS configure on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 03 Jan 2020 18:56:33 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2020 18:56:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/tags/dns-configure/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,15 +14,12 @@
     <item>
       <title>购买域名及配置DNS和GitHub Pages</title>
       <link>http://zhixiukang.com/posts/how-to-buy-domain/</link>
-      <pubDate>Fri, 03 Jan 2020 18:56:33 -0800</pubDate>
+      <pubDate>Sun, 05 Jan 2020 18:56:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/how-to-buy-domain/</guid>
       <description>购买域名 进入NameSilo，输入自己想要的域名并购买。
-配置DNS和GitHub Pages 购买后，进入右上角Manage My Domains查看自己的域名。 点击manage DNS(小地球)
- 打开github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain填入自己的域名并save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了HTTPS，那么和这个网站相关的所有网站你都要用HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这4条A record根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。
- 上述过程依次完成后，Mac用户通过:  dig noall answer #userdomain.com 来查看4个A records是否和上面的四个ip地址吻合，吻合的话就配置成功啦~
-注意: 这个过程可能需要一段时间，因为原始网页配置的TTL(Time to live)可能还没有过期，所以不会刷新新的DNS配置，所以如果有问题请先等一下(TTL为3600最多等1小时(3600s)，TTL为7200最多等7200s)。
-问题   Q: How long does it take name server changes to take effect?</description>
+配置 DNS 和 GitHub Pages 购买后，进入右上角Manage My Domains查看自己的域名。 点击 manage DNS(小地球)
+ 打开 github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain 填入自己的域名并 save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了 HTTPS，那么和这个网站相关的所有网站你都要用 HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这 4 条 A record 根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。 上述过程依次完成后，Mac 用户通过:  dig noall answer #userdomain.</description>
     </item>
     
   </channel>

@@ -21,8 +21,8 @@
    两种盒模型 分别是  content-box 内容盒-内容就是盒子的边界。 border-box 边框盒-边框才是盒子的边界。  公式  content-box width = 内容宽度 border-box width = 内容宽度 &#43; padding &#43; border  哪个好用  border-box好用 同时指定padding、width、border就知道为什么了 如果没有指定padding和border，看不出来这俩的区别。  margin合并 哪些情况会合并  父子 margin 合并 上面边距有可能重叠。 兄弟 margin 合并 其实 css 这么设计是有道理的:   如何阻止合并  父子合并用 padding/border 挡住  padding-top: 1px; border-top: 1px solid green;  父子合并用 overflow:hidden 挡住 父子合并用 display:flex，不知道为什么 兄弟合并是符合预期的 兄弟合并可以用 inline-block 消除 总之要一条一条死记 而且 CSS 的属性逐年增多，每年都有可能有新的  基本单位 长度单位  px 像素 em 相对于自身 font-size 的倍数 百分数 整数 rem:等你把 em 滚瓜烂熟了再问 rem vw 和 vh 其他长度单位都用得很少，不用了解  颜色  十六进制#FF6600或者#F60(两个两个一对的可以缩写) RGBA 颜色 rgb(0,0,0)或者 rgba(0,0,0,1) hsl 颜色 hsl(360,100%,100%) (0 度正红色-360, 鲜艳程度, 亮度)  做个彩虹练习一下 点我后自己试试吧" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/box-model/" />
-<meta property="article:published_time" content="2020-01-27T15:21:33-08:00" />
-<meta property="article:modified_time" content="2020-01-27T15:21:33-08:00" />
+<meta property="article:published_time" content="2020-01-17T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-01-17T15:21:33-08:00" />
 
 
     
@@ -109,8 +109,8 @@
         <div class="date">
           <span class="posted-on">
             <i class="fas fa-calendar"></i>
-            <time datetime='2020-01-27T15:21:33-08:00'>
-              January 27, 2020
+            <time datetime='2020-01-17T15:21:33-08:00'>
+              January 17, 2020
             </time>
           </span>
           
