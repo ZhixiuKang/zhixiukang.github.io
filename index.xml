@@ -6,10 +6,27 @@
     <description>Recent content on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 10 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bogleheads的投资理念</title>
+      <link>http://zhixiukang.com/explore/bogleheads-investment-philosophy/</link>
+      <pubDate>Sun, 08 Mar 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/explore/bogleheads-investment-philosophy/</guid>
+      <description>本文参考来源: Bogleheads® investment philosophy - Bogleheads
+  本文参考视频: Ten Rules About Investing For Beginners - FinancingLife
+  R.I.P. Jack Bogle 🙏
+ 指定可行的计划(Develop a workable plan)  如果你不知道要去的地方，那么你将到达其他地方。
+  避免坏账，如果有，优先偿还。 开始为紧急资金储蓄。建立一个 应急基金 。不要跳过这一步！   既定的应急基金可以在发生不可预见的事件时为个人提供所需的资金。
+ 定期投资(Invest early and often)  对于应为哪个帐户存入资金以及以什么顺序存有特定的指导原则 。但请始终记住，首先需要省钱。开始这一终生过程时，定期储蓄比选择投资更为重要。
+  收入的百分之二十是一个很好的基准数字。 提早开始定期储蓄计划之所以重要，是因为可以在更长的时间内扩大投资收益的复合。(The power of compound) 节省金钱的最好方法是从薪水中自动扣除,这对建立和加强合理的消费习惯大有帮助。   401(k)
+IRA .(这里面也有 IRA 和 401(k)的比较)
+ 不要承受过高或过低风险(Never bear too much or too little risk)  格雷厄姆的永恒建议: 我们建议，作为基本指导原则，投资者的股票占比不得少于 25％或超过 75％，其结果是债券的反比范围为 75％至 25％。这意味着在两种主要投资媒介之间，标准划分应等于 50-50。</description>
+    </item>
     
     <item>
       <title>JS对象的增删改查</title>
