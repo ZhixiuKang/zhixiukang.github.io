@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="Zhixiu Kang, 康知修, 修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS对象、原型和共用属性的关系、对象的ES6写法"/>
+<meta name="twitter:description" content="延伸阅读
+你可以不会 class，但是一定要学会 prototype
+JS 的 new 到底是干什么的？
+JS 中 proto 和 prototype 存在的意义是什么？
+ES6 所有新特性
+ 构造函数 函数和原型结合 function createSquare(width) { let obj = Object.create(createSquare.squarePrototype) obj.width = width return obj } createSquare.squarePrototype = { getArea() { return this.width * this.width	}, getLength() { return this.width * 4 }, constructor: createSquare } let square = createSquare(5) 简化为：
+function Square(width) { this.width = width } Square.prototype.getArea = function() { return this."/>
+
+    <meta property="og:title" content="JS对象、原型和共用属性的关系、对象的ES6写法" />
+<meta property="og:description" content="延伸阅读
+你可以不会 class，但是一定要学会 prototype
+JS 的 new 到底是干什么的？
+JS 中 proto 和 prototype 存在的意义是什么？
+ES6 所有新特性
+ 构造函数 函数和原型结合 function createSquare(width) { let obj = Object.create(createSquare.squarePrototype) obj.width = width return obj } createSquare.squarePrototype = { getArea() { return this.width * this.width	}, getLength() { return this.width * 4 }, constructor: createSquare } let square = createSquare(5) 简化为：
+function Square(width) { this.width = width } Square.prototype.getArea = function() { return this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/" />
+<meta property="article:published_time" content="2020-02-25T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-02-25T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/">
+    
+    <title>
+JS对象、原型和共用属性的关系、对象的ES6写法 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">JS对象、原型和共用属性的关系、对象的ES6写法</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-02-25T15:21:33-08:00'>
+              February 25, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/javascript/">JavaScript</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <blockquote>
+<p>延伸阅读</p>
+<p><a href="https://zhuanlan.zhihu.com/p/35279244">你可以不会 class，但是一定要学会 prototype</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/23987456">JS 的 new 到底是干什么的？</a></p>
+<p><a href="https://www.zhihu.com/question/56770432/answer/315342130">JS 中 proto 和 prototype 存在的意义是什么？</a></p>
+<p><a href="http://frankfang.github.io/es-6-tutorials/">ES6 所有新特性</a></p>
+</blockquote>
+<h1 id="heading">构造函数</h1>
+<h2 id="heading-1">函数和原型结合</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> createSquare(width) {
+	<span style="color:#fff;font-weight:bold">let</span> obj = <span style="color:#fff;font-weight:bold">Object</span>.create(createSquare.squarePrototype)
+	obj.width = width
+	<span style="color:#fff;font-weight:bold">return</span> obj
+}
+createSquare.squarePrototype = {
+	getArea() {
+		<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#fff;font-weight:bold">this</span>.width	
+	},
+	getLength() {
+		<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#ff0;font-weight:bold">4</span>
+	},
+	constructor: createSquare
+}
+<span style="color:#fff;font-weight:bold">let</span> square = createSquare(<span style="color:#ff0;font-weight:bold">5</span>)
+</code></pre></div><p>简化为：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> Square(width) {
+	<span style="color:#fff;font-weight:bold">this</span>.width = width
+}
+Square.prototype.getArea = <span style="color:#fff;font-weight:bold">function</span>() {
+	<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#fff;font-weight:bold">this</span>.width
+}
+Square.prototype.getLength = <span style="color:#fff;font-weight:bold">function</span>() {
+	<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#ff0;font-weight:bold">4</span>
+}
+<span style="color:#fff;font-weight:bold">let</span> square = <span style="color:#fff;font-weight:bold">new</span> Square(<span style="color:#ff0;font-weight:bold">5</span>)
+</code></pre></div><h2 id="heading-2">总结</h2>
+<h3 id="new-x-">new X() 自动做了四件事情</h3>
+<ul>
+<li>自动创建空对象</li>
+<li>自动为空对象关联原型，原型地址指定为X.prototype</li>
+<li>自动将空对象作为this关键字运行构造函数</li>
+<li>自动return this</li>
+</ul>
+<h3 id="x">构造函数X</h3>
+<ul>
+<li>X函数本身负责给对象本身添加属性</li>
+<li>X.prototype对象负责保存对象的共用属性</li>
+</ul>
+<h1 id="heading-3">原型和公用属性的关系</h1>
+<p><img src="http://zhixiukang.com/images/3241585266239_.pic.jpg" alt=""></p>
+<blockquote>
+<p>你是谁构造的，你的原型就是谁的prototype属性对应的对象。</p>
+</blockquote>
+<h2 id="heading-4">原型公式</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">对象.__proto__ === 其构造函数.prototype
+</code></pre></div><blockquote>
+<p>这两个值都是上面例子的#309</p>
+</blockquote>
+<blockquote>
+<p>参考资料:  <a href="https://www.zhihu.com/question/56770432/answer/315342130">JS 中 <strong>proto</strong> 和 prototype 存在的意义是什么?</a></p>
+</blockquote>
+<blockquote>
+<p>一个例外: <code>Object.prototype.__proto__ === null</code></p>
+</blockquote>
+<h1 id="js">JS终极一问</h1>
+<h2 id="window">window是谁创造的</h2>
+<ul>
+<li>Window</li>
+<li>可以通过constructor属性看出构造者</li>
+</ul>
+<h2 id="windowobject">window.Object是谁构造的</h2>
+<ul>
+<li>window.Function</li>
+<li>因为所有函数都是window.Function构造的</li>
+</ul>
+<h2 id="windowfunction">window.Function是谁构造的</h2>
+<ul>
+<li>window.Function</li>
+<li>因为所有函数都是window.Function够早的</li>
+<li>自己构造自己？不是的，浏览器的JS引擎构造了Function，然后指定它的构造者是自己</li>
+</ul>
+<h1 id="es6">ES6语法</h1>
+<h2 id="square">重写下之前的Square</h2>
+<p>非常遗憾，有的前端认为下面的代码是过时的:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> Square(width) {
+	<span style="color:#fff;font-weight:bold">this</span>.width = width
+}
+Square.prototype.getArea = <span style="color:#fff;font-weight:bold">function</span>() {
+	<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#fff;font-weight:bold">this</span>.width
+}
+Square.prototype.getLength = <span style="color:#fff;font-weight:bold">function</span>() {
+	<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#ff0;font-weight:bold">4</span>
+}
+<span style="color:#fff;font-weight:bold">let</span> square = <span style="color:#fff;font-weight:bold">new</span> Square(<span style="color:#ff0;font-weight:bold">5</span>)
+</code></pre></div><p>ES6引入了<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes">新语法</a>:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">class</span> Square {
+	constructor(width) {
+		<span style="color:#fff;font-weight:bold">this</span>.width = width
+	}
+	getArea() {
+		<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#fff;font-weight:bold">this</span>.width
+	}
+	getLength: <span style="color:#fff;font-weight:bold">function</span>() {
+		<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#ff0;font-weight:bold">4</span>
+	}<span style="color:#007f7f">// 函数的两种写法都对
+</span><span style="color:#007f7f"></span>}
+</code></pre></div><h2 id="heading-5">到底有多少新语法</h2>
+<blockquote>
+<p><a href="https://fangyinghang.com/es-6-tutorials/">ES 6 新特性列表</a></p>
+</blockquote>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

@@ -6,10 +6,25 @@
     <description>Recent content in Tech on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 23 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS对象、原型和共用属性的关系、对象的ES6写法</title>
+      <link>http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/</link>
+      <pubDate>Tue, 25 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/</guid>
+      <description>延伸阅读
+你可以不会 class，但是一定要学会 prototype
+JS 的 new 到底是干什么的？
+JS 中 proto 和 prototype 存在的意义是什么？
+ES6 所有新特性
+ 构造函数 函数和原型结合 function createSquare(width) { let obj = Object.create(createSquare.squarePrototype) obj.width = width return obj } createSquare.squarePrototype = { getArea() { return this.width * this.width	}, getLength() { return this.width * 4 }, constructor: createSquare } let square = createSquare(5) 简化为：
+function Square(width) { this.width = width } Square.prototype.getArea = function() { return this.</description>
+    </item>
     
     <item>
       <title>JS对象的增删改查</title>
