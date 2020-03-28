@@ -39,21 +39,26 @@
   
   <url>
     <loc>http://zhixiukang.com/tags/javascript/</loc>
-    <lastmod>2020-02-25T15:21:33-08:00</lastmod>
+    <lastmod>2020-02-27T15:21:33-08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/</loc>
-    <lastmod>2020-02-25T15:21:33-08:00</lastmod>
+    <loc>http://zhixiukang.com/posts/js-array/</loc>
+    <lastmod>2020-02-27T15:21:33-08:00</lastmod>
   </url>
   
   <url>
     <loc>http://zhixiukang.com/posts/</loc>
-    <lastmod>2020-02-25T15:21:33-08:00</lastmod>
+    <lastmod>2020-02-27T15:21:33-08:00</lastmod>
   </url>
   
   <url>
     <loc>http://zhixiukang.com/categories/tech/</loc>
+    <lastmod>2020-02-27T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/</loc>
     <lastmod>2020-02-25T15:21:33-08:00</lastmod>
   </url>
   

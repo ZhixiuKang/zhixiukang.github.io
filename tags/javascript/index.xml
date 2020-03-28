@@ -6,13 +6,22 @@
     <description>Recent content in JavaScript on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 27 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>JS对象、原型和共用属性的关系、对象的ES6写法</title>
+      <title>JS数组的增删改查找和数组变换</title>
+      <link>http://zhixiukang.com/posts/js-array/</link>
+      <pubDate>Thu, 27 Feb 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/js-array/</guid>
+      <description>JS 的数组不是典型数组 典型的数组  元素的数据类型相同 使用连续的内存存储 通过数字下标获取元素  但 JS 的数组不这样  元素的数据类型可以不同 内存不一定是连续的(对象是随机存储的) 不能通过数字下标，而是通过字符串下标 这意味着数组可以有任何 key  let arr = [1, 2, 3] arr[‘xxx&amp;#39;] = 1 创建一个数组 新建 let arr = [1, 2, 3]; let arr = new Array(1, 2, 3); let arr = new Array(3); 转化 let arr = &amp;#39;1, 2, 3&amp;#39;.split(‘,’) let arr = &amp;#39;123&amp;#39;.split(‘’) Array.from(&amp;#39;123&amp;#39;) 伪数组 let divList = document.querySelector(‘div’) let divArray = Array.from(divList)  伪数组的原型链中并没有数组的原型。</description>
+    </item>
+    
+    <item>
+      <title>JS对象分类、原型和共用属性的关系、对象的ES6写法</title>
       <link>http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/</link>
       <pubDate>Tue, 25 Feb 2020 15:21:33 -0800</pubDate>
       
