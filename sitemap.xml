@@ -8,11 +8,6 @@
   </url>
   
   <url>
-    <loc>http://zhixiukang.com/categories/</loc>
-    <lastmod>2020-03-08T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://zhixiukang.com/explore/</loc>
     <lastmod>2020-03-08T15:21:33-08:00</lastmod>
   </url>
@@ -28,13 +23,13 @@
   </url>
   
   <url>
-    <loc>http://zhixiukang.com/categories/%E6%8A%95%E8%B5%84/</loc>
+    <loc>http://zhixiukang.com/tags/%E6%8A%95%E8%B5%84/</loc>
     <lastmod>2020-03-08T15:21:33-08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://zhixiukang.com/tags/%E6%8A%95%E8%B5%84%E5%93%B2%E5%AD%A6/</loc>
-    <lastmod>2020-03-08T15:21:33-08:00</lastmod>
+    <loc>http://zhixiukang.com/categories/</loc>
+    <lastmod>2020-02-27T15:21:33-08:00</lastmod>
   </url>
   
   <url>
@@ -163,12 +158,7 @@
   </url>
   
   <url>
-    <loc>http://zhixiukang.com/categories/korean/</loc>
-    <lastmod>2020-01-10T20:34:38-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/tags/possess/</loc>
+    <loc>http://zhixiukang.com/tags/%E9%9F%A9%E8%AF%AD%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2020-01-10T20:34:38-08:00</lastmod>
   </url>
   
@@ -178,28 +168,8 @@
   </url>
   
   <url>
-    <loc>http://zhixiukang.com/tags/furniture/</loc>
-    <lastmod>2020-01-09T20:34:38-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/tags/greeting/</loc>
-    <lastmod>2020-01-09T20:34:38-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/tags/rooms/</loc>
-    <lastmod>2020-01-09T20:34:38-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://zhixiukang.com/posts/html-labels/</loc>
     <lastmod>2020-01-08T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/tags/colors/</loc>
-    <lastmod>2020-01-05T20:17:11-08:00</lastmod>
   </url>
   
   <url>
@@ -208,17 +178,7 @@
   </url>
   
   <url>
-    <loc>http://zhixiukang.com/tags/dns-configure/</loc>
-    <lastmod>2020-01-05T18:56:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/tags/github-pages/</loc>
-    <lastmod>2020-01-05T18:56:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/tags/purchase-domain/</loc>
+    <loc>http://zhixiukang.com/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/</loc>
     <lastmod>2020-01-05T18:56:33-08:00</lastmod>
   </url>
   
@@ -228,27 +188,12 @@
   </url>
   
   <url>
-    <loc>http://zhixiukang.com/tags/hugo/</loc>
-    <lastmod>2020-01-02T18:56:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/tags/personal-blog/</loc>
-    <lastmod>2020-01-02T18:56:33-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://zhixiukang.com/posts/how-to-install-hugo/</loc>
     <lastmod>2020-01-02T18:56:33-08:00</lastmod>
   </url>
   
   <url>
     <loc>http://zhixiukang.com/explore/bae-bae-lyrics/</loc>
-    <lastmod>2019-08-03T18:56:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://zhixiukang.com/tags/korean-songs/</loc>
     <lastmod>2019-08-03T18:56:33-08:00</lastmod>
   </url>
   

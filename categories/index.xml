@@ -6,19 +6,10 @@
     <description>Recent content in Categories on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 08 Mar 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 27 Feb 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>投资</title>
-      <link>http://zhixiukang.com/categories/%E6%8A%95%E8%B5%84/</link>
-      <pubDate>Sun, 08 Mar 2020 15:21:33 -0800</pubDate>
-      
-      <guid>http://zhixiukang.com/categories/%E6%8A%95%E8%B5%84/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Tech</title>
@@ -26,15 +17,6 @@
       <pubDate>Thu, 27 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/categories/tech/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Korean</title>
-      <link>http://zhixiukang.com/categories/korean/</link>
-      <pubDate>Fri, 10 Jan 2020 20:34:38 -0800</pubDate>
-      
-      <guid>http://zhixiukang.com/categories/korean/</guid>
       <description></description>
     </item>
     
