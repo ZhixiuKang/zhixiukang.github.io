@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="Zhixiu Kang, 康知修, 修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS函数和你不知道的this"/>
+<meta name="twitter:description" content="四种方式定义函数 具名函数 function 函数名(形式参数1, 形式参数2) { 语句 return 返回值 } 匿名函数  上面的具名函数，去掉函数名就是匿名函数 let a = function(x, y) {return x&#43;y} 也叫函数表达式  箭头函数 let f1 = x =&gt; x*x let f2 = (x, y) =&gt; x&#43;y // 圆括号不能省 let f3 = (x, y) =&gt; {return x&#43;y} //花括号不能省 let f4 = (x, y) =&gt; ({name:x, age: y})  直接返回对象会出错，需要加个圆括号
+ 构造函数  let f = new Function(‘x’, ‘y’, ‘return x&#43;y’) 所有函数都是Function构造出来的 包括Object、Array、Function也是   基本没人用，但是能让你知道函数是谁构造的"/>
+
+    <meta property="og:title" content="JS函数和你不知道的this" />
+<meta property="og:description" content="四种方式定义函数 具名函数 function 函数名(形式参数1, 形式参数2) { 语句 return 返回值 } 匿名函数  上面的具名函数，去掉函数名就是匿名函数 let a = function(x, y) {return x&#43;y} 也叫函数表达式  箭头函数 let f1 = x =&gt; x*x let f2 = (x, y) =&gt; x&#43;y // 圆括号不能省 let f3 = (x, y) =&gt; {return x&#43;y} //花括号不能省 let f4 = (x, y) =&gt; ({name:x, age: y})  直接返回对象会出错，需要加个圆括号
+ 构造函数  let f = new Function(‘x’, ‘y’, ‘return x&#43;y’) 所有函数都是Function构造出来的 包括Object、Array、Function也是   基本没人用，但是能让你知道函数是谁构造的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/js-funtion-and-this/" />
+<meta property="article:published_time" content="2020-03-01T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-03-01T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/js-funtion-and-this/">
+    
+    <title>
+JS函数和你不知道的this · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/js-funtion-and-this/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/tags/">分类</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">JS函数和你不知道的this</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-03-01T15:21:33-08:00'>
+              March 1, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/javascript/">JavaScript</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h1 id="heading">四种方式定义函数</h1>
+<h2 id="heading-1">具名函数</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> 函数名(形式参数1, 形式参数2) {
+	语句
+	<span style="color:#fff;font-weight:bold">return</span> 返回值
+}
+</code></pre></div><h2 id="heading-2">匿名函数</h2>
+<ul>
+<li>上面的具名函数，去掉函数名就是匿名函数</li>
+<li><code>let a = function(x, y) {return x+y}</code></li>
+<li>也叫函数表达式</li>
+</ul>
+<h2 id="heading-3">箭头函数</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> f1 = x =&gt; x*x
+<span style="color:#fff;font-weight:bold">let</span> f2 = (x, y) =&gt; x+y <span style="color:#007f7f">// 圆括号不能省
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">let</span> f3 = (x, y) =&gt; {<span style="color:#fff;font-weight:bold">return</span> x+y} <span style="color:#007f7f">//花括号不能省
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">let</span> f4 = (x, y) =&gt; ({name:x, age: y})
+</code></pre></div><blockquote>
+<p>直接返回对象会出错，需要加个圆括号</p>
+</blockquote>
+<h2 id="heading-4">构造函数</h2>
+<ul>
+<li><code>let f = new Function(‘x’, ‘y’, ‘return x+y’)</code></li>
+<li>所有函数都是Function构造出来的</li>
+<li>包括Object、Array、Function也是</li>
+</ul>
+<blockquote>
+<p>基本没人用，但是能让你知道函数是谁构造的</p>
+</blockquote>
+<h1 id="heading-5">函数的要素</h1>
+<ul>
+<li>调用时机</li>
+<li>作用域</li>
+<li>闭包</li>
+<li>形式参数</li>
+<li>返回值</li>
+<li>调用栈</li>
+<li>函数提升</li>
+<li>arguments(除了箭头函数)</li>
+<li>this(除了箭头函数)</li>
+</ul>
+<h2 id="heading-6">调用时机</h2>
+<p>来看三个例子，看看JS有多操蛋。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> a = <span style="color:#ff0;font-weight:bold">1</span>
+<span style="color:#fff;font-weight:bold">function</span> fn(){
+	setTimeout(()=&gt;{
+		console.log(a)
+	}, <span style="color:#ff0;font-weight:bold">0</span>)
+	fn()
+	a = <span style="color:#ff0;font-weight:bold">2</span>
+}
+</code></pre></div><blockquote>
+<p>打印多少？ 2</p>
+</blockquote>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>
+<span style="color:#fff;font-weight:bold">for</span>(i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">6</span>; i++){
+	setTimeout(()=&gt;{
+		console.log(i)
+	}, <span style="color:#ff0;font-weight:bold">0</span>)
+}
+</code></pre></div><blockquote>
+<p>打印多少？ 不是0,1,2,3,4,5.而是6个6。循环到每一个i都是过一会打印出i。过一会就是指要把所有循环走完。那么当循环走完，i就为6，所以要打印出6个6</p>
+</blockquote>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">6</span>; i++){
+	setTimeout(()=&gt;{
+		console.log(i)
+	}, <span style="color:#ff0;font-weight:bold">0</span>)
+}
+</code></pre></div><blockquote>
+<p>打印多少？</p>
+<p>是0,1,2,3,4,5. 因为JS在for和let一起用的时候会加东西。每次循环会多复制一个i留在那里，不跟随新的i变化。(彳亍口巴)。</p>
+<p>那这样setTimeout还有什么意义？</p>
+<p>好问题，🈚️意义。</p>
+</blockquote>
+<h2 id="--">作用域：就近原则 &amp; 闭包</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> fn(){
+	<span style="color:#fff;font-weight:bold">let</span> a = <span style="color:#ff0;font-weight:bold">1</span>
+}
+fn()
+console.log(a) <span style="color:#007f7f">// a不存在
+</span></code></pre></div><p>全局变量:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">window</span>.c = <span style="color:#ff0;font-weight:bold">1</span>
+</code></pre></div><blockquote>
+<p>如果多个作用域有同名变量a, 那么查找a的声明时,就向上取最近的作用域,查找a的过程与函数执行无关,但a的值与函数执行有关。</p>
+</blockquote>
+<blockquote>
+<p>和函数执行没有关系的作用域叫做静态作用域(词法作用域)。和函数执行有关系的叫做动态作用域，JS🈚️动态作用域。</p>
+</blockquote>
+<p>最后看个例子来理解作用域:</p>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-0921.39.07.png" alt=""></p>
+<blockquote>
+<p>如果一个函数用到了外部的变量，那么这个函数加这个变量就叫做闭包。上面代码4-7行中的a和f3就组成了闭包。</p>
+</blockquote>
+<h2 id="heading-7">形式参数和返回值</h2>
+<ul>
+<li>形参可认为是变量声明，类似于:</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> add(){
+	<span style="color:#fff;font-weight:bold">var</span> x = arguments[<span style="color:#ff0;font-weight:bold">0</span>]
+	<span style="color:#fff;font-weight:bold">var</span> y = arguments[<span style="color:#ff0;font-weight:bold">1</span>]
+	<span style="color:#fff;font-weight:bold">return</span> x+y
+}
+</code></pre></div><ul>
+<li>没return返回值是undefined</li>
+</ul>
+<h2 id="heading-8">递归、调用栈与爆栈</h2>
+<h3 id="heading-9">什么是调用栈</h3>
+<ul>
+<li>JS引擎在调用一个函数前</li>
+<li>需要把函数所在的环境push到一个数组里</li>
+<li>这个数组叫做调用栈</li>
+<li>等函数执行完了，就会把环境pop出来</li>
+<li>然后return到之前的环境，继续执行后续代码</li>
+</ul>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Call_stack">Call stack（调用栈)  | MDN</a></p>
+</blockquote>
+<h3 id="heading-10">递归函数</h3>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 阶乘
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">function</span> f(n){
+	<span style="color:#007f7f">// return n === 1 ? 1 : n * f(n-1)
+</span><span style="color:#007f7f"></span>	<span style="color:#fff;font-weight:bold">return</span> n !== <span style="color:#ff0;font-weight:bold">1</span> ? n * f(n-<span style="color:#ff0;font-weight:bold">1</span>) : <span style="color:#ff0;font-weight:bold">1</span>
+}
+</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">f(4) 
+= 4 * f(3)
+= 4 * (3 * f(2))
+= 4 * (3 * (2 * f(1)))
+= 4 * (3 * (2 * (1)))
+= 4 * (3 * (2))
+= 4 * (6)
+= 24
+</code></pre></div><blockquote>
+<p>先递进，再回归</p>
+</blockquote>
+<p>想想递归的调用栈(压栈和弹栈):</p>
+<p><img src="http://zhixiukang.com/images/3331586496186_.pic.jpg" alt=""></p>
+<h3 id="heading-11">爆栈</h3>
+<blockquote>
+<p>如果调用栈中压入的帧太多，程序就会崩溃。</p>
+</blockquote>
+<blockquote>
+<p>调用栈大小: Chrome 12578, Firefox 26773, Node 12536（Node和Chrome用的JS引擎都是V8，所以差不多）</p>
+</blockquote>
+<h2 id="heading-12">函数提升</h2>
+<blockquote>
+<p>不管具名函数声明在哪，都会跑到第一行</p>
+</blockquote>
+<h2 id="argumentsthis">arguments和this</h2>
+<ul>
+<li>arguments是一个包含该函数所有普通参数的伪数组</li>
+<li>调用当前函数，this默认表示window</li>
+<li>加上<code>’use strict'</code>就不会让this自动将传入的参数转化为对象了 (没人这么做)
+<img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-0922.59.52.png" alt=""></li>
+</ul>
+<blockquote>
+<p>实际上this是第一个参数，arguments是从第一个参数往后的所有参数。</p>
+</blockquote>
+<blockquote>
+<p>this是隐藏参数，arguments是普通参数(个人结论)</p>
+</blockquote>
+<blockquote>
+<p>person.sayHi()会隐式地把person作为this传给sayHi</p>
+</blockquote>
+<h3 id="heading-13">两种调用法</h3>
+<ul>
+<li>小白调用法</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">person.sayHi()
+<span style="color:#007f7f">// 会自动把person传到函数里，作为this
+</span></code></pre></div><ul>
+<li>大师调用法</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">person.sayHi.call(person)
+<span style="color:#007f7f">// 需要自己手动把person传到函数里，作为this
+</span></code></pre></div><ul>
+<li>例子</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> add(x,y) {
+	<span style="color:#fff;font-weight:bold">return</span> x +y
+}
+<span style="color:#007f7f">// 不用this
+</span><span style="color:#007f7f"></span>add.call(<span style="color:#fff;font-weight:bold">undefined</span>, <span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>) <span style="color:#007f7f">// 传undefined是占位，因为第一个参数要作为this。
+</span></code></pre></div><p><strong>用this:</strong></p>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-0923.39.44.png" alt=""></p>
+<blockquote>
+<p>上面的例子，用array作为this，调用了forEach2</p>
+</blockquote>
+<p>两种写法再探究:</p>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-0923.46.20.png" alt=""></p>
+<blockquote>
+<p>一个是显示地指定array是this，一个是隐式地指定array是this。</p>
+</blockquote>
+<h3 id="this">总结一下this的两种使用方法</h3>
+<ul>
+<li>隐式传递</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">fn(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">2</span>) <span style="color:#007f7f">//等价于fn.call(undefined, 1, 2)
+</span><span style="color:#007f7f"></span>obj.child.fn(<span style="color:#ff0;font-weight:bold">1</span>) <span style="color:#007f7f">//等价于obj.child.fn.call(obj.child,1)
+</span></code></pre></div><ul>
+<li>显式传递</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">fn.call(<span style="color:#fff;font-weight:bold">undefined</span>, <span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>)
+fn.apply(<span style="color:#fff;font-weight:bold">undefined</span>, [<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">2</span>])
+</code></pre></div><h3 id="this-1">绑定this</h3>
+<ul>
+<li>使用<code>.bind</code>可以让this不被改变</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> f1(p1, p2){
+console.log(<span style="color:#fff;font-weight:bold">this</span>, p1, p2)
+}
+<span style="color:#fff;font-weight:bold">let</span> f2 = f1.bind({name:<span style="color:#0ff;font-weight:bold">&#39;frank&#39;</span>})
+<span style="color:#007f7f">// 那么f2就是f1绑定了this之后的新函数 
+</span><span style="color:#007f7f"></span>f2() <span style="color:#007f7f">// 等价于f1.call({name:&#39;frank&#39;})
+</span></code></pre></div><blockquote>
+<p>就调f2相当于调f1,唯一的区别是你把this绑定了</p>
+</blockquote>
+<blockquote>
+<p>有什么用? Vue和React中会经常用到。</p>
+</blockquote>
+<ul>
+<li><code>.bind</code>还可以绑定其他参数</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> f3 = f1.bind({name:<span style="color:#0ff;font-weight:bold">&#39;frank&#39;</span>}, <span style="color:#0ff;font-weight:bold">&#39;hi&#39;</span>)
+f3() <span style="color:#007f7f">// 等价于f1.call({name:&#39;frank&#39;}, hi)
+</span></code></pre></div><h1 id="heading-14">箭头函数</h1>
+<blockquote>
+<p>箭头函数没有arguments和this</p>
+</blockquote>
+<ul>
+<li>里面的this就是外面的this</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#fff;font-weight:bold">this</span>) <span style="color:#007f7f">//外面的this是window
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">let</span> fn = () =&gt; console.log(<span style="color:#fff;font-weight:bold">this</span>)
+fn() <span style="color:#007f7f">// window
+</span></code></pre></div><ul>
+<li>就算你加call都没有用</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">fn.call({name:<span style="color:#0ff;font-weight:bold">&#39;frank&#39;</span>}) <span style="color:#007f7f">// window,没有用，指定什么都没有用，还是window
+</span></code></pre></div><p>就如同:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> b = <span style="color:#ff0;font-weight:bold">1</span>
+<span style="color:#fff;font-weight:bold">let</span> fn = () =&gt; console.log(b)
+</code></pre></div><p>b是外面的b，this也是外面的this(window)</p>
+<ul>
+<li>同样的，箭头函数没有arguments，舒服:</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> fn = () =&gt; console.log(arguments)
+fn(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">2</span>,<span style="color:#ff0;font-weight:bold">3</span>)
+<span style="color:#007f7f">// Uncaught ReferenceError: arguments is not defined at fn
+</span></code></pre></div><h1 id="heading-15">立即执行函数(生成局部变量的方法)</h1>
+<blockquote>
+<p>只有JS有的变态玩意，现在用得少</p>
+</blockquote>
+<h2 id="heading-16">原理</h2>
+<ul>
+<li>ES5时代，为了得到局部变量，必须引入一个函数</li>
+<li>但是这个函数如果有名字，就还会引入一个全局函数，得不偿失</li>
+<li>于是这个函数必须是匿名函数</li>
+<li>声明匿名函数，然后立即加个()执行它</li>
+<li>但是JS标准认为这种语法不合法</li>
+<li>所以JS程序员寻求各种办法</li>
+<li>最终发现，只要在匿名函数前面加个运算符即可</li>
+<li>!、~、()、+、-都可以</li>
+<li>但是这里面有些运算符会往上走</li>
+<li>所以推荐永远用!来解决</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">//ES5老方法
+</span><span style="color:#007f7f"></span>!<span style="color:#fff;font-weight:bold">function</span> (){
+	<span style="color:#fff;font-weight:bold">var</span> a =<span style="color:#ff0;font-weight:bold">2</span>
+	console.log(a)
+} ()
+</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">//ES6最新方法
+</span><span style="color:#007f7f"></span>{
+    <span style="color:#fff;font-weight:bold">let</span> a = <span style="color:#ff0;font-weight:bold">2</span>
+}
+</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">//不推荐()
+</span><span style="color:#007f7f"></span>console.log(<span style="color:#0ff;font-weight:bold">&#39;hi&#39;</span>)  <span style="color:#007f7f">//如果立即执行函数前面这句代码
+</span><span style="color:#007f7f"></span>(<span style="color:#fff;font-weight:bold">function</span> (){
+	<span style="color:#fff;font-weight:bold">var</span> a =<span style="color:#ff0;font-weight:bold">2</span>
+	console.log(a)
+} ()) <span style="color:#007f7f">//Uncaught TypeError：console.log(...) is not a function
+</span><span style="color:#007f7f"></span>
+
+<span style="color:#007f7f">//因为js中回车没意义，所以把下面的立即执行函数接到前面去了，所以相当于
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">undefined</span>(<span style="color:#fff;font-weight:bold">function</span> (){
+	<span style="color:#fff;font-weight:bold">var</span> a =<span style="color:#ff0;font-weight:bold">2</span>
+	console.log(a)
+} ()) <span style="color:#007f7f">//把undefined当一个函数来执行了，哪来的undefined这个函数，所以报错
+</span><span style="color:#007f7f"></span>
+
+<span style="color:#007f7f">//补救措施
+</span><span style="color:#007f7f"></span>console.log(<span style="color:#0ff;font-weight:bold">&#39;hi&#39;</span>);  <span style="color:#007f7f">//在他俩之间加分号。注意这是js语言中唯一两句代码之间需要加分号的情况
+</span><span style="color:#007f7f"></span>(<span style="color:#fff;font-weight:bold">function</span> (){
+	<span style="color:#fff;font-weight:bold">var</span> a =<span style="color:#ff0;font-weight:bold">2</span>
+	console.log(a)
+} ())
+</code></pre></div><blockquote>
+<p>结论，你就用ES6语法就完事了。</p>
+</blockquote>
+<p>￼</p>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

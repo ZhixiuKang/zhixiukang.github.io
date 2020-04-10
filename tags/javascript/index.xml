@@ -6,10 +6,20 @@
     <description>Recent content in JavaScript on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 27 Feb 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS函数和你不知道的this</title>
+      <link>http://zhixiukang.com/posts/js-funtion-and-this/</link>
+      <pubDate>Sun, 01 Mar 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/js-funtion-and-this/</guid>
+      <description>四种方式定义函数 具名函数 function 函数名(形式参数1, 形式参数2) { 语句 return 返回值 } 匿名函数  上面的具名函数，去掉函数名就是匿名函数 let a = function(x, y) {return x+y} 也叫函数表达式  箭头函数 let f1 = x =&amp;gt; x*x let f2 = (x, y) =&amp;gt; x+y // 圆括号不能省 let f3 = (x, y) =&amp;gt; {return x+y} //花括号不能省 let f4 = (x, y) =&amp;gt; ({name:x, age: y})  直接返回对象会出错，需要加个圆括号
+ 构造函数  let f = new Function(‘x’, ‘y’, ‘return x+y’) 所有函数都是Function构造出来的 包括Object、Array、Function也是   基本没人用，但是能让你知道函数是谁构造的</description>
+    </item>
     
     <item>
       <title>JS数组的增删改查和数组变换</title>
