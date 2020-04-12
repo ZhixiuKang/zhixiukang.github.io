@@ -6,10 +6,20 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 01 Mar 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>面试中的JS运算符</title>
+      <link>http://zhixiukang.com/posts/js-operators/</link>
+      <pubDate>Tue, 03 Mar 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/js-operators/</guid>
+      <description>算数运算符  ＋－* / 余数%  //JS的错误 -1%7 //-1 而不是 6  指数 x**3 自增自减  x++ //这个表达式的值为x，最后返回x+1 ++x //这个表达式的值为x+1，最后返回x+1 x-- //这个表达式的值为x，最后返回x-1 --x //这个表达式的值为x-1，最后返回x-1  尽量少用自增自减
+  求值运算符  // 可以将任何值转为数值（与Number函数的作用相同） +(-1)// -1 +true // 1 +[] // 0 +{} // NaN  负数运算符  // 同样具有将一个值转为数值的功能，只不过得到的值正负相反 -(-1) // 1 -true // -1 -[] // -0 -{} // NaN  JS的一个糟粕  1 + &amp;#39;2&amp;#39; //&amp;#34;12&amp;#34; 2 - &amp;#39;1&amp;#39; // 1 // +号运算符默认把所有运算子变成字符串然后运算 // -号运算符默认把所有运算子变成数值然后运算 比较运算符  JS三位一体  意思是:</description>
+    </item>
     
     <item>
       <title>JS函数和你不知道的this</title>
