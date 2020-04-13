@@ -6,10 +6,28 @@
     <description>Recent content in JavaScript on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 03 Mar 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Mar 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS总结</title>
+      <link>http://zhixiukang.com/posts/js-conclusion/</link>
+      <pubDate>Thu, 05 Mar 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/js-conclusion/</guid>
+      <description>知识点 基本概念 内存、变量、数据类型、对象
+控制语句  if…else&amp;hellip; for…  对象  原型、原型链 对象分类 new一个新对象 构造函数 this的隐式传递和显式传递  难点  JS三座大山
+  原型 this AJAX  最重要的知识 JS公式 对象.__proto__===其构造函数.prototype  JS唯一公式，如果不会就套公式
+ 根公理 Object.prototype是所有对象的(直接或间接)原型  加了一个直接或间接，所谓公理就是规定好的
+ 函数公理 所有函数都是由Function构造的  任何函数.__proto__===Function.prototype
+任意函数有Object/Array/Function
+ 拨乱反正 乱一 XXX的原型  {name:&#39;frank&#39;}的原型   Object.prototype
+  [1, 2, 3]的原型   Array.prototype
+  Object的原型   Function.prototype
+ 解读  Object的原型是Object.__proto__   对</description>
+    </item>
     
     <item>
       <title>面试中的JS运算符</title>
