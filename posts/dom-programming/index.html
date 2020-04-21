@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="Zhixiu Kang, 康知修, 修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DOM编程和操作跨线程"/>
+<meta name="twitter:description" content="获取任意元素 有很多API window.idxxx // 或者直接idxxx document.getElementById(&#34;idxxx&#34;) document.getElementsByTagName(&#34;div&#34;)[0] document.getElementsByClassName(&#34;red&#34;)[0] document.querySelector(&#34;#idxxx&#34;) // 记得加# document.querySelectorAll(&#34;.red&#34;)[0] 用哪一个  工作中用querySelector和querySelectorAll
+例子:document.querySelectorAll(&#39;div&gt;span:nth-child(2)&#39;)
+  做demo直接用idxxx，千万别让人发现hhh
+  要兼容IE的可怜虫才用getElement(s)ByXXX
+ 获取特定元素 获取html元素 document.documentElement 获取head元素 document.head 获取body元素 document.body 获取窗口  窗口不是元素
+ window 获取所有元素 document.all // false  这个document.all是个奇葩，第6个falsy值。原因是过去用来判断是否是IE浏览器。
+ 元素的6层原型链 抓一只div对象来看看 console.dir(div1) // 查看原型链  Chrome显示错了
+  自身属性: className、id、style等等 第一层原型HTMLDivElement.prototype   这里面是所有div共有的属性，不用细看
+  第二层原型HTMLElement.prototype   这里面是所有HTML标签共有的属性，不用细看
+  第三层原型Element.prototype   这里面是所有HTML标签共有的属性，你不会以为浏览器只能展示HTML吧
+  第四层原型Node."/>
+
+    <meta property="og:title" content="DOM编程和操作跨线程" />
+<meta property="og:description" content="获取任意元素 有很多API window.idxxx // 或者直接idxxx document.getElementById(&#34;idxxx&#34;) document.getElementsByTagName(&#34;div&#34;)[0] document.getElementsByClassName(&#34;red&#34;)[0] document.querySelector(&#34;#idxxx&#34;) // 记得加# document.querySelectorAll(&#34;.red&#34;)[0] 用哪一个  工作中用querySelector和querySelectorAll
+例子:document.querySelectorAll(&#39;div&gt;span:nth-child(2)&#39;)
+  做demo直接用idxxx，千万别让人发现hhh
+  要兼容IE的可怜虫才用getElement(s)ByXXX
+ 获取特定元素 获取html元素 document.documentElement 获取head元素 document.head 获取body元素 document.body 获取窗口  窗口不是元素
+ window 获取所有元素 document.all // false  这个document.all是个奇葩，第6个falsy值。原因是过去用来判断是否是IE浏览器。
+ 元素的6层原型链 抓一只div对象来看看 console.dir(div1) // 查看原型链  Chrome显示错了
+  自身属性: className、id、style等等 第一层原型HTMLDivElement.prototype   这里面是所有div共有的属性，不用细看
+  第二层原型HTMLElement.prototype   这里面是所有HTML标签共有的属性，不用细看
+  第三层原型Element.prototype   这里面是所有HTML标签共有的属性，你不会以为浏览器只能展示HTML吧
+  第四层原型Node." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/dom-programming/" />
+<meta property="article:published_time" content="2020-03-07T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-03-07T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/dom-programming/">
+    
+    <title>
+DOM编程和操作跨线程 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/dom-programming/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/tags/">分类</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">DOM编程和操作跨线程</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-03-07T15:21:33-08:00'>
+              March 7, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/javascript/">JavaScript</a>
+      <span class="separator">•</span>
+    <a href="http://zhixiukang.com/tags/javascript%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3/">JavaScript编程接口</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h1 id="heading">获取任意元素</h1>
+<h2 id="api">有很多API</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">window</span>.idxxx <span style="color:#007f7f">// 或者直接idxxx
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">document</span>.getElementById(<span style="color:#0ff;font-weight:bold">&#34;idxxx&#34;</span>)
+<span style="color:#fff;font-weight:bold">document</span>.getElementsByTagName(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>)[<span style="color:#ff0;font-weight:bold">0</span>]
+<span style="color:#fff;font-weight:bold">document</span>.getElementsByClassName(<span style="color:#0ff;font-weight:bold">&#34;red&#34;</span>)[<span style="color:#ff0;font-weight:bold">0</span>]
+<span style="color:#fff;font-weight:bold">document</span>.querySelector(<span style="color:#0ff;font-weight:bold">&#34;#idxxx&#34;</span>) <span style="color:#007f7f">// 记得加#
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">document</span>.querySelectorAll(<span style="color:#0ff;font-weight:bold">&#34;.red&#34;</span>)[<span style="color:#ff0;font-weight:bold">0</span>]
+</code></pre></div><h2 id="heading-1">用哪一个</h2>
+<blockquote>
+<p>工作中用<code>querySelector</code>和<code>querySelectorAll</code></p>
+<p>例子:<code>document.querySelectorAll('div&gt;span:nth-child(2)')</code></p>
+</blockquote>
+<blockquote>
+<p>做demo直接用<code>idxxx</code>，千万别让人发现hhh</p>
+</blockquote>
+<blockquote>
+<p>要兼容IE的可怜虫才用<code>getElement(s)ByXXX</code></p>
+</blockquote>
+<h1 id="heading-2">获取特定元素</h1>
+<h2 id="html">获取html元素</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.documentElement
+</code></pre></div><h2 id="head">获取head元素</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.head
+</code></pre></div><h2 id="body">获取body元素</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.body
+</code></pre></div><h2 id="heading-3">获取窗口</h2>
+<blockquote>
+<p>窗口不是元素</p>
+</blockquote>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">window</span>
+</code></pre></div><h2 id="heading-4">获取所有元素</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.all <span style="color:#007f7f">// false 
+</span></code></pre></div><blockquote>
+<p>这个document.all是个奇葩，第6个falsy值。原因是过去用来判断是否是IE浏览器。</p>
+</blockquote>
+<h1 id="6">元素的6层原型链</h1>
+<h2 id="div">抓一只div对象来看看</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.dir(div1) <span style="color:#007f7f">// 查看原型链
+</span></code></pre></div><blockquote>
+<p>Chrome显示错了</p>
+</blockquote>
+<ul>
+<li>自身属性: <code>className</code>、<code>id</code>、<code>style</code>等等</li>
+<li>第一层原型<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLDivElement">HTMLDivElement.prototype</a></li>
+</ul>
+<blockquote>
+<p>这里面是所有div共有的属性，不用细看</p>
+</blockquote>
+<ul>
+<li>第二层原型<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement">HTMLElement.prototype</a></li>
+</ul>
+<blockquote>
+<p>这里面是所有HTML标签共有的属性，不用细看</p>
+</blockquote>
+<ul>
+<li>第三层原型<code>Element.prototype</code></li>
+</ul>
+<blockquote>
+<p>这里面是所有HTML标签共有的属性，你不会以为浏览器只能展示HTML吧</p>
+</blockquote>
+<ul>
+<li>第四层原型<code>Node.prototype</code></li>
+</ul>
+<blockquote>
+<p>这里面是所有节点共有的属性，节点包括XML标签文本注释、HTML标签文本注释等等</p>
+</blockquote>
+<ul>
+<li>第五层原型<code>EventTarget.prototype</code></li>
+</ul>
+<blockquote>
+<p>里面最重要的函数属性是<code>addEventListener</code></p>
+</blockquote>
+<ul>
+<li>最后一层原型就是<code>Object.prototype</code>了</li>
+</ul>
+<h2 id="div-1">div原型链</h2>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-2018.45.47.png" alt=""></p>
+<blockquote>
+<p>节点和元素的区别: 节点Node包括(Element和Text等)：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType">Node.nodeType - Web API 接口参考 | MDN</a></p>
+</blockquote>
+<h1 id="heading-5">元素的增删改查</h1>
+<h2 id="heading-6">增</h2>
+<ul>
+<li>创建一个标签节点</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> div1 = <span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>);
+<span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;style&#34;</span>);
+<span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;script&#34;</span>);
+<span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;li&#34;</span>);
+</code></pre></div><ul>
+<li>创建一个文本节点</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">text1 = <span style="color:#fff;font-weight:bold">document</span>.createTextNode(<span style="color:#0ff;font-weight:bold">&#34;Hi there&#34;</span>);
+</code></pre></div><ul>
+<li>标签里面插入文本</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">div1.appendChild(text1);
+div1.innerText = <span style="color:#0ff;font-weight:bold">&#34;Hi there&#34;</span>; <span style="color:#007f7f">// 或者 div1.textContent = &#39;Hi there&#39;
+</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 但是不能用 div1.appendChild(‘Hi there’)
+</span></code></pre></div><ul>
+<li>插入页面中</li>
+</ul>
+<blockquote>
+<p>你创建的标签默认处于JS线程中,你必须把它插到head或者body里面，它才会生效</p>
+</blockquote>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.body.appendChild(div)
+<span style="color:#007f7f">// 或者 已在页面中的元素.appendChild(div)
+</span></code></pre></div><h2 id="heading-7">删</h2>
+<ul>
+<li>两种方法</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 旧方法
+</span><span style="color:#007f7f"></span>parentNode.removeChild(childNode); <span style="color:#007f7f">// 用父节点删子节点，很傻
+</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 新方法
+</span><span style="color:#007f7f"></span>childNode.remove();
+</code></pre></div><blockquote>
+<p>如果一个node被移出页面(DOM树)，那么它还可以再次回到页面中吗？可以，自己试试。</p>
+</blockquote>
+<h2 id="heading-8">改</h2>
+<h3 id="heading-9">改属性</h3>
+<ul>
+<li>写标准属性</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 改class
+</span><span style="color:#007f7f"></span>div.className = <span style="color:#0ff;font-weight:bold">&#34;red blue&#34;</span>; <span style="color:#007f7f">// 全覆盖, 旧的
+</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 改class
+</span><span style="color:#007f7f"></span>div.classList.add(<span style="color:#0ff;font-weight:bold">&#34;red&#34;</span>);
+<span style="color:#007f7f">// 改style
+</span><span style="color:#007f7f"></span>div.style = <span style="color:#0ff;font-weight:bold">&#34;width:100px;color:blue&#34;</span>; <span style="color:#007f7f">// 旧的
+</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 改style的一部分
+</span><span style="color:#007f7f"></span>div.style.width = <span style="color:#0ff;font-weight:bold">&#34;200px&#34;</span>;
+<span style="color:#007f7f">// 注意大小写
+</span><span style="color:#007f7f"></span>div.style.backgroundColor = <span style="color:#0ff;font-weight:bold">&#34;white&#34;</span>;
+<span style="color:#007f7f">// 改data-*属性, 旧的
+</span><span style="color:#007f7f"></span>div.setAttribute(<span style="color:#0ff;font-weight:bold">&#34;data-x&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;test&#34;</span>);
+div.getAttribute(<span style="color:#0ff;font-weight:bold">&#39;data-x&#39;</span>)
+div.dataset.x; 
+div.dataset.x = <span style="color:#0ff;font-weight:bold">&#34;Alice&#34;</span>;
+</code></pre></div><ul>
+<li>读标准属性</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">div.classList; <span style="color:#007f7f">// 或者 a.href
+</span><span style="color:#007f7f"></span>div.getAttribute(<span style="color:#0ff;font-weight:bold">&#34;class&#34;</span>); <span style="color:#007f7f">// 或者 a.getAttribute(&#34;href&#34;) 
+</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 第二种方法可以确保获得你想要的，比较保险
+</span></code></pre></div><blockquote>
+<p>两种方法都可以，但值可能稍微有些不同</p>
+</blockquote>
+<h3 id="heading-10">改事件处理函数</h3>
+<ul>
+<li><code>div.onclick</code>默认为<code>null</code></li>
+</ul>
+<blockquote>
+<p>默认点击<code>div</code>不会有任何事情发生，但是如果你把<code>div.onclick</code>改为一个函数<code>fn</code>，那么点击<code>div</code>的时候，浏览器就会调用这个函数，并且是这样调用的:<code> fn.call(div, event)</code></p>
+<p><code>div</code>会被当做<code>this</code>，<code>event</code>则包含了点击事件的所有信息，如坐标</p>
+</blockquote>
+<ul>
+<li><code>div.addEventListener</code></li>
+</ul>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener">EventTarget.addEventListener() | MDN</a></p>
+</blockquote>
+<h3 id="heading-11">改内容</h3>
+<ul>
+<li>改文本内容</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">div.innerText = <span style="color:#0ff;font-weight:bold">&#34;xxx&#34;</span>;
+div.textContent = <span style="color:#0ff;font-weight:bold">&#34;xxx&#34;</span>;
+</code></pre></div><blockquote>
+<p>两者几乎没有区别</p>
+</blockquote>
+<ul>
+<li>改HTML内容</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">div.innerHTML = <span style="color:#0ff;font-weight:bold">&#34;&lt;strong&gt;content here&lt;/strong&gt;&#34;</span>;
+</code></pre></div><ul>
+<li>改标签</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">div.innerHTML = <span style="color:#0ff;font-weight:bold">&#39;&#39;</span><span style="color:#007f7f">// 先清空
+</span><span style="color:#007f7f"></span>div.appendChild(div2) <span style="color:#007f7f">// 再加内容
+</span></code></pre></div><h3 id="heading-12">改父节点</h3>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">newParent.appendChild(div);
+</code></pre></div><h2 id="heading-13">查</h2>
+<ul>
+<li>查父节点</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">node.parentNode; <span style="color:#007f7f">// 或者 node.parentElement
+</span></code></pre></div><ul>
+<li>查祖先节点</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">node.parentNode.parentNode;
+</code></pre></div><ul>
+<li>查子节点</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">node.childNodes; <span style="color:#007f7f">// 或者node.children
+</span></code></pre></div><blockquote>
+<p>区别: 前面是包括文本节点的，后面是不包括文本节点的</p>
+</blockquote>
+<ul>
+<li>查兄弟节点</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">node.parentNode.childNodes; <span style="color:#007f7f">// 还要排除自己
+</span><span style="color:#007f7f"></span>node.parentNode.children; <span style="color:#007f7f">// 还要排除自己
+</span></code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> siblings = [];
+<span style="color:#fff;font-weight:bold">let</span> arr = div2.parentElement.children; <span style="color:#007f7f">// 获得所有子节点
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; c.length; i++) {
+  <span style="color:#fff;font-weight:bold">if</span> (arr[i] !== div2) {
+    <span style="color:#007f7f">// 排除自己
+</span><span style="color:#007f7f"></span>    sibling.push(arr[i]); 
+  }
+}
+</code></pre></div><ul>
+<li>查找首尾节点和其他特定兄弟节点</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">node.firstChild; <span style="color:#007f7f">// 查首节点
+</span><span style="color:#007f7f"></span>node.lastChild; <span style="color:#007f7f">// 查尾节点
+</span><span style="color:#007f7f"></span>node.previousSibling; <span style="color:#007f7f">// 查上一个兄弟节点
+</span><span style="color:#007f7f"></span>node.nextSibling; <span style="color:#007f7f">// 查下一个兄弟节点
+</span></code></pre></div><ul>
+<li>遍历一个div里面的所有元素</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">travel = (node, fn) =&gt; {
+  fn(node);
+  <span style="color:#fff;font-weight:bold">if</span> (node.children) {
+    <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; node.children.length; i++) {
+      travel(node.children[i], fn);
+    }
+  }
+};
+travel(div1, (node) =&gt; console.log(node));
+</code></pre></div><h1 id="dom">DOM操作跨线程</h1>
+<h2 id="heading-14">跨线程操作</h2>
+<h3 id="heading-15">各线程各司其职</h3>
+<ul>
+<li>JS引擎不能操作页面，只能操作JS</li>
+<li>渲染引擎不能操作JS，只能操作页面</li>
+</ul>
+<h3 id="heading-16">跨线程通信</h3>
+<blockquote>
+<p><code>document.body.appendChild(div1)</code>这句话是如何改变页面的？</p>
+</blockquote>
+<ul>
+<li>当浏览器发现JS在body里面加了个div1对象</li>
+<li>浏览器就会通知渲染引擎在页面里也新增一个div元素</li>
+<li>新增的div元素所有属性都照抄div1对象</li>
+</ul>
+<h3 id="heading-17">图示跨线程操作</h3>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-2022.12.13.png" alt=""></p>
+<h2 id="heading-18">插入新标签的完整过程</h2>
+<h3 id="div1">在div1放入页面之前</h3>
+<ul>
+<li>你对div1所有的操作都属于JS线程内的操作</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> div1 = <span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#39;div&#39;</span>)
+div1.textContent = <span style="color:#0ff;font-weight:bold">&#39;hi&#39;</span>
+</code></pre></div><h3 id="div1-1">把div1放入页面之时</h3>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.body.appendChild(div1)
+</code></pre></div><ul>
+<li>浏览器会发现JS的意图，就会通知渲染线程在页面中渲染div1对应的元素</li>
+</ul>
+<h3 id="div1-2">把div1放入页面之后</h3>
+<ul>
+<li>你对div1的操作都有可能会触发重新渲染</li>
+<li>如果你连续对div1多次操作，浏览器可能会合并成一次操作，也可能不会，详情见之前的博客: <a href="http://zhixiukang.com/posts/browser-rendering/">CSS动画的原理和浏览器渲染原理</a></li>
+</ul>
+<blockquote>
+<p>启示: 可以用'看似无用的代码&rsquo;, 比如获取一下页面的width, 强制浏览器多次渲染。</p>
+</blockquote>
+<h2 id="heading-19">属性同步</h2>
+<h3 id="heading-20">标准属性</h3>
+<ul>
+<li>对div1的标准属性的修改，会被浏览器同步到页面中，比如<code>id</code>、<code>className</code>、<code>title</code>等</li>
+</ul>
+<h3 id="data-">data-*属性</h3>
+<blockquote>
+<p>同上</p>
+</blockquote>
+<h3 id="heading-21">非标准属性</h3>
+<ul>
+<li>对非标准属性的修改，则只会停留在JS线程中,不会同步到页面里</li>
+</ul>
+<blockquote>
+<p>比如属性: <a href="http://js.jirengu.com/zepiyucuxu/1/edit">示例代码</a></p>
+</blockquote>
+<h3 id="heading-22">启示</h3>
+<ul>
+<li>如果你有自定义属性，又想被同步到页面中，请使用<code>data-</code>作为前缀</li>
+</ul>
+<h3 id="heading-23">图示</h3>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-2022.24.45.png" alt=""></p>
+<blockquote>
+<p>左边的在<code>JS</code>里的属性，叫做<code>properties</code>，右边的在<code>HTML</code>里的属性，叫做<code>attributes</code>。</p>
+<p>所以我们<code>getAttributes()</code>获取的是页面中的属性。</p>
+</blockquote>
+<h2 id="property-vs-attribute">Property v.s. Attribute</h2>
+<h3 id="property">property属性</h3>
+<ul>
+<li>JS线程中div1对象的所有属性，叫做div1的property</li>
+</ul>
+<h3 id="attribute">attribute也是属性</h3>
+<ul>
+<li>渲染引擎中div1对应标签的属性，叫做attribute</li>
+</ul>
+<h3 id="heading-24">区别</h3>
+<ul>
+<li>大部分时候，同名的property和attribute值相等</li>
+<li>但如果不是标准属性（把div1放入页面之后只有标准属性会同步），那么它俩只会在一开始时相等</li>
+<li>但注意attribute只支持字符串</li>
+<li>而property支持字符串、布尔等类型</li>
+</ul>
+<blockquote>
+<p>网上都说 DOM 操作慢，实际上只是比 JS 操作慢，DOM 操作比网络请求还是快很多的。</p>
+<p>关于这一部分内容，延伸阅读: <a href="https://stackoverflow.com/questions/6817093/but-whys-the-browser-dom-still-so-slow-after-10-years-of-effort">Why’s the browser DOM still so slow after 10 years of effort</a></p>
+<p>注意，网上的文章说的不一定都是对的，作为参考了解一下即可。</p>
+</blockquote>
+<blockquote>
+<p>Q: 看了这么多，DOM默认的API真🐔儿难用，怎么办？</p>
+<p>A: 很简单，自己封装一个DOM库，自己试着造一个DOM轮子吧 :)</p>
+</blockquote>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

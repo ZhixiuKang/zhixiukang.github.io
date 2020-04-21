@@ -6,10 +6,29 @@
     <description>Recent content in JavaScript on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 05 Mar 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DOM编程和操作跨线程</title>
+      <link>http://zhixiukang.com/posts/dom-programming/</link>
+      <pubDate>Sat, 07 Mar 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/dom-programming/</guid>
+      <description>获取任意元素 有很多API window.idxxx // 或者直接idxxx document.getElementById(&amp;#34;idxxx&amp;#34;) document.getElementsByTagName(&amp;#34;div&amp;#34;)[0] document.getElementsByClassName(&amp;#34;red&amp;#34;)[0] document.querySelector(&amp;#34;#idxxx&amp;#34;) // 记得加# document.querySelectorAll(&amp;#34;.red&amp;#34;)[0] 用哪一个  工作中用querySelector和querySelectorAll
+例子:document.querySelectorAll(&#39;div&amp;gt;span:nth-child(2)&#39;)
+  做demo直接用idxxx，千万别让人发现hhh
+  要兼容IE的可怜虫才用getElement(s)ByXXX
+ 获取特定元素 获取html元素 document.documentElement 获取head元素 document.head 获取body元素 document.body 获取窗口  窗口不是元素
+ window 获取所有元素 document.all // false  这个document.all是个奇葩，第6个falsy值。原因是过去用来判断是否是IE浏览器。
+ 元素的6层原型链 抓一只div对象来看看 console.dir(div1) // 查看原型链  Chrome显示错了
+  自身属性: className、id、style等等 第一层原型HTMLDivElement.prototype   这里面是所有div共有的属性，不用细看
+  第二层原型HTMLElement.prototype   这里面是所有HTML标签共有的属性，不用细看
+  第三层原型Element.prototype   这里面是所有HTML标签共有的属性，你不会以为浏览器只能展示HTML吧
+  第四层原型Node.</description>
+    </item>
     
     <item>
       <title>JS总结</title>
