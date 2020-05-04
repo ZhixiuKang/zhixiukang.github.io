@@ -13,12 +13,14 @@
 <meta name="twitter:title" content="购买域名及配置DNS和GitHub Pages"/>
 <meta name="twitter:description" content="购买域名 进入NameSilo，输入自己想要的域名并购买。
 配置 DNS 和 GitHub Pages 购买后，进入右上角Manage My Domains查看自己的域名。 点击 manage DNS(小地球)
- 打开 github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain 填入自己的域名并 save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了 HTTPS，那么和这个网站相关的所有网站你都要用 HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这 4 条 A record 根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。 上述过程依次完成后，Mac 用户通过:  dig noall answer #userdomain."/>
+ 打开 github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain 填入自己的域名并 save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了 HTTPS，那么和这个网站相关的所有网站你都要用 HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这 4 条 A record 根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。
+ 上述过程依次完成后，Mac 用户通过:  dig noall answer #userdomain."/>
 
     <meta property="og:title" content="购买域名及配置DNS和GitHub Pages" />
 <meta property="og:description" content="购买域名 进入NameSilo，输入自己想要的域名并购买。
 配置 DNS 和 GitHub Pages 购买后，进入右上角Manage My Domains查看自己的域名。 点击 manage DNS(小地球)
- 打开 github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain 填入自己的域名并 save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了 HTTPS，那么和这个网站相关的所有网站你都要用 HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这 4 条 A record 根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。 上述过程依次完成后，Mac 用户通过:  dig noall answer #userdomain." />
+ 打开 github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain 填入自己的域名并 save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了 HTTPS，那么和这个网站相关的所有网站你都要用 HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这 4 条 A record 根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。
+ 上述过程依次完成后，Mac 用户通过:  dig noall answer #userdomain." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/how-to-buy-domain/" />
 <meta property="article:published_time" content="2020-01-05T18:56:33-08:00" />
@@ -145,10 +147,15 @@
 <img src="http://zhixiukang.com/images/learn-more.png" alt="">
 并进入<code>Managing a custom domain for your GitHub Pages Site</code>. 找到<code>Configuring an apex domain</code>里的<code>4 A records</code>。
 <img src="http://zhixiukang.com/images/configure-apex-domain.png" alt="">
-<code>// 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X</code>
-回到<code>namesilo.com</code>中的<code>Manage DNS</code>页面,
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// 这里注意每个人的ip都不一样，根据自己显示的ip来操作 
+18X.XXX.XXX.15X 
+18X.XXX.XXX.15X 
+18X.XXX.XXX.15X 
+18X.XXX.XXX.15X
+</code></pre></div><p>回到<code>namesilo.com</code>中的<code>Manage DNS</code>页面,
 <img src="http://zhixiukang.com/images/add-a-record.png" alt="">
-Add A record, 这 4 条 A record 根据上面的<code>4 A records</code>来填写，<code>hostname</code>不填, <code>IPV4 ADDRESS</code>为上图中的<code>IP</code>, <code>TTL</code>不用更改。</li>
+Add A record, 这 4 条 A record 根据上面的<code>4 A records</code>来填写，<code>hostname</code>不填, <code>IPV4 ADDRESS</code>为上图中的<code>IP</code>, <code>TTL</code>不用更改。</p>
+</li>
 <li>上述过程依次完成后，Mac 用户通过:</li>
 </ol>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> dig noall answer #userdomain.com

@@ -19,7 +19,8 @@
       <guid>http://zhixiukang.com/posts/how-to-buy-domain/</guid>
       <description>购买域名 进入NameSilo，输入自己想要的域名并购买。
 配置 DNS 和 GitHub Pages 购买后，进入右上角Manage My Domains查看自己的域名。 点击 manage DNS(小地球)
- 打开 github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain 填入自己的域名并 save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了 HTTPS，那么和这个网站相关的所有网站你都要用 HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这 4 条 A record 根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。 上述过程依次完成后，Mac 用户通过:  dig noall answer #userdomain.</description>
+ 打开 github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain 填入自己的域名并 save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了 HTTPS，那么和这个网站相关的所有网站你都要用 HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这 4 条 A record 根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。
+ 上述过程依次完成后，Mac 用户通过:  dig noall answer #userdomain.</description>
     </item>
     
     <item>

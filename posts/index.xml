@@ -6,10 +6,23 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 09 Mar 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="http://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AJAX的原理和加载JSON</title>
+      <link>http://zhixiukang.com/posts/ajax-principles-and-load-json-with-ajax/</link>
+      <pubDate>Wed, 11 Mar 2020 15:21:33 -0800</pubDate>
+      
+      <guid>http://zhixiukang.com/posts/ajax-principles-and-load-json-with-ajax/</guid>
+      <description>AJAX(Async JavaScript And XML) → 用JS发请求和收响应
+ 让我们通过使用AJAX来加载CSS、JavaScript、HTML、XML和JSON，学会AJAX的原理和用法。
+ 示例代码
+ 背景 AJAX是浏览器上的功能  浏览器可以发请求，收响应 浏览器在window上加了一个XMLHttpRequest函数 用这个构造函数(类)可以构造出一个对象 JS通过它实现发请求，收响应   小工具:node-dev
+ 准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &amp;#34;/index.html&amp;#34;) { response.statusCode = 200; response.setHeader(&amp;#34;Content-Type&amp;#34;, &amp;#34;text/html;charset=utf-8&amp;#34;); response.write(`&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt;&amp;lt;title&amp;gt;ajax&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt; &amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;AJAX demo&amp;lt;/h1&amp;gt; &amp;lt;script src=&amp;#34;/main.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; `); response.end(); } else if (path === &amp;#34;/main.js&amp;#34;) { response.statusCode = 200; response.setHeader(&amp;#34;Content-Type&amp;#34;, &amp;#34;text/css;charset=utf-8&amp;#34;); response.write(`console.log(&amp;#34;I am main.js&amp;#34;)`); response.end(); } 挑战1-加载CSS  以前我们用&amp;lt;link rel=stylesheet href=&amp;quot;1.</description>
+    </item>
     
     <item>
       <title>jQuery 中的设计模式和思想</title>
@@ -369,7 +382,8 @@ parcel #filename.suffix
       <guid>http://zhixiukang.com/posts/how-to-buy-domain/</guid>
       <description>购买域名 进入NameSilo，输入自己想要的域名并购买。
 配置 DNS 和 GitHub Pages 购买后，进入右上角Manage My Domains查看自己的域名。 点击 manage DNS(小地球)
- 打开 github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain 填入自己的域名并 save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了 HTTPS，那么和这个网站相关的所有网站你都要用 HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这 4 条 A record 根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。 上述过程依次完成后，Mac 用户通过:  dig noall answer #userdomain.</description>
+ 打开 github，进入#username.github.io这个项目，进入Settings，拉到最下面, Custom Demain 填入自己的域名并 save。 这个时候回到自己的仓库，发现多了一个CNAME的文件。这个CNAME文件实际上是记录了你刚才填的域名。 回到Settings，将&#39;Enforce HTTPS&#39;取消勾选。原因：方便测试。如果你勾选了 HTTPS，那么和这个网站相关的所有网站你都要用 HTTPS，非常的不方便。建议新手不要勾选。 点击下图中的Learn more。 并进入Managing a custom domain for your GitHub Pages Site. 找到Configuring an apex domain里的4 A records。 // 这里注意每个人的ip都不一样，根据自己显示的ip来操作 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 18X.XXX.XXX.15X 回到namesilo.com中的Manage DNS页面, Add A record, 这 4 条 A record 根据上面的4 A records来填写，hostname不填, IPV4 ADDRESS为上图中的IP, TTL不用更改。
+ 上述过程依次完成后，Mac 用户通过:  dig noall answer #userdomain.</description>
     </item>
     
     <item>
