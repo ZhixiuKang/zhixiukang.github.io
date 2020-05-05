@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="Zhixiu Kang, 康知修, 修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="异步、回调和Promise"/>
+<meta name="twitter:description" content="JS 异步编程模型
+ 同步、异步、轮询和回调 如果能直接拿到结果  那就是同步 比如你在医院挂号，你拿到号才会离开窗口 同步任务可能消耗 10 毫秒，也可能需要 3 秒 总之不拿到结果你是不会离开的  如果不能直接拿到结果  那就是异步 比如你在餐厅等位置，你拿到号可以去逛街 什么时候才能真正吃饭呢？ 你可以每 10 分钟去餐厅问一下(轮询) 你也可以扫码用微信接收通知(回调)  异步举例 以 AJAX 为例  request.send()之后，并不能直接得到response  不信console.log(request.response)试试
+  必须等到readyState变为4后，浏览器回头调用request.onreadystatechange函数 我们才能得到request.response 这跟餐厅给你发送微信提醒的过程是类似的  回调 callback  你写给自己用的函数，不是回调 你写给别人用的函数，就是回调 request.onreadystatechange就是我写给浏览器调用的 意思就是你(浏览器)回头调用一下这个函数  在中文里，’回头’ 也有 &lsquo;将来&rsquo; 的意思, 如 ‘我回头请你吃饭’
+   回调举例 把函数 1 给另一个函数 2 function f1() {} function f2(fn) { fn(); } f2(f1); 分析  Q: 我调用f1没有？A: 没有调用 Q: 我把f1传给f2(别人)了没有？A: 传了 Q: f2调用f1了没有？A: f2调用了f1 Q: 那么，f1是不是我写给f2调用的函数？A: 是   所以，f1是回调"/>
+
+    <meta property="og:title" content="异步、回调和Promise" />
+<meta property="og:description" content="JS 异步编程模型
+ 同步、异步、轮询和回调 如果能直接拿到结果  那就是同步 比如你在医院挂号，你拿到号才会离开窗口 同步任务可能消耗 10 毫秒，也可能需要 3 秒 总之不拿到结果你是不会离开的  如果不能直接拿到结果  那就是异步 比如你在餐厅等位置，你拿到号可以去逛街 什么时候才能真正吃饭呢？ 你可以每 10 分钟去餐厅问一下(轮询) 你也可以扫码用微信接收通知(回调)  异步举例 以 AJAX 为例  request.send()之后，并不能直接得到response  不信console.log(request.response)试试
+  必须等到readyState变为4后，浏览器回头调用request.onreadystatechange函数 我们才能得到request.response 这跟餐厅给你发送微信提醒的过程是类似的  回调 callback  你写给自己用的函数，不是回调 你写给别人用的函数，就是回调 request.onreadystatechange就是我写给浏览器调用的 意思就是你(浏览器)回头调用一下这个函数  在中文里，’回头’ 也有 &lsquo;将来&rsquo; 的意思, 如 ‘我回头请你吃饭’
+   回调举例 把函数 1 给另一个函数 2 function f1() {} function f2(fn) { fn(); } f2(f1); 分析  Q: 我调用f1没有？A: 没有调用 Q: 我把f1传给f2(别人)了没有？A: 传了 Q: f2调用f1了没有？A: f2调用了f1 Q: 那么，f1是不是我写给f2调用的函数？A: 是   所以，f1是回调" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/asynchronous-and-callback-and-promise/" />
+<meta property="article:published_time" content="2020-03-15T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-03-15T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/asynchronous-and-callback-and-promise/">
+    
+    <title>
+异步、回调和Promise · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/asynchronous-and-callback-and-promise/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/tags/">分类</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">异步、回调和Promise</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-03-15T15:21:33-08:00'>
+              March 15, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB/">前后分离</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <blockquote>
+<p>JS 异步编程模型</p>
+</blockquote>
+<h1 id="heading">同步、异步、轮询和回调</h1>
+<h2 id="heading-1">如果能直接拿到结果</h2>
+<ul>
+<li>那就是同步</li>
+<li>比如你在医院挂号，你拿到号才会离开窗口</li>
+<li>同步任务可能消耗 10 毫秒，也可能需要 3 秒</li>
+<li>总之不拿到结果你是不会离开的</li>
+</ul>
+<h2 id="heading-2">如果不能直接拿到结果</h2>
+<ul>
+<li>那就是异步</li>
+<li>比如你在餐厅等位置，你拿到号可以去逛街</li>
+<li>什么时候才能真正吃饭呢？</li>
+<li>你可以每 10 分钟去餐厅问一下(轮询)</li>
+<li>你也可以扫码用微信接收通知(回调)</li>
+</ul>
+<h1 id="heading-3">异步举例</h1>
+<h2 id="-ajax-">以 AJAX 为例</h2>
+<ul>
+<li><code>request.send()</code>之后，并不能直接得到<code>response</code>
+<blockquote>
+<p>不信<code>console.log(request.response)</code>试试</p>
+</blockquote>
+</li>
+<li>必须等到<code>readyState</code>变为<code>4</code>后，浏览器<strong>回</strong>头<strong>调</strong>用<code>request.onreadystatechange</code>函数</li>
+<li>我们才能得到<code>request.response</code></li>
+<li>这跟餐厅给你发送微信提醒的过程是类似的</li>
+</ul>
+<h2 id="-callback">回调 callback</h2>
+<ul>
+<li>你写给自己用的函数，不是回调</li>
+<li>你写给别人用的函数，就是回调</li>
+<li><code>request.onreadystatechange</code>就是我写给浏览器调用的</li>
+<li>意思就是你(浏览器)回头调用一下这个函数
+<blockquote>
+<p>在中文里，’回头’ 也有 &lsquo;将来&rsquo; 的意思, 如 ‘我回头请你吃饭’</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="heading-4">回调举例</h1>
+<h2 id="-1--2">把函数 1 给另一个函数 2</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> f1() {}
+<span style="color:#fff;font-weight:bold">function</span> f2(fn) {
+  fn();
+}
+f2(f1);
+</code></pre></div><h2 id="heading-5">分析</h2>
+<ol>
+<li>Q: 我调用<code>f1</code>没有？A: 没有调用</li>
+<li>Q: 我把<code>f1</code>传给<code>f2</code>(别人)了没有？A: 传了</li>
+<li>Q: <code>f2</code>调用<code>f1</code>了没有？A: <code>f2</code>调用了<code>f1</code></li>
+<li>Q: 那么，<code>f1</code>是不是我写给<code>f2</code>调用的函数？A: 是</li>
+</ol>
+<blockquote>
+<p>所以，<code>f1</code>是回调</p>
+</blockquote>
+<h2 id="heading-6">抬杠</h2>
+<ul>
+<li>Q: 如果<code>f2</code>没有调用<code>f1</code>呢？</li>
+<li>A: <code>f2</code>有病啊？它不调用<code>f1</code>那它为什么要接收<code>fn</code>参数</li>
+</ul>
+<h1 id="heading-7">异步和回调的关系</h1>
+<h2 id="heading-8">关联</h2>
+<ul>
+<li>异步任务需要在得到结果时通知 JS 来拿结果</li>
+<li>怎么通知呢？</li>
+<li>可以让 JS 留一个函数地址(电话号码)给浏览器</li>
+<li>异步任务完成时浏览器调用该函数地址即可(拨打电话)</li>
+<li>同时把结果作为参数传给该函数(电话里说可以来吃了)</li>
+<li>这个函数是我写给浏览器调用的，所以是回调函数</li>
+</ul>
+<blockquote>
+<p>回调就是我们先把一个函数留给它，等它完成了它就会调这个函数，调的时候它会把结果放到函数的参数里，这样就可以实现异步的通知。</p>
+</blockquote>
+<h2 id="heading-9">区别</h2>
+<ul>
+<li>异步任务需要用到回调函数来通知结果</li>
+</ul>
+<blockquote>
+<p>但它不一定非要用回调函数，它也可以用轮询</p>
+</blockquote>
+<ul>
+<li>回调函数不一定只用在异步任务里,回调可以用到同步任务里</li>
+</ul>
+<blockquote>
+<p><code>array.forEach(n=&gt;console.log(n))</code>就是同步回调</p>
+</blockquote>
+<blockquote>
+<p>异步不一定要用到回调，回调也不一定要用到异步里。异步和回调他们两个只是合作关系。</p>
+</blockquote>
+<h1 id="heading-10">判断同步异步</h1>
+<h2 id="heading-11">判断一个函数的返回值是否处于</h2>
+<ul>
+<li><code>setTimeout</code></li>
+<li><code>AJAX</code>(即<code>XMLHttpRequest</code>)</li>
+<li><code>AddEventListener</code></li>
+</ul>
+<blockquote>
+<p>如果一个函数的返回值处于这三个东西内部，那么这个函数就是异步函数</p>
+</blockquote>
+<blockquote>
+<p>如果还有其他 API 是异步的，之后的博客会另行说明</p>
+</blockquote>
+<h2 id="heading-12">等一下</h2>
+<blockquote>
+<p>Q: 我听说 AJAX 可以设置为同步的</p>
+<p>A: 傻*前端才把 AJAX 设置为同步的，因为这样做会使请求期间页面卡住</p>
+</blockquote>
+<h2 id="heading-13">总结</h2>
+<ul>
+<li>异步任务不能拿到结果</li>
+<li>于是我们传一个回调给异步任务</li>
+<li>异步任务完成时调用回调</li>
+<li>调用的时候把结果作为参数</li>
+</ul>
+<blockquote>
+<p>扩展阅读: <a href="https://juejin.im/post/5c6fab02e51d453eb7801914">高频网红面试题’1’,’2&rsquo;,&lsquo;3&rsquo;.map(parseInt) 原理解析 - 掘金</a></p>
+<p><a href="http://www.wirfs-brock.com/allen/posts/166">A JavaScript Optional Argument Hazard</a></p>
+</blockquote>
+<hr>
+<h1 id="promise">Promise(前端解决异步问题的统一方案)</h1>
+<blockquote>
+<p>进一步思考: 如果异步任务有两个结果成功或失败，怎么办？</p>
+</blockquote>
+<h2 id="heading-14">两个结果</h2>
+<ul>
+<li>方法一: 回调接收两个参数</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">fs.readFile(<span style="color:#0ff;font-weight:bold">&#34;./1.txt&#34;</span>, (error, data) =&gt; {
+  <span style="color:#fff;font-weight:bold">if</span> (error) {
+    console.log(<span style="color:#0ff;font-weight:bold">&#34;失败&#34;</span>);
+    <span style="color:#fff;font-weight:bold">return</span>;
+  }
+  console.log(data.toString()); <span style="color:#007f7f">// 成功
+</span><span style="color:#007f7f"></span>});
+</code></pre></div><ul>
+<li>方法二: 搞两个回调</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">ajax(
+  <span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>,
+  <span style="color:#0ff;font-weight:bold">&#34;/1.json&#34;</span>,
+  (data) =&gt; {},
+  (error) =&gt; {}
+);
+<span style="color:#007f7f">// 前面函数是成功回调，后面函数是失败回调
+</span><span style="color:#007f7f"></span>
+ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/1.json&#34;</span>, {
+  success: () =&gt; {},
+  fail: () =&gt; {},
+});
+<span style="color:#007f7f">// 接收一个对象，对象有两个key表示成功和失败
+</span></code></pre></div><h2 id="heading-15">这些方法的不足</h2>
+<ol>
+<li>不规范，成功回调和失败回调的名称五花八门，比如 success+error、success+fail、done+fail</li>
+<li>容易出现回调地狱(callback hell)，代码变得看不懂</li>
+<li>很难进行错误处理</li>
+</ol>
+<blockquote>
+<p>A guide to writing asynchronous JavaScript programs: <a href="http://callbackhell.com/">Callback Hell</a></p>
+</blockquote>
+<h2 id="heading-16">怎么解决回调问题</h2>
+<ul>
+<li>1976 年，Daniel P.Friedman 和 David Wise 提出 Promise 思想</li>
+<li>后人基于此发明了 Future、Delay、Deferred 等</li>
+<li>前端结合 Promise 和 JS，制定了<a href="https://www.ituring.com.cn/article/66566">Promise/A+ 规范</a></li>
+</ul>
+<blockquote>
+<p>该规范详细描述了 Promise 的原理和使用方法</p>
+</blockquote>
+<h2 id="-ajax--1">以 AJAX 的封装为例</h2>
+<blockquote>
+<p>来解释 Promise 的用法</p>
+</blockquote>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">ajax = (method, url, options) =&gt; {
+  <span style="color:#fff;font-weight:bold">const</span> { success, fail } = options; <span style="color:#007f7f">// 析构赋值
+</span><span style="color:#007f7f"></span>  <span style="color:#007f7f">// const success = options.success
+</span><span style="color:#007f7f"></span>  <span style="color:#007f7f">// const fail = options.fail
+</span><span style="color:#007f7f"></span>  <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
+  request.open(method, url);
+  request.onreadystatechange = () =&gt; {
+    <span style="color:#fff;font-weight:bold">if</span> (request.readyState === <span style="color:#ff0;font-weight:bold">4</span>) {
+      <span style="color:#007f7f">//成功就调用success，失败就调用fail
+</span><span style="color:#007f7f"></span>      <span style="color:#fff;font-weight:bold">if</span> (request.status &lt; <span style="color:#ff0;font-weight:bold">400</span>) {
+        success.call(<span style="color:#fff;font-weight:bold">null</span>, request.response);
+      } <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (request.status &gt;= <span style="color:#ff0;font-weight:bold">400</span>) {
+        fail.call(<span style="color:#fff;font-weight:bold">null</span>, request, request.status);
+      }
+    }
+  };
+  request.send();
+};
+
+ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/xxx&#34;</span>, {
+  success(response) {},
+  fail: (request, status) =&gt; {},
+}); <span style="color:#007f7f">// 左边是 function 缩写，右边是箭头函数
+</span></code></pre></div><h2 id="promise-">Promise 说这代码太傻了</h2>
+<blockquote>
+<p>因为这代码不规范、容易出现回调地狱和很难进行错误处理。所以太傻了。</p>
+</blockquote>
+<p>让我们改成 Promise 写法:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 先改一下调用的姿势
+</span><span style="color:#007f7f"></span>ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/xxx&#34;</span>, {
+  success(response) {},
+  fail: (request, status) =&gt; {},
+});
+<span style="color:#007f7f">// 上面用到了两个回调，还是用了success和fail
+</span><span style="color:#007f7f"></span>
+<span style="color:#007f7f">// 改成Promise写法
+</span><span style="color:#007f7f"></span>ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/xxx&#34;</span>).then(
+  (response) =&gt; {},
+  (request) =&gt; {}
+);
+</code></pre></div><blockquote>
+<p>虽然也是回调,但是不需要记 success 和 fail 了,then 的第一个参数就是 success,then 的第二个参数就是 fail</p>
+</blockquote>
+<blockquote>
+<p>Q: 请问<code>ajax()</code>返回了个啥？</p>
+<p>A: 返回了一个含有 .then() 方法的对象</p>
+</blockquote>
+<p>那么如何得到这个含有 .then() 的对象呢？</p>
+<p>那就要改造 ajax 的源码了:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 与之前的版本相比，改动的三行已经标出。
+</span><span style="color:#007f7f"></span>ajax = (method, url, options) =&gt; {
+  <span style="color:#007f7f">// 改动
+</span><span style="color:#007f7f"></span>  <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">new</span> <span style="color:#fff;font-weight:bold">Promise</span>((resolve, reject) =&gt; {
+    <span style="color:#fff;font-weight:bold">const</span> { success, fail } = options;
+    <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
+    request.open(method, url);
+    request.onreadystatechange = () =&gt; {
+      <span style="color:#fff;font-weight:bold">if</span> (request.readyState === <span style="color:#ff0;font-weight:bold">4</span>) {
+        <span style="color:#007f7f">//成功就调用success，失败就调用fail
+</span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">if</span> (request.status &lt; <span style="color:#ff0;font-weight:bold">400</span>) {
+          resolve.call(<span style="color:#fff;font-weight:bold">null</span>, request.response); <span style="color:#007f7f">// 改动
+</span><span style="color:#007f7f"></span>        } <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (request.status &gt;= <span style="color:#ff0;font-weight:bold">400</span>) {
+          reject.call(<span style="color:#fff;font-weight:bold">null</span>, request); <span style="color:#007f7f">// 改动
+</span><span style="color:#007f7f"></span>        }
+      }
+    };
+    request.send();
+  });
+};
+</code></pre></div><blockquote>
+<p>把这个形式背下来:<code>return new Promise((resolve,reject)=&gt;{})</code></p>
+</blockquote>
+<h2 id="heading-17">小结</h2>
+<h3 id="heading-18">第一步</h3>
+<ul>
+<li><code>return new Promise((resolve,reject)=&gt;{ ... })</code></li>
+<li>任务成功则调用<code>resolve(result)</code></li>
+<li>任务失败则调用<code>reject(error)</code></li>
+<li><code>resolve</code>和<code>reject</code>会再去调用成功和失败函数</li>
+</ul>
+<h3 id="heading-19">第二步</h3>
+<ul>
+<li>使用<code>.then(success, fail)</code>传入成功和失败函数</li>
+</ul>
+<blockquote>
+<p>Promise 的其他用法: <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises">使用 Promise | MDN</a></p>
+</blockquote>
+<h2 id="-ajax--2">我们封装的 ajax 的缺点</h2>
+<ul>
+<li>post 无法上传数据</li>
+</ul>
+<blockquote>
+<p><code>request.send(这里可以上传数据)</code></p>
+</blockquote>
+<ul>
+<li>不能设置请求头</li>
+</ul>
+<blockquote>
+<p><code>request.setRequestHeader(key, value)</code></p>
+</blockquote>
+<ul>
+<li>解决办法</li>
+</ul>
+<blockquote>
+<p>花时间把<code>ajax</code>写到完美(不推荐)</p>
+<p>使用<code>jQuery.ajax</code>(这个可以)</p>
+<p>使用<code>axios</code>(这个库比<code>jQuery</code>逼格高)</p>
+</blockquote>
+<h2 id="jqueryajax">jQuery.ajax</h2>
+<ul>
+<li>已经非常完美</li>
+</ul>
+<blockquote>
+<p><a href="https://www.jquery123.com/jQuery.ajax/">jQuery.ajax() - jQuery 中文文档</a></p>
+</blockquote>
+<ul>
+<li>封装优点</li>
+</ul>
+<blockquote>
+<p>支持更多形式的参数，Promise 等超多功能</p>
+</blockquote>
+<blockquote>
+<p>Q: 需要掌握<code>jQuery.ajax</code>吗？</p>
+<p>A: 不用，时代变了，现在用<code>axios</code>就好了:)</p>
+</blockquote>
+<h2 id="axios">axios</h2>
+<ul>
+<li>目前最新的 AJAX 库(显然它抄袭了 jQuery 的封装思路)</li>
+</ul>
+<blockquote>
+<p><code>axios</code> 的用法: <a href="https://juejin.im/post/5a9cddb46fb9a028bc2d3c2f">Axios Cheat Sheet</a></p>
+</blockquote>
+<ul>
+<li>代码示例</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">axios.get(<span style="color:#0ff;font-weight:bold">&#34;/5.json&#34;</span>).then((response) =&gt; console.log(response));
+</code></pre></div><h2 id="axios-">axios 高级用法</h2>
+<h3 id="json-">JSON 自动处理</h3>
+<ul>
+<li><code>axios</code>如果发现响应的<code>Content-Type</code>是<code>json</code>，就会自动调用<code>JSON.parse</code></li>
+</ul>
+<blockquote>
+<p>所以说正确设置 <code>Content-Type</code>是好习惯</p>
+</blockquote>
+<h3 id="heading-20">请求拦截器</h3>
+<ul>
+<li>你可以在所有请求里加些东西，比如加查询参数</li>
+</ul>
+<blockquote>
+<p>具体用法: <a href="https://github.com/axios/axios#interceptors">axios Interceptors - GitHub</a></p>
+</blockquote>
+<h3 id="heading-21">响应拦截器</h3>
+<ul>
+<li>你可以在所有响应里加些东西，甚至改内容</li>
+</ul>
+<h3 id="heading-22">可以生成不同实例(对象)</h3>
+<ul>
+<li>不同的实例可以设置不同的配置，用于复杂场景</li>
+</ul>
+<blockquote>
+<p>扩展阅读:</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise 的 MDN 文档</a></p>
+<p><a href="http://www.axios-js.com/zh-cn/docs/">axios 中文文档</a></p>
+</blockquote>
+<blockquote>
+<p>实用工具: <a href="https://www.bootcdn.cn/">BootCDN - 开源项目免费 CDN 加速服务</a></p>
+</blockquote>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

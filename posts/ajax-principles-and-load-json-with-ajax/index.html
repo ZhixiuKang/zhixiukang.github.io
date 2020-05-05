@@ -11,18 +11,18 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AJAX的原理和加载JSON"/>
-<meta name="twitter:description" content="AJAX(Async JavaScript And XML) → 用JS发请求和收响应
- 让我们通过使用AJAX来加载CSS、JavaScript、HTML、XML和JSON，学会AJAX的原理和用法。
+<meta name="twitter:description" content="AJAX(Async JavaScript And XML) → 用 JS 发请求和收响应
+ 让我们通过使用 AJAX 来加载 CSS、JavaScript、HTML、XML 和 JSON，学会 AJAX 的原理和用法。
  示例代码
- 背景 AJAX是浏览器上的功能  浏览器可以发请求，收响应 浏览器在window上加了一个XMLHttpRequest函数 用这个构造函数(类)可以构造出一个对象 JS通过它实现发请求，收响应   小工具:node-dev
- 准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &#34;/index.html&#34;) { response.statusCode = 200; response.setHeader(&#34;Content-Type&#34;, &#34;text/html;charset=utf-8&#34;); response.write(`&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt; &lt;body&gt;&lt;h1&gt;AJAX demo&lt;/h1&gt; &lt;script src=&#34;/main.js&#34;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; `); response.end(); } else if (path === &#34;/main.js&#34;) { response.statusCode = 200; response.setHeader(&#34;Content-Type&#34;, &#34;text/css;charset=utf-8&#34;); response.write(`console.log(&#34;I am main.js&#34;)`); response.end(); } 挑战1-加载CSS  以前我们用&lt;link rel=stylesheet href=&quot;1."/>
+ 背景 AJAX 是浏览器上的功能  浏览器可以发请求，收响应 浏览器在 window 上加了一个XMLHttpRequest函数 用这个构造函数(类)可以构造出一个对象 JS 通过它实现发请求，收响应  小工具:node-dev
+   准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &#34;/index.html&#34;) { response.statusCode = 200; response.setHeader(&#34;Content-Type&#34;, &#34;text/html;charset=utf-8&#34;); response.write(`&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt; &lt;body&gt;&lt;h1&gt;AJAX demo&lt;/h1&gt; &lt;script src=&#34;/main.js&#34;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; `); response.end(); } else if (path === &#34;/main."/>
 
     <meta property="og:title" content="AJAX的原理和加载JSON" />
-<meta property="og:description" content="AJAX(Async JavaScript And XML) → 用JS发请求和收响应
- 让我们通过使用AJAX来加载CSS、JavaScript、HTML、XML和JSON，学会AJAX的原理和用法。
+<meta property="og:description" content="AJAX(Async JavaScript And XML) → 用 JS 发请求和收响应
+ 让我们通过使用 AJAX 来加载 CSS、JavaScript、HTML、XML 和 JSON，学会 AJAX 的原理和用法。
  示例代码
- 背景 AJAX是浏览器上的功能  浏览器可以发请求，收响应 浏览器在window上加了一个XMLHttpRequest函数 用这个构造函数(类)可以构造出一个对象 JS通过它实现发请求，收响应   小工具:node-dev
- 准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &#34;/index.html&#34;) { response.statusCode = 200; response.setHeader(&#34;Content-Type&#34;, &#34;text/html;charset=utf-8&#34;); response.write(`&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt; &lt;body&gt;&lt;h1&gt;AJAX demo&lt;/h1&gt; &lt;script src=&#34;/main.js&#34;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; `); response.end(); } else if (path === &#34;/main.js&#34;) { response.statusCode = 200; response.setHeader(&#34;Content-Type&#34;, &#34;text/css;charset=utf-8&#34;); response.write(`console.log(&#34;I am main.js&#34;)`); response.end(); } 挑战1-加载CSS  以前我们用&lt;link rel=stylesheet href=&quot;1." />
+ 背景 AJAX 是浏览器上的功能  浏览器可以发请求，收响应 浏览器在 window 上加了一个XMLHttpRequest函数 用这个构造函数(类)可以构造出一个对象 JS 通过它实现发请求，收响应  小工具:node-dev
+   准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &#34;/index.html&#34;) { response.statusCode = 200; response.setHeader(&#34;Content-Type&#34;, &#34;text/html;charset=utf-8&#34;); response.write(`&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt; &lt;body&gt;&lt;h1&gt;AJAX demo&lt;/h1&gt; &lt;script src=&#34;/main.js&#34;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; `); response.end(); } else if (path === &#34;/main." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/ajax-principles-and-load-json-with-ajax/" />
 <meta property="article:published_time" content="2020-03-11T15:21:33-08:00" />
@@ -136,33 +136,34 @@ AJAX的原理和加载JSON · 修的个人网站
 
     <div>
       <blockquote>
-<p>AJAX(Async JavaScript And XML) → 用JS发请求和收响应</p>
+<p>AJAX(Async JavaScript And XML) → 用 JS 发请求和收响应</p>
 </blockquote>
-<p>让我们通过使用AJAX来加载CSS、JavaScript、HTML、XML和JSON，学会AJAX的原理和用法。</p>
+<p>让我们通过使用 AJAX 来加载 CSS、JavaScript、HTML、XML 和 JSON，学会 AJAX 的原理和用法。</p>
 <blockquote>
 <p><a href="https://github.com/ZhixiuKang/ajax-1">示例代码</a></p>
 </blockquote>
 <h1 id="heading">背景</h1>
-<h2 id="ajax">AJAX是浏览器上的功能</h2>
+<h2 id="ajax-">AJAX 是浏览器上的功能</h2>
 <ul>
 <li>浏览器可以发请求，收响应</li>
-<li>浏览器在window上加了一个<code>XMLHttpRequest</code>函数</li>
+<li>浏览器在 window 上加了一个<code>XMLHttpRequest</code>函数</li>
 <li>用这个构造函数(类)可以构造出一个对象</li>
-<li>JS通过它实现发请求，收响应</li>
-</ul>
+<li>JS 通过它实现发请求，收响应
 <blockquote>
 <p><a href="https://github.com/fgnass/node-dev#readme">小工具:node-dev</a></p>
 </blockquote>
+</li>
+</ul>
 <h2 id="heading-1">准备一个服务器</h2>
 <ul>
 <li>使用<a href="https://github.com/ZhixiuKang/node-demo-1/blob/master/server.js">server.js</a>作为我们的服务器</li>
 <li>用<code>node server.js 8888</code>启动</li>
 <li>添加<code>index.html</code>/<code>main.js</code>两个路由:</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#fff;font-weight:bold">if</span> (path === <span style="color:#0ff;font-weight:bold">&#34;/index.html&#34;</span>) {
-    response.statusCode = <span style="color:#ff0;font-weight:bold">200</span>;
-    response.setHeader(<span style="color:#0ff;font-weight:bold">&#34;Content-Type&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;text/html;charset=utf-8&#34;</span>);
-    response.write(<span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold">
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">if</span> (path === <span style="color:#0ff;font-weight:bold">&#34;/index.html&#34;</span>) {
+  response.statusCode = <span style="color:#ff0;font-weight:bold">200</span>;
+  response.setHeader(<span style="color:#0ff;font-weight:bold">&#34;Content-Type&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;text/html;charset=utf-8&#34;</span>);
+  response.write(<span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold">
 </span><span style="color:#0ff;font-weight:bold">    &lt;!DOCTYPE html&gt;
 </span><span style="color:#0ff;font-weight:bold">    &lt;html&gt;
 </span><span style="color:#0ff;font-weight:bold">    &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt;
@@ -171,43 +172,46 @@ AJAX的原理和加载JSON · 修的个人网站
 </span><span style="color:#0ff;font-weight:bold">    &lt;/body&gt;
 </span><span style="color:#0ff;font-weight:bold">    &lt;/html&gt;
 </span><span style="color:#0ff;font-weight:bold">    </span><span style="color:#0ff;font-weight:bold">`</span>);
-    response.end();
-  } <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (path === <span style="color:#0ff;font-weight:bold">&#34;/main.js&#34;</span>) {
-    response.statusCode = <span style="color:#ff0;font-weight:bold">200</span>;
-    response.setHeader(<span style="color:#0ff;font-weight:bold">&#34;Content-Type&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;text/css;charset=utf-8&#34;</span>);
-    response.write(<span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold">console.log(&#34;I am main.js&#34;)</span><span style="color:#0ff;font-weight:bold">`</span>);
-    response.end();
-  }
-</code></pre></div><h1 id="1-css">挑战1-加载CSS</h1>
+  response.end();
+} <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (path === <span style="color:#0ff;font-weight:bold">&#34;/main.js&#34;</span>) {
+  response.statusCode = <span style="color:#ff0;font-weight:bold">200</span>;
+  response.setHeader(<span style="color:#0ff;font-weight:bold">&#34;Content-Type&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;text/css;charset=utf-8&#34;</span>);
+  response.write(<span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold">console.log(&#34;I am main.js&#34;)</span><span style="color:#0ff;font-weight:bold">`</span>);
+  response.end();
+}
+</code></pre></div><h1 id="-1--css">挑战 1-加载 CSS</h1>
 <ul>
 <li>以前我们用<code>&lt;link rel=stylesheet href=&quot;1.css&quot;/&gt;</code></li>
-<li>今天请用AJAX加载CSS</li>
+<li>今天请用 AJAX 加载 CSS</li>
 </ul>
 <h2 id="heading-2">四个步骤</h2>
 <ol>
 <li>创建<code>HttpRequest</code>对象(<code>XMLHttpRequest</code>)</li>
 <li>调用对象的<code>open</code>方法</li>
-<li>监听对象的<code>onload</code>&amp;<code>onerror</code>事件</li>
-</ol>
+<li>监听对象的<code>onload</code>&amp;<code>onerror</code>事件
 <blockquote>
 <p>专业前端会改用<code>onreadystatechange</code>事件, 具体用法可以参考: <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/onreadystatechange">XMLHttpRequest.onreadystatechange| MDN</a></p>
 <p>扩展阅读: <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/readyState">ready state | MDN</a></p>
 </blockquote>
+</li>
+</ol>
 <blockquote>
-<p>在事件处理函数里操作CSS文件内容</p>
+<p>在事件处理函数里操作 CSS 文件内容</p>
 </blockquote>
 <ol start="4">
-<li>调用对象的<code>send</code>方法(发送请求)</li>
-</ol>
+<li>调用对象的<code>send</code>方法(发送请求)
 <blockquote>
 <p>具体可以看: <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/send">XMLHttpRequest.send() | MDN</a></p>
 </blockquote>
+</li>
+</ol>
 <p>HTML:</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!DOCTYPE html&gt;</span>
 &lt;<span style="font-weight:bold">html</span>&gt;
   &lt;<span style="font-weight:bold">head</span>&gt;
     &lt;<span style="font-weight:bold">title</span>&gt;ajax&lt;/<span style="font-weight:bold">title</span>&gt;
-    <span style="color:#0f0;font-weight:bold">&lt;!— &lt;link rel=&#34;stylesheet&#34; href=&#34;/style.css&#34; /&gt;</span> —&gt;
+    <span style="color:#0f0;font-weight:bold">&lt;!— &lt;link rel=&#34;stylesheet&#34; href=&#34;/style.css&#34; /&gt;</span>
+    —&gt;
   &lt;/<span style="font-weight:bold">head</span>&gt;
   &lt;<span style="font-weight:bold">body</span>&gt;
     &lt;<span style="font-weight:bold">h1</span>&gt;AJAX demo 1&lt;/<span style="font-weight:bold">h1</span>&gt;
@@ -239,21 +243,20 @@ getCSS.onclick = () =&gt; {
   };
   request.send();
 };
-</code></pre></div><h1 id="2-js">挑战2-加载JS</h1>
+</code></pre></div><h1 id="-2--js">挑战 2-加载 JS</h1>
 <ul>
 <li>以前我们用<code>&lt;script src=&quot;2.js&quot;&gt;&lt;/script&gt;</code></li>
-<li>今天请用AJAX加载JS</li>
+<li>今天请用 AJAX 加载 JS</li>
 </ul>
 <h2 id="heading-3">四个步骤</h2>
 <ol>
 <li>创建<code>HttpRequest</code>对象(<code>XMLHttpRequest</code>)</li>
 <li>调用对象的<code>open</code>方法</li>
-<li>监听对象的<code>onreadystatechange</code>事件</li>
-</ol>
+<li>监听对象的<code>onreadystatechange</code>事件
 <blockquote>
-<p>在事件处理函数里操作JS文件内容</p>
+<p>在事件处理函数里操作 JS 文件内容</p>
 </blockquote>
-<ol start="4">
+</li>
 <li>调用对象的<code>send</code>方法(发送请求)</li>
 </ol>
 <p>JavaScript:</p>
@@ -270,7 +273,7 @@ getJS.onclick = () =&gt; {
   request.onerror = () =&gt; {};
   request.send();
 };
-</code></pre></div><h1 id="3-html">挑战3-加载HTML</h1>
+</code></pre></div><h1 id="-3--html">挑战 3-加载 HTML</h1>
 <ul>
 <li>以前我们不会加载<code>3.html</code></li>
 </ul>
@@ -278,12 +281,11 @@ getJS.onclick = () =&gt; {
 <ol>
 <li>创建<code>HttpRequest</code>对象(<code>XMLHttpRequest</code>)</li>
 <li>调用对象的<code>open</code>方法</li>
-<li>监听对象的<code>onreadystatechange</code>事件</li>
-</ol>
+<li>监听对象的<code>onreadystatechange</code>事件
 <blockquote>
-<p>在事件处理函数里操作HTML文件内容</p>
+<p>在事件处理函数里操作 HTML 文件内容</p>
 </blockquote>
-<ol start="4">
+</li>
 <li>调用对象的<code>send</code>方法(发送请求)</li>
 </ol>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#0ff;font-weight:bold">&#34;I am main.js&#34;</span>);
@@ -301,10 +303,10 @@ getHTML.onclick = () =&gt; {
 };
 </code></pre></div><h1 id="onreadystatechange-">onreadystatechange 事件</h1>
 <blockquote>
-<p>使用原因: <code>onerror()</code>并没有很好的匹配AJAX</p>
+<p>使用原因: <code>onerror()</code>并没有很好的匹配 AJAX</p>
 </blockquote>
 <ul>
-<li>用<code>onreadystatechange</code>重做一下挑战1</li>
+<li>用<code>onreadystatechange</code>重做一下挑战 1</li>
 </ul>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">getCSS.onclick = () =&gt; {
   <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
@@ -324,7 +326,7 @@ getHTML.onclick = () =&gt; {
   };
   request.send();
 };
-</code></pre></div><h1 id="4-xml">挑战4-加载XML</h1>
+</code></pre></div><h1 id="-4--xml">挑战 4-加载 XML</h1>
 <ul>
 <li>以前我们不会加载<code>4.html</code></li>
 </ul>
@@ -332,12 +334,11 @@ getHTML.onclick = () =&gt; {
 <ol>
 <li>创建<code>HttpRequest</code>对象(<code>XMLHttpRequest</code>)</li>
 <li>调用对象的<code>open</code>方法</li>
-<li>监听对象的<code>onreadystatechange</code>事件</li>
-</ol>
+<li>监听对象的<code>onreadystatechange</code>事件
 <blockquote>
 <p>在事件处理函数里操作<code>responseXML</code></p>
 </blockquote>
-<ol start="4">
+</li>
 <li>调用对象的<code>send</code>方法(发送请求)</li>
 </ol>
 <p>XML:</p>
@@ -361,74 +362,70 @@ getHTML.onclick = () =&gt; {
   request.send();
 };
 </code></pre></div><h1 id="heading-6">总结</h1>
-<h2 id="http">HTTP是个框，什么都能往里装</h2>
+<h2 id="http-">HTTP 是个框，什么都能往里装</h2>
 <ul>
-<li>可以装HTML、CSS、JS、XML&hellip;</li>
+<li>可以装 HTML、CSS、JS、XML&hellip;</li>
 <li>记得设置正确的<code>Content-Type</code>，这是好习惯</li>
 <li>只要你知道怎么解析这些内容，就可以使用这些内容</li>
 </ul>
 <h2 id="heading-7">解析方法</h2>
 <ul>
-<li>得到CSS之后生成style标签</li>
-<li>得到JS之后生成script标签</li>
-<li>得到HTML之后使用innerHTML和DOM API</li>
-<li>得到XML之后使用responseXML和DOM API</li>
+<li>得到 CSS 之后生成 style 标签</li>
+<li>得到 JS 之后生成 script 标签</li>
+<li>得到 HTML 之后使用 innerHTML 和 DOM API</li>
+<li>得到 XML 之后使用 responseXML 和 DOM API</li>
 <li>不同类型的数据有不同类型的解析办法</li>
 </ul>
-<h1 id="5-json">挑战5-加载JSON</h1>
+<h1 id="-5--json">挑战 5-加载 JSON</h1>
 <blockquote>
-<p><a href="http://json.org/json-zh.html">JSON介绍 - Douglas Crockford</a></p>
+<p><a href="http://json.org/json-zh.html">JSON 介绍 - Douglas Crockford</a></p>
 </blockquote>
 <h2 id="heading-8">支持的数据类型</h2>
 <ul>
-<li>string</li>
-</ul>
+<li>string
 <blockquote>
 <p><strong>(注意)只支持双引号，不支持单引号和无引号</strong></p>
 </blockquote>
-<ul>
-<li>number</li>
-</ul>
+</li>
+<li>number
 <blockquote>
 <p>支持科学计数法</p>
 </blockquote>
-<ul>
-<li>bool</li>
-</ul>
+</li>
+<li>bool
 <blockquote>
-<p>true和false</p>
+<p>true 和 false</p>
 </blockquote>
-<ul>
-<li>null</li>
-</ul>
+</li>
+<li>null
 <blockquote>
-<p>没有undefined</p>
+<p>没有 undefined</p>
 </blockquote>
-<ul>
+</li>
 <li>object</li>
-<li>array</li>
-</ul>
+<li>array
 <blockquote>
-<p>就这六种，注意跟JS的七种数据类型区别开来</p>
+<p>就这六种，注意跟 JS 的七种数据类型区别开来</p>
 </blockquote>
+</li>
+</ul>
 <blockquote>
 <p>不支持函数，不支持变量(所以也不支持引用)</p>
 </blockquote>
-<h2 id="json">加载JSON</h2>
+<h2 id="-json">加载 JSON</h2>
 <ul>
 <li>我们需要加载<code>5.json</code></li>
 </ul>
 <h2 id="heading-9">四个步骤</h2>
 <ol>
-<li>创建HttpRequest对象(全称是XMLHttpRequest)</li>
-<li>调用对象的open方法</li>
-<li>监听对象的onreadystatechange事件</li>
-</ol>
+<li>创建 HttpRequest 对象(全称是 XMLHttpRequest)</li>
+<li>调用对象的 open 方法</li>
+<li>监听对象的 onreadystatechange 事件
 <blockquote>
 <p>在事件处理函数里使用<code>JSON.parse</code></p>
 </blockquote>
-<ol start="4">
-<li>调用对象的send方法(发送请求)</li>
+</li>
+<li>调用对象的 send 方法(发送请求)</li>
 </ol>
 <p>HTML:</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!DOCTYPE html&gt;</span>
@@ -466,20 +463,20 @@ getHTML.onclick = () =&gt; {
 <h3 id="jsonparse"><code>JSON.parse</code></h3>
 <ul>
 <li>将符合<code>JSON</code>语法的字符串转换成<code>JS</code>对应类型的数据</li>
-<li><code>JSON</code>字符串→<code>JS</code>数据</li>
-<li>由于<code>JSON</code>只有六种类型，所以转成的数据也只有6种</li>
+<li><code>JSON</code>字符串 →<code>JS</code>数据</li>
+<li>由于<code>JSON</code>只有六种类型，所以转成的数据也只有 6 种</li>
 <li>如果不符合<code>JSON</code>语法，则直接抛出一个<code>Error</code>对象</li>
 <li>一般用<code>try catch</code>捕获错误</li>
 </ul>
 <h3 id="jsonstringify"><code>JSON.stringify</code></h3>
 <ul>
 <li>是<code>JSON.parse</code>的逆运算</li>
-<li><code>JS</code>数据→ <code>JSON</code>字符串</li>
+<li><code>JS</code>数据 → <code>JSON</code>字符串</li>
 <li>由于<code>JS</code>的数据类型比<code>JSON</code>多，所以不一定能成功</li>
 <li>如果失败，就抛出一个<code>Error</code>对象</li>
 </ul>
 <blockquote>
-<p>全部5个挑战的<a href="https://github.com/ZhixiuKang/ajax-1">完整代码</a></p>
+<p>全部 5 个挑战的<a href="https://github.com/ZhixiuKang/ajax-1">完整代码</a></p>
 </blockquote>
 
     </div>
