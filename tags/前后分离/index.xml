@@ -19,11 +19,10 @@
       <guid>http://zhixiukang.com/posts/cross-domain-cors-and-jsonp/</guid>
       <description>跨域关键知识  同源策略   浏览器故意设计的一个功能限制
   CORS   突破浏览器限制的一个方法
-  JSONP   IE时代的妥协
+  JSONP   IE 时代的妥协
  同源策略  不同源的页面之间，不准互相访问数据
- 同源定义 源  window.origin或location.origin可以得到当前源 源 = 协议 + 域名 + 端口号  如果两个url的  协议 域名 端口号 完全一致，那么这两个url就是同源的  举例  https://qq.com、https://www.baidu.com不同源 https://baidu.com、https://www.baidu.com不同源   完全一致才算同源
- 同源策略定义 浏览器规定  如果JS运行在源A里，那么就只能获取源A的数据 不能获取源B的数据，即不允许跨域  举例(省略http协议)  假设frank.com/index.html引用了cdn.com/1.js 那么就说1.js运行在源frank.com里 注意这跟cdn.com没有关系，虽然1.js从它那下载 所以1.js就只能获取frank.com的数据 不能获取1.frank.com或者qq.com的数据   这是浏览器的功能，浏览器故意要这样设计的
- 如果没有同源策略 以QQ空间为例  源为https://user.</description>
+ 同源定义 源  window.origin或location.origin可以得到当前源 源 = 协议 + 域名 + 端口号  如果两个 url 的  协议 域名 端口号 完全一致，那么这两个 url 就是同源的  举例  https://qq.com、https://www.baidu.com不同源 https://baidu.com、https://www.baidu.com不同源  完全一致才算同源
+   同源策略定义 浏览器规定  如果 JS 运行在源 A 里，那么就只能获取源 A 的数据 不能获取源 B 的数据，即不允许跨域  举例(省略 http 协议)  假设frank.</description>
     </item>
     
     <item>

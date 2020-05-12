@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="Zhixiu Kang, 康知修, 修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MVC和重构"/>
+<meta name="twitter:description" content="MVC 是什么  M-Model (数据模型)   负责操作所有数据
+  V-View (视图)   负责所有 UI 界面
+  C-Controller(控制器)   负责其他
+ // 数据放在m const m = { data: {}, // 对数据增删改查  create() {}, delete() {}, update(data) {}, get() {}, }; // 视图放在v const v = { el: null, html: ``, init(container) { v.el = $(container); }, // 渲染函数，参数将是数据。视图全都是对数据渲染 view = render(data)  render(x) {}, }; // 其他放在c const c = { init(container) {}, events: {}, add() {}, minus() {}, mul() {}, div() {}, // 自动绑定事件  autoBindEvents() {}, }; 代码重构 最小知识原则  引入一个模块需要引入 html、css、 js 引入一个模块需要引入 html、js 引入一个模块需要引入 js 你需要知道的知识越少越好,模块化为这一点奠定了基础   在 ES6 中，可以使用 import 关键字引入模块，通过 export 关键字导出模块"/>
+
+    <meta property="og:title" content="MVC和重构" />
+<meta property="og:description" content="MVC 是什么  M-Model (数据模型)   负责操作所有数据
+  V-View (视图)   负责所有 UI 界面
+  C-Controller(控制器)   负责其他
+ // 数据放在m const m = { data: {}, // 对数据增删改查  create() {}, delete() {}, update(data) {}, get() {}, }; // 视图放在v const v = { el: null, html: ``, init(container) { v.el = $(container); }, // 渲染函数，参数将是数据。视图全都是对数据渲染 view = render(data)  render(x) {}, }; // 其他放在c const c = { init(container) {}, events: {}, add() {}, minus() {}, mul() {}, div() {}, // 自动绑定事件  autoBindEvents() {}, }; 代码重构 最小知识原则  引入一个模块需要引入 html、css、 js 引入一个模块需要引入 html、js 引入一个模块需要引入 js 你需要知道的知识越少越好,模块化为这一点奠定了基础   在 ES6 中，可以使用 import 关键字引入模块，通过 export 关键字导出模块" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhixiukang.com/posts/mvc-and-code-refactoring/" />
+<meta property="article:published_time" content="2020-03-21T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-03-21T15:21:33-08:00" />
+
+
+    
+      <base href="http://zhixiukang.com/posts/mvc-and-code-refactoring/">
+    
+    <title>
+MVC和重构 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="http://zhixiukang.com/posts/mvc-and-code-refactoring/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.795d05d5c4d8917c5ecd3fc78b99e12d17f17481159af5ea606eb27cfb04767f.css" integrity="sha256-eV0F1cTYkXxezT/Hi5nhLRfxdIEVmvXqYG6yfPsEdn8=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/tags/">分类</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">MVC和重构</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-03-21T15:21:33-08:00'>
+              March 21, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://zhixiukang.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h1 id="mvc-">MVC 是什么</h1>
+<ul>
+<li>M-Model (数据模型)</li>
+</ul>
+<blockquote>
+<p>负责操作所有数据</p>
+</blockquote>
+<ul>
+<li>V-View (视图)</li>
+</ul>
+<blockquote>
+<p>负责所有 UI 界面</p>
+</blockquote>
+<ul>
+<li>C-Controller(控制器)</li>
+</ul>
+<blockquote>
+<p>负责其他</p>
+</blockquote>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 数据放在m
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">const</span> m = {
+  data: {},
+  <span style="color:#007f7f">// 对数据增删改查
+</span><span style="color:#007f7f"></span>  create() {},
+  <span style="color:#fff;font-weight:bold">delete</span>() {},
+  update(data) {},
+  get() {},
+};
+<span style="color:#007f7f">// 视图放在v
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">const</span> v = {
+  el: <span style="color:#fff;font-weight:bold">null</span>,
+  html: <span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold">`</span>,
+  init(container) {
+    v.el = $(container);
+  },
+  <span style="color:#007f7f">// 渲染函数，参数将是数据。视图全都是对数据渲染 view = render(data)
+</span><span style="color:#007f7f"></span>  render(x) {},
+};
+<span style="color:#007f7f">// 其他放在c
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">const</span> c = {
+  init(container) {},
+  events: {},
+  add() {},
+  minus() {},
+  mul() {},
+  div() {},
+  <span style="color:#007f7f">// 自动绑定事件
+</span><span style="color:#007f7f"></span>  autoBindEvents() {},
+};
+</code></pre></div><h1 id="heading">代码重构</h1>
+<h2 id="heading-1">最小知识原则</h2>
+<ul>
+<li>引入一个模块需要引入 html、css、 js</li>
+<li>引入一个模块需要引入 html、js</li>
+<li>引入一个模块需要引入 js</li>
+<li>你需要知道的知识越少越好,模块化为这一点奠定了基础</li>
+</ul>
+<blockquote>
+<p>在 ES6 中，可以使用 import 关键字引入模块，通过 export 关键字导出模块</p>
+</blockquote>
+<h2 id="-">表驱动编程: 自动绑定事件</h2>
+<ul>
+<li>利用遍历哈希表，把元素绑定上事件</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">//自动绑定事件
+</span><span style="color:#007f7f"></span>  <span style="color:#007f7f">// 把所有事件写成哈希表
+</span><span style="color:#007f7f"></span>  events: {
+    <span style="color:#0ff;font-weight:bold">&#34;click #add1&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;add&#34;</span>,
+    <span style="color:#0ff;font-weight:bold">&#34;click #minus1&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;minus&#34;</span>,
+    <span style="color:#0ff;font-weight:bold">&#34;click #mul2&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;mul&#34;</span>,
+    <span style="color:#0ff;font-weight:bold">&#34;click #divide2&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>
+  },
+  <span style="color:#007f7f">// 每个事件要执行的函数
+</span><span style="color:#007f7f"></span>  add() {
+    m.update({ n: m.data.n + <span style="color:#ff0;font-weight:bold">1</span> });
+  },
+  minus() {
+    m.update({ n: m.data.n - <span style="color:#ff0;font-weight:bold">1</span> });
+  },
+  mul() {
+    m.update({ n: m.data.n * <span style="color:#ff0;font-weight:bold">2</span> });
+  },
+  div() {
+    m.update({ n: m.data.n / <span style="color:#ff0;font-weight:bold">2</span> });
+  },
+  autoBindEvents() {
+    <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">let</span> key <span style="color:#fff;font-weight:bold">in</span> c.events) {
+      <span style="color:#fff;font-weight:bold">const</span> value = c[c.events[key]]; <span style="color:#007f7f">// 要执行的函数  如add
+</span><span style="color:#007f7f"></span>      <span style="color:#fff;font-weight:bold">const</span> spaceIndex = key.indexOf(<span style="color:#0ff;font-weight:bold">&#34; &#34;</span>);
+      <span style="color:#fff;font-weight:bold">const</span> part1 = key.slice(<span style="color:#ff0;font-weight:bold">0</span>, spaceIndex); <span style="color:#007f7f">// 事件名part1  如click
+</span><span style="color:#007f7f"></span>      <span style="color:#fff;font-weight:bold">const</span> part2 = key.slice(spaceIndex + <span style="color:#ff0;font-weight:bold">1</span>); <span style="color:#007f7f">// 实际监听元素part2   如#add1元素
+</span><span style="color:#007f7f"></span>      v.el.on(part1, part2, value);
+    }
+  }
+</code></pre></div><h2 id="heading-2">事不过三</h2>
+<ul>
+<li>同样的代码写三遍，就应该抽成一个函数</li>
+</ul>
+<blockquote>
+<p>如表驱动编程的自动绑定事件和下面的例子</p>
+</blockquote>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">class</span> Model {
+  constructor(options) {
+    <span style="color:#fff;font-weight:bold">const</span> keys = [<span style="color:#0ff;font-weight:bold">&#39;data&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;update&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;create&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;delete&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;get&#39;</span>]
+    keys.forEach((key) =&gt; {
+      <span style="color:#fff;font-weight:bold">if</span> (key <span style="color:#fff;font-weight:bold">in</span> options) {
+        <span style="color:#fff;font-weight:bold">this</span>[key] = options[key]
+      }
+    })
+  }
+  update(){}
+  create(){}
+  <span style="color:#fff;font-weight:bold">delete</span>(){}
+  get(){}
+  }
+
+<span style="color:#007f7f">// 烂代码
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">class</span> Model {
+  constructor(options) {
+  <span style="color:#fff;font-weight:bold">this</span>.data = option.data
+  <span style="color:#fff;font-weight:bold">this</span>.update = option.update
+  <span style="color:#fff;font-weight:bold">this</span>.create = option.create
+  <span style="color:#fff;font-weight:bold">this</span>.<span style="color:#fff;font-weight:bold">delete</span> = option.<span style="color:#fff;font-weight:bold">delete</span>
+  <span style="color:#fff;font-weight:bold">this</span>.get = option.<span style="color:#fff;font-weight:bold">delete</span>
+
+<span style="color:#007f7f">// 这里没有超过三个，就不用遍历，写成解构形式
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">class</span> View {
+    constructor ({el,html,render}){
+        <span style="color:#fff;font-weight:bold">this</span>.el = $(el)
+        <span style="color:#fff;font-weight:bold">this</span>.html = html
+        <span style="color:#fff;font-weight:bold">this</span>.render = render
+    }
+}
+</code></pre></div><ul>
+<li>同样的属性写三遍，就应该做成共用属性(原型或类)</li>
+</ul>
+<blockquote>
+<p>如 MVC 变成 Model 类、View 类</p>
+</blockquote>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// EventBus.js
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">import</span> $ from <span style="color:#0ff;font-weight:bold">&#34;jquery&#34;</span>;
+
+<span style="color:#fff;font-weight:bold">class</span> EventBus {
+  constructor() {
+    <span style="color:#fff;font-weight:bold">this</span>._eventBus = $(<span style="color:#fff;font-weight:bold">window</span>);
+  }
+
+  on(eventName, fn) {
+    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>._eventBus.on(eventName, fn);
+  }
+
+  trigger(eventName, data) {
+    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>._eventBus.trigger(eventName, data);
+  }
+
+  off(eventName, fn) {
+    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>._eventBus.off(eventName, fn);
+  }
+}
+
+<span style="color:#fff;font-weight:bold">export</span> <span style="color:#fff;font-weight:bold">default</span> EventBus;
+</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// Model.js
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">import</span> EventBus from <span style="color:#0ff;font-weight:bold">&#34;./EventBus&#34;</span>;
+
+<span style="color:#fff;font-weight:bold">class</span> Model <span style="color:#fff;font-weight:bold">extends</span> EventBus {
+  constructor(options) {
+    <span style="color:#fff;font-weight:bold">super</span>();
+    <span style="color:#fff;font-weight:bold">const</span> keys = [<span style="color:#0ff;font-weight:bold">&#34;data&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;update&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;create&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;delete&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>];
+    keys.forEach((key) =&gt; {
+      <span style="color:#fff;font-weight:bold">if</span> (key <span style="color:#fff;font-weight:bold">in</span> options) {
+        <span style="color:#fff;font-weight:bold">this</span>[key] = options[key];
+      }
+    });
+  }
+
+  create() {
+    console &amp;&amp; console.error &amp;&amp; console.error(<span style="color:#0ff;font-weight:bold">&#34;你还没有实现 create&#34;</span>);
+  }
+
+  <span style="color:#fff;font-weight:bold">delete</span>() {
+    console &amp;&amp; console.error &amp;&amp; console.error(<span style="color:#0ff;font-weight:bold">&#34;你还没有实现 delete&#34;</span>);
+  }
+
+  update() {
+    console &amp;&amp; console.error &amp;&amp; console.error(<span style="color:#0ff;font-weight:bold">&#34;你还没有实现 update&#34;</span>);
+  }
+
+  get() {
+    console &amp;&amp; console.error &amp;&amp; console.error(<span style="color:#0ff;font-weight:bold">&#34;你还没有实现 get&#34;</span>);
+  }
+}
+<span style="color:#fff;font-weight:bold">export</span> <span style="color:#fff;font-weight:bold">default</span> Model;
+</code></pre></div><blockquote>
+<p>代价:有的时候会造成继承层级太深，无法一下看懂代码。可以通过写文档、画类图解决</p>
+</blockquote>
+<h2 id="heading-3">俯瞰全局</h2>
+<ul>
+<li>利用<code>eventBus</code></li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 旧代码
+</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">const</span> eventBus = $(<span style="color:#fff;font-weight:bold">window</span>);
+eventBus.trigger(<span style="color:#0ff;font-weight:bold">&#34;m:updated&#34;</span>);
+eventBus.on(<span style="color:#0ff;font-weight:bold">&#34;m:updated&#34;</span>, () =&gt; {
+  <span style="color:#007f7f">// 监听m:updated事件，每次触发就重新用新数据渲染一遍
+</span><span style="color:#007f7f"></span>  v.render(m.data.n);
+});
+</code></pre></div><blockquote>
+<p>现在,让所有类都继承 EventBus 类，那每个类的具体的对象就可以直接使用<code>.on</code>, <code>.off</code>,<code>.trigger</code>了</p>
+</blockquote>
+<h2 id="view--renderdata">view = render(data)</h2>
+<ul>
+<li>视图是对数据的渲染。</li>
+</ul>
+<blockquote>
+<p>每次数据改变就重新渲染一次</p>
+</blockquote>
+<ul>
+<li>比起操作 DOM 对象，直接 render 简单多了</li>
+<li>只要改变 data,就可以得到对应的 view</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">render(x) {
+    <span style="color:#fff;font-weight:bold">if</span> (v.el.children.length !== <span style="color:#ff0;font-weight:bold">0</span>) v.el.empty();
+    <span style="color:#007f7f">// 把html里的占位符替换成x，再加入容器中
+</span><span style="color:#007f7f"></span>    $(v.html.replace(<span style="color:#0ff;font-weight:bold">&#34;{{n}}&#34;</span>, x)).appendTo(v.el);
+  }
+};
+</code></pre></div><blockquote>
+<p><code>vue</code>不是这样，但是<code>react</code>是这样</p>
+</blockquote>
+<blockquote>
+<p>代价：render 粗犷的渲染肯定比 DOM 操作浪费性能，这里其实最好用虚拟 DOM ，虚拟 DOM 能让 render 只更新该更新的地方</p>
+</blockquote>
+<blockquote>
+<p>代码示例:</p>
+<p><a href="https://github.com/ZhixiuKang/mvc-demo-1">mvc-demo-1</a></p>
+<p><a href="https://github.com/ZhixiuKang/mvc-demo-2">mvc-demo-2</a></p>
+<p><a href="https://github.com/ZhixiuKang/mvc-demo-3">mvc-demo-3</a></p>
+</blockquote>
+<blockquote>
+<p>扩展阅读: <a href="https://efe.baidu.com/blog/mvc-deformation/">前端 MVC 变形记 | EFE Tech</a></p>
+</blockquote>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
