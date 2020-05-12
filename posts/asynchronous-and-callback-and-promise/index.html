@@ -25,20 +25,20 @@
   必须等到readyState变为4后，浏览器回头调用request.onreadystatechange函数 我们才能得到request.response 这跟餐厅给你发送微信提醒的过程是类似的  回调 callback  你写给自己用的函数，不是回调 你写给别人用的函数，就是回调 request.onreadystatechange就是我写给浏览器调用的 意思就是你(浏览器)回头调用一下这个函数  在中文里，’回头’ 也有 &lsquo;将来&rsquo; 的意思, 如 ‘我回头请你吃饭’
    回调举例 把函数 1 给另一个函数 2 function f1() {} function f2(fn) { fn(); } f2(f1);  分析  Q: 我调用f1没有？A: 没有调用 Q: 我把f1传给f2(别人)了没有？A: 传了 Q: f2调用f1了没有？A: f2调用了f1 Q: 那么，f1是不是我写给f2调用的函数？A: 是   所以，f1是回调" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://zhixiukang.com/posts/asynchronous-and-callback-and-promise/" />
+<meta property="og:url" content="https://zhixiukang.com/posts/asynchronous-and-callback-and-promise/" />
 <meta property="article:published_time" content="2020-03-15T15:21:33-08:00" />
 <meta property="article:modified_time" content="2020-03-15T15:21:33-08:00" />
 
 
     
-      <base href="http://zhixiukang.com/posts/asynchronous-and-callback-and-promise/">
+      <base href="https://zhixiukang.com/posts/asynchronous-and-callback-and-promise/">
     
     <title>
 异步、回调和Promise · 修的个人网站
 </title>
 
     
-      <link rel="canonical" href="http://zhixiukang.com/posts/asynchronous-and-callback-and-promise/">
+      <link rel="canonical" href="https://zhixiukang.com/posts/asynchronous-and-callback-and-promise/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -49,7 +49,7 @@
     
       
       
-      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -60,8 +60,8 @@
 
     
     
-    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.62.1" />
   </head>
@@ -72,7 +72,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://zhixiukang.com/">
+    <a class="navigation-title" href="https://zhixiukang.com/">
       修的个人网站
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -81,23 +81,23 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+            <a class="navigation-link" href="https://zhixiukang.com/posts/">技术文章</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+            <a class="navigation-link" href="https://zhixiukang.com/explore/">兴趣学习</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+            <a class="navigation-link" href="https://zhixiukang.com/bucket-list/">Bucket List</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/tags/">分类</a>
+            <a class="navigation-link" href="https://zhixiukang.com/tags/">分类</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+            <a class="navigation-link" href="https://zhixiukang.com/about/">联系我</a>
           </li>
         
       
@@ -127,11 +127,11 @@
         </div>
         <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+    <a href="https://zhixiukang.com/categories/tech/">Tech</a></div>
 
         <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://zhixiukang.com/tags/%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB/">前后分离</a></div>
+    <a href="https://zhixiukang.com/tags/%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB/">前后分离</a></div>
 
       </div>
     </header>

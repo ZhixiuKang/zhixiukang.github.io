@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>前后分离 on 修的个人网站</title>
-    <link>http://zhixiukang.com/tags/%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB/</link>
+    <link>https://zhixiukang.com/tags/%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB/</link>
     <description>Recent content in 前后分离 on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 18 Mar 2020 15:21:33 -0800</lastBuildDate>
     
-	<atom:link href="http://zhixiukang.com/tags/%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhixiukang.com/tags/%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>跨域、CORS、JSONP</title>
-      <link>http://zhixiukang.com/posts/cross-domain-cors-and-jsonp/</link>
+      <link>https://zhixiukang.com/posts/cross-domain-cors-and-jsonp/</link>
       <pubDate>Wed, 18 Mar 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/cross-domain-cors-and-jsonp/</guid>
+      <guid>https://zhixiukang.com/posts/cross-domain-cors-and-jsonp/</guid>
       <description>跨域关键知识  同源策略   浏览器故意设计的一个功能限制
   CORS   突破浏览器限制的一个方法
   JSONP   IE 时代的妥协
@@ -27,10 +27,10 @@
     
     <item>
       <title>异步、回调和Promise</title>
-      <link>http://zhixiukang.com/posts/asynchronous-and-callback-and-promise/</link>
+      <link>https://zhixiukang.com/posts/asynchronous-and-callback-and-promise/</link>
       <pubDate>Sun, 15 Mar 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/asynchronous-and-callback-and-promise/</guid>
+      <guid>https://zhixiukang.com/posts/asynchronous-and-callback-and-promise/</guid>
       <description>JS 异步编程模型
  同步、异步、轮询和回调 如果能直接拿到结果  那就是同步 比如你在医院挂号，你拿到号才会离开窗口 同步任务可能消耗 10 毫秒，也可能需要 3 秒 总之不拿到结果你是不会离开的  如果不能直接拿到结果  那就是异步 比如你在餐厅等位置，你拿到号可以去逛街 什么时候才能真正吃饭呢？ 你可以每 10 分钟去餐厅问一下(轮询) 你也可以扫码用微信接收通知(回调)  异步举例 以 AJAX 为例  request.send()之后，并不能直接得到response  不信console.log(request.response)试试
   必须等到readyState变为4后，浏览器回头调用request.onreadystatechange函数 我们才能得到request.response 这跟餐厅给你发送微信提醒的过程是类似的  回调 callback  你写给自己用的函数，不是回调 你写给别人用的函数，就是回调 request.onreadystatechange就是我写给浏览器调用的 意思就是你(浏览器)回头调用一下这个函数  在中文里，’回头’ 也有 &amp;lsquo;将来&amp;rsquo; 的意思, 如 ‘我回头请你吃饭’
@@ -39,10 +39,10 @@
     
     <item>
       <title>AJAX的原理和加载JSON</title>
-      <link>http://zhixiukang.com/posts/ajax-principles-and-load-json-with-ajax/</link>
+      <link>https://zhixiukang.com/posts/ajax-principles-and-load-json-with-ajax/</link>
       <pubDate>Wed, 11 Mar 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/ajax-principles-and-load-json-with-ajax/</guid>
+      <guid>https://zhixiukang.com/posts/ajax-principles-and-load-json-with-ajax/</guid>
       <description>AJAX(Async JavaScript And XML) → 用 JS 发请求和收响应
  让我们通过使用 AJAX 来加载 CSS、JavaScript、HTML、XML 和 JSON，学会 AJAX 的原理和用法。
  示例代码

@@ -37,20 +37,20 @@ null undefined
  对象的语法 定义  无序的数据集合 键值对的集合  写法 let obj = {&#39;name&#39;: &#39;frank’, ‘age’: 18} let obj = new Object({‘name’: ‘frank’}) console.log({&#39;name&#39;: ‘frank’, ‘age’: 18})  细节  键名是字符串，不是标识符，可以包含任意字符 引号可省略，省略之后就只能写标识符 就算引号省略了，键名也还是字符串  Object.keys(object)可以得到 object 的所有 key
    变量作属性名 如何用变量做属性名 let p1 = &#39;name&#39; // 这样写，属性名为&#39;p1&#39; let obj = {p1: &#39;frank’} // 这样写，属性名为&#39;name&#39; let obj = {[p1]: &#39;frank’}  对比  不加[]的属性名会自动变成字符串 加了[]的则会被当做变量求值 值如果不是字符串，则会自动变成字符串  对象的隐藏属性  JS 中每一个对象都有一个隐藏属性 这个隐藏属性存储着其共有属性组成的对象的地址 这个公有属性组成的对象叫做原型 也就是说，隐藏属性储存着原型的地址  var obj = {}; obj." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/" />
+<meta property="og:url" content="https://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/" />
 <meta property="article:published_time" content="2020-02-23T15:21:33-08:00" />
 <meta property="article:modified_time" content="2020-02-23T15:21:33-08:00" />
 
 
     
-      <base href="http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/">
+      <base href="https://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/">
     
     <title>
 JS对象的增删改查 · 修的个人网站
 </title>
 
     
-      <link rel="canonical" href="http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/">
+      <link rel="canonical" href="https://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -61,7 +61,7 @@ JS对象的增删改查 · 修的个人网站
     
       
       
-      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -72,8 +72,8 @@ JS对象的增删改查 · 修的个人网站
 
     
     
-    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.62.1" />
   </head>
@@ -84,7 +84,7 @@ JS对象的增删改查 · 修的个人网站
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://zhixiukang.com/">
+    <a class="navigation-title" href="https://zhixiukang.com/">
       修的个人网站
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -93,23 +93,23 @@ JS对象的增删改查 · 修的个人网站
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+            <a class="navigation-link" href="https://zhixiukang.com/posts/">技术文章</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+            <a class="navigation-link" href="https://zhixiukang.com/explore/">兴趣学习</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+            <a class="navigation-link" href="https://zhixiukang.com/bucket-list/">Bucket List</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/tags/">分类</a>
+            <a class="navigation-link" href="https://zhixiukang.com/tags/">分类</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+            <a class="navigation-link" href="https://zhixiukang.com/about/">联系我</a>
           </li>
         
       
@@ -139,11 +139,11 @@ JS对象的增删改查 · 修的个人网站
         </div>
         <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+    <a href="https://zhixiukang.com/categories/tech/">Tech</a></div>
 
         <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://zhixiukang.com/tags/javascript/">JavaScript</a></div>
+    <a href="https://zhixiukang.com/tags/javascript/">JavaScript</a></div>
 
       </div>
     </header>

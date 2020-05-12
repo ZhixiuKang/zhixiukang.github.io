@@ -23,20 +23,20 @@
 作用  补充中间帧  语法:  transition: 属性名 时长 过渡方式 延迟时间 transition: left 200ms linear 可以用逗号分隔两个不同属性 transition: left 200ms, top 400ms 可以用 all 代表所有属性 transition: all 200ms 过渡方式有:  &lt;timing-function&gt; = linear | &lt;cubic-bezier-timing-function&gt; | &lt;step-timing-function&gt; where &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease-in-out | cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;) &lt;step-timing-function&gt; = step-start | step-end | steps(&lt;integer&gt;[, &lt;step-position&gt;]?)   的具体含义要靠数学知识
  注意  并不是所有属性都能过渡 display: none=&gt;block没法过渡 一般改成visibility:hidden=&gt;visible background 颜色可以过渡吗？可以。 opacity 透明度可以过渡吗？可以。  过渡必须要有起始。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://zhixiukang.com/posts/transition-and-animation/" />
+<meta property="og:url" content="https://zhixiukang.com/posts/transition-and-animation/" />
 <meta property="article:published_time" content="2020-02-07T15:21:33-08:00" />
 <meta property="article:modified_time" content="2020-02-07T15:21:33-08:00" />
 
 
     
-      <base href="http://zhixiukang.com/posts/transition-and-animation/">
+      <base href="https://zhixiukang.com/posts/transition-and-animation/">
     
     <title>
 CSS动画中的transition过渡和animation · 修的个人网站
 </title>
 
     
-      <link rel="canonical" href="http://zhixiukang.com/posts/transition-and-animation/">
+      <link rel="canonical" href="https://zhixiukang.com/posts/transition-and-animation/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -47,7 +47,7 @@ CSS动画中的transition过渡和animation · 修的个人网站
     
       
       
-      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -58,8 +58,8 @@ CSS动画中的transition过渡和animation · 修的个人网站
 
     
     
-    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.62.1" />
   </head>
@@ -70,7 +70,7 @@ CSS动画中的transition过渡和animation · 修的个人网站
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://zhixiukang.com/">
+    <a class="navigation-title" href="https://zhixiukang.com/">
       修的个人网站
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -79,23 +79,23 @@ CSS动画中的transition过渡和animation · 修的个人网站
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+            <a class="navigation-link" href="https://zhixiukang.com/posts/">技术文章</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+            <a class="navigation-link" href="https://zhixiukang.com/explore/">兴趣学习</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+            <a class="navigation-link" href="https://zhixiukang.com/bucket-list/">Bucket List</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/tags/">分类</a>
+            <a class="navigation-link" href="https://zhixiukang.com/tags/">分类</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+            <a class="navigation-link" href="https://zhixiukang.com/about/">联系我</a>
           </li>
         
       
@@ -125,11 +125,11 @@ CSS动画中的transition过渡和animation · 修的个人网站
         </div>
         <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+    <a href="https://zhixiukang.com/categories/tech/">Tech</a></div>
 
         <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://zhixiukang.com/tags/css/">CSS</a></div>
+    <a href="https://zhixiukang.com/tags/css/">CSS</a></div>
 
       </div>
     </header>
@@ -254,7 +254,7 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
 </blockquote>
 </li>
 </ul>
-<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2123.04.21.png" alt=""></p>
+<p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2123.04.21.png" alt=""></p>
 <blockquote>
 <p><a href="http://js.jirengu.com/peran/2/edit?html,css,js,output">示例代码</a></p>
 </blockquote>

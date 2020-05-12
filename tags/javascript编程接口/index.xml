@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript编程接口 on 修的个人网站</title>
-    <link>http://zhixiukang.com/tags/javascript%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3/</link>
+    <link>https://zhixiukang.com/tags/javascript%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3/</link>
     <description>Recent content in JavaScript编程接口 on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 09 Mar 2020 15:21:33 -0800</lastBuildDate>
     
-	<atom:link href="http://zhixiukang.com/tags/javascript%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhixiukang.com/tags/javascript%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>jQuery 中的设计模式和思想</title>
-      <link>http://zhixiukang.com/posts/design-patterns-in-jquery/</link>
+      <link>https://zhixiukang.com/posts/design-patterns-in-jquery/</link>
       <pubDate>Mon, 09 Mar 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/design-patterns-in-jquery/</guid>
+      <guid>https://zhixiukang.com/posts/design-patterns-in-jquery/</guid>
       <description>参考资料:
 jQuery 都过时了，那我还学它干嘛? - 方应杭
 jQuery 设计思想 - 阮一峰的网络日志
@@ -32,10 +32,10 @@ jQuery Fundamentals - Bocoup
     
     <item>
       <title>DOM编程和操作跨线程</title>
-      <link>http://zhixiukang.com/posts/dom-programming/</link>
+      <link>https://zhixiukang.com/posts/dom-programming/</link>
       <pubDate>Sat, 07 Mar 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/dom-programming/</guid>
+      <guid>https://zhixiukang.com/posts/dom-programming/</guid>
       <description>获取任意元素 有很多 API window.idxxx; // 或者直接idxxx document.getElementById(&amp;quot;idxxx&amp;quot;); document.getElementsByTagName(&amp;quot;div&amp;quot;)[0]; document.getElementsByClassName(&amp;quot;red&amp;quot;)[0]; document.querySelector(&amp;quot;#idxxx&amp;quot;); // 记得加# document.querySelectorAll(&amp;quot;.red&amp;quot;)[0];  用哪一个  工作中用querySelector和querySelectorAll
 例子:document.querySelectorAll(&#39;div&amp;gt;span:nth-child(2)&#39;)
   做 demo 直接用idxxx，千万别让人发现 hhh

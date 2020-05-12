@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CSS on 修的个人网站</title>
-    <link>http://zhixiukang.com/tags/css/</link>
+    <link>https://zhixiukang.com/tags/css/</link>
     <description>Recent content in CSS on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 07 Feb 2020 15:21:33 -0800</lastBuildDate>
     
-	<atom:link href="http://zhixiukang.com/tags/css/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhixiukang.com/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CSS动画中的transition过渡和animation</title>
-      <link>http://zhixiukang.com/posts/transition-and-animation/</link>
+      <link>https://zhixiukang.com/posts/transition-and-animation/</link>
       <pubDate>Fri, 07 Feb 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/transition-and-animation/</guid>
+      <guid>https://zhixiukang.com/posts/transition-and-animation/</guid>
       <description>transition 过渡 完整文档: transition | MDN
 作用  补充中间帧  语法:  transition: 属性名 时长 过渡方式 延迟时间 transition: left 200ms linear 可以用逗号分隔两个不同属性 transition: left 200ms, top 400ms 可以用 all 代表所有属性 transition: all 200ms 过渡方式有:  &amp;lt;timing-function&amp;gt; = linear | &amp;lt;cubic-bezier-timing-function&amp;gt; | &amp;lt;step-timing-function&amp;gt; where &amp;lt;cubic-bezier-timing-function&amp;gt; = ease | ease-in | ease-out | ease-in-out | cubic-bezier(&amp;lt;number&amp;gt;, &amp;lt;number&amp;gt;, &amp;lt;number&amp;gt;, &amp;lt;number&amp;gt;) &amp;lt;step-timing-function&amp;gt; = step-start | step-end | steps(&amp;lt;integer&amp;gt;[, &amp;lt;step-position&amp;gt;]?)   的具体含义要靠数学知识
  注意  并不是所有属性都能过渡 display: none=&amp;gt;block没法过渡 一般改成visibility:hidden=&amp;gt;visible background 颜色可以过渡吗？可以。 opacity 透明度可以过渡吗？可以。  过渡必须要有起始。</description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>CSS动画中的transform</title>
-      <link>http://zhixiukang.com/posts/transform/</link>
+      <link>https://zhixiukang.com/posts/transform/</link>
       <pubDate>Wed, 05 Feb 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/transform/</guid>
+      <guid>https://zhixiukang.com/posts/transform/</guid>
       <description>完整文档: transform - CSS（层叠样式表） | MDN
 四个常用功能  位移 translate 缩放 scale 旋转 rotate 倾斜 skew  经验:
 一般都需要配合 transition 过渡
@@ -38,10 +38,10 @@ inline 元素不支持 transform,需要先变成 block
     
     <item>
       <title>CSS动画的原理和浏览器渲染原理</title>
-      <link>http://zhixiukang.com/posts/browser-rendering/</link>
+      <link>https://zhixiukang.com/posts/browser-rendering/</link>
       <pubDate>Sun, 02 Feb 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/browser-rendering/</guid>
+      <guid>https://zhixiukang.com/posts/browser-rendering/</guid>
       <description>动画的原理 一个最简单的例子 将 div 从左往右移动 点我看例子
 原理  每过一段时间(用 setInterval 做到) 将 div 移动一小段距离 直到移动到目标地点  注意性能  绿色表示重新绘制(repaint)了  Console→Rendering→ 勾选 Paint flashing
   CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform(变形)  示例代码
@@ -50,10 +50,10 @@ inline 元素不支持 transform,需要先变成 block
     
     <item>
       <title>CSS定位</title>
-      <link>http://zhixiukang.com/posts/css-positioning/</link>
+      <link>https://zhixiukang.com/posts/css-positioning/</link>
       <pubDate>Fri, 31 Jan 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/css-positioning/</guid>
+      <guid>https://zhixiukang.com/posts/css-positioning/</guid>
       <description>布局和定位有啥区别?
 区别大了，布局是屏幕平面上的，定位是垂直于屏幕的
 还得从文档流和盒模型说起
@@ -70,10 +70,10 @@ A: 其实就是浮起来了一点点
     
     <item>
       <title>Grid布局(Grid)</title>
-      <link>http://zhixiukang.com/posts/grid-layout/</link>
+      <link>https://zhixiukang.com/posts/grid-layout/</link>
       <pubDate>Tue, 28 Jan 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/grid-layout/</guid>
+      <guid>https://zhixiukang.com/posts/grid-layout/</guid>
       <description>完整参考资料:A Complete Guide to Grid | CSS-Tricks
 二维布局用 Grid  一维布局用 Flex(要么横着排或者竖着排)
  Grid Container 的属性 成为 container .container { display: grid | inline-grid; }  行和列 .container { grid-template-columns: &amp;lt;track-size&amp;gt; … | &amp;lt;line-name&amp;gt; &amp;lt;track-size&amp;gt; …; grid-template-rows: &amp;lt;track-size&amp;gt; … | &amp;lt;line-name&amp;gt; &amp;lt;track-size&amp;gt; …; }  举个例子:
@@ -84,10 +84,10 @@ A: 其实就是浮起来了一点点
     
     <item>
       <title>Flex 布局(Flexbox)</title>
-      <link>http://zhixiukang.com/posts/flexbox/</link>
+      <link>https://zhixiukang.com/posts/flexbox/</link>
       <pubDate>Sat, 25 Jan 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/flexbox/</guid>
+      <guid>https://zhixiukang.com/posts/flexbox/</guid>
       <description>完整参考资料: A Complete Guide to Flexbox | CSS-Tricks
 容器 container flex container 有哪些样式(属性) 让一个元素变成 flex 容器 .container { display: flex; /* or inline-flex */ }   一个是 flex，一个是行内的 flex
  改变 items 流动方向(主轴) .container { flex-direction: row | row-reverse | column | column-reverse; }   可以通过 flex-direction 控制流动方向。默认是 row(从左到右)。
@@ -98,20 +98,20 @@ A: 其实就是浮起来了一点点
     
     <item>
       <title>Float 布局(Floats)</title>
-      <link>http://zhixiukang.com/posts/floats/</link>
+      <link>https://zhixiukang.com/posts/floats/</link>
       <pubDate>Wed, 22 Jan 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/floats/</guid>
+      <guid>https://zhixiukang.com/posts/floats/</guid>
       <description>步骤  在子元素上加float:left和width :::在父元素上加.clearfix:::，这个超级重要。  .clearfix:after { content: &amp;quot;&amp;quot;; display: block; clear: both; }  代码在这里
 经验  有经验者会留一些空间或者最后一个不设width（最后一个不设宽度，会让它自己拓展，当然了，可以给一个最大宽度。） 如果用 float 布局，不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的。 IE6/7 存在双倍 margin bug，解决办法有两个: 1. 将错就错，针对 IE6 或者 IE7 把 margin 减半: margin-left:10px _margin-left:5px 这样一来，普通浏览器就是 10px, 但是 IE 是 5*2=10px 还是 10px。 3. 神来一笔，再加一个display:inline-block  实践 不同布局  用 float 做两栏布局(如顶部条) 用 float 做三栏布局(如内容区) 用 float 做四栏布局(如导航) 点我看看 用 float 做平均布局(如产品展示区) 曾经淘宝的前端发明了双飞翼布局，不要学，已过时  float 实例代码</description>
     </item>
     
     <item>
       <title>CSS布局和一图流</title>
-      <link>http://zhixiukang.com/posts/css-layout/</link>
+      <link>https://zhixiukang.com/posts/css-layout/</link>
       <pubDate>Mon, 20 Jan 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/css-layout/</guid>
+      <guid>https://zhixiukang.com/posts/css-layout/</guid>
       <description>布局是什么 把页面分成一块一块，按左中右、上中下等排列。
 布局分类 两种  固定宽度布局，一般宽度为 960/1000/1024px  比如淘宝就是固定宽度布局，到了一定宽度你再怎么拉，他还是这个宽度。
   不固定宽度布局，主要靠文档流的原理来布局  一般在手机上用
@@ -124,10 +124,10 @@ Balsamiq for Desktop | Balsamiq</description>
     
     <item>
       <title>盒模型</title>
-      <link>http://zhixiukang.com/posts/box-model/</link>
+      <link>https://zhixiukang.com/posts/box-model/</link>
       <pubDate>Fri, 17 Jan 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/box-model/</guid>
+      <guid>https://zhixiukang.com/posts/box-model/</guid>
       <description>概念 盒模型有四个概念，从外到内分别是外边距(margin)、border、内边距(padding)和 content。如果是 content box，那么只包含最里面的 content。如果是 border box，那么只包含 content、padding 和 border(如果是 border box，那么除了 margin 都包含)。
  请说一下 css 的盒模型?  css 盒模型分两种，一种是 content-box,一种是 border-box，content-box 的宽度只包含 content，border-box 的宽度包含到 border(border, padding and content)。
    两种盒模型 分别是  content-box 内容盒-内容就是盒子的边界。 border-box 边框盒-边框才是盒子的边界。  公式  content-box width = 内容宽度 border-box width = 内容宽度 + padding + border  哪个好用  border-box好用 同时指定padding、width、border就知道为什么了 如果没有指定padding和border，看不出来这俩的区别。  margin合并 哪些情况会合并  父子 margin 合并 上面边距有可能重叠。 兄弟 margin 合并 其实 css 这么设计是有道理的:   如何阻止合并  父子合并用 padding/border 挡住  padding-top: 1px; border-top: 1px solid green;   父子合并用 overflow:hidden 挡住 父子合并用 display:flex，不知道为什么 兄弟合并是符合预期的 兄弟合并可以用 inline-block 消除 总之要一条一条死记 而且 CSS 的属性逐年增多，每年都有可能有新的  基本单位 长度单位  px 像素 em 相对于自身 font-size 的倍数 百分数 整数 rem:等你把 em 滚瓜烂熟了再问 rem vw 和 vh 其他长度单位都用得很少，不用了解  颜色  十六进制#FF6600或者#F60(两个两个一对的可以缩写) RGBA 颜色 rgb(0,0,0)或者 rgba(0,0,0,1) hsl 颜色 hsl(360,100%,100%) (0 度正红色-360, 鲜艳程度, 亮度)  做个彩虹练习一下 点我后自己试试吧</description>
@@ -135,10 +135,10 @@ Balsamiq for Desktop | Balsamiq</description>
     
     <item>
       <title>文档流</title>
-      <link>http://zhixiukang.com/posts/normal-flow/</link>
+      <link>https://zhixiukang.com/posts/normal-flow/</link>
       <pubDate>Wed, 15 Jan 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/normal-flow/</guid>
+      <guid>https://zhixiukang.com/posts/normal-flow/</guid>
       <description>基本概念 文档流是指文档中元素流动的方向。
 哪些是 inline 元素，哪些是 block 元素
 文档流 | MDN

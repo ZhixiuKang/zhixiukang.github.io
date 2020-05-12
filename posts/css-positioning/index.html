@@ -41,20 +41,20 @@ A: 其实就是浮起来了一点点
  使用场景  用于做位移(很少用) 用于给 absolute 元素做爸爸  爸爸用 relative，儿子用 absolute
    配合 z-index  z-index:auto默认值，不创建新层叠上下文 z-index: 0/ 1/ 2 z-index: -1/ -2  默认为z-index: auto;，auto其实等于 0, 但是你不可以写z-index: 0;。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://zhixiukang.com/posts/css-positioning/" />
+<meta property="og:url" content="https://zhixiukang.com/posts/css-positioning/" />
 <meta property="article:published_time" content="2020-01-31T15:21:33-08:00" />
 <meta property="article:modified_time" content="2020-01-31T15:21:33-08:00" />
 
 
     
-      <base href="http://zhixiukang.com/posts/css-positioning/">
+      <base href="https://zhixiukang.com/posts/css-positioning/">
     
     <title>
 CSS定位 · 修的个人网站
 </title>
 
     
-      <link rel="canonical" href="http://zhixiukang.com/posts/css-positioning/">
+      <link rel="canonical" href="https://zhixiukang.com/posts/css-positioning/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -65,7 +65,7 @@ CSS定位 · 修的个人网站
     
       
       
-      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -76,8 +76,8 @@ CSS定位 · 修的个人网站
 
     
     
-    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.62.1" />
   </head>
@@ -88,7 +88,7 @@ CSS定位 · 修的个人网站
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://zhixiukang.com/">
+    <a class="navigation-title" href="https://zhixiukang.com/">
       修的个人网站
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -97,23 +97,23 @@ CSS定位 · 修的个人网站
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+            <a class="navigation-link" href="https://zhixiukang.com/posts/">技术文章</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+            <a class="navigation-link" href="https://zhixiukang.com/explore/">兴趣学习</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+            <a class="navigation-link" href="https://zhixiukang.com/bucket-list/">Bucket List</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/tags/">分类</a>
+            <a class="navigation-link" href="https://zhixiukang.com/tags/">分类</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+            <a class="navigation-link" href="https://zhixiukang.com/about/">联系我</a>
           </li>
         
       
@@ -143,11 +143,11 @@ CSS定位 · 修的个人网站
         </div>
         <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+    <a href="https://zhixiukang.com/categories/tech/">Tech</a></div>
 
         <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://zhixiukang.com/tags/css/">CSS</a></div>
+    <a href="https://zhixiukang.com/tags/css/">CSS</a></div>
 
       </div>
     </header>
@@ -159,13 +159,13 @@ CSS定位 · 修的个人网站
 还得从文档流和盒模型说起<br>
 复习一下盒模型</p>
 </blockquote>
-<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1917.07.04.png" alt=""></p>
+<p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1917.07.04.png" alt=""></p>
 <h1 id="-div-">一个 div 的分层</h1>
 <blockquote>
 <p>文字在最上层，border 在第二层，background 在第三层。</p>
 </blockquote>
-<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1918.08.46.png" alt="">
-<img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1918.09.12.png" alt=""></p>
+<p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1918.08.46.png" alt="">
+<img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1918.09.12.png" alt=""></p>
 <blockquote>
 <p>Q: 浮动元素和块级子元素是什么意思呢？<br>
 A: 这里有一个<a href="https://jsbin.com/kacufabuta/edit?html,css,output">例子</a></p>
@@ -297,7 +297,7 @@ margin-left: -27px;
 </ul>
 <h1 id="heading-7">层叠上下文(堆叠上下文)</h1>
 <p>运用 z-index，（我们认识到）某些元素的渲染顺序是由其 z-index 的值影响的。这是因为这些元素具有能够使他们形成一个*层叠上下文的特殊属性。</p>
-<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1921.30.48.png" alt=""></p>
+<p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1921.30.48.png" alt=""></p>
 <p>如果你在某一个地方定了位，比如说某一个地方<code>postion: relative;</code>或者<code>postion: absolute;</code>或者<code>position: fixed;</code>，那么你就自然而然的超越了刚才的文字，变成了定位元素。</p>
 <h2 id="z-index10--z-index5-">z-index:10 和 z-index:5 哪个高？</h2>
 <blockquote>

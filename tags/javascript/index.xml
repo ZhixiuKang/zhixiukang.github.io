@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on 修的个人网站</title>
-    <link>http://zhixiukang.com/tags/javascript/</link>
+    <link>https://zhixiukang.com/tags/javascript/</link>
     <description>Recent content in JavaScript on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 09 Mar 2020 15:21:33 -0800</lastBuildDate>
     
-	<atom:link href="http://zhixiukang.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://zhixiukang.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>jQuery 中的设计模式和思想</title>
-      <link>http://zhixiukang.com/posts/design-patterns-in-jquery/</link>
+      <link>https://zhixiukang.com/posts/design-patterns-in-jquery/</link>
       <pubDate>Mon, 09 Mar 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/design-patterns-in-jquery/</guid>
+      <guid>https://zhixiukang.com/posts/design-patterns-in-jquery/</guid>
       <description>参考资料:
 jQuery 都过时了，那我还学它干嘛? - 方应杭
 jQuery 设计思想 - 阮一峰的网络日志
@@ -32,10 +32,10 @@ jQuery Fundamentals - Bocoup
     
     <item>
       <title>DOM编程和操作跨线程</title>
-      <link>http://zhixiukang.com/posts/dom-programming/</link>
+      <link>https://zhixiukang.com/posts/dom-programming/</link>
       <pubDate>Sat, 07 Mar 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/dom-programming/</guid>
+      <guid>https://zhixiukang.com/posts/dom-programming/</guid>
       <description>获取任意元素 有很多 API window.idxxx; // 或者直接idxxx document.getElementById(&amp;quot;idxxx&amp;quot;); document.getElementsByTagName(&amp;quot;div&amp;quot;)[0]; document.getElementsByClassName(&amp;quot;red&amp;quot;)[0]; document.querySelector(&amp;quot;#idxxx&amp;quot;); // 记得加# document.querySelectorAll(&amp;quot;.red&amp;quot;)[0];  用哪一个  工作中用querySelector和querySelectorAll
 例子:document.querySelectorAll(&#39;div&amp;gt;span:nth-child(2)&#39;)
   做 demo 直接用idxxx，千万别让人发现 hhh
@@ -47,10 +47,10 @@ jQuery Fundamentals - Bocoup
     
     <item>
       <title>JS总结</title>
-      <link>http://zhixiukang.com/posts/js-conclusion/</link>
+      <link>https://zhixiukang.com/posts/js-conclusion/</link>
       <pubDate>Thu, 05 Mar 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/js-conclusion/</guid>
+      <guid>https://zhixiukang.com/posts/js-conclusion/</guid>
       <description>知识点 基本概念 内存、变量、数据类型、对象
 控制语句  if…else&amp;hellip; for…  对象  原型、原型链 对象分类 new一个新对象 构造函数 this的隐式传递和显式传递  难点  JS三座大山
   原型 this AJAX  最重要的知识 JS公式 对象.__proto__===其构造函数.prototype   JS唯一公式，如果不会就套公式
@@ -65,39 +65,39 @@ jQuery Fundamentals - Bocoup
     
     <item>
       <title>面试中的JS运算符</title>
-      <link>http://zhixiukang.com/posts/js-operators/</link>
+      <link>https://zhixiukang.com/posts/js-operators/</link>
       <pubDate>Tue, 03 Mar 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/js-operators/</guid>
+      <guid>https://zhixiukang.com/posts/js-operators/</guid>
       <description>算数运算符  ＋－* / 余数%  //JS的错误 -1%7 //-1 而不是 6   指数 x**3 自增自减  x++ //这个表达式的值为x，最后返回x+1 ++x //这个表达式的值为x+1，最后返回x+1 x-- //这个表达式的值为x，最后返回x-1 --x //这个表达式的值为x-1，最后返回x-1   尽量少用自增自减
   求值运算符  // 可以将任何值转为数值（与Number函数的作用相同） +(-1)// -1 +true // 1 +[] // 0 +{} // NaN   负数运算符  // 同样具有将一个值转为数值的功能，只不过得到的值正负相反 -(-1) // 1 -true // -1 -[] // -0 -{} // NaN   JS的一个糟粕  1 + &#39;2&#39; //&amp;quot;12&amp;quot; 2 - &#39;1&#39; // 1 // +号运算符默认把所有运算子变成字符串然后运算 // -号运算符默认把所有运算子变成数值然后运算  比较运算符  JS三位一体  意思是:</description>
     </item>
     
     <item>
       <title>JS函数和你不知道的this</title>
-      <link>http://zhixiukang.com/posts/js-funtion-and-this/</link>
+      <link>https://zhixiukang.com/posts/js-funtion-and-this/</link>
       <pubDate>Sun, 01 Mar 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/js-funtion-and-this/</guid>
+      <guid>https://zhixiukang.com/posts/js-funtion-and-this/</guid>
       <description>四种方式定义函数 具名函数 function 函数名(形式参数1, 形式参数2) { 语句 return 返回值 }  匿名函数  上面的具名函数，去掉函数名就是匿名函数 let a = function(x, y) {return x+y} 也叫函数表达式  箭头函数 let f1 = x =&amp;gt; x*x let f2 = (x, y) =&amp;gt; x+y // 圆括号不能省 let f3 = (x, y) =&amp;gt; {return x+y} //花括号不能省 let f4 = (x, y) =&amp;gt; ({name:x, age: y})   直接返回对象会出错，需要加个圆括号
  构造函数  let f = new Function(‘x’, ‘y’, ‘return x+y’) 所有函数都是Function构造出来的 包括Object、Array、Function也是   基本没人用，但是能让你知道函数是谁构造的</description>
     </item>
     
     <item>
       <title>JS数组的增删改查和数组变换</title>
-      <link>http://zhixiukang.com/posts/js-array/</link>
+      <link>https://zhixiukang.com/posts/js-array/</link>
       <pubDate>Thu, 27 Feb 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/js-array/</guid>
+      <guid>https://zhixiukang.com/posts/js-array/</guid>
       <description>JS 的数组不是典型数组 典型的数组  元素的数据类型相同 使用连续的内存存储 通过数字下标获取元素  但 JS 的数组不这样  元素的数据类型可以不同 内存不一定是连续的(对象是随机存储的) 不能通过数字下标，而是通过字符串下标 这意味着数组可以有任何 key  let arr = [1, 2, 3] arr[‘xxx&#39;] = 1  创建一个数组 新建 let arr = [1, 2, 3]; let arr = new Array(1, 2, 3); let arr = new Array(3);  转化 let arr = &#39;1, 2, 3&#39;.split(‘,’) let arr = &#39;123&#39;.split(‘’) Array.from(&#39;123&#39;)  伪数组 let divList = document.querySelector(‘div’) let divArray = Array.</description>
     </item>
     
     <item>
       <title>JS对象分类、原型和共用属性的关系、对象的ES6写法</title>
-      <link>http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/</link>
+      <link>https://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/</link>
       <pubDate>Tue, 25 Feb 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/</guid>
+      <guid>https://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/</guid>
       <description>延伸阅读
 你可以不会 class，但是一定要学会 prototype
 JS 的 new 到底是干什么的？
@@ -109,10 +109,10 @@ function Square(width) { this.width = width } Square.prototype.getArea = functio
     
     <item>
       <title>JS对象的增删改查</title>
-      <link>http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/</link>
+      <link>https://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/</link>
       <pubDate>Sun, 23 Feb 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/</guid>
+      <guid>https://zhixiukang.com/posts/create-retrieve-update-delete-of-js-object/</guid>
       <description>七种数据类型？
 number string bool symbol
 null undefined
@@ -127,10 +127,10 @@ null undefined
     
     <item>
       <title>字符编码、JS数据类型、变量声明、类型转换</title>
-      <link>http://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/</link>
+      <link>https://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/</link>
       <pubDate>Thu, 20 Feb 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/</guid>
+      <guid>https://zhixiukang.com/posts/encoding-js-data-type-variable-declaration-typecasting/</guid>
       <description>推荐阅读: 我用了两个月的时间才理解 let - 知乎
   字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志
  JS 中的数据类型 7 种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object  总结: 四基两空一对象
@@ -139,10 +139,10 @@ null undefined
     
     <item>
       <title>JS语法</title>
-      <link>http://zhixiukang.com/posts/js-grammar/</link>
+      <link>https://zhixiukang.com/posts/js-grammar/</link>
       <pubDate>Tue, 18 Feb 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/js-grammar/</guid>
+      <guid>https://zhixiukang.com/posts/js-grammar/</guid>
       <description>JS 语法  参考资料: JavaScript 的基本语法 - JavaScript 教程 - 网道
  JS 版本 历史版本  ES3, IE 6 支持，总体评价: 垃圾 ES5, 总体评价: 还是垃圾 ES6, 大部分浏览器支持,总体评价:一半垃圾一半好 ES2019 与 ES6 差别不大  为什么说 ES6 一半垃圾  因为 ES 不能删除以前的特性，要兼容旧网站 也就是说以前能运行的网站，以后都要能运行 对于 Python3 你就能知道兼容的好处: 稳定   JS 之父对 JS 的早期评价(ES6 前): 它的优秀之处并非原创，它的原创之处并不优秀。
   取其精华，去其糟粕。是我们对待 JS 的态度。
@@ -151,10 +151,10 @@ null undefined
     
     <item>
       <title>内存图和 JS 世界</title>
-      <link>http://zhixiukang.com/posts/memory-map-and-js-world/</link>
+      <link>https://zhixiukang.com/posts/memory-map-and-js-world/</link>
       <pubDate>Sat, 15 Feb 2020 15:21:33 -0800</pubDate>
       
-      <guid>http://zhixiukang.com/posts/memory-map-and-js-world/</guid>
+      <guid>https://zhixiukang.com/posts/memory-map-and-js-world/</guid>
       <description>JS 小知识:
 JavaScript 的历史
 Javascript 诞生记

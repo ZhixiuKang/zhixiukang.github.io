@@ -25,20 +25,20 @@
   CSS 渲染过程依次包含布局、绘制、合成 其中布局和绘制有可能被省略  前端高手不用 left 做动画 用 transform(变形)  示例代码
  原理 - transform: translateX(0=&gt;300px) - 直接修改会被合成，需要等一会修改 - transition过渡属性可以自动脑补中间帧  注意性能  并没有 repaint(重新绘制) 比改 left 性能好  浏览器渲染原理 参考文章  渲染树构建、布局及绘制 渲染性能 使用 transform 来实现动画 查看 CSS 个属性触发什么: CSS Triggers  Q: Blink, Gecko, WebKit, EdgeHTML 是啥？" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://zhixiukang.com/posts/browser-rendering/" />
+<meta property="og:url" content="https://zhixiukang.com/posts/browser-rendering/" />
 <meta property="article:published_time" content="2020-02-02T15:21:33-08:00" />
 <meta property="article:modified_time" content="2020-02-02T15:21:33-08:00" />
 
 
     
-      <base href="http://zhixiukang.com/posts/browser-rendering/">
+      <base href="https://zhixiukang.com/posts/browser-rendering/">
     
     <title>
 CSS动画的原理和浏览器渲染原理 · 修的个人网站
 </title>
 
     
-      <link rel="canonical" href="http://zhixiukang.com/posts/browser-rendering/">
+      <link rel="canonical" href="https://zhixiukang.com/posts/browser-rendering/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -49,7 +49,7 @@ CSS动画的原理和浏览器渲染原理 · 修的个人网站
     
       
       
-      <link rel="stylesheet" href="http://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -60,8 +60,8 @@ CSS动画的原理和浏览器渲染原理 · 修的个人网站
 
     
     
-    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.62.1" />
   </head>
@@ -72,7 +72,7 @@ CSS动画的原理和浏览器渲染原理 · 修的个人网站
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://zhixiukang.com/">
+    <a class="navigation-title" href="https://zhixiukang.com/">
       修的个人网站
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -81,23 +81,23 @@ CSS动画的原理和浏览器渲染原理 · 修的个人网站
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/posts/">技术文章</a>
+            <a class="navigation-link" href="https://zhixiukang.com/posts/">技术文章</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/explore/">兴趣学习</a>
+            <a class="navigation-link" href="https://zhixiukang.com/explore/">兴趣学习</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/bucket-list/">Bucket List</a>
+            <a class="navigation-link" href="https://zhixiukang.com/bucket-list/">Bucket List</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/tags/">分类</a>
+            <a class="navigation-link" href="https://zhixiukang.com/tags/">分类</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://zhixiukang.com/about/">联系我</a>
+            <a class="navigation-link" href="https://zhixiukang.com/about/">联系我</a>
           </li>
         
       
@@ -127,11 +127,11 @@ CSS动画的原理和浏览器渲染原理 · 修的个人网站
         </div>
         <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://zhixiukang.com/categories/tech/">Tech</a></div>
+    <a href="https://zhixiukang.com/categories/tech/">Tech</a></div>
 
         <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://zhixiukang.com/tags/css/">CSS</a></div>
+    <a href="https://zhixiukang.com/tags/css/">CSS</a></div>
 
       </div>
     </header>
@@ -195,7 +195,7 @@ A: <a href="https://en.wikipedia.org/wiki/Comparison_of_browser_engines">Compari
 <li>Composite 合成(根据层叠关系展示画面)</li>
 </ul>
 <h2 id="heading-9">三棵树</h2>
-<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2120.12.32.png" alt=""></p>
+<p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2120.12.32.png" alt=""></p>
 <h2 id="heading-10">如何更新样式</h2>
 <ul>
 <li>一般我们用 JS 来更新样式
@@ -213,7 +213,7 @@ A: <a href="https://en.wikipedia.org/wiki/Comparison_of_browser_engines">Compari
 </li>
 </ul>
 <h2 id="heading-11">三种更新方式</h2>
-<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2120.37.27.png" alt=""></p>
+<p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2120.37.27.png" alt=""></p>
 <ul>
 <li>第一种，全走
 <blockquote>
