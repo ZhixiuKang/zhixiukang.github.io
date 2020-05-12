@@ -14,10 +14,10 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JS数组的增删改查和数组变换"/>
-<meta name="twitter:description" content="JS 的数组不是典型数组 典型的数组  元素的数据类型相同 使用连续的内存存储 通过数字下标获取元素  但 JS 的数组不这样  元素的数据类型可以不同 内存不一定是连续的(对象是随机存储的) 不能通过数字下标，而是通过字符串下标 这意味着数组可以有任何 key  let arr = [1, 2, 3] arr[‘xxx&#39;] = 1 创建一个数组 新建 let arr = [1, 2, 3]; let arr = new Array(1, 2, 3); let arr = new Array(3); 转化 let arr = &#39;1, 2, 3&#39;.split(‘,’) let arr = &#39;123&#39;.split(‘’) Array.from(&#39;123&#39;) 伪数组 let divList = document.querySelector(‘div’) let divArray = Array.from(divList)  伪数组的原型链中并没有数组的原型。"/>
+<meta name="twitter:description" content="JS 的数组不是典型数组 典型的数组  元素的数据类型相同 使用连续的内存存储 通过数字下标获取元素  但 JS 的数组不这样  元素的数据类型可以不同 内存不一定是连续的(对象是随机存储的) 不能通过数字下标，而是通过字符串下标 这意味着数组可以有任何 key  let arr = [1, 2, 3] arr[‘xxx&#39;] = 1  创建一个数组 新建 let arr = [1, 2, 3]; let arr = new Array(1, 2, 3); let arr = new Array(3);  转化 let arr = &#39;1, 2, 3&#39;.split(‘,’) let arr = &#39;123&#39;.split(‘’) Array.from(&#39;123&#39;)  伪数组 let divList = document.querySelector(‘div’) let divArray = Array."/>
 
     <meta property="og:title" content="JS数组的增删改查和数组变换" />
-<meta property="og:description" content="JS 的数组不是典型数组 典型的数组  元素的数据类型相同 使用连续的内存存储 通过数字下标获取元素  但 JS 的数组不这样  元素的数据类型可以不同 内存不一定是连续的(对象是随机存储的) 不能通过数字下标，而是通过字符串下标 这意味着数组可以有任何 key  let arr = [1, 2, 3] arr[‘xxx&#39;] = 1 创建一个数组 新建 let arr = [1, 2, 3]; let arr = new Array(1, 2, 3); let arr = new Array(3); 转化 let arr = &#39;1, 2, 3&#39;.split(‘,’) let arr = &#39;123&#39;.split(‘’) Array.from(&#39;123&#39;) 伪数组 let divList = document.querySelector(‘div’) let divArray = Array.from(divList)  伪数组的原型链中并没有数组的原型。" />
+<meta property="og:description" content="JS 的数组不是典型数组 典型的数组  元素的数据类型相同 使用连续的内存存储 通过数字下标获取元素  但 JS 的数组不这样  元素的数据类型可以不同 内存不一定是连续的(对象是随机存储的) 不能通过数字下标，而是通过字符串下标 这意味着数组可以有任何 key  let arr = [1, 2, 3] arr[‘xxx&#39;] = 1  创建一个数组 新建 let arr = [1, 2, 3]; let arr = new Array(1, 2, 3); let arr = new Array(3);  转化 let arr = &#39;1, 2, 3&#39;.split(‘,’) let arr = &#39;123&#39;.split(‘’) Array.from(&#39;123&#39;)  伪数组 let divList = document.querySelector(‘div’) let divArray = Array." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/js-array/" />
 <meta property="article:published_time" content="2020-02-27T15:21:33-08:00" />
@@ -147,217 +147,246 @@ JS数组的增删改查和数组变换 · 修的个人网站
 <li>不能通过数字下标，而是通过字符串下标</li>
 <li>这意味着数组可以有任何 key</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = [<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>, <span style="color:#ff0;font-weight:bold">3</span>]
-arr[<span style="color:#f00">‘</span>xxx<span style="color:#f00">&#39;</span>] = <span style="color:#ff0;font-weight:bold">1</span>
-</code></pre></div><h1 id="heading-1">创建一个数组</h1>
+<pre><code class="language-javascript">let arr = [1, 2, 3]
+arr[‘xxx'] = 1
+</code></pre>
+<h1 id="heading-1">创建一个数组</h1>
 <h2 id="heading-2">新建</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = [<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>, <span style="color:#ff0;font-weight:bold">3</span>];
-<span style="color:#fff;font-weight:bold">let</span> arr = <span style="color:#fff;font-weight:bold">new</span> <span style="color:#fff;font-weight:bold">Array</span>(<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>, <span style="color:#ff0;font-weight:bold">3</span>);
-<span style="color:#fff;font-weight:bold">let</span> arr = <span style="color:#fff;font-weight:bold">new</span> <span style="color:#fff;font-weight:bold">Array</span>(<span style="color:#ff0;font-weight:bold">3</span>);
-</code></pre></div><h2 id="heading-3">转化</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = <span style="color:#0ff;font-weight:bold">&#39;1, 2, 3&#39;</span>.split(<span style="color:#f00">‘</span>,<span style="color:#f00">’</span>)
-<span style="color:#fff;font-weight:bold">let</span> arr = <span style="color:#0ff;font-weight:bold">&#39;123&#39;</span>.split(<span style="color:#f00">‘</span><span style="color:#f00">’</span>)
-<span style="color:#fff;font-weight:bold">Array</span>.from(<span style="color:#0ff;font-weight:bold">&#39;123&#39;</span>)
-</code></pre></div><h2 id="heading-4">伪数组</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> divList = <span style="color:#fff;font-weight:bold">document</span>.querySelector(<span style="color:#f00">‘</span>div<span style="color:#f00">’</span>)
-<span style="color:#fff;font-weight:bold">let</span> divArray = <span style="color:#fff;font-weight:bold">Array</span>.from(divList)
-</code></pre></div><blockquote>
+<pre><code class="language-javascript">let arr = [1, 2, 3];
+let arr = new Array(1, 2, 3);
+let arr = new Array(3);
+</code></pre>
+<h2 id="heading-3">转化</h2>
+<pre><code class="language-javascript">let arr = '1, 2, 3'.split(‘,’)
+let arr = '123'.split(‘’)
+Array.from('123')
+</code></pre>
+<h2 id="heading-4">伪数组</h2>
+<pre><code class="language-javascript">let divList = document.querySelector(‘div’)
+let divArray = Array.from(divList)
+</code></pre>
+<blockquote>
 <p>伪数组的原型链中并没有数组的原型。</p>
 <p>没有数组共用属性的'数组&rsquo;，就是伪数组。</p>
 </blockquote>
 <h2 id="heading-5">合并两个数组，得到新数组</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr1.concat(arr2);
-</code></pre></div><h2 id="heading-6">截取一个数组的一部分</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr1.slice(<span style="color:#ff0;font-weight:bold">1</span>); <span style="color:#007f7f">//从第二个元素开始
-</span><span style="color:#007f7f"></span>arr1.slice(<span style="color:#ff0;font-weight:bold">0</span>); <span style="color:#007f7f">//全部截取
-</span></code></pre></div><blockquote>
+<pre><code class="language-javascript">arr1.concat(arr2);
+</code></pre>
+<h2 id="heading-6">截取一个数组的一部分</h2>
+<pre><code class="language-javascript">arr1.slice(1); //从第二个元素开始
+arr1.slice(0); //全部截取
+</code></pre>
+<blockquote>
 <p>注意，JS 只提供浅拷贝</p>
 </blockquote>
 <h1 id="heading-7">增删改查</h1>
 <h2 id="heading-8">删元素</h2>
 <h3 id="heading-9">跟对象一样</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = [<span style="color:#0ff;font-weight:bold">&#39;a&#39;</span>, <span style="color:#0ff;font-weight:bold">&#39;b&#39;</span>, <span style="color:#f00">‘</span>c<span style="color:#f00">’</span>]
-<span style="color:#fff;font-weight:bold">delete</span> arr[<span style="color:#0ff;font-weight:bold">&#39;0&#39;</span>]
-arr <span style="color:#007f7f">// [empty, &#39;b&#39;, ‘c’]
-</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 神奇，数组的长度并没有变
-</span></code></pre></div><h3 id="-length-">如果直接改 length 可以删元素吗</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = [<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>, <span style="color:#ff0;font-weight:bold">3</span>, <span style="color:#ff0;font-weight:bold">4</span>, <span style="color:#ff0;font-weight:bold">5</span>];
-arr.length = <span style="color:#ff0;font-weight:bold">1</span>;
-<span style="color:#007f7f">// 我X，居然可以？？？JS真操蛋
-</span></code></pre></div><blockquote>
+<pre><code class="language-javascript">let arr = ['a', 'b', ‘c’]
+delete arr['0']
+arr // [empty, 'b', ‘c’]
+// 神奇，数组的长度并没有变
+</code></pre>
+<h3 id="-length-">如果直接改 length 可以删元素吗</h3>
+<pre><code class="language-javascript">let arr = [1, 2, 3, 4, 5];
+arr.length = 1;
+// 我X，居然可以？？？JS真操蛋
+</code></pre>
+<blockquote>
 <p>重要: 不要随便改 length</p>
 </blockquote>
 <h3 id="heading-10">三种方法删元素</h3>
 <ul>
 <li>删除头部的元素</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.shift(); <span style="color:#007f7f">// arr被修改，并返回被删元素
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">arr.shift(); // arr被修改，并返回被删元素
+</code></pre>
+<ul>
 <li>删除尾部的元素</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.pop(); <span style="color:#007f7f">// arr被修改，并返回被删元素
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">arr.pop(); // arr被修改，并返回被删元素
+</code></pre>
+<ul>
 <li>删除中间的元素</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.splice(index, <span style="color:#ff0;font-weight:bold">1</span>) <span style="color:#007f7f">// 删除index的一个元素
-</span><span style="color:#007f7f"></span>arr.splice(index, <span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#f00">‘</span>x<span style="color:#f00">’</span>) <span style="color:#007f7f">// 并在删除位置添加’x’
-</span><span style="color:#007f7f"></span>arr.splice(index, <span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#f00">‘</span>x<span style="color:#f00">’</span>, <span style="color:#f00">‘</span>y<span style="color:#f00">’</span>) <span style="color:#007f7f">// 并在删除位置添加’x’, ‘y’
-</span></code></pre></div><h2 id="heading-11">查看元素</h2>
+<pre><code class="language-javascript">arr.splice(index, 1) // 删除index的一个元素
+arr.splice(index, 1, ‘x’) // 并在删除位置添加’x’
+arr.splice(index, 1, ‘x’, ‘y’) // 并在删除位置添加’x’, ‘y’
+</code></pre>
+<h2 id="heading-11">查看元素</h2>
 <h3 id="heading-12">查看所有属性名</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = [<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>, <span style="color:#ff0;font-weight:bold">3</span>, <span style="color:#ff0;font-weight:bold">4</span>, <span style="color:#ff0;font-weight:bold">5</span>];
-<span style="color:#fff;font-weight:bold">Object</span>.keys(arr);
+<pre><code class="language-javascript">let arr = [1, 2, 3, 4, 5];
+Object.keys(arr);
 
-<span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">let</span> key <span style="color:#fff;font-weight:bold">in</span> arr) {
+for (let key in arr) {
   console.log(key);
 }
-</code></pre></div><p>这些都适用于对象，不适用于数组</p>
+</code></pre>
+<p>这些都适用于对象，不适用于数组</p>
 <h3 id="heading-13">查看数字(字符串)属性名和值</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; arr.length; i++){
-	console.log(<span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold">${</span>i<span style="color:#0ff;font-weight:bold">}</span><span style="color:#0ff;font-weight:bold">: </span><span style="color:#0ff;font-weight:bold">${</span>arr[i]<span style="color:#0ff;font-weight:bold">}</span><span style="color:#0ff;font-weight:bold">`</span>)
+<pre><code class="language-javascript">for(let i = 0; i &lt; arr.length; i++){
+	console.log(`${i}: ${arr[i]}`)
 }
 
-arr.forEach(<span style="color:#fff;font-weight:bold">function</span>(item, index){
-	console.log(<span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold">${</span>index<span style="color:#0ff;font-weight:bold">}</span><span style="color:#0ff;font-weight:bold">: </span><span style="color:#0ff;font-weight:bold">${</span>item<span style="color:#0ff;font-weight:bold">}</span><span style="color:#0ff;font-weight:bold">`</span>)
+arr.forEach(function(item, index){
+	console.log(`${index}: ${item}`)
 }
-</code></pre></div><h3 id="heading-14">查看单个属性</h3>
+</code></pre>
+<h3 id="heading-14">查看单个属性</h3>
 <ul>
 <li>跟对象一样</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = [<span style="color:#ff0;font-weight:bold">111</span>, <span style="color:#ff0;font-weight:bold">222</span>, <span style="color:#ff0;font-weight:bold">333</span>];
-arr[<span style="color:#ff0;font-weight:bold">0</span>];
-</code></pre></div><ul>
+<pre><code class="language-javascript">let arr = [111, 222, 333];
+arr[0];
+</code></pre>
+<ul>
 <li>索引越界</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr[arr.length] === <span style="color:#fff;font-weight:bold">undefined</span>;
-arr[-<span style="color:#ff0;font-weight:bold">1</span>] === <span style="color:#fff;font-weight:bold">undefined</span>;
-</code></pre></div><p>举例:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt;= arr.length; i++) {
+<pre><code class="language-javascript">arr[arr.length] === undefined;
+arr[-1] === undefined;
+</code></pre>
+<p>举例:</p>
+<pre><code class="language-javascript">for (let i = 0; i &lt;= arr.length; i++) {
   console.log(arr[i].toString());
 }
-<span style="color:#007f7f">// 报错: Cannot read property ’toString’ of undefined
-</span></code></pre></div><ul>
+// 报错: Cannot read property ’toString’ of undefined
+</code></pre>
+<ul>
 <li>查看某个元素是否在数组里</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.indexOf(item); <span style="color:#007f7f">// 存在返回索引，否则返回-1
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">arr.indexOf(item); // 存在返回索引，否则返回-1
+</code></pre>
+<ul>
 <li>使用条件查找元素</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.find(item =&gt; item % <span style="color:#ff0;font-weight:bold">2</span> === <span style="color:#ff0;font-weight:bold">0</span>); <span style="color:#007f7f">// 找第一个偶数
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">arr.find(item =&gt; item % 2 === 0); // 找第一个偶数
+</code></pre>
+<ul>
 <li>使用条件查找元素的索引</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.findIndex(item =&gt; item % <span style="color:#ff0;font-weight:bold">2</span> === <span style="color:#ff0;font-weight:bold">0</span>); <span style="color:#007f7f">// 找第一个偶数的索引
-</span></code></pre></div><h2 id="heading-15">增加数组中的元素</h2>
+<pre><code class="language-javascript">arr.findIndex(item =&gt; item % 2 === 0); // 找第一个偶数的索引
+</code></pre>
+<h2 id="heading-15">增加数组中的元素</h2>
 <ul>
 <li>在尾部加元素</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.push(newItem); <span style="color:#007f7f">// 修改arr, 返回新长度
-</span><span style="color:#007f7f"></span>arr.push(item1, item2); <span style="color:#007f7f">// 修改arr, 返回新长度
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">arr.push(newItem); // 修改arr, 返回新长度
+arr.push(item1, item2); // 修改arr, 返回新长度
+</code></pre>
+<ul>
 <li>在头部加元素</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.unshift(newItem); <span style="color:#007f7f">// 修改arr, 返回新长度
-</span><span style="color:#007f7f"></span>arr.unshift(item1, item2); <span style="color:#007f7f">// 修改arr, 返回新长度
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">arr.unshift(newItem); // 修改arr, 返回新长度
+arr.unshift(item1, item2); // 修改arr, 返回新长度
+</code></pre>
+<ul>
 <li>在中间添加元素</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.splice(index, <span style="color:#ff0;font-weight:bold">0</span>, <span style="color:#f00">‘</span>x<span style="color:#f00">’</span>) <span style="color:#007f7f">// 在index处插入’x’
-</span><span style="color:#007f7f"></span>arr.splice(index, <span style="color:#ff0;font-weight:bold">0</span>, <span style="color:#f00">‘</span>x<span style="color:#f00">’</span>, <span style="color:#f00">‘</span>y<span style="color:#f00">’</span>)
-</code></pre></div><h2 id="heading-16">修改数组中的元素</h2>
+<pre><code class="language-javascript">arr.splice(index, 0, ‘x’) // 在index处插入’x’
+arr.splice(index, 0, ‘x’, ‘y’)
+</code></pre>
+<h2 id="heading-16">修改数组中的元素</h2>
 <ul>
 <li>反转顺序</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.reserse(); <span style="color:#007f7f">// 修改原数组
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">arr.reserse(); // 修改原数组
+</code></pre>
+<ul>
 <li>自定义顺序</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.sort();
+<pre><code class="language-javascript">arr.sort();
 
 arr.sort((a, b) =&gt; a - b);
 
-arr.sort(<span style="color:#fff;font-weight:bold">function</span>(a, b) {
-  <span style="color:#fff;font-weight:bold">if</span> (a.score &gt; b.score) {
-    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">1</span>;
-  } <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (a.score === b.score) {
-    <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">0</span>;
-  } <span style="color:#fff;font-weight:bold">else</span> {
-    <span style="color:#fff;font-weight:bold">return</span> -<span style="color:#ff0;font-weight:bold">1</span>;
+arr.sort(function(a, b) {
+  if (a.score &gt; b.score) {
+    return 1;
+  } else if (a.score === b.score) {
+    return 0;
+  } else {
+    return -1;
   }
 });
-</code></pre></div><h1 id="heading-17">数组变换</h1>
+</code></pre>
+<h1 id="heading-17">数组变换</h1>
 <h2 id="map-filter--reduce">map, filter 和 reduce</h2>
 <p>用个生动的图来描述下数组变换:
 <img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-03-2722.26.06.png" alt=""></p>
 <ul>
 <li>map: n 变 n</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = [<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>, <span style="color:#ff0;font-weight:bold">3</span>, <span style="color:#ff0;font-weight:bold">4</span>, <span style="color:#ff0;font-weight:bold">5</span>, <span style="color:#ff0;font-weight:bold">6</span>];
+<pre><code class="language-javascript">let arr = [1, 2, 3, 4, 5, 6];
 arr.map(item =&gt; item * item);
-</code></pre></div><ul>
+</code></pre>
+<ul>
 <li>filter: n 变少</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = [<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>, <span style="color:#ff0;font-weight:bold">3</span>, <span style="color:#ff0;font-weight:bold">4</span>, <span style="color:#ff0;font-weight:bold">5</span>, <span style="color:#ff0;font-weight:bold">6</span>];
-arr.filter(item =&gt; (item % <span style="color:#ff0;font-weight:bold">2</span> === <span style="color:#ff0;font-weight:bold">0</span> ? <span style="color:#fff;font-weight:bold">true</span> : <span style="color:#fff;font-weight:bold">false</span>));
+<pre><code class="language-javascript">let arr = [1, 2, 3, 4, 5, 6];
+arr.filter(item =&gt; (item % 2 === 0 ? true : false));
 
-arr.filter(item =&gt; item % <span style="color:#ff0;font-weight:bold">2</span> === <span style="color:#ff0;font-weight:bold">0</span>);
-</code></pre></div><ul>
+arr.filter(item =&gt; item % 2 === 0);
+</code></pre>
+<ul>
 <li>reduce: n 变 1</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = [<span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>, <span style="color:#ff0;font-weight:bold">3</span>, <span style="color:#ff0;font-weight:bold">4</span>, <span style="color:#ff0;font-weight:bold">5</span>, <span style="color:#ff0;font-weight:bold">6</span>];
+<pre><code class="language-javascript">let arr = [1, 2, 3, 4, 5, 6];
 arr.reduce((sum, item) =&gt; {
-  <span style="color:#fff;font-weight:bold">return</span> sum + item;
-}, <span style="color:#ff0;font-weight:bold">0</span>);
+  return sum + item;
+}, 0);
 
-<span style="color:#007f7f">// 用reduce实现map的功能
-</span><span style="color:#007f7f"></span>arr.reduce((result, item) =&gt; {
-  <span style="color:#fff;font-weight:bold">return</span> result.concat(item * item);
+// 用reduce实现map的功能
+arr.reduce((result, item) =&gt; {
+  return result.concat(item * item);
 }, []);
 
-<span style="color:#007f7f">// 用reduce实现filter的功能
-</span><span style="color:#007f7f"></span>arr.reduce((result, item) =&gt; {
-  <span style="color:#fff;font-weight:bold">if</span> (item % <span style="color:#ff0;font-weight:bold">2</span> === <span style="color:#ff0;font-weight:bold">1</span>) {
-    <span style="color:#fff;font-weight:bold">return</span> result;
-  } <span style="color:#fff;font-weight:bold">else</span> {
-    <span style="color:#fff;font-weight:bold">return</span> result.concat(item);
+// 用reduce实现filter的功能
+arr.reduce((result, item) =&gt; {
+  if (item % 2 === 1) {
+    return result;
+  } else {
+    return result.concat(item);
   }
 }, []);
-<span style="color:#007f7f">// 再简化
-</span><span style="color:#007f7f"></span>arr.reduce((result, item) =&gt; {
-  item % <span style="color:#ff0;font-weight:bold">2</span> === <span style="color:#ff0;font-weight:bold">1</span> ? result : result.concat(item);
+// 再简化
+arr.reduce((result, item) =&gt; {
+  item % 2 === 1 ? result : result.concat(item);
 }, []);
-<span style="color:#007f7f">// 再给我简化
-</span><span style="color:#007f7f"></span>arr.reduce((result, item) =&gt; result.concat(item % <span style="color:#ff0;font-weight:bold">2</span> === <span style="color:#ff0;font-weight:bold">1</span> ? [] : item), []);
-</code></pre></div><h2 id="heading-18">做个题</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> arr = [
-	{ name:<span style="color:#f00">’</span>Animal<span style="color:#f00">’</span>, id: <span style="color:#ff0;font-weight:bold">1</span>, parent: <span style="color:#fff;font-weight:bold">null</span>},
-	{ name:<span style="color:#f00">’</span>Dog<span style="color:#f00">’</span>, id: <span style="color:#ff0;font-weight:bold">2</span>, parent: <span style="color:#ff0;font-weight:bold">1</span>},
-	{ name:<span style="color:#f00">’</span>Cat<span style="color:#f00">’</span>, id: <span style="color:#ff0;font-weight:bold">3</span>, parent: <span style="color:#ff0;font-weight:bold">1</span>},
+// 再给我简化
+arr.reduce((result, item) =&gt; result.concat(item % 2 === 1 ? [] : item), []);
+</code></pre>
+<h2 id="heading-18">做个题</h2>
+<pre><code class="language-javascript">let arr = [
+	{ name:’Animal’, id: 1, parent: null},
+	{ name:’Dog’, id: 2, parent: 1},
+	{ name:’Cat’, id: 3, parent: 1},
 ]
-<span style="color:#007f7f">//数组变成对象
-</span><span style="color:#007f7f"></span>{
-	id:<span style="color:#ff0;font-weight:bold">1</span>, name: <span style="color:#f00">‘</span>Animal<span style="color:#f00">’</span>, children: [
-		{ id: <span style="color:#ff0;font-weight:bold">2</span>, name:<span style="color:#f00">’</span>Dog<span style="color:#f00">’</span>, children: <span style="color:#fff;font-weight:bold">null</span>},
-		{ id: <span style="color:#ff0;font-weight:bold">3</span>, name:<span style="color:#f00">’</span>Cat<span style="color:#f00">’</span>, children: <span style="color:#fff;font-weight:bold">null</span>},
+//数组变成对象
+{
+	id:1, name: ‘Animal’, children: [
+		{ id: 2, name:’Dog’, children: null},
+		{ id: 3, name:’Cat’, children: null},
 	]
 }
-</code></pre></div><p>解法:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arr.reduce((result, item) =&gt; {
+</code></pre>
+<p>解法:</p>
+<pre><code class="language-javascript">arr.reduce((result, item) =&gt; {
 	result[item.id] = item
-	<span style="color:#fff;font-weight:bold">return</span> result
+	return result
 }, {})
 
 arr.reduce((result, item) =&gt; {
-	<span style="color:#fff;font-weight:bold">if</span>(item.parent === <span style="color:#fff;font-weight:bold">null</span>) {
+	if(item.parent === null) {
 		result.id = item.id
-		result[<span style="color:#f00">‘</span>name<span style="color:#f00">’</span>] = item[<span style="color:#0ff;font-weight:bold">&#39;name&#39;</span>]
-	}<span style="color:#fff;font-weight:bold">else</span>{
+		result[‘name’] = item['name']
+	}else{
 		result.children.push(item)
-		<span style="color:#fff;font-weight:bold">delete</span> item.parent
-		item.children = <span style="color:#fff;font-weight:bold">null</span>
+		delete item.parent
+		item.children = null
 	}
-	<span style="color:#fff;font-weight:bold">return</span> result
-}, {id: <span style="color:#fff;font-weight:bold">null</span>, children: []})
-</code></pre></div>
+	return result
+}, {id: null, children: []})
+</code></pre>
+
     </div>
 
     <footer>

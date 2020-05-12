@@ -19,7 +19,7 @@
 JS 的 new 到底是干什么的？
 JS 中 proto 和 prototype 存在的意义是什么？
 ES6 所有新特性
- 构造函数 函数和原型结合 function createSquare(width) { let obj = Object.create(createSquare.squarePrototype) obj.width = width return obj } createSquare.squarePrototype = { getArea() { return this.width * this.width	}, getLength() { return this.width * 4 }, constructor: createSquare } let square = createSquare(5) 简化为：
+ 构造函数 函数和原型结合 function createSquare(width) { let obj = Object.create(createSquare.squarePrototype) obj.width = width return obj } createSquare.squarePrototype = { getArea() { return this.width * this.width	}, getLength() { return this.width * 4 }, constructor: createSquare } let square = createSquare(5)  简化为：
 function Square(width) { this.width = width } Square.prototype.getArea = function() { return this."/>
 
     <meta property="og:title" content="JS对象分类、原型和共用属性的关系、对象的ES6写法" />
@@ -28,7 +28,7 @@ function Square(width) { this.width = width } Square.prototype.getArea = functio
 JS 的 new 到底是干什么的？
 JS 中 proto 和 prototype 存在的意义是什么？
 ES6 所有新特性
- 构造函数 函数和原型结合 function createSquare(width) { let obj = Object.create(createSquare.squarePrototype) obj.width = width return obj } createSquare.squarePrototype = { getArea() { return this.width * this.width	}, getLength() { return this.width * 4 }, constructor: createSquare } let square = createSquare(5) 简化为：
+ 构造函数 函数和原型结合 function createSquare(width) { let obj = Object.create(createSquare.squarePrototype) obj.width = width return obj } createSquare.squarePrototype = { getArea() { return this.width * this.width	}, getLength() { return this.width * 4 }, constructor: createSquare } let square = createSquare(5)  简化为：
 function Square(width) { this.width = width } Square.prototype.getArea = function() { return this." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/js-object-and-prototype-with-public-attributes/" />
@@ -152,33 +152,35 @@ JS对象分类、原型和共用属性的关系、对象的ES6写法 · 修的�
 </blockquote>
 <h1 id="heading">构造函数</h1>
 <h2 id="heading-1">函数和原型结合</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> createSquare(width) {
-	<span style="color:#fff;font-weight:bold">let</span> obj = <span style="color:#fff;font-weight:bold">Object</span>.create(createSquare.squarePrototype)
+<pre><code class="language-javascript">function createSquare(width) {
+	let obj = Object.create(createSquare.squarePrototype)
 	obj.width = width
-	<span style="color:#fff;font-weight:bold">return</span> obj
+	return obj
 }
 createSquare.squarePrototype = {
 	getArea() {
-		<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#fff;font-weight:bold">this</span>.width	
+		return this.width * this.width	
 	},
 	getLength() {
-		<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#ff0;font-weight:bold">4</span>
+		return this.width * 4
 	},
 	constructor: createSquare
 }
-<span style="color:#fff;font-weight:bold">let</span> square = createSquare(<span style="color:#ff0;font-weight:bold">5</span>)
-</code></pre></div><p>简化为：</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> Square(width) {
-	<span style="color:#fff;font-weight:bold">this</span>.width = width
+let square = createSquare(5)
+</code></pre>
+<p>简化为：</p>
+<pre><code class="language-javascript">function Square(width) {
+	this.width = width
 }
-Square.prototype.getArea = <span style="color:#fff;font-weight:bold">function</span>() {
-	<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#fff;font-weight:bold">this</span>.width
+Square.prototype.getArea = function() {
+	return this.width * this.width
 }
-Square.prototype.getLength = <span style="color:#fff;font-weight:bold">function</span>() {
-	<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#ff0;font-weight:bold">4</span>
+Square.prototype.getLength = function() {
+	return this.width * 4
 }
-<span style="color:#fff;font-weight:bold">let</span> square = <span style="color:#fff;font-weight:bold">new</span> Square(<span style="color:#ff0;font-weight:bold">5</span>)
-</code></pre></div><h2 id="heading-2">总结</h2>
+let square = new Square(5)
+</code></pre>
+<h2 id="heading-2">总结</h2>
 <h3 id="new-x-">new X() 自动做了四件事情</h3>
 <ul>
 <li>自动创建空对象</li>
@@ -197,8 +199,9 @@ Square.prototype.getLength = <span style="color:#fff;font-weight:bold">function<
 <p>你是谁构造的，你的原型就是谁的prototype属性对应的对象。</p>
 </blockquote>
 <h2 id="heading-4">原型公式</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">对象.__proto__ === 其构造函数.prototype
-</code></pre></div><blockquote>
+<pre><code>对象.__proto__ === 其构造函数.prototype
+</code></pre>
+<blockquote>
 <p>这两个值都是上面例子的#309</p>
 </blockquote>
 <blockquote>
@@ -227,29 +230,31 @@ Square.prototype.getLength = <span style="color:#fff;font-weight:bold">function<
 <h1 id="es6">ES6语法</h1>
 <h2 id="square">重写下之前的Square</h2>
 <p>非常遗憾，有的前端认为下面的代码是过时的:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> Square(width) {
-	<span style="color:#fff;font-weight:bold">this</span>.width = width
+<pre><code class="language-javascript">function Square(width) {
+	this.width = width
 }
-Square.prototype.getArea = <span style="color:#fff;font-weight:bold">function</span>() {
-	<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#fff;font-weight:bold">this</span>.width
+Square.prototype.getArea = function() {
+	return this.width * this.width
 }
-Square.prototype.getLength = <span style="color:#fff;font-weight:bold">function</span>() {
-	<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#ff0;font-weight:bold">4</span>
+Square.prototype.getLength = function() {
+	return this.width * 4
 }
-<span style="color:#fff;font-weight:bold">let</span> square = <span style="color:#fff;font-weight:bold">new</span> Square(<span style="color:#ff0;font-weight:bold">5</span>)
-</code></pre></div><p>ES6引入了<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes">新语法</a>:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">class</span> Square {
+let square = new Square(5)
+</code></pre>
+<p>ES6引入了<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes">新语法</a>:</p>
+<pre><code class="language-javascript">class Square {
 	constructor(width) {
-		<span style="color:#fff;font-weight:bold">this</span>.width = width
+		this.width = width
 	}
 	getArea() {
-		<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#fff;font-weight:bold">this</span>.width
+		return this.width * this.width
 	}
-	getLength: <span style="color:#fff;font-weight:bold">function</span>() {
-		<span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">this</span>.width * <span style="color:#ff0;font-weight:bold">4</span>
-	}<span style="color:#007f7f">// 函数的两种写法都对
-</span><span style="color:#007f7f"></span>}
-</code></pre></div><h2 id="heading-5">到底有多少新语法</h2>
+	getLength: function() {
+		return this.width * 4
+	}// 函数的两种写法都对
+}
+</code></pre>
+<h2 id="heading-5">到底有多少新语法</h2>
 <blockquote>
 <p><a href="https://fangyinghang.com/es-6-tutorials/">ES 6 新特性列表</a></p>
 </blockquote>

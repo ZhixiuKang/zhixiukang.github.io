@@ -347,8 +347,9 @@
 <li>如何声明呢？浏览器说，<code>qq.com</code>在响应头里写<code>frank.com</code>可以访问</li>
 <li>具体语法</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">response.setHeader(<span style="color:#0ff;font-weight:bold">&#34;Access-Control-Allow-Origin&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;http://frank.com:9999&#34;</span>);
-</code></pre></div><blockquote>
+<pre><code class="language-javascript">response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;http://frank.com:9999&quot;);
+</code></pre>
+<blockquote>
 <p>是的，CORS 就这么简单:)</p>
 </blockquote>
 <blockquote>

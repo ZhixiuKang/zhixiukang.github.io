@@ -18,16 +18,16 @@
 四个常用功能  位移 translate 缩放 scale 旋转 rotate 倾斜 skew  经验:
 一般都需要配合 transition 过渡
 inline 元素不支持 transform,需要先变成 block
-   transform 之 translate 常用写法 &lt;translateX()&gt; = translateX( &lt;length-percentage&gt; ) &lt;translateY()&gt; = translateY( &lt;length-percentage&gt; ) &lt;translateZ()&gt; = translateZ( &lt;length&gt; )且父容器perspective &lt;translate()&gt; = translate( &lt;length-percentage&gt; , &lt;length-percentage&gt; ) &lt;translate3d()&gt; = translate3d( &lt;length-percentage&gt; , &lt;length-percentage&gt; , &lt;length&gt; )  示例代码
- 经验  要学会看懂 MDN 的语法示例 translate(-50%, -50%)可做绝对定位元素的居中  #demo { left: 50%; right: 50%; transform: translate(-50%, -50%); } transform 之 scale 常用写法 &lt;scaleX()&gt; = scaleX( &lt;number&gt; ) &lt;scaleY()&gt; = scaleY( &lt;number&gt; ) &lt;scale()&gt; = scale( &lt;number&gt; , &lt;number&gt;?"/>
+   transform 之 translate 常用写法 &lt;translateX()&gt; = translateX( &lt;length-percentage&gt; ) &lt;translateY()&gt; = translateY( &lt;length-percentage&gt; ) &lt;translateZ()&gt; = translateZ( &lt;length&gt; )且父容器perspective &lt;translate()&gt; = translate( &lt;length-percentage&gt; , &lt;length-percentage&gt; ) &lt;translate3d()&gt; = translate3d( &lt;length-percentage&gt; , &lt;length-percentage&gt; , &lt;length&gt; )   示例代码
+ 经验  要学会看懂 MDN 的语法示例 translate(-50%, -50%)可做绝对定位元素的居中  #demo { left: 50%; right: 50%; transform: translate(-50%, -50%); }  transform 之 scale 常用写法 &lt;scaleX()&gt; = scaleX( &lt;number&gt; ) &lt;scaleY()&gt; = scaleY( &lt;number&gt; ) &lt;scale()&gt; = scale( &lt;number&gt; , &lt;number&gt;?"/>
 
     <meta property="og:title" content="CSS动画中的transform" />
 <meta property="og:description" content="完整文档: transform - CSS（层叠样式表） | MDN
 四个常用功能  位移 translate 缩放 scale 旋转 rotate 倾斜 skew  经验:
 一般都需要配合 transition 过渡
 inline 元素不支持 transform,需要先变成 block
-   transform 之 translate 常用写法 &lt;translateX()&gt; = translateX( &lt;length-percentage&gt; ) &lt;translateY()&gt; = translateY( &lt;length-percentage&gt; ) &lt;translateZ()&gt; = translateZ( &lt;length&gt; )且父容器perspective &lt;translate()&gt; = translate( &lt;length-percentage&gt; , &lt;length-percentage&gt; ) &lt;translate3d()&gt; = translate3d( &lt;length-percentage&gt; , &lt;length-percentage&gt; , &lt;length&gt; )  示例代码
- 经验  要学会看懂 MDN 的语法示例 translate(-50%, -50%)可做绝对定位元素的居中  #demo { left: 50%; right: 50%; transform: translate(-50%, -50%); } transform 之 scale 常用写法 &lt;scaleX()&gt; = scaleX( &lt;number&gt; ) &lt;scaleY()&gt; = scaleY( &lt;number&gt; ) &lt;scale()&gt; = scale( &lt;number&gt; , &lt;number&gt;?" />
+   transform 之 translate 常用写法 &lt;translateX()&gt; = translateX( &lt;length-percentage&gt; ) &lt;translateY()&gt; = translateY( &lt;length-percentage&gt; ) &lt;translateZ()&gt; = translateZ( &lt;length&gt; )且父容器perspective &lt;translate()&gt; = translate( &lt;length-percentage&gt; , &lt;length-percentage&gt; ) &lt;translate3d()&gt; = translate3d( &lt;length-percentage&gt; , &lt;length-percentage&gt; , &lt;length&gt; )   示例代码
+ 经验  要学会看懂 MDN 的语法示例 translate(-50%, -50%)可做绝对定位元素的居中  #demo { left: 50%; right: 50%; transform: translate(-50%, -50%); }  transform 之 scale 常用写法 &lt;scaleX()&gt; = scaleX( &lt;number&gt; ) &lt;scaleY()&gt; = scaleY( &lt;number&gt; ) &lt;scale()&gt; = scale( &lt;number&gt; , &lt;number&gt;?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/transform/" />
 <meta property="article:published_time" content="2020-02-05T15:21:33-08:00" />
@@ -157,12 +157,13 @@ inline 元素不支持 transform,需要先变成 block</p>
 </ul>
 <h1 id="transform--translate">transform 之 translate</h1>
 <h2 id="heading-1">常用写法</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;translateX()&gt; = translateX(  &lt;length-percentage&gt;  )
+<pre><code>&lt;translateX()&gt; = translateX(  &lt;length-percentage&gt;  )
 &lt;translateY()&gt; = translateY(  &lt;length-percentage&gt;  )
 &lt;translateZ()&gt; = translateZ( &lt;length&gt; )且父容器perspective
 &lt;translate()&gt; = translate(  &lt;length-percentage&gt;  ,  &lt;length-percentage&gt;  )
 &lt;translate3d()&gt; = translate3d( &lt;length-percentage&gt; , &lt;length-percentage&gt; , &lt;length&gt; )
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p><a href="http://js.jirengu.com/gucut/1/edit?html,css,output">示例代码</a></p>
 </blockquote>
 <h2 id="heading-2">经验</h2>
@@ -170,17 +171,19 @@ inline 元素不支持 transform,需要先变成 block</p>
 <li>要学会看懂 MDN 的语法示例</li>
 <li><code>translate(-50%, -50%)</code>可做绝对定位元素的居中</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">#demo {
-  <span style="color:#fff;font-weight:bold">left</span>: <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">%</span>;
-  <span style="color:#fff;font-weight:bold">right</span>: <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">%</span>;
-  <span style="color:#fff;font-weight:bold">transform</span>: <span style="color:#fff;font-weight:bold">translate</span>(<span style="color:#ff0;font-weight:bold">-50</span><span style="color:#fff;font-weight:bold">%</span>, <span style="color:#ff0;font-weight:bold">-50</span><span style="color:#fff;font-weight:bold">%</span>);
+<pre><code class="language-css">#demo {
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
 }
-</code></pre></div><h1 id="transform--scale">transform 之 scale</h1>
+</code></pre>
+<h1 id="transform--scale">transform 之 scale</h1>
 <h2 id="heading-3">常用写法</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;scaleX()&gt; = scaleX( &lt;number&gt; )
+<pre><code>&lt;scaleX()&gt; = scaleX( &lt;number&gt; )
 &lt;scaleY()&gt; = scaleY( &lt;number&gt; )
 &lt;scale()&gt; = scale( &lt;number&gt; , &lt;number&gt;? )
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p><a href="http://js.jirengu.com/vukes/9/edit">示例代码</a></p>
 </blockquote>
 <h2 id="heading-4">经验</h2>
@@ -189,7 +192,7 @@ inline 元素不支持 transform,需要先变成 block</p>
 </ul>
 <h1 id="transform--rotate">transform 之 rotate</h1>
 <h2 id="heading-5">常用写法</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;rotate()&gt; = rotate( [ &lt;angle&gt; | &lt;zero&gt; ] )
+<pre><code>&lt;rotate()&gt; = rotate( [ &lt;angle&gt; | &lt;zero&gt; ] )
 &lt;rotateZ()&gt; = rotateZ( [ &lt;angle&gt; | &lt;zero&gt; ] )
 &lt;rotateX()&gt; = rotateX( [ &lt;angle&gt; | &lt;zero&gt; ] )
 &lt;rotateY()&gt; = rotateY( [ &lt;angle&gt; | &lt;zero&gt; ] )
@@ -197,7 +200,8 @@ inline 元素不支持 transform,需要先变成 block</p>
 
 transition: all 1s; /* 加入动画 1second */
 transform: rotateX(45deg);/* 例子 */
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p><a href="http://js.jirengu.com/ciher/1/edit">示例代码</a></p>
 </blockquote>
 <h2 id="heading-6">经验</h2>
@@ -207,10 +211,11 @@ transform: rotateX(45deg);/* 例子 */
 </ul>
 <h1 id="transform--skew">transform 之 skew</h1>
 <h2 id="heading-7">常用写法</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;skewX()&gt; = skewX( [ &lt;angle&gt; | &lt;zero&gt; ] )
+<pre><code>&lt;skewX()&gt; = skewX( [ &lt;angle&gt; | &lt;zero&gt; ] )
 &lt;skewY()&gt; = skewY( [ &lt;angle&gt; | &lt;zero&gt; ] )
 &lt;skew()&gt; = skew( [ &lt;angle&gt; | &lt;zero&gt; ] , [ &lt;angle&gt; | &lt;zero&gt; ]? )
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p><a href="http://js.jirengu.com/qerep/1/edit">示例代码</a></p>
 </blockquote>
 <h2 id="heading-8">经验</h2>

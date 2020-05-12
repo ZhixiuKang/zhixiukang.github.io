@@ -15,12 +15,12 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CSS动画中的transition过渡和animation"/>
 <meta name="twitter:description" content="transition 过渡 完整文档: transition | MDN
-作用  补充中间帧  语法:  transition: 属性名 时长 过渡方式 延迟时间 transition: left 200ms linear 可以用逗号分隔两个不同属性 transition: left 200ms, top 400ms 可以用 all 代表所有属性 transition: all 200ms 过渡方式有:  &lt;timing-function&gt; = linear | &lt;cubic-bezier-timing-function&gt; | &lt;step-timing-function&gt; where &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease-in-out | cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;) &lt;step-timing-function&gt; = step-start | step-end | steps(&lt;integer&gt;[, &lt;step-position&gt;]?)  的具体含义要靠数学知识
+作用  补充中间帧  语法:  transition: 属性名 时长 过渡方式 延迟时间 transition: left 200ms linear 可以用逗号分隔两个不同属性 transition: left 200ms, top 400ms 可以用 all 代表所有属性 transition: all 200ms 过渡方式有:  &lt;timing-function&gt; = linear | &lt;cubic-bezier-timing-function&gt; | &lt;step-timing-function&gt; where &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease-in-out | cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;) &lt;step-timing-function&gt; = step-start | step-end | steps(&lt;integer&gt;[, &lt;step-position&gt;]?)   的具体含义要靠数学知识
  注意  并不是所有属性都能过渡 display: none=&gt;block没法过渡 一般改成visibility:hidden=&gt;visible background 颜色可以过渡吗？可以。 opacity 透明度可以过渡吗？可以。  过渡必须要有起始。"/>
 
     <meta property="og:title" content="CSS动画中的transition过渡和animation" />
 <meta property="og:description" content="transition 过渡 完整文档: transition | MDN
-作用  补充中间帧  语法:  transition: 属性名 时长 过渡方式 延迟时间 transition: left 200ms linear 可以用逗号分隔两个不同属性 transition: left 200ms, top 400ms 可以用 all 代表所有属性 transition: all 200ms 过渡方式有:  &lt;timing-function&gt; = linear | &lt;cubic-bezier-timing-function&gt; | &lt;step-timing-function&gt; where &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease-in-out | cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;) &lt;step-timing-function&gt; = step-start | step-end | steps(&lt;integer&gt;[, &lt;step-position&gt;]?)  的具体含义要靠数学知识
+作用  补充中间帧  语法:  transition: 属性名 时长 过渡方式 延迟时间 transition: left 200ms linear 可以用逗号分隔两个不同属性 transition: left 200ms, top 400ms 可以用 all 代表所有属性 transition: all 200ms 过渡方式有:  &lt;timing-function&gt; = linear | &lt;cubic-bezier-timing-function&gt; | &lt;step-timing-function&gt; where &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease-in-out | cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;) &lt;step-timing-function&gt; = step-start | step-end | steps(&lt;integer&gt;[, &lt;step-position&gt;]?)   的具体含义要靠数学知识
  注意  并不是所有属性都能过渡 display: none=&gt;block没法过渡 一般改成visibility:hidden=&gt;visible background 颜色可以过渡吗？可以。 opacity 透明度可以过渡吗？可以。  过渡必须要有起始。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/transition-and-animation/" />
@@ -151,9 +151,10 @@ CSS动画中的transition过渡和animation · 修的个人网站
 <li><code>transition: all 200ms</code></li>
 <li>过渡方式有:</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;timing-function&gt; = linear | &lt;cubic-bezier-timing-function&gt; | &lt;step-timing-function&gt;
+<pre><code>&lt;timing-function&gt; = linear | &lt;cubic-bezier-timing-function&gt; | &lt;step-timing-function&gt;
 where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease-in-out | cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;) &lt;step-timing-function&gt; = step-start | step-end | steps(&lt;integer&gt;[, &lt;step-position&gt;]?)
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/timing-function"><!-- raw HTML omitted --></a>的具体含义要靠数学知识</p>
 </blockquote>
 <h2 id="heading-2">注意</h2>
@@ -205,40 +206,43 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
 <ul>
 <li>一种写法是 from to</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#fff;font-weight:bold">keyframes</span> <span style="font-weight:bold">slidein</span> {
-  <span style="font-weight:bold">from</span> {
-    <span style="color:#fff;font-weight:bold">transform</span>: <span style="color:#fff;font-weight:bold">translateX</span>(<span style="color:#ff0;font-weight:bold">0</span><span style="color:#fff;font-weight:bold">%</span>);
+<pre><code class="language-css">@keyframes slidein {
+  from {
+    transform: translateX(0%);
   }
 
-  <span style="font-weight:bold">to</span> {
-    <span style="color:#fff;font-weight:bold">transform</span>: <span style="color:#fff;font-weight:bold">translateX</span>(<span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">%</span>);
+  to {
+    transform: translateX(100%);
   }
 }
-</code></pre></div><ul>
+</code></pre>
+<ul>
 <li>另一种写法是百分数</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#fff;font-weight:bold">keyframes</span> <span style="font-weight:bold">identifier</span> {
-  <span style="font-weight:bold">0</span>% {
-    <span style="color:#fff;font-weight:bold">top</span>: <span style="color:#ff0;font-weight:bold">0</span>;
-    <span style="color:#fff;font-weight:bold">left</span>: <span style="color:#ff0;font-weight:bold">0</span>;
+<pre><code class="language-css">@keyframes identifier {
+  0% {
+    top: 0;
+    left: 0;
   }
-  <span style="font-weight:bold">30</span>% {
-    <span style="color:#fff;font-weight:bold">top</span>: <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span>;
+  30% {
+    top: 50px;
   }
-  <span style="font-weight:bold">68</span>%,
-  <span style="font-weight:bold">72</span>% {
-    <span style="color:#fff;font-weight:bold">left</span>: <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span>;
+  68%,
+  72% {
+    left: 50px;
   }
-  <span style="font-weight:bold">100</span>% {
-    <span style="color:#fff;font-weight:bold">top</span>: <span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">px</span>;
-    <span style="color:#fff;font-weight:bold">left</span>: <span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">%</span>;
+  100% {
+    top: 100px;
+    left: 100%;
   }
 }
-</code></pre></div><h1 id="animation">animation</h1>
+</code></pre>
+<h1 id="animation">animation</h1>
 <p>完整文档: <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation">animation | MDN</a></p>
 <h2 id="heading-5">缩写语法</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">animation: 时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动画名;
-</code></pre></div><ul>
+<pre><code>animation: 时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动画名;
+</code></pre>
+<ul>
 <li>时长: 1s 或者 1000ms</li>
 <li>过渡方式: 跟 transition 取值一样，如 linear</li>
 <li>次数: 3 或者 2.4 或者 infinite</li>
@@ -256,21 +260,22 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
 </blockquote>
 <h2 id="heading-6">实践</h2>
 <p>把红心重新做一遍。关键代码:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">#heart {
-  <span style="color:#fff;font-weight:bold">display</span>: <span style="color:#fff;font-weight:bold">inline</span>-<span style="color:#fff;font-weight:bold">block</span>;
-  <span style="color:#fff;font-weight:bold">margin</span>: <span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">px</span>;
-  <span style="color:#fff;font-weight:bold">position</span>: <span style="color:#fff;font-weight:bold">relative</span>;
-  <span style="color:#fff;font-weight:bold">animation</span>: <span style="color:#ff0;font-weight:bold">0.5</span><span style="color:#fff;font-weight:bold">s</span> heart <span style="color:#fff;font-weight:bold">infinite</span> <span style="color:#fff;font-weight:bold">alternate</span>-<span style="color:#fff;font-weight:bold">reverse</span>;
+<pre><code class="language-css">#heart {
+  display: inline-block;
+  margin: 100px;
+  position: relative;
+  animation: 0.5s heart infinite alternate-reverse;
 }
-@<span style="color:#fff;font-weight:bold">keyframes</span> <span style="font-weight:bold">heart</span> {
-  <span style="font-weight:bold">0</span>% {
-    <span style="color:#fff;font-weight:bold">transform</span>: <span style="color:#fff;font-weight:bold">scale</span>(<span style="color:#ff0;font-weight:bold">1</span>);
+@keyframes heart {
+  0% {
+    transform: scale(1);
   }
-  <span style="font-weight:bold">100</span>% {
-    <span style="color:#fff;font-weight:bold">transform</span>: <span style="color:#fff;font-weight:bold">scale</span>(<span style="color:#ff0;font-weight:bold">1.2</span>);
+  100% {
+    transform: scale(1.2);
   }
 }
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p><a href="http://js.jirengu.com/pejev/1/edit">完整代码</a></p>
 </blockquote>
 

@@ -14,14 +14,12 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Float 布局(Floats)"/>
-<meta name="twitter:description" content="步骤  在子元素上加float:left和width :::在父元素上加.clearfix:::，这个超级重要。  .clearfix:after { content: &#34;&#34;; display: block; clear: both; } 代码在这里
-经验  有经验者会留一些空间或者最后一个不设width（最后一个不设宽度，会让它自己拓展，当然了，可以给一个最大宽度。） 如果用 float 布局，不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的。 IE6/7 存在双倍 margin bug，解决办法有两个: 1. 将错就错，针对 IE6 或者 IE7 把 margin 减半: margin-left:10px _margin-left:5px 这样一来，普通浏览器就是 10px, 但是 IE 是 5*2=10px 还是 10px。 3. 神来一笔，再加一个display:inline-block  实践 不同布局  用 float 做两栏布局(如顶部条) 用 float 做三栏布局(如内容区) 用 float 做四栏布局(如导航) 点我看看 用 float 做平均布局(如产品展示区) 曾经淘宝的前端发明了双飞翼布局，不要学，已过时  float 实例代码
-    有的时候 border 会干扰宽度，这个时候可以把 border 改成 outline。"/>
+<meta name="twitter:description" content="步骤  在子元素上加float:left和width :::在父元素上加.clearfix:::，这个超级重要。  .clearfix:after { content: &quot;&quot;; display: block; clear: both; }  代码在这里
+经验  有经验者会留一些空间或者最后一个不设width（最后一个不设宽度，会让它自己拓展，当然了，可以给一个最大宽度。） 如果用 float 布局，不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的。 IE6/7 存在双倍 margin bug，解决办法有两个: 1. 将错就错，针对 IE6 或者 IE7 把 margin 减半: margin-left:10px _margin-left:5px 这样一来，普通浏览器就是 10px, 但是 IE 是 5*2=10px 还是 10px。 3. 神来一笔，再加一个display:inline-block  实践 不同布局  用 float 做两栏布局(如顶部条) 用 float 做三栏布局(如内容区) 用 float 做四栏布局(如导航) 点我看看 用 float 做平均布局(如产品展示区) 曾经淘宝的前端发明了双飞翼布局，不要学，已过时  float 实例代码"/>
 
     <meta property="og:title" content="Float 布局(Floats)" />
-<meta property="og:description" content="步骤  在子元素上加float:left和width :::在父元素上加.clearfix:::，这个超级重要。  .clearfix:after { content: &#34;&#34;; display: block; clear: both; } 代码在这里
-经验  有经验者会留一些空间或者最后一个不设width（最后一个不设宽度，会让它自己拓展，当然了，可以给一个最大宽度。） 如果用 float 布局，不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的。 IE6/7 存在双倍 margin bug，解决办法有两个: 1. 将错就错，针对 IE6 或者 IE7 把 margin 减半: margin-left:10px _margin-left:5px 这样一来，普通浏览器就是 10px, 但是 IE 是 5*2=10px 还是 10px。 3. 神来一笔，再加一个display:inline-block  实践 不同布局  用 float 做两栏布局(如顶部条) 用 float 做三栏布局(如内容区) 用 float 做四栏布局(如导航) 点我看看 用 float 做平均布局(如产品展示区) 曾经淘宝的前端发明了双飞翼布局，不要学，已过时  float 实例代码
-    有的时候 border 会干扰宽度，这个时候可以把 border 改成 outline。" />
+<meta property="og:description" content="步骤  在子元素上加float:left和width :::在父元素上加.clearfix:::，这个超级重要。  .clearfix:after { content: &quot;&quot;; display: block; clear: both; }  代码在这里
+经验  有经验者会留一些空间或者最后一个不设width（最后一个不设宽度，会让它自己拓展，当然了，可以给一个最大宽度。） 如果用 float 布局，不需要做响应式，因为手机上没有 IE，而这个布局是专门为 IE 准备的。 IE6/7 存在双倍 margin bug，解决办法有两个: 1. 将错就错，针对 IE6 或者 IE7 把 margin 减半: margin-left:10px _margin-left:5px 这样一来，普通浏览器就是 10px, 但是 IE 是 5*2=10px 还是 10px。 3. 神来一笔，再加一个display:inline-block  实践 不同布局  用 float 做两栏布局(如顶部条) 用 float 做三栏布局(如内容区) 用 float 做四栏布局(如导航) 点我看看 用 float 做平均布局(如产品展示区) 曾经淘宝的前端发明了双飞翼布局，不要学，已过时  float 实例代码" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/floats/" />
 <meta property="article:published_time" content="2020-01-22T15:21:33-08:00" />
@@ -140,12 +138,13 @@ Float 布局(Floats) · 修的个人网站
 <li>在子元素上加<code>float:left</code>和<code>width</code></li>
 <li>:::在父元素上加<code>.clearfix</code>:::，<strong>这个超级重要。</strong></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.clearfix:after {
-  <span style="color:#fff;font-weight:bold">content</span>: <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>;
-  <span style="color:#fff;font-weight:bold">display</span>: <span style="color:#fff;font-weight:bold">block</span>;
-  <span style="color:#fff;font-weight:bold">clear</span>: <span style="color:#fff;font-weight:bold">both</span>;
+<pre><code class="language-css">.clearfix:after {
+  content: &quot;&quot;;
+  display: block;
+  clear: both;
 }
-</code></pre></div><p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1721.02.53.png" alt="">
+</code></pre>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1721.02.53.png" alt="">
 <a href="http://js.jirengu.com/nokov/2/edit">代码在这里</a></p>
 <h2 id="heading-1">经验</h2>
 <ul>

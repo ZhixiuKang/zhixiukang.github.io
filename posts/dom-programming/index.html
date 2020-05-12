@@ -14,22 +14,22 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DOM编程和操作跨线程"/>
-<meta name="twitter:description" content="获取任意元素 有很多 API window.idxxx; // 或者直接idxxx document.getElementById(&#34;idxxx&#34;); document.getElementsByTagName(&#34;div&#34;)[0]; document.getElementsByClassName(&#34;red&#34;)[0]; document.querySelector(&#34;#idxxx&#34;); // 记得加# document.querySelectorAll(&#34;.red&#34;)[0]; 用哪一个  工作中用querySelector和querySelectorAll
+<meta name="twitter:description" content="获取任意元素 有很多 API window.idxxx; // 或者直接idxxx document.getElementById(&quot;idxxx&quot;); document.getElementsByTagName(&quot;div&quot;)[0]; document.getElementsByClassName(&quot;red&quot;)[0]; document.querySelector(&quot;#idxxx&quot;); // 记得加# document.querySelectorAll(&quot;.red&quot;)[0];  用哪一个  工作中用querySelector和querySelectorAll
 例子:document.querySelectorAll(&#39;div&gt;span:nth-child(2)&#39;)
   做 demo 直接用idxxx，千万别让人发现 hhh
   要兼容 IE 的可怜虫才用getElement(s)ByXXX
- 获取特定元素 获取 html 元素 document.documentElement; 获取 head 元素 document.head; 获取 body 元素 document.body; 获取窗口  窗口不是元素
- window; 获取所有元素 document.all; // false  这个 document.all 是个奇葩，第 6 个 falsy 值。原因是过去用来判断是否是 IE 浏览器。
- 元素的 6 层原型链 抓一只 div 对象来看看 console.dir(div1); // 查看原型链  Chrome 显示错了"/>
+ 获取特定元素 获取 html 元素 document.documentElement;  获取 head 元素 document.head;  获取 body 元素 document.body;  获取窗口  窗口不是元素
+ window;  获取所有元素 document.all; // false   这个 document.all 是个奇葩，第 6 个 falsy 值。原因是过去用来判断是否是 IE 浏览器。
+ 元素的 6 层原型链 抓一只 div 对象来看看 console."/>
 
     <meta property="og:title" content="DOM编程和操作跨线程" />
-<meta property="og:description" content="获取任意元素 有很多 API window.idxxx; // 或者直接idxxx document.getElementById(&#34;idxxx&#34;); document.getElementsByTagName(&#34;div&#34;)[0]; document.getElementsByClassName(&#34;red&#34;)[0]; document.querySelector(&#34;#idxxx&#34;); // 记得加# document.querySelectorAll(&#34;.red&#34;)[0]; 用哪一个  工作中用querySelector和querySelectorAll
+<meta property="og:description" content="获取任意元素 有很多 API window.idxxx; // 或者直接idxxx document.getElementById(&quot;idxxx&quot;); document.getElementsByTagName(&quot;div&quot;)[0]; document.getElementsByClassName(&quot;red&quot;)[0]; document.querySelector(&quot;#idxxx&quot;); // 记得加# document.querySelectorAll(&quot;.red&quot;)[0];  用哪一个  工作中用querySelector和querySelectorAll
 例子:document.querySelectorAll(&#39;div&gt;span:nth-child(2)&#39;)
   做 demo 直接用idxxx，千万别让人发现 hhh
   要兼容 IE 的可怜虫才用getElement(s)ByXXX
- 获取特定元素 获取 html 元素 document.documentElement; 获取 head 元素 document.head; 获取 body 元素 document.body; 获取窗口  窗口不是元素
- window; 获取所有元素 document.all; // false  这个 document.all 是个奇葩，第 6 个 falsy 值。原因是过去用来判断是否是 IE 浏览器。
- 元素的 6 层原型链 抓一只 div 对象来看看 console.dir(div1); // 查看原型链  Chrome 显示错了" />
+ 获取特定元素 获取 html 元素 document.documentElement;  获取 head 元素 document.head;  获取 body 元素 document.body;  获取窗口  窗口不是元素
+ window;  获取所有元素 document.all; // false   这个 document.all 是个奇葩，第 6 个 falsy 值。原因是过去用来判断是否是 IE 浏览器。
+ 元素的 6 层原型链 抓一只 div 对象来看看 console." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/dom-programming/" />
 <meta property="article:published_time" content="2020-03-07T15:21:33-08:00" />
@@ -147,13 +147,14 @@ DOM编程和操作跨线程 · 修的个人网站
     <div>
       <h1 id="heading">获取任意元素</h1>
 <h2 id="-api">有很多 API</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">window</span>.idxxx; <span style="color:#007f7f">// 或者直接idxxx
-</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">document</span>.getElementById(<span style="color:#0ff;font-weight:bold">&#34;idxxx&#34;</span>);
-<span style="color:#fff;font-weight:bold">document</span>.getElementsByTagName(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>)[<span style="color:#ff0;font-weight:bold">0</span>];
-<span style="color:#fff;font-weight:bold">document</span>.getElementsByClassName(<span style="color:#0ff;font-weight:bold">&#34;red&#34;</span>)[<span style="color:#ff0;font-weight:bold">0</span>];
-<span style="color:#fff;font-weight:bold">document</span>.querySelector(<span style="color:#0ff;font-weight:bold">&#34;#idxxx&#34;</span>); <span style="color:#007f7f">// 记得加#
-</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">document</span>.querySelectorAll(<span style="color:#0ff;font-weight:bold">&#34;.red&#34;</span>)[<span style="color:#ff0;font-weight:bold">0</span>];
-</code></pre></div><h2 id="heading-1">用哪一个</h2>
+<pre><code class="language-javascript">window.idxxx; // 或者直接idxxx
+document.getElementById(&quot;idxxx&quot;);
+document.getElementsByTagName(&quot;div&quot;)[0];
+document.getElementsByClassName(&quot;red&quot;)[0];
+document.querySelector(&quot;#idxxx&quot;); // 记得加#
+document.querySelectorAll(&quot;.red&quot;)[0];
+</code></pre>
+<h2 id="heading-1">用哪一个</h2>
 <blockquote>
 <p>工作中用<code>querySelector</code>和<code>querySelectorAll</code></p>
 <p>例子:<code>document.querySelectorAll('div&gt;span:nth-child(2)')</code></p>
@@ -166,25 +167,31 @@ DOM编程和操作跨线程 · 修的个人网站
 </blockquote>
 <h1 id="heading-2">获取特定元素</h1>
 <h2 id="-html-">获取 html 元素</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.documentElement;
-</code></pre></div><h2 id="-head-">获取 head 元素</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.head;
-</code></pre></div><h2 id="-body-">获取 body 元素</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.body;
-</code></pre></div><h2 id="heading-3">获取窗口</h2>
+<pre><code class="language-javascript">document.documentElement;
+</code></pre>
+<h2 id="-head-">获取 head 元素</h2>
+<pre><code class="language-javascript">document.head;
+</code></pre>
+<h2 id="-body-">获取 body 元素</h2>
+<pre><code class="language-javascript">document.body;
+</code></pre>
+<h2 id="heading-3">获取窗口</h2>
 <blockquote>
 <p>窗口不是元素</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">window</span>;
-</code></pre></div><h2 id="heading-4">获取所有元素</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.all; <span style="color:#007f7f">// false
-</span></code></pre></div><blockquote>
+<pre><code class="language-javascript">window;
+</code></pre>
+<h2 id="heading-4">获取所有元素</h2>
+<pre><code class="language-javascript">document.all; // false
+</code></pre>
+<blockquote>
 <p>这个 document.all 是个奇葩，第 6 个 falsy 值。原因是过去用来判断是否是 IE 浏览器。</p>
 </blockquote>
 <h1 id="-6-">元素的 6 层原型链</h1>
 <h2 id="-div-">抓一只 div 对象来看看</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.dir(div1); <span style="color:#007f7f">// 查看原型链
-</span></code></pre></div><blockquote>
+<pre><code class="language-javascript">console.dir(div1); // 查看原型链
+</code></pre>
+<blockquote>
 <p>Chrome 显示错了</p>
 </blockquote>
 <ul>
@@ -226,38 +233,43 @@ DOM编程和操作跨线程 · 修的个人网站
 <ul>
 <li>创建一个标签节点</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> div1 = <span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>);
-<span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;style&#34;</span>);
-<span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;script&#34;</span>);
-<span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;li&#34;</span>);
-</code></pre></div><ul>
+<pre><code class="language-javascript">let div1 = document.createElement(&quot;div&quot;);
+document.createElement(&quot;style&quot;);
+document.createElement(&quot;script&quot;);
+document.createElement(&quot;li&quot;);
+</code></pre>
+<ul>
 <li>创建一个文本节点</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">text1 = <span style="color:#fff;font-weight:bold">document</span>.createTextNode(<span style="color:#0ff;font-weight:bold">&#34;Hi there&#34;</span>);
-</code></pre></div><ul>
+<pre><code class="language-javascript">text1 = document.createTextNode(&quot;Hi there&quot;);
+</code></pre>
+<ul>
 <li>标签里面插入文本</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">div1.appendChild(text1);
-div1.innerText = <span style="color:#0ff;font-weight:bold">&#34;Hi there&#34;</span>; <span style="color:#007f7f">// 或者 div1.textContent = &#39;Hi there&#39;
-</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 但是不能用 div1.appendChild(‘Hi there’)
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">div1.appendChild(text1);
+div1.innerText = &quot;Hi there&quot;; // 或者 div1.textContent = 'Hi there'
+// 但是不能用 div1.appendChild(‘Hi there’)
+</code></pre>
+<ul>
 <li>插入页面中
 <blockquote>
 <p>你创建的标签默认处于 JS 线程中,你必须把它插到 head 或者 body 里面，它才会生效</p>
 </blockquote>
 </li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.body.appendChild(div);
-<span style="color:#007f7f">// 或者 已在页面中的元素.appendChild(div)
-</span></code></pre></div><h2 id="heading-7">删</h2>
+<pre><code class="language-javascript">document.body.appendChild(div);
+// 或者 已在页面中的元素.appendChild(div)
+</code></pre>
+<h2 id="heading-7">删</h2>
 <ul>
 <li>两种方法</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 旧方法
-</span><span style="color:#007f7f"></span>parentNode.removeChild(childNode); <span style="color:#007f7f">// 用父节点删子节点，很傻
-</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 新方法
-</span><span style="color:#007f7f"></span>childNode.remove();
-</code></pre></div><blockquote>
+<pre><code class="language-javascript">// 旧方法
+parentNode.removeChild(childNode); // 用父节点删子节点，很傻
+// 新方法
+childNode.remove();
+</code></pre>
+<blockquote>
 <p>如果一个 node 被移出页面(DOM 树)，那么它还可以再次回到页面中吗？可以，自己试试。</p>
 </blockquote>
 <h2 id="heading-8">改</h2>
@@ -265,28 +277,30 @@ div1.innerText = <span style="color:#0ff;font-weight:bold">&#34;Hi there&#34;</s
 <ul>
 <li>写标准属性</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 改class
-</span><span style="color:#007f7f"></span>div.className = <span style="color:#0ff;font-weight:bold">&#34;red blue&#34;</span>; <span style="color:#007f7f">// 全覆盖, 旧的
-</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 改class
-</span><span style="color:#007f7f"></span>div.classList.add(<span style="color:#0ff;font-weight:bold">&#34;red&#34;</span>);
-<span style="color:#007f7f">// 改style
-</span><span style="color:#007f7f"></span>div.style = <span style="color:#0ff;font-weight:bold">&#34;width:100px;color:blue&#34;</span>; <span style="color:#007f7f">// 旧的
-</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 改style的一部分
-</span><span style="color:#007f7f"></span>div.style.width = <span style="color:#0ff;font-weight:bold">&#34;200px&#34;</span>;
-<span style="color:#007f7f">// 注意大小写
-</span><span style="color:#007f7f"></span>div.style.backgroundColor = <span style="color:#0ff;font-weight:bold">&#34;white&#34;</span>;
-<span style="color:#007f7f">// 改data-*属性, 旧的
-</span><span style="color:#007f7f"></span>div.setAttribute(<span style="color:#0ff;font-weight:bold">&#34;data-x&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;test&#34;</span>);
-div.getAttribute(<span style="color:#0ff;font-weight:bold">&#34;data-x&#34;</span>);
+<pre><code class="language-javascript">// 改class
+div.className = &quot;red blue&quot;; // 全覆盖, 旧的
+// 改class
+div.classList.add(&quot;red&quot;);
+// 改style
+div.style = &quot;width:100px;color:blue&quot;; // 旧的
+// 改style的一部分
+div.style.width = &quot;200px&quot;;
+// 注意大小写
+div.style.backgroundColor = &quot;white&quot;;
+// 改data-*属性, 旧的
+div.setAttribute(&quot;data-x&quot;, &quot;test&quot;);
+div.getAttribute(&quot;data-x&quot;);
 div.dataset.x;
-div.dataset.x = <span style="color:#0ff;font-weight:bold">&#34;Alice&#34;</span>;
-</code></pre></div><ul>
+div.dataset.x = &quot;Alice&quot;;
+</code></pre>
+<ul>
 <li>读标准属性</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">div.classList; <span style="color:#007f7f">// 或者 a.href
-</span><span style="color:#007f7f"></span>div.getAttribute(<span style="color:#0ff;font-weight:bold">&#34;class&#34;</span>); <span style="color:#007f7f">// 或者 a.getAttribute(&#34;href&#34;)
-</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 第二种方法可以确保获得你想要的，比较保险
-</span></code></pre></div><blockquote>
+<pre><code class="language-javascript">div.classList; // 或者 a.href
+div.getAttribute(&quot;class&quot;); // 或者 a.getAttribute(&quot;href&quot;)
+// 第二种方法可以确保获得你想要的，比较保险
+</code></pre>
+<blockquote>
 <p>两种方法都可以，但值可能稍微有些不同</p>
 </blockquote>
 <h3 id="heading-10">改事件处理函数</h3>
@@ -307,71 +321,82 @@ div.dataset.x = <span style="color:#0ff;font-weight:bold">&#34;Alice&#34;</span>
 <ul>
 <li>改文本内容</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">div.innerText = <span style="color:#0ff;font-weight:bold">&#34;xxx&#34;</span>;
-div.textContent = <span style="color:#0ff;font-weight:bold">&#34;xxx&#34;</span>;
-</code></pre></div><blockquote>
+<pre><code class="language-javascript">div.innerText = &quot;xxx&quot;;
+div.textContent = &quot;xxx&quot;;
+</code></pre>
+<blockquote>
 <p>两者几乎没有区别</p>
 </blockquote>
 <ul>
 <li>改 HTML 内容</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">div.innerHTML = <span style="color:#0ff;font-weight:bold">&#34;&lt;strong&gt;content here&lt;/strong&gt;&#34;</span>;
-</code></pre></div><ul>
+<pre><code class="language-javascript">div.innerHTML = &quot;&lt;strong&gt;content here&lt;/strong&gt;&quot;;
+</code></pre>
+<ul>
 <li>改标签</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">div.innerHTML = <span style="color:#0ff;font-weight:bold">&#34;&#34;</span>; <span style="color:#007f7f">// 先清空
-</span><span style="color:#007f7f"></span>div.appendChild(div2); <span style="color:#007f7f">// 再加内容
-</span></code></pre></div><h3 id="heading-12">改父节点</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">newParent.appendChild(div);
-</code></pre></div><h2 id="heading-13">查</h2>
+<pre><code class="language-javascript">div.innerHTML = &quot;&quot;; // 先清空
+div.appendChild(div2); // 再加内容
+</code></pre>
+<h3 id="heading-12">改父节点</h3>
+<pre><code class="language-javascript">newParent.appendChild(div);
+</code></pre>
+<h2 id="heading-13">查</h2>
 <ul>
 <li>查父节点</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">node.parentNode; <span style="color:#007f7f">// 或者 node.parentElement
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">node.parentNode; // 或者 node.parentElement
+</code></pre>
+<ul>
 <li>查祖先节点</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">node.parentNode.parentNode;
-</code></pre></div><ul>
+<pre><code class="language-javascript">node.parentNode.parentNode;
+</code></pre>
+<ul>
 <li>查子节点</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">node.childNodes; <span style="color:#007f7f">// 或者node.children
-</span></code></pre></div><blockquote>
+<pre><code class="language-javascript">node.childNodes; // 或者node.children
+</code></pre>
+<blockquote>
 <p>区别: 前面是包括文本节点的，后面是不包括文本节点的</p>
 </blockquote>
 <ul>
 <li>查兄弟节点</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">node.parentNode.childNodes; <span style="color:#007f7f">// 还要排除自己
-</span><span style="color:#007f7f"></span>node.parentNode.children; <span style="color:#007f7f">// 还要排除自己
-</span></code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> siblings = [];
-<span style="color:#fff;font-weight:bold">let</span> arr = div2.parentElement.children; <span style="color:#007f7f">// 获得所有子节点
-</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; c.length; i++) {
-  <span style="color:#fff;font-weight:bold">if</span> (arr[i] !== div2) {
-    <span style="color:#007f7f">// 排除自己
-</span><span style="color:#007f7f"></span>    sibling.push(arr[i]);
+<pre><code class="language-javascript">node.parentNode.childNodes; // 还要排除自己
+node.parentNode.children; // 还要排除自己
+</code></pre>
+<pre><code class="language-javascript">let siblings = [];
+let arr = div2.parentElement.children; // 获得所有子节点
+for (let i = 0; i &lt; c.length; i++) {
+  if (arr[i] !== div2) {
+    // 排除自己
+    sibling.push(arr[i]);
   }
 }
-</code></pre></div><ul>
+</code></pre>
+<ul>
 <li>查找首尾节点和其他特定兄弟节点</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">node.firstChild; <span style="color:#007f7f">// 查首节点
-</span><span style="color:#007f7f"></span>node.lastChild; <span style="color:#007f7f">// 查尾节点
-</span><span style="color:#007f7f"></span>node.previousSibling; <span style="color:#007f7f">// 查上一个兄弟节点
-</span><span style="color:#007f7f"></span>node.nextSibling; <span style="color:#007f7f">// 查下一个兄弟节点
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">node.firstChild; // 查首节点
+node.lastChild; // 查尾节点
+node.previousSibling; // 查上一个兄弟节点
+node.nextSibling; // 查下一个兄弟节点
+</code></pre>
+<ul>
 <li>遍历一个 div 里面的所有元素</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">travel = (node, fn) =&gt; {
+<pre><code class="language-javascript">travel = (node, fn) =&gt; {
   fn(node);
-  <span style="color:#fff;font-weight:bold">if</span> (node.children) {
-    <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; node.children.length; i++) {
+  if (node.children) {
+    for (let i = 0; i &lt; node.children.length; i++) {
       travel(node.children[i], fn);
     }
   }
 };
 travel(div1, (node) =&gt; console.log(node));
-</code></pre></div><h1 id="dom-">DOM 操作跨线程</h1>
+</code></pre>
+<h1 id="dom-">DOM 操作跨线程</h1>
 <h2 id="heading-14">跨线程操作</h2>
 <h3 id="heading-15">各线程各司其职</h3>
 <ul>
@@ -394,11 +419,13 @@ travel(div1, (node) =&gt; console.log(node));
 <ul>
 <li>你对 div1 所有的操作都属于 JS 线程内的操作</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> div1 = <span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>);
-div1.textContent = <span style="color:#0ff;font-weight:bold">&#34;hi&#34;</span>;
-</code></pre></div><h3 id="-div1--1">把 div1 放入页面之时</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">document</span>.body.appendChild(div1);
-</code></pre></div><ul>
+<pre><code class="language-javascript">let div1 = document.createElement(&quot;div&quot;);
+div1.textContent = &quot;hi&quot;;
+</code></pre>
+<h3 id="-div1--1">把 div1 放入页面之时</h3>
+<pre><code class="language-javascript">document.body.appendChild(div1);
+</code></pre>
+<ul>
 <li>浏览器会发现 JS 的意图，就会通知渲染线程在页面中渲染 div1 对应的元素</li>
 </ul>
 <h3 id="-div1--2">把 div1 放入页面之后</h3>

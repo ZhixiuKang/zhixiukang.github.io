@@ -16,18 +16,18 @@
 <meta name="twitter:title" content="Grid布局(Grid)"/>
 <meta name="twitter:description" content="完整参考资料:A Complete Guide to Grid | CSS-Tricks
 二维布局用 Grid  一维布局用 Flex(要么横着排或者竖着排)
- Grid Container 的属性 成为 container .container { display: grid | inline-grid; } 行和列 .container { grid-template-columns: &lt;track-size&gt; … | &lt;line-name&gt; &lt;track-size&gt; …; grid-template-rows: &lt;track-size&gt; … | &lt;line-name&gt; &lt;track-size&gt; …; } 举个例子:
-.container { grid-template-columns: 40px 50px auto 50px 40px; grid-template-rows: 25% 100px auto; }  当我们声明几行几列之后，就会有一个虚的线把它分隔。你可以在任何地方去放一个div。比如你可以在第一个块那里上一个div，你也可以在 1 到 5 那里放一个div。可以通过指定row是从那一条线到哪一条线，column是从哪一条线到哪一条线，非常精准。
+ Grid Container 的属性 成为 container .container { display: grid | inline-grid; }  行和列 .container { grid-template-columns: &lt;track-size&gt; … | &lt;line-name&gt; &lt;track-size&gt; …; grid-template-rows: &lt;track-size&gt; … | &lt;line-name&gt; &lt;track-size&gt; …; }  举个例子:
+.container { grid-template-columns: 40px 50px auto 50px 40px; grid-template-rows: 25% 100px auto; }   当我们声明几行几列之后，就会有一个虚的线把它分隔。你可以在任何地方去放一个div。比如你可以在第一个块那里上一个div，你也可以在 1 到 5 那里放一个div。可以通过指定row是从那一条线到哪一条线，column是从哪一条线到哪一条线，非常精准。
  你还可以给每条线取名字(一般不取这么复杂的名字，我们直接用数字就好了):
-.container { grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end]; grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line]; } 取名有啥用？利用#item可以设置范围:"/>
+.container { grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end]; grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line]; }  取名有啥用？利用#item可以设置范围:"/>
 
     <meta property="og:title" content="Grid布局(Grid)" />
 <meta property="og:description" content="完整参考资料:A Complete Guide to Grid | CSS-Tricks
 二维布局用 Grid  一维布局用 Flex(要么横着排或者竖着排)
- Grid Container 的属性 成为 container .container { display: grid | inline-grid; } 行和列 .container { grid-template-columns: &lt;track-size&gt; … | &lt;line-name&gt; &lt;track-size&gt; …; grid-template-rows: &lt;track-size&gt; … | &lt;line-name&gt; &lt;track-size&gt; …; } 举个例子:
-.container { grid-template-columns: 40px 50px auto 50px 40px; grid-template-rows: 25% 100px auto; }  当我们声明几行几列之后，就会有一个虚的线把它分隔。你可以在任何地方去放一个div。比如你可以在第一个块那里上一个div，你也可以在 1 到 5 那里放一个div。可以通过指定row是从那一条线到哪一条线，column是从哪一条线到哪一条线，非常精准。
+ Grid Container 的属性 成为 container .container { display: grid | inline-grid; }  行和列 .container { grid-template-columns: &lt;track-size&gt; … | &lt;line-name&gt; &lt;track-size&gt; …; grid-template-rows: &lt;track-size&gt; … | &lt;line-name&gt; &lt;track-size&gt; …; }  举个例子:
+.container { grid-template-columns: 40px 50px auto 50px 40px; grid-template-rows: 25% 100px auto; }   当我们声明几行几列之后，就会有一个虚的线把它分隔。你可以在任何地方去放一个div。比如你可以在第一个块那里上一个div，你也可以在 1 到 5 那里放一个div。可以通过指定row是从那一条线到哪一条线，column是从哪一条线到哪一条线，非常精准。
  你还可以给每条线取名字(一般不取这么复杂的名字，我们直接用数字就好了):
-.container { grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end]; grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line]; } 取名有啥用？利用#item可以设置范围:" />
+.container { grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end]; grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line]; }  取名有啥用？利用#item可以设置范围:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/grid-layout/" />
 <meta property="article:published_time" content="2020-01-28T15:21:33-08:00" />
@@ -148,75 +148,83 @@ Grid布局(Grid) · 修的个人网站
 </blockquote>
 <h1 id="grid-container-">Grid Container 的属性</h1>
 <h2 id="-container">成为 container</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.container {
-  <span style="color:#fff;font-weight:bold">display</span>: <span style="color:#fff;font-weight:bold">grid</span> | <span style="color:#fff;font-weight:bold">inline</span>-<span style="color:#fff;font-weight:bold">grid</span>;
+<pre><code class="language-css">.container {
+  display: grid | inline-grid;
 }
-</code></pre></div><h2 id="heading">行和列</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.container {
-  <span style="color:#fff;font-weight:bold">grid-template-columns</span>: &lt;track-size&gt; <span style="color:#f00">…</span> | &lt;line-name&gt; &lt;track-size&gt; <span style="color:#f00">…</span>;
-  <span style="color:#fff;font-weight:bold">grid-template-rows</span>: &lt;track-size&gt; <span style="color:#f00">…</span> | &lt;line-name&gt; &lt;track-size&gt; <span style="color:#f00">…</span>;
+</code></pre>
+<h2 id="heading">行和列</h2>
+<pre><code class="language-css">.container {
+  grid-template-columns: &lt;track-size&gt; … | &lt;line-name&gt; &lt;track-size&gt; …;
+  grid-template-rows: &lt;track-size&gt; … | &lt;line-name&gt; &lt;track-size&gt; …;
 }
-</code></pre></div><p>举个例子:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.container {
-  <span style="color:#fff;font-weight:bold">grid-template-columns</span>: <span style="color:#ff0;font-weight:bold">40</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#fff;font-weight:bold">auto</span> <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">40</span><span style="color:#fff;font-weight:bold">px</span>;
-  <span style="color:#fff;font-weight:bold">grid-template-rows</span>: <span style="color:#ff0;font-weight:bold">25</span><span style="color:#fff;font-weight:bold">%</span> <span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#fff;font-weight:bold">auto</span>;
+</code></pre>
+<p>举个例子:</p>
+<pre><code class="language-css">.container {
+  grid-template-columns: 40px 50px auto 50px 40px;
+  grid-template-rows: 25% 100px auto;
 }
-</code></pre></div><p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1816.11.38.png" alt=""></p>
+</code></pre>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1816.11.38.png" alt=""></p>
 <blockquote>
 <p>当我们声明几行几列之后，就会有一个虚的线把它分隔。你可以在任何地方去放一个<code>div</code>。比如你可以在第一个块那里上一个<code>div</code>，你也可以在 1 到 5 那里放一个<code>div</code>。可以通过指定<code>row</code>是从那一条线到哪一条线，<code>column</code>是从哪一条线到哪一条线，非常精准。</p>
 </blockquote>
 <p>你还可以给每条线取名字(一般不取这么复杂的名字，我们直接用数字就好了):</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.container {
-  <span style="color:#fff;font-weight:bold">grid-template-columns</span>: [<span style="color:#fff;font-weight:bold">first</span>] <span style="color:#ff0;font-weight:bold">40</span><span style="color:#fff;font-weight:bold">px</span> [line2] <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span> [line3] <span style="color:#fff;font-weight:bold">auto</span> [col4-start] <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span> [five] <span style="color:#ff0;font-weight:bold">40</span><span style="color:#fff;font-weight:bold">px</span> [<span style="color:#fff;font-weight:bold">end</span>];
-  <span style="color:#fff;font-weight:bold">grid-template-rows</span>: [row1-start] <span style="color:#ff0;font-weight:bold">25</span><span style="color:#fff;font-weight:bold">%</span> [row1-end] <span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">px</span> [third-line] <span style="color:#fff;font-weight:bold">auto</span> [<span style="color:#fff;font-weight:bold">last</span>-line];
+<pre><code class="language-css">.container {
+  grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+  grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
 }
-</code></pre></div><p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1816.19.40.png" alt=""></p>
+</code></pre>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1816.19.40.png" alt=""></p>
 <p>取名有啥用？利用<code>#item</code>可以设置范围:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.a {
-  <span style="color:#007f7f">/* 结合上面的两个图看start和end */</span>
-  <span style="color:#fff;font-weight:bold">grid-column-start</span>: <span style="color:#ff0;font-weight:bold">2</span>;
-  <span style="color:#fff;font-weight:bold">grid-column-end</span>: five;
-  <span style="color:#fff;font-weight:bold">grid-row-start</span>: row1-start;
-  <span style="color:#fff;font-weight:bold">grid-row-end</span>: <span style="color:#ff0;font-weight:bold">3</span>;
+<pre><code class="language-css">.a {
+  /* 结合上面的两个图看start和end */
+  grid-column-start: 2;
+  grid-column-end: five;
+  grid-row-start: row1-start;
+  grid-row-end: 3;
 }
-</code></pre></div><p>除了设置线的开始和结束，我们还可以使用份<code>fr</code>(free space)</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.container {
-  <span style="color:#fff;font-weight:bold">display</span>: <span style="color:#fff;font-weight:bold">grid</span>;
-  <span style="color:#007f7f">/*如果有三列*/</span>
-  <span style="color:#fff;font-weight:bold">grid-template-columns</span>: <span style="color:#ff0;font-weight:bold">1</span>fr <span style="color:#ff0;font-weight:bold">1</span>fr <span style="color:#ff0;font-weight:bold">1</span>fr;
-  <span style="color:#007f7f">/*如果有两行*/</span>
-  <span style="color:#fff;font-weight:bold">grid-template-rows</span>: <span style="color:#ff0;font-weight:bold">1</span>fr <span style="color:#ff0;font-weight:bold">1</span>fr;
+</code></pre>
+<p>除了设置线的开始和结束，我们还可以使用份<code>fr</code>(free space)</p>
+<pre><code class="language-css">.container {
+  display: grid;
+  /*如果有三列*/
+  grid-template-columns: 1fr 1fr 1fr;
+  /*如果有两行*/
+  grid-template-rows: 1fr 1fr;
 
-  <span style="color:#fff;font-weight:bold">border</span>: <span style="color:#ff0;font-weight:bold">1</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#fff;font-weight:bold">solid</span> <span style="color:#fff;font-weight:bold">red</span>;
-  <span style="color:#fff;font-weight:bold">min-height</span>: <span style="color:#ff0;font-weight:bold">400</span><span style="color:#fff;font-weight:bold">px</span>;
+  border: 1px solid red;
+  min-height: 400px;
 }
-</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.container {
-  <span style="color:#fff;font-weight:bold">grid-template-columns</span>: <span style="color:#ff0;font-weight:bold">1</span>fr <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">1</span>fr <span style="color:#ff0;font-weight:bold">1</span>fr;
+</code></pre>
+<pre><code class="language-css">.container {
+  grid-template-columns: 1fr 50px 1fr 1fr;
 }
-</code></pre></div><h2 id="grid-template-areas">分区<code>grid-template-areas</code></h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.item-a {
-  <span style="color:#fff;font-weight:bold">grid-area</span>: header;
+</code></pre>
+<h2 id="grid-template-areas">分区<code>grid-template-areas</code></h2>
+<pre><code class="language-css">.item-a {
+  grid-area: header;
 }
 .item-b {
-  <span style="color:#fff;font-weight:bold">grid-area</span>: main;
+  grid-area: main;
 }
 .item-c {
-  <span style="color:#fff;font-weight:bold">grid-area</span>: sidebar;
+  grid-area: sidebar;
 }
 .item-d {
-  <span style="color:#fff;font-weight:bold">grid-area</span>: footer;
+  grid-area: footer;
 }
 
 .container {
-  <span style="color:#fff;font-weight:bold">display</span>: <span style="color:#fff;font-weight:bold">grid</span>;
-  <span style="color:#fff;font-weight:bold">grid-template-columns</span>: <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span>;
-  <span style="color:#fff;font-weight:bold">grid-template-rows</span>: <span style="color:#fff;font-weight:bold">auto</span>;
-  <span style="color:#fff;font-weight:bold">grid-template-areas</span>:
-    <span style="color:#0ff;font-weight:bold">&#34;header header header header&#34;</span>
-    <span style="color:#0ff;font-weight:bold">&#34;main main . sidebar&#34;</span>
-    <span style="color:#0ff;font-weight:bold">&#34;footer footer footer footer&#34;</span>;
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    &quot;header header header header&quot;
+    &quot;main main . sidebar&quot;
+    &quot;footer footer footer footer&quot;;
 }
-</code></pre></div><p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1816.43.22.png" alt=""></p>
+</code></pre>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1816.43.22.png" alt=""></p>
 <p>实际应用如下:</p>
 <p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1816.49.47.png" alt=""></p>
 <p><a href="https://jsbin.com/javiviruha/edit?html,css,output">点我试试</a></p>
@@ -224,24 +232,27 @@ Grid布局(Grid) · 修的个人网站
 <p>一般使用<code>.</code>表示这个区域是空的。</p>
 </blockquote>
 <h2 id="grid-column-gapgrid-row-gap"><code>grid-column-gap</code>和<code>grid-row-gap</code>定义行列之间的间隙</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.container {
-  <span style="color:#fff;font-weight:bold">grid-template-columns</span>: <span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">px</span>;
-  <span style="color:#fff;font-weight:bold">grid-template-rows</span>: <span style="color:#ff0;font-weight:bold">80</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#fff;font-weight:bold">auto</span> <span style="color:#ff0;font-weight:bold">80</span><span style="color:#fff;font-weight:bold">px</span>;
-  <span style="color:#fff;font-weight:bold">grid-column-gap</span>: <span style="color:#ff0;font-weight:bold">10</span><span style="color:#fff;font-weight:bold">px</span>;
-  <span style="color:#fff;font-weight:bold">grid-row-gap</span>: <span style="color:#ff0;font-weight:bold">15</span><span style="color:#fff;font-weight:bold">px</span>;
+<pre><code class="language-css">.container {
+  grid-template-columns: 100px 50px 100px;
+  grid-template-rows: 80px auto 80px;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
 }
-</code></pre></div><p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1816.55.59.png" alt=""></p>
+</code></pre>
+<p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-1816.55.59.png" alt=""></p>
 <p><code>grid-gap</code>是 <code>grid-row-gap</code>和 <code>grid-column-gap</code>的简写版本:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.container {
-  <span style="color:#fff;font-weight:bold">grid-gap</span>: &lt;<span style="color:#fff;font-weight:bold">grid</span>-<span style="color:#fff;font-weight:bold">row</span>-gap&gt; &lt;<span style="color:#fff;font-weight:bold">grid</span>-<span style="color:#fff;font-weight:bold">column</span>-gap&gt;;
+<pre><code class="language-css">.container {
+  grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;
 }
-</code></pre></div><p>例子:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.container {
-  <span style="color:#fff;font-weight:bold">grid-template-columns</span>: <span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">50</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">px</span>;
-  <span style="color:#fff;font-weight:bold">grid-template-rows</span>: <span style="color:#ff0;font-weight:bold">80</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#fff;font-weight:bold">auto</span> <span style="color:#ff0;font-weight:bold">80</span><span style="color:#fff;font-weight:bold">px</span>;
-  <span style="color:#fff;font-weight:bold">grid-gap</span>: <span style="color:#ff0;font-weight:bold">15</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#ff0;font-weight:bold">10</span><span style="color:#fff;font-weight:bold">px</span>;
+</code></pre>
+<p>例子:</p>
+<pre><code class="language-css">.container {
+  grid-template-columns: 100px 50px 100px;
+  grid-template-rows: 80px auto 80px;
+  grid-gap: 15px 10px;
 }
-</code></pre></div><h1 id="heading-1">实践</h1>
+</code></pre>
+<h1 id="heading-1">实践</h1>
 <h2 id="heading-2">布局</h2>
 <ul>
 <li>Grid 尤其适合不规则布局</li>

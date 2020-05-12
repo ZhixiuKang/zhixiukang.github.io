@@ -24,7 +24,7 @@ http-server . -c-1
     还可以使用parcel：
 yarn global add parcel
 parcel #filename.suffix
-  target  &lt;!— 可以指定在哪个地方打开超链接 (在空白页打开)—&gt; &lt;a href=“https://google.com” target=“_blank”&gt;hyper link&lt;/a&gt;  download  &lt;!--下载这个网页，基本不能用—&gt; &lt;a href=“https://google.com” download&gt;hyper link&lt;/a&gt;  rel=noopener 防止一个 js 的 bug。  作用  跳转外部页面 跳转内部锚点 跳转到邮箱或电话等  a的href的取值  网址  https://google.com http://google."/>
+  target  &lt;!— 可以指定在哪个地方打开超链接 (在空白页打开)—&gt; &lt;a href=“https://google.com” target=“_blank”&gt;hyper link&lt;/a&gt;   download  &lt;!-- 下载这个网页，基本不能用—&gt; &lt;a href=“https://google.com” download&gt;hyper link&lt;/a&gt;   rel=noopener 防止一个 js 的 bug。  作用  跳转外部页面 跳转内部锚点 跳转到邮箱或电话等  a的href的取值  网址  https://google."/>
 
     <meta property="og:title" content="HTML重难点" />
 <meta property="og:description" content="a 标签 属性  href hyper reference.  新建终端，执行：
@@ -37,7 +37,7 @@ http-server . -c-1
     还可以使用parcel：
 yarn global add parcel
 parcel #filename.suffix
-  target  &lt;!— 可以指定在哪个地方打开超链接 (在空白页打开)—&gt; &lt;a href=“https://google.com” target=“_blank”&gt;hyper link&lt;/a&gt;  download  &lt;!--下载这个网页，基本不能用—&gt; &lt;a href=“https://google.com” download&gt;hyper link&lt;/a&gt;  rel=noopener 防止一个 js 的 bug。  作用  跳转外部页面 跳转内部锚点 跳转到邮箱或电话等  a的href的取值  网址  https://google.com http://google." />
+  target  &lt;!— 可以指定在哪个地方打开超链接 (在空白页打开)—&gt; &lt;a href=“https://google.com” target=“_blank”&gt;hyper link&lt;/a&gt;   download  &lt;!-- 下载这个网页，基本不能用—&gt; &lt;a href=“https://google.com” download&gt;hyper link&lt;/a&gt;   rel=noopener 防止一个 js 的 bug。  作用  跳转外部页面 跳转内部锚点 跳转到邮箱或电话等  a的href的取值  网址  https://google." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/html-key-parts/" />
 <meta property="article:published_time" content="2020-01-11T15:21:33-08:00" />
@@ -175,14 +175,16 @@ hyper reference.
 <ul>
 <li><code>target</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!— 可以指定在哪个地方打开超链接 (在空白页打开)—&gt;</span>
-&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">“https://google.com”</span> <span style="color:#007f7f">target</span>=<span style="color:#0ff;font-weight:bold">“_blank”</span>&gt;hyper link&lt;/<span style="font-weight:bold">a</span>&gt;
-</code></pre></div><ul>
+<pre><code class="language-html">&lt;!— 可以指定在哪个地方打开超链接 (在空白页打开)—&gt;
+&lt;a href=“https://google.com” target=“_blank”&gt;hyper link&lt;/a&gt;
+</code></pre>
+<ul>
 <li><code>download</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#007f7f">&lt;!--</span><span style="color:#007f7f"> 下载这个网页，基本不能用—&gt;
-</span><span style="color:#007f7f">&lt;a href=“https://google.com” download&gt;hyper link&lt;/a&gt;
-</span></code></pre></div><ul>
+<pre><code class="language-html">&lt;!-- 下载这个网页，基本不能用—&gt;
+&lt;a href=“https://google.com” download&gt;hyper link&lt;/a&gt;
+</code></pre>
+<ul>
 <li><code>rel=noopener</code>
 防止一个 js 的 bug。</li>
 </ul>
@@ -196,33 +198,40 @@ hyper reference.
 <ul>
 <li>网址</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">https://google.com
+<pre><code>https://google.com
 http://google.com
 //google.com
-</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">“//google.com”</span>&gt; hyperlink&lt;/<span style="font-weight:bold">a</span>&gt;
-</code></pre></div><ul>
+</code></pre>
+<pre><code class="language-html">&lt;a href=“//google.com”&gt; hyperlink&lt;/a&gt;
+</code></pre>
+<ul>
 <li>路径</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/a/b/c以及a/b/c
+<pre><code>/a/b/c以及a/b/c
 index.html以及./index.html
-</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">“./index.html”</span>&gt; c.html&lt;/<span style="font-weight:bold">a</span>&gt;
-</code></pre></div><blockquote>
+</code></pre>
+<pre><code class="language-html">&lt;a href=“./index.html”&gt; c.html&lt;/a&gt;
+</code></pre>
+<blockquote>
 <p>哪里开的服务，哪里就是根目录。</p>
 </blockquote>
 <ul>
 <li>伪协议</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">javascript:代码;
+<pre><code>javascript:代码;
 mailto:邮箱
 tel:手机号
 #id(跳转到相应的id)
-</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;“javascript:alert(1);”&#34;</span>&gt; JavaScript伪协议&lt;/<span style="font-weight:bold">a</span>&gt;
-&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;“javascript:;”&#34;</span>&gt; 空的伪协议，偶尔有用嘻嘻&lt;/<span style="font-weight:bold">a</span>&gt;
-</code></pre></div><blockquote>
+</code></pre>
+<pre><code class="language-html">&lt;a href=&quot;“javascript:alert(1);”&quot;&gt; JavaScript伪协议&lt;/a&gt;
+&lt;a href=&quot;“javascript:;”&quot;&gt; 空的伪协议，偶尔有用嘻嘻&lt;/a&gt;
+</code></pre>
+<blockquote>
 <p>如果你想要做一个<code>a</code>标签，又希望他什么也不做。那么可以使用上面的方法。</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;“#xxx”&#34;</span>&gt; c.html&lt;/<span style="font-weight:bold">a</span>&gt; &lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;“tel:9492439921”&#34;</span>&gt; call me maybe:)&lt;/<span style="font-weight:bold">a</span>&gt;
-</code></pre></div><h2 id="atarget"><code>a</code>的<code>target</code>的取值</h2>
+<pre><code class="language-html">&lt;a href=&quot;“#xxx”&quot;&gt; c.html&lt;/a&gt; &lt;a href=&quot;“tel:9492439921”&quot;&gt; call me maybe:)&lt;/a&gt;
+</code></pre>
+<h2 id="atarget"><code>a</code>的<code>target</code>的取值</h2>
 <h3 id="heading-2">内置名字</h3>
 <ul>
 <li><code>_blank</code></li>
@@ -230,92 +239,97 @@ tel:手机号
 <li><code>_parent</code></li>
 <li><code>_self</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!— 在新的页面打开 --&gt;</span>
-&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">“https://google.com&#34;</span> <span style="color:#007f7f">target</span>=<span style="color:#0ff;font-weight:bold">“_blank”</span>&gt;google&lt;/<span style="font-weight:bold">a</span>&gt;
-<span style="color:#0f0;font-weight:bold">&lt;!— 在当前页面打开 --&gt;</span>
-&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;https://google.com” target=&#34;</span><span style="color:#007f7f">_self</span><span style="color:#f00">&#34;</span>&gt;google&lt;/<span style="font-weight:bold">a</span>&gt;
-<span style="color:#007f7f">&lt;!--</span><span style="color:#007f7f"> 在最顶层页面打开 </span><span style="color:#007f7f">--&gt;</span>
-&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;https://google.com&#34;</span> <span style="color:#007f7f">target</span>=<span style="color:#0ff;font-weight:bold">“_top”</span>&gt;google&lt;/<span style="font-weight:bold">a</span>&gt;
-<span style="color:#0f0;font-weight:bold">&lt;!— 在父级窗口打开 —&gt;</span>
-&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">“https://google.com”</span> <span style="color:#007f7f">target</span>=<span style="color:#0ff;font-weight:bold">“_parent&#34;</span>&gt;google&lt;/<span style="font-weight:bold">a</span>&gt;
+<pre><code class="language-html">&lt;!— 在新的页面打开 --&gt;
+&lt;a href=“https://google.com&quot; target=“_blank”&gt;google&lt;/a&gt;
+&lt;!— 在当前页面打开 --&gt;
+&lt;a href=&quot;https://google.com” target=&quot;_self&quot;&gt;google&lt;/a&gt;
+&lt;!-- 在最顶层页面打开 --&gt;
+&lt;a href=&quot;https://google.com&quot; target=“_top”&gt;google&lt;/a&gt;
+&lt;!— 在父级窗口打开 —&gt;
+&lt;a href=“https://google.com” target=“_parent&quot;&gt;google&lt;/a&gt;
 
-</code></pre></div><h3 id="heading-3">程序员命名</h3>
+</code></pre>
+<h3 id="heading-3">程序员命名</h3>
 <ul>
 <li><code>window</code>的<code>name</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!— 如果有一个叫xxx的窗口，就用它，如果没有就用xxx打开 —&gt;</span>
-&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">“https://google.com”</span> <span style="color:#007f7f">target</span>=<span style="color:#0ff;font-weight:bold">“_parent&#34;</span>&gt;xxx&lt;/<span style="font-weight:bold">a</span>&gt;
-</code></pre></div><ul>
+<pre><code class="language-html">&lt;!— 如果有一个叫xxx的窗口，就用它，如果没有就用xxx打开 —&gt;
+&lt;a href=“https://google.com” target=“_parent&quot;&gt;xxx&lt;/a&gt;
+</code></pre>
+<ul>
 <li><code>iframe</code>的<code>name</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">“//google.com&#34;</span>&gt;google&lt;/<span style="font-weight:bold">a</span>&gt;
-&lt;<span style="font-weight:bold">a</span> <span style="color:#007f7f">href</span>=<span style="color:#0ff;font-weight:bold">&#34;//baidu.com”&gt;baidu&lt;/a&gt;
-</span><span style="color:#0ff;font-weight:bold">&lt;hr /&gt;
-</span><span style="color:#0ff;font-weight:bold">&lt;iframe src=&#34;</span><span style="color:#f00">&#34;</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">&#34;xxx&#34;</span>&gt;&lt;/<span style="font-weight:bold">iframe</span>&gt;
-&lt;<span style="font-weight:bold">hr</span> /&gt;
-&lt;<span style="font-weight:bold">iframe</span> <span style="color:#007f7f">src</span>=<span style="color:#0ff;font-weight:bold">“”</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">&#34;yyy&#34;</span>&gt;&lt;/<span style="font-weight:bold">iframe</span>&gt;
-</code></pre></div><h1 id="iframe"><code>iframe</code>标签</h1>
+<pre><code class="language-html">&lt;a href=“//google.com&quot;&gt;google&lt;/a&gt;
+&lt;a href=&quot;//baidu.com”&gt;baidu&lt;/a&gt;
+&lt;hr /&gt;
+&lt;iframe src=&quot;&quot; name=&quot;xxx&quot;&gt;&lt;/iframe&gt;
+&lt;hr /&gt;
+&lt;iframe src=“” name=&quot;yyy&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+<h1 id="iframe"><code>iframe</code>标签</h1>
 <p>内嵌窗口，已经很少使用了，还有些老系统在用。用 AJAX 吧，别用这个了，这里不多介绍。</p>
 <h1 id="table"><code>table</code>标签</h1>
 <h2 id="heading-4">一个表头</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">table</span>&gt;
-  &lt;<span style="font-weight:bold">thead</span>&gt;
-    <span style="color:#0f0;font-weight:bold">&lt;!— table row —&gt;</span>
-    &lt;<span style="font-weight:bold">tr</span>&gt;
-      &lt;<span style="font-weight:bold">th</span>&gt;英语&lt;/<span style="font-weight:bold">th</span>&gt;
-      &lt;<span style="font-weight:bold">th</span>&gt;翻译&lt;/<span style="font-weight:bold">th</span>&gt;
-    &lt;/<span style="font-weight:bold">tr</span>&gt;
-  &lt;/<span style="font-weight:bold">thead</span>&gt;
-  &lt;<span style="font-weight:bold">tbody</span>&gt;
-    &lt;<span style="font-weight:bold">tr</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;hyper&lt;/<span style="font-weight:bold">td</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;超级&lt;/<span style="font-weight:bold">td</span>&gt;
-    &lt;/<span style="font-weight:bold">tr</span>&gt;
-    &lt;<span style="font-weight:bold">tr</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;target&lt;/<span style="font-weight:bold">td</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;目标&lt;/<span style="font-weight:bold">td</span>&gt;
-    &lt;/<span style="font-weight:bold">tr</span>&gt;
-    &lt;<span style="font-weight:bold">tr</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;reference&lt;/<span style="font-weight:bold">td</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;引用&lt;/<span style="font-weight:bold">td</span>&gt;
-    &lt;/<span style="font-weight:bold">tr</span>&gt;
-  &lt;/<span style="font-weight:bold">tbody</span>&gt;
-  &lt;<span style="font-weight:bold">tfoot</span>&gt;
-    &lt;<span style="font-weight:bold">tr</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;空&lt;/<span style="font-weight:bold">td</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;空&lt;/<span style="font-weight:bold">td</span>&gt;
-    &lt;/<span style="font-weight:bold">tr</span>&gt;
-  &lt;/<span style="font-weight:bold">tfoot</span>&gt;
-&lt;/<span style="font-weight:bold">table</span>&gt;
-</code></pre></div><blockquote>
+<pre><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;!— table row —&gt;
+    &lt;tr&gt;
+      &lt;th&gt;英语&lt;/th&gt;
+      &lt;th&gt;翻译&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;hyper&lt;/td&gt;
+      &lt;td&gt;超级&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;target&lt;/td&gt;
+      &lt;td&gt;目标&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;reference&lt;/td&gt;
+      &lt;td&gt;引用&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;空&lt;/td&gt;
+      &lt;td&gt;空&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+</code></pre>
+<blockquote>
 <p>相关的标签：<code>table</code>,<code>thead</code>,<code>tbody</code>,<code>tfoot</code>,<code>tr</code>,<code>td</code>,<code>th</code></p>
 </blockquote>
 <h2 id="heading-5">两个表头</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">table</span>&gt;
-  &lt;<span style="font-weight:bold">thead</span>&gt;
-    &lt;<span style="font-weight:bold">tr</span>&gt;
-      &lt;<span style="font-weight:bold">th</span>&gt;&lt;/<span style="font-weight:bold">th</span>&gt;
-      &lt;<span style="font-weight:bold">th</span>&gt;Jack&lt;/<span style="font-weight:bold">th</span>&gt;
-      &lt;<span style="font-weight:bold">th</span>&gt;Alice&lt;/<span style="font-weight:bold">th</span>&gt;
-      &lt;<span style="font-weight:bold">th</span>&gt;Bob&lt;/<span style="font-weight:bold">th</span>&gt;
-    &lt;/<span style="font-weight:bold">tr</span>&gt;
-  &lt;/<span style="font-weight:bold">thead</span>&gt;
-  &lt;<span style="font-weight:bold">tbody</span>&gt;
-    &lt;<span style="font-weight:bold">tr</span>&gt;
-      &lt;<span style="font-weight:bold">th</span>&gt;Math&lt;/<span style="font-weight:bold">th</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;12&lt;/<span style="font-weight:bold">td</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;34&lt;/<span style="font-weight:bold">td</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;23&lt;/<span style="font-weight:bold">td</span>&gt;
-    &lt;/<span style="font-weight:bold">tr</span>&gt;
-    &lt;<span style="font-weight:bold">tr</span>&gt;
-      &lt;<span style="font-weight:bold">th</span>&gt;English&lt;/<span style="font-weight:bold">th</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;12&lt;/<span style="font-weight:bold">td</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;34&lt;/<span style="font-weight:bold">td</span>&gt;
-      &lt;<span style="font-weight:bold">td</span>&gt;23&lt;/<span style="font-weight:bold">td</span>&gt;
-    &lt;/<span style="font-weight:bold">tr</span>&gt;
-  &lt;/<span style="font-weight:bold">tbody</span>&gt;
-&lt;/<span style="font-weight:bold">table</span>&gt;
-</code></pre></div><blockquote>
+<pre><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Jack&lt;/th&gt;
+      &lt;th&gt;Alice&lt;/th&gt;
+      &lt;th&gt;Bob&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Math&lt;/th&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;34&lt;/td&gt;
+      &lt;td&gt;23&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;English&lt;/th&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;34&lt;/td&gt;
+      &lt;td&gt;23&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<blockquote>
 <p>相关的标签：<code>table</code>,<code>thead</code>,<code>tbody</code>,<code>tfoot</code>,<code>tr</code>,<code>td</code>,<code>th</code></p>
 </blockquote>
 <h2 id="heading-6">相关的样式</h2>
@@ -327,19 +341,21 @@ tel:手机号
 <li><code>border-spacing</code>
 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-spacing">border-spacing - CSS（层叠样式表） | MDN</a></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">style</span>&gt;
-  <span style="font-weight:bold">table</span> {
-    <span style="color:#007f7f">/* 根据内容预测多宽 */</span>
-    <span style="color:#fff;font-weight:bold">table-layout</span>: <span style="color:#fff;font-weight:bold">auto</span>;
-    <span style="color:#007f7f">/* 尽量平均 */</span>
-    <span style="color:#007f7f">/* table-layout: fixed; */</span>
-    <span style="color:#fff;font-weight:bold">border-spacing</span>: <span style="color:#ff0;font-weight:bold">0</span><span style="color:#fff;font-weight:bold">px</span>;
-    <span style="color:#fff;font-weight:bold">border-collapse</span>: <span style="color:#fff;font-weight:bold">collapse</span>;
+<pre><code class="language-html">&lt;style&gt;
+  table {
+    /* 根据内容预测多宽 */
+    table-layout: auto;
+    /* 尽量平均 */
+    /* table-layout: fixed; */
+    border-spacing: 0px;
+    border-collapse: collapse;
   }
-&lt;/<span style="font-weight:bold">style</span>&gt;
-</code></pre></div><h1 id="img"><code>img</code>标签</h1>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">img</span> <span style="color:#007f7f">src</span>=<span style="color:#0ff;font-weight:bold">“dog.png&#34;</span> <span style="color:#007f7f">alt</span>=<span style="color:#0ff;font-weight:bold">“”</span> /&gt;
-</code></pre></div><h2 id="heading-7">作用</h2>
+&lt;/style&gt;
+</code></pre>
+<h1 id="img"><code>img</code>标签</h1>
+<pre><code class="language-html">&lt;img src=“dog.png&quot; alt=“” /&gt;
+</code></pre>
+<h2 id="heading-7">作用</h2>
 <p>发出 get 请求，展示一张图片</p>
 <h2 id="heading-8">属性</h2>
 <ul>
@@ -355,87 +371,94 @@ tel:手机号
 <li><code>onload</code>/<code>onerror</code>
 监听图片是否加载成功</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">img</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">“xxx&#34;</span> <span style="color:#007f7f">width</span>=<span style="color:#0ff;font-weight:bold">&#34;400&#34;</span> <span style="color:#007f7f">ssrc</span>=<span style="color:#0ff;font-weight:bold">“dog.png&#34;</span> <span style="color:#007f7f">alt</span>=<span style="color:#0ff;font-weight:bold">“”</span> /&gt;
-&lt;<span style="font-weight:bold">script</span>&gt;
-  xxx.onload = <span style="color:#fff;font-weight:bold">function</span>() {
-  console.log(<span style="color:#f00">“</span>图片加载成功<span style="color:#f00">”</span>);
+<pre><code class="language-html">&lt;img id=“xxx&quot; width=&quot;400&quot; ssrc=“dog.png&quot; alt=“” /&gt;
+&lt;script&gt;
+  xxx.onload = function() {
+  console.log(“图片加载成功”);
   };
-  xxx.onerror = <span style="color:#fff;font-weight:bold">function</span>() {
-  console.log(<span style="color:#0ff;font-weight:bold">&#34;图片加载失败&#34;</span>);
+  xxx.onerror = function() {
+  console.log(&quot;图片加载失败&quot;);
   };
-&lt;/<span style="font-weight:bold">script</span>&gt;
-</code></pre></div><blockquote>
+&lt;/script&gt;
+</code></pre>
+<blockquote>
 <p>可以在图片失败的时候进行挽救。</p>
 </blockquote>
 <h2 id="heading-10">响应式</h2>
 <p><code>max-width:100%</code></p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">style</span>&gt;
+<pre><code class="language-html">&lt;style&gt;
   * {
-    <span style="color:#fff;font-weight:bold">margin</span>: <span style="color:#ff0;font-weight:bold">0</span>;
-    <span style="color:#fff;font-weight:bold">padding</span>: <span style="color:#ff0;font-weight:bold">0</span>;
-    <span style="color:#fff;font-weight:bold">box-sizing</span>: <span style="color:#fff;font-weight:bold">border-box</span>;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  <span style="font-weight:bold">img</span> {
-    <span style="color:#fff;font-weight:bold">max-width</span>: <span style="color:#ff0;font-weight:bold">100</span><span style="color:#fff;font-weight:bold">%</span>;
+  img {
+    max-width: 100%;
   }
-&lt;/<span style="font-weight:bold">style</span>&gt;
-</code></pre></div><h2 id="heading-11">可替换元素</h2>
+&lt;/style&gt;
+</code></pre>
+<h2 id="heading-11">可替换元素</h2>
 <p>考试很可能会问。</p>
 <h1 id="form"><code>form</code>标签</h1>
 <p>表单</p>
 <h2 id="heading-12">作用</h2>
 <p>发 get 或者 post 请求，然后刷新界面</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">form</span> <span style="color:#007f7f">action</span>=<span style="color:#0ff;font-weight:bold">&#34;/xxx&#34;</span>&gt;
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">“text&#34;</span> /&gt;
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">“submit”</span> /&gt;
-&lt;/<span style="font-weight:bold">form</span>&gt;
-<span style="color:#007f7f">&lt;!--</span><span style="color:#007f7f"> 控制请求打开页面 </span><span style="color:#007f7f">--&gt;</span>
-&lt;<span style="font-weight:bold">form</span> <span style="color:#007f7f">action</span>=<span style="color:#0ff;font-weight:bold">“/yyy”</span>&gt;
-    <span style="color:#007f7f">&lt;!--</span><span style="color:#007f7f"> method控制是get还是post方式 </span><span style="color:#007f7f">--&gt;</span>
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;text&#34;</span> <span style="color:#007f7f">method</span>=<span style="color:#0ff;font-weight:bold">&#34;POST&#34;</span> /&gt;
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;submit”</span> /&gt;
-&lt;/<span style="font-weight:bold">form</span>&gt;
-</code></pre></div><h2 id="heading-13">属性</h2>
+<pre><code class="language-html">&lt;form action=&quot;/xxx&quot;&gt;
+    &lt;input type=“text&quot; /&gt;
+    &lt;input type=“submit” /&gt;
+&lt;/form&gt;
+&lt;!-- 控制请求打开页面 --&gt;
+&lt;form action=“/yyy”&gt;
+    &lt;!-- method控制是get还是post方式 --&gt;
+    &lt;input type=&quot;text&quot; method=&quot;POST&quot; /&gt;
+    &lt;input type=&quot;submit” /&gt;
+&lt;/form&gt;
+</code></pre>
+<h2 id="heading-13">属性</h2>
 <ul>
 <li><code>action</code>
 上面讲了，不再赘述。</li>
 <li><code>autocomplete</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">form</span> <span style="color:#007f7f">action</span>=<span style="color:#0ff;font-weight:bold">&#34;/yyy&#34;</span>&gt;
-  &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">“text&#34;</span> <span style="color:#007f7f">method</span>=<span style="color:#0ff;font-weight:bold">“POST”</span> <span style="color:#007f7f">autocomplete</span>=<span style="color:#0ff;font-weight:bold">“on”</span> /&gt;
-  &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">&#34;username&#34;</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;“text”&#34;</span> /&gt;
-  &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;submit”</span> /&gt;
-&lt;/<span style="font-weight:bold">form</span>&gt;
-</code></pre></div><ul>
+<pre><code class="language-html">&lt;form action=&quot;/yyy&quot;&gt;
+  &lt;input type=“text&quot; method=“POST” autocomplete=“on” /&gt;
+  &lt;input name=&quot;username&quot; type=&quot;“text”&quot; /&gt;
+  &lt;input type=&quot;submit” /&gt;
+&lt;/form&gt;
+</code></pre>
+<ul>
 <li><code>method</code>
 GET/POST</li>
 <li><code>target</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">form</span> <span style="color:#007f7f">action</span>=<span style="color:#0ff;font-weight:bold">&#34;/yyy&#34;</span>&gt;
-  &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">“text&#34;</span> <span style="color:#007f7f">target</span>=<span style="color:#0ff;font-weight:bold">“_blank”</span> /&gt;
-&lt;/<span style="font-weight:bold">form</span>&gt;
-</code></pre></div><ul>
+<pre><code class="language-html">&lt;form action=&quot;/yyy&quot;&gt;
+  &lt;input type=“text&quot; target=“_blank” /&gt;
+&lt;/form&gt;
+</code></pre>
+<ul>
 <li><code>value</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">form</span> <span style="color:#007f7f">action</span>=<span style="color:#0ff;font-weight:bold">&#34;/yyy”</span>&gt;
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">“text”</span> <span style="color:#007f7f">value</span>=<span style="color:#0ff;font-weight:bold">“try</span> <span style="color:#007f7f">me</span><span style="color:#f00">”</span> /&gt;
-&lt;/<span style="font-weight:bold">form</span>&gt;
-</code></pre></div><h2 id="heading-14">事件</h2>
+<pre><code class="language-html">&lt;form action=&quot;/yyy”&gt;
+    &lt;input type=“text” value=“try me” /&gt;
+&lt;/form&gt;
+</code></pre>
+<h2 id="heading-14">事件</h2>
 <ul>
 <li><code>onsubmit</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">form</span> <span style="color:#007f7f">action</span>=<span style="color:#0ff;font-weight:bold">&#34;/yyy&#34;</span>&gt;
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">“username”</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">“text”</span> /&gt;
-    <span style="color:#0f0;font-weight:bold">&lt;!— 可以提交 --&gt;</span>
-    &lt;<span style="font-weight:bold">button</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;submit”</span>&gt;
-    &lt;<span style="font-weight:bold">strong</span>&gt;do it &lt;/<span style="font-weight:bold">strong</span>&gt;
-    &lt;/<span style="font-weight:bold">button</span>&gt;
-    <span style="color:#007f7f">&lt;!--</span><span style="color:#007f7f"> 提交不了 </span><span style="color:#007f7f">--&gt;</span>
-    &lt;<span style="font-weight:bold">button</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">“button”</span>&gt;
-    &lt;<span style="font-weight:bold">strong</span>&gt;do it &lt;/<span style="font-weight:bold">strong</span>&gt;
-    &lt;/<span style="font-weight:bold">button</span>&gt;
-&lt;/<span style="font-weight:bold">form</span>&gt;
-</code></pre></div><blockquote>
+<pre><code class="language-html">&lt;form action=&quot;/yyy&quot;&gt;
+    &lt;input name=“username” type=“text” /&gt;
+    &lt;!— 可以提交 --&gt;
+    &lt;button type=&quot;submit”&gt;
+    &lt;strong&gt;do it &lt;/strong&gt;
+    &lt;/button&gt;
+    &lt;!-- 提交不了 --&gt;
+    &lt;button type=“button”&gt;
+    &lt;strong&gt;do it &lt;/strong&gt;
+    &lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<blockquote>
 <p>想要触发 submit，必须要有一个<code>type=’submit’</code>的东西。</p>
 </blockquote>
 <h1 id="input"><code>input</code>标签</h1>
@@ -445,41 +468,44 @@ GET/POST</li>
 <ul>
 <li>类型<code>type</code>:</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">form</span> <span style="color:#007f7f">action</span>=<span style="color:#0ff;font-weight:bold">“/yyy”</span>&gt;
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;text” /&gt;
-</span><span style="color:#0ff;font-weight:bold">    &lt;!— 输入颜色 --&gt;
-</span><span style="color:#0ff;font-weight:bold">    &lt;input type=“color&#34;</span> /&gt;
-    <span style="color:#0f0;font-weight:bold">&lt;!— 输入密码，不展示具体内容 —&gt;</span>
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;password&#34;</span> /&gt;
-    <span style="color:#0f0;font-weight:bold">&lt;!— 单选 —&gt;</span>
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">&#34;gender&#34;</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;radio&#34;</span> /&gt;male
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">&#34;gender” type=“radio” /&gt;female
-</span><span style="color:#0ff;font-weight:bold">    &lt;br /&gt;
-</span><span style="color:#0ff;font-weight:bold">    &lt;!— 多选 —&gt;
-</span><span style="color:#0ff;font-weight:bold">    &lt;input name=&#34;</span><span style="color:#007f7f">hobby</span><span style="color:#f00">&#34;</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;checkbox&#34;</span> /&gt;唱
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">&#34;hobby&#34;</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">“checkbox&#34;</span> /&gt;跳
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">&#34;hobby&#34;</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;checkbox&#34;</span> /&gt;rap
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">name</span>=<span style="color:#0ff;font-weight:bold">&#34;hobby&#34;</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;checkbox&#34;</span> /&gt;篮球
-    <span style="color:#007f7f">&lt;!--</span><span style="color:#007f7f"> 上传 </span><span style="color:#007f7f">--&gt;</span>
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;file&#34;</span> /&gt;
-    <span style="color:#007f7f">&lt;!--</span><span style="color:#007f7f"> 选择多个文件 </span><span style="color:#007f7f">--&gt;</span>
-    &lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;file&#34;</span> <span style="color:#007f7f">multiple</span> /&gt;
-    <span style="color:#007f7f">&lt;!--</span><span style="color:#007f7f"> 看不见的，比如取id等 —&gt;
-</span><span style="color:#007f7f">    &lt;input type=“hidden” /&gt;
-</span><span style="color:#007f7f">&lt;/form&gt;
-</span></code></pre></div><ul>
+<pre><code class="language-html">&lt;form action=“/yyy”&gt;
+    &lt;input type=&quot;text” /&gt;
+    &lt;!— 输入颜色 --&gt;
+    &lt;input type=“color&quot; /&gt;
+    &lt;!— 输入密码，不展示具体内容 —&gt;
+    &lt;input type=&quot;password&quot; /&gt;
+    &lt;!— 单选 —&gt;
+    &lt;input name=&quot;gender&quot; type=&quot;radio&quot; /&gt;male
+    &lt;input name=&quot;gender” type=“radio” /&gt;female
+    &lt;br /&gt;
+    &lt;!— 多选 —&gt;
+    &lt;input name=&quot;hobby&quot; type=&quot;checkbox&quot; /&gt;唱
+    &lt;input name=&quot;hobby&quot; type=“checkbox&quot; /&gt;跳
+    &lt;input name=&quot;hobby&quot; type=&quot;checkbox&quot; /&gt;rap
+    &lt;input name=&quot;hobby&quot; type=&quot;checkbox&quot; /&gt;篮球
+    &lt;!-- 上传 --&gt;
+    &lt;input type=&quot;file&quot; /&gt;
+    &lt;!-- 选择多个文件 --&gt;
+    &lt;input type=&quot;file&quot; multiple /&gt;
+    &lt;!-- 看不见的，比如取id等 —&gt;
+    &lt;input type=“hidden” /&gt;
+&lt;/form&gt;
+</code></pre>
+<ul>
 <li><code>textarea</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">textarea</span> <span style="color:#007f7f">style</span>=<span style="color:#0ff;font-weight:bold">&#34;resize:</span> <span style="color:#007f7f">none</span><span style="color:#f00">;</span> <span style="color:#007f7f">width:</span> <span style="color:#007f7f">50</span><span style="color:#f00">%</span><span style="color:#f00">;</span> <span style="color:#007f7f">height:</span> <span style="color:#007f7f">300px</span><span style="color:#f00">;</span><span style="color:#f00">”</span>&gt;&lt;/<span style="font-weight:bold">textarea</span>&gt;
-</code></pre></div><ul>
+<pre><code class="language-html">&lt;textarea style=&quot;resize: none; width: 50%; height: 300px;”&gt;&lt;/textarea&gt;
+</code></pre>
+<ul>
 <li><code>select</code></li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">select</span>&gt;
-&lt;<span style="font-weight:bold">option</span> <span style="color:#007f7f">value</span>=<span style="color:#0ff;font-weight:bold">&#34;1”&gt;Monday&lt;/option&gt;
-</span><span style="color:#0ff;font-weight:bold">&lt;option value=“2”&gt;Tue&lt;/option&gt;
-</span><span style="color:#0ff;font-weight:bold">&lt;option value=&#34;</span><span style="color:#007f7f">3</span><span style="color:#f00">&#34;</span>&gt;Wed&lt;/<span style="font-weight:bold">option</span>&gt;
-&lt;/<span style="font-weight:bold">select</span>&gt;
-</code></pre></div><h2 id="heading-17">事件</h2>
+<pre><code class="language-html">&lt;select&gt;
+&lt;option value=&quot;1”&gt;Monday&lt;/option&gt;
+&lt;option value=“2”&gt;Tue&lt;/option&gt;
+&lt;option value=&quot;3&quot;&gt;Wed&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<h2 id="heading-17">事件</h2>
 <ul>
 <li><code>onchange</code></li>
 <li><code>onfocus</code>
@@ -489,8 +515,9 @@ GET/POST</li>
 </ul>
 <h2 id="heading-18">验证器</h2>
 <p>HTML5 新增功能</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="font-weight:bold">input</span> <span style="color:#007f7f">type</span>=<span style="color:#0ff;font-weight:bold">&#34;text&#34;</span> <span style="color:#007f7f">required</span> /&gt;
-</code></pre></div><blockquote>
+<pre><code class="language-html">&lt;input type=&quot;text&quot; required /&gt;
+</code></pre>
+<blockquote>
 <p>必须传，否则传不了。</p>
 </blockquote>
 <h2 id="heading-19">注意事项</h2>

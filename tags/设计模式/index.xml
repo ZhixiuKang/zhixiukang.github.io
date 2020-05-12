@@ -20,7 +20,7 @@
       <description>MVC 是什么  M-Model (数据模型)   负责操作所有数据
   V-View (视图)   负责所有 UI 界面
   C-Controller(控制器)   负责其他
- // 数据放在m const m = { data: {}, // 对数据增删改查  create() {}, delete() {}, update(data) {}, get() {}, }; // 视图放在v const v = { el: null, html: ``, init(container) { v.el = $(container); }, // 渲染函数，参数将是数据。视图全都是对数据渲染 view = render(data)  render(x) {}, }; // 其他放在c const c = { init(container) {}, events: {}, add() {}, minus() {}, mul() {}, div() {}, // 自动绑定事件  autoBindEvents() {}, }; 代码重构 最小知识原则  引入一个模块需要引入 html、css、 js 引入一个模块需要引入 html、js 引入一个模块需要引入 js 你需要知道的知识越少越好,模块化为这一点奠定了基础   在 ES6 中，可以使用 import 关键字引入模块，通过 export 关键字导出模块</description>
+ // 数据放在m const m = { data: {}, // 对数据增删改查 create() {}, delete() {}, update(data) {}, get() {}, }; // 视图放在v const v = { el: null, html: ``, init(container) { v.el = $(container); }, // 渲染函数，参数将是数据。视图全都是对数据渲染 view = render(data) render(x) {}, }; // 其他放在c const c = { init(container) {}, events: {}, add() {}, minus() {}, mul() {}, div() {}, // 自动绑定事件 autoBindEvents() {}, };  代码重构 最小知识原则  引入一个模块需要引入 html、css、 js 引入一个模块需要引入 html、js 引入一个模块需要引入 js 你需要知道的知识越少越好,模块化为这一点奠定了基础   在 ES6 中，可以使用 import 关键字引入模块，通过 export 关键字导出模块</description>
     </item>
     
   </channel>

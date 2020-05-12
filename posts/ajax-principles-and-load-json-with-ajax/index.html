@@ -18,14 +18,14 @@
  让我们通过使用 AJAX 来加载 CSS、JavaScript、HTML、XML 和 JSON，学会 AJAX 的原理和用法。
  示例代码
  背景 AJAX 是浏览器上的功能  浏览器可以发请求，收响应 浏览器在 window 上加了一个XMLHttpRequest函数 用这个构造函数(类)可以构造出一个对象 JS 通过它实现发请求，收响应  小工具:node-dev
-   准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &#34;/index.html&#34;) { response.statusCode = 200; response.setHeader(&#34;Content-Type&#34;, &#34;text/html;charset=utf-8&#34;); response.write(`&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt; &lt;body&gt;&lt;h1&gt;AJAX demo&lt;/h1&gt; &lt;script src=&#34;/main.js&#34;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; `); response.end(); } else if (path === &#34;/main."/>
+   准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &quot;/index.html&quot;) { response.statusCode = 200; response.setHeader(&quot;Content-Type&quot;, &quot;text/html;charset=utf-8&quot;); response.write(` &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt; &lt;body&gt;&lt;h1&gt;AJAX demo&lt;/h1&gt; &lt;script src=&quot;/main.js&quot;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; `); response.end(); } else if (path === &quot;/main."/>
 
     <meta property="og:title" content="AJAX的原理和加载JSON" />
 <meta property="og:description" content="AJAX(Async JavaScript And XML) → 用 JS 发请求和收响应
  让我们通过使用 AJAX 来加载 CSS、JavaScript、HTML、XML 和 JSON，学会 AJAX 的原理和用法。
  示例代码
  背景 AJAX 是浏览器上的功能  浏览器可以发请求，收响应 浏览器在 window 上加了一个XMLHttpRequest函数 用这个构造函数(类)可以构造出一个对象 JS 通过它实现发请求，收响应  小工具:node-dev
-   准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &#34;/index.html&#34;) { response.statusCode = 200; response.setHeader(&#34;Content-Type&#34;, &#34;text/html;charset=utf-8&#34;); response.write(`&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt; &lt;body&gt;&lt;h1&gt;AJAX demo&lt;/h1&gt; &lt;script src=&#34;/main.js&#34;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; `); response.end(); } else if (path === &#34;/main." />
+   准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &quot;/index.html&quot;) { response.statusCode = 200; response.setHeader(&quot;Content-Type&quot;, &quot;text/html;charset=utf-8&quot;); response.write(` &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt; &lt;body&gt;&lt;h1&gt;AJAX demo&lt;/h1&gt; &lt;script src=&quot;/main.js&quot;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; `); response.end(); } else if (path === &quot;/main." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/ajax-principles-and-load-json-with-ajax/" />
 <meta property="article:published_time" content="2020-03-11T15:21:33-08:00" />
@@ -164,26 +164,27 @@ AJAX的原理和加载JSON · 修的个人网站
 <li>用<code>node server.js 8888</code>启动</li>
 <li>添加<code>index.html</code>/<code>main.js</code>两个路由:</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">if</span> (path === <span style="color:#0ff;font-weight:bold">&#34;/index.html&#34;</span>) {
-  response.statusCode = <span style="color:#ff0;font-weight:bold">200</span>;
-  response.setHeader(<span style="color:#0ff;font-weight:bold">&#34;Content-Type&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;text/html;charset=utf-8&#34;</span>);
-  response.write(<span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold">
-</span><span style="color:#0ff;font-weight:bold">    &lt;!DOCTYPE html&gt;
-</span><span style="color:#0ff;font-weight:bold">    &lt;html&gt;
-</span><span style="color:#0ff;font-weight:bold">    &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt;
-</span><span style="color:#0ff;font-weight:bold">    &lt;body&gt;&lt;h1&gt;AJAX demo&lt;/h1&gt;
-</span><span style="color:#0ff;font-weight:bold">        &lt;script src=&#34;/main.js&#34;&gt;&lt;/script&gt;
-</span><span style="color:#0ff;font-weight:bold">    &lt;/body&gt;
-</span><span style="color:#0ff;font-weight:bold">    &lt;/html&gt;
-</span><span style="color:#0ff;font-weight:bold">    </span><span style="color:#0ff;font-weight:bold">`</span>);
+<pre><code class="language-javascript">if (path === &quot;/index.html&quot;) {
+  response.statusCode = 200;
+  response.setHeader(&quot;Content-Type&quot;, &quot;text/html;charset=utf-8&quot;);
+  response.write(`
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;&lt;title&gt;ajax&lt;/title&gt;&lt;/head&gt;
+    &lt;body&gt;&lt;h1&gt;AJAX demo&lt;/h1&gt;
+        &lt;script src=&quot;/main.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    `);
   response.end();
-} <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (path === <span style="color:#0ff;font-weight:bold">&#34;/main.js&#34;</span>) {
-  response.statusCode = <span style="color:#ff0;font-weight:bold">200</span>;
-  response.setHeader(<span style="color:#0ff;font-weight:bold">&#34;Content-Type&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;text/css;charset=utf-8&#34;</span>);
-  response.write(<span style="color:#0ff;font-weight:bold">`</span><span style="color:#0ff;font-weight:bold">console.log(&#34;I am main.js&#34;)</span><span style="color:#0ff;font-weight:bold">`</span>);
+} else if (path === &quot;/main.js&quot;) {
+  response.statusCode = 200;
+  response.setHeader(&quot;Content-Type&quot;, &quot;text/css;charset=utf-8&quot;);
+  response.write(`console.log(&quot;I am main.js&quot;)`);
   response.end();
 }
-</code></pre></div><h1 id="-1--css">挑战 1-加载 CSS</h1>
+</code></pre>
+<h1 id="-1--css">挑战 1-加载 CSS</h1>
 <ul>
 <li>以前我们用<code>&lt;link rel=stylesheet href=&quot;1.css&quot;/&gt;</code></li>
 <li>今天请用 AJAX 加载 CSS</li>
@@ -210,44 +211,46 @@ AJAX的原理和加载JSON · 修的个人网站
 </li>
 </ol>
 <p>HTML:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="font-weight:bold">html</span>&gt;
-  &lt;<span style="font-weight:bold">head</span>&gt;
-    &lt;<span style="font-weight:bold">title</span>&gt;ajax&lt;/<span style="font-weight:bold">title</span>&gt;
-    <span style="color:#0f0;font-weight:bold">&lt;!— &lt;link rel=&#34;stylesheet&#34; href=&#34;/style.css&#34; /&gt;</span>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;ajax&lt;/title&gt;
+    &lt;!— &lt;link rel=&quot;stylesheet&quot; href=&quot;/style.css&quot; /&gt;
     —&gt;
-  &lt;/<span style="font-weight:bold">head</span>&gt;
-  &lt;<span style="font-weight:bold">body</span>&gt;
-    &lt;<span style="font-weight:bold">h1</span>&gt;AJAX demo 1&lt;/<span style="font-weight:bold">h1</span>&gt;
-    &lt;<span style="font-weight:bold">p</span>&gt;
-      &lt;<span style="font-weight:bold">button</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">&#34;getCSS&#34;</span>&gt;request css&lt;/<span style="font-weight:bold">button</span>&gt;
-    &lt;/<span style="font-weight:bold">p</span>&gt;
-    &lt;<span style="font-weight:bold">script</span> <span style="color:#007f7f">src</span>=<span style="color:#0ff;font-weight:bold">&#34;/main.js&#34;</span>&gt;&lt;/<span style="font-weight:bold">script</span>&gt;
-  &lt;/<span style="font-weight:bold">body</span>&gt;
-&lt;/<span style="font-weight:bold">html</span>&gt;
-</code></pre></div><p>JavaScript:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#0ff;font-weight:bold">&#34;我是main.js&#34;</span>);
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;AJAX demo 1&lt;/h1&gt;
+    &lt;p&gt;
+      &lt;button id=&quot;getCSS&quot;&gt;request css&lt;/button&gt;
+    &lt;/p&gt;
+    &lt;script src=&quot;/main.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>JavaScript:</p>
+<pre><code class="language-javascript">console.log(&quot;我是main.js&quot;);
 
 getCSS.onclick = () =&gt; {
-  <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
-  request.open(<span style="color:#0ff;font-weight:bold">&#34;GET&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/style.css&#34;</span>);
+  const request = new XMLHttpRequest();
+  request.open(&quot;GET&quot;, &quot;/style.css&quot;);
   request.onload = () =&gt; {
-    console.log(<span style="color:#0ff;font-weight:bold">&#34;request.response&#34;</span>);
+    console.log(&quot;request.response&quot;);
     console.log(request.response);
-    console.log(<span style="color:#0ff;font-weight:bold">&#34;成功啦&#34;</span>);
-    <span style="color:#007f7f">// 创建style标签
-</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">const</span> style = <span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;style&#34;</span>);
-    <span style="color:#007f7f">// 填写style内容
-</span><span style="color:#007f7f"></span>    style.innerHTML = request.response;
-    <span style="color:#007f7f">// 插到头里面
-</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">document</span>.head.appendChild(style);
+    console.log(&quot;成功啦&quot;);
+    // 创建style标签
+    const style = document.createElement(&quot;style&quot;);
+    // 填写style内容
+    style.innerHTML = request.response;
+    // 插到头里面
+    document.head.appendChild(style);
   };
   request.onerror = () =&gt; {
-    console.log(<span style="color:#0ff;font-weight:bold">&#34;失败了...&#34;</span>);
+    console.log(&quot;失败了...&quot;);
   };
   request.send();
 };
-</code></pre></div><h1 id="-2--js">挑战 2-加载 JS</h1>
+</code></pre>
+<h1 id="-2--js">挑战 2-加载 JS</h1>
 <ul>
 <li>以前我们用<code>&lt;script src=&quot;2.js&quot;&gt;&lt;/script&gt;</code></li>
 <li>今天请用 AJAX 加载 JS</li>
@@ -264,20 +267,21 @@ getCSS.onclick = () =&gt; {
 <li>调用对象的<code>send</code>方法(发送请求)</li>
 </ol>
 <p>JavaScript:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#0ff;font-weight:bold">&#34;I am main.js&#34;</span>);
+<pre><code class="language-javascript">console.log(&quot;I am main.js&quot;);
 getJS.onclick = () =&gt; {
-  <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
-  request.open(<span style="color:#0ff;font-weight:bold">&#34;GET&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/2.js&#34;</span>);
+  const request = new XMLHttpRequest();
+  request.open(&quot;GET&quot;, &quot;/2.js&quot;);
   request.onload = () =&gt; {
     console.log(request.response);
-    <span style="color:#fff;font-weight:bold">const</span> script = <span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;script&#34;</span>);
+    const script = document.createElement(&quot;script&quot;);
     script.innerHTML = request.response;
-    <span style="color:#fff;font-weight:bold">document</span>.body.appendChild(script);
+    document.body.appendChild(script);
   };
   request.onerror = () =&gt; {};
   request.send();
 };
-</code></pre></div><h1 id="-3--html">挑战 3-加载 HTML</h1>
+</code></pre>
+<h1 id="-3--html">挑战 3-加载 HTML</h1>
 <ul>
 <li>以前我们不会加载<code>3.html</code></li>
 </ul>
@@ -292,45 +296,47 @@ getJS.onclick = () =&gt; {
 </li>
 <li>调用对象的<code>send</code>方法(发送请求)</li>
 </ol>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#0ff;font-weight:bold">&#34;I am main.js&#34;</span>);
+<pre><code class="language-javascript">console.log(&quot;I am main.js&quot;);
 getHTML.onclick = () =&gt; {
-  <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
-  request.open(<span style="color:#0ff;font-weight:bold">&#34;GET&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/3.html&#34;</span>);
+  const request = new XMLHttpRequest();
+  request.open(&quot;GET&quot;, &quot;/3.html&quot;);
   request.onload = () =&gt; {
     console.log(request.response);
-    <span style="color:#fff;font-weight:bold">const</span> div = <span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>);
+    const div = document.createElement(&quot;div&quot;);
     div.innerHTML = request.response;
-    <span style="color:#fff;font-weight:bold">document</span>.body.appendChild(div);
+    document.body.appendChild(div);
   };
   request.onerror = () =&gt; {};
   request.send();
 };
-</code></pre></div><h1 id="onreadystatechange-">onreadystatechange 事件</h1>
+</code></pre>
+<h1 id="onreadystatechange-">onreadystatechange 事件</h1>
 <blockquote>
 <p>使用原因: <code>onerror()</code>并没有很好的匹配 AJAX</p>
 </blockquote>
 <ul>
 <li>用<code>onreadystatechange</code>重做一下挑战 1</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">getCSS.onclick = () =&gt; {
-  <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
-  request.open(<span style="color:#0ff;font-weight:bold">&#34;GET&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/style.css&#34;</span>);
+<pre><code class="language-javascript">getCSS.onclick = () =&gt; {
+  const request = new XMLHttpRequest();
+  request.open(&quot;GET&quot;, &quot;/style.css&quot;);
   request.onreadystatechange = () =&gt; {
-    <span style="color:#007f7f">// console.log(request.readyState);
-</span><span style="color:#007f7f"></span>    <span style="color:#fff;font-weight:bold">if</span> (request.readyState === <span style="color:#ff0;font-weight:bold">4</span>) {
-      <span style="color:#007f7f">// 下载完成，但不知道是成功 2xx 还是失败 4xx 5xx
-</span><span style="color:#007f7f"></span>      <span style="color:#fff;font-weight:bold">if</span> (request.status &gt;= <span style="color:#ff0;font-weight:bold">200</span> &amp;&amp; request.status &lt; <span style="color:#ff0;font-weight:bold">300</span>) {
-        <span style="color:#fff;font-weight:bold">const</span> style = <span style="color:#fff;font-weight:bold">document</span>.createElement(<span style="color:#0ff;font-weight:bold">&#34;style&#34;</span>);
+    // console.log(request.readyState);
+    if (request.readyState === 4) {
+      // 下载完成，但不知道是成功 2xx 还是失败 4xx 5xx
+      if (request.status &gt;= 200 &amp;&amp; request.status &lt; 300) {
+        const style = document.createElement(&quot;style&quot;);
         style.innerHTML = request.response;
-        <span style="color:#fff;font-weight:bold">document</span>.head.appendChild(style);
-      } <span style="color:#fff;font-weight:bold">else</span> {
-        alert(<span style="color:#0ff;font-weight:bold">&#34;加载css失败&#34;</span>);
+        document.head.appendChild(style);
+      } else {
+        alert(&quot;加载css失败&quot;);
       }
     }
   };
   request.send();
 };
-</code></pre></div><h1 id="-4--xml">挑战 4-加载 XML</h1>
+</code></pre>
+<h1 id="-4--xml">挑战 4-加载 XML</h1>
 <ul>
 <li>以前我们不会加载<code>4.html</code></li>
 </ul>
@@ -346,26 +352,28 @@ getHTML.onclick = () =&gt; {
 <li>调用对象的<code>send</code>方法(发送请求)</li>
 </ol>
 <p>XML:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#0f0;font-weight:bold">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span style="font-weight:bold">&lt;message</span><span style="font-weight:bold">&gt;</span>
-    <span style="font-weight:bold">&lt;warning</span><span style="font-weight:bold">&gt;</span>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;message&gt;
+    &lt;warning&gt;
          Hello World
-    <span style="font-weight:bold">&lt;/warning&gt;</span>
-<span style="font-weight:bold">&lt;/message&gt;</span>
-</code></pre></div><p>JavaScript:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">getXML.onclick = () =&gt; {
-  <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
-  request.open(<span style="color:#0ff;font-weight:bold">&#34;GET&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/4.xml&#34;</span>);
+    &lt;/warning&gt;
+&lt;/message&gt;
+</code></pre>
+<p>JavaScript:</p>
+<pre><code class="language-javascript">getXML.onclick = () =&gt; {
+  const request = new XMLHttpRequest();
+  request.open(&quot;GET&quot;, &quot;/4.xml&quot;);
   request.onreadystatechange = () =&gt; {
-    <span style="color:#fff;font-weight:bold">if</span> ((request.readyState === <span style="color:#ff0;font-weight:bold">4</span>) &amp; (request.status === <span style="color:#ff0;font-weight:bold">200</span>)) {
-      <span style="color:#fff;font-weight:bold">const</span> dom = request.responseXML;
-      <span style="color:#fff;font-weight:bold">const</span> text = dom.getElementsByTagName(<span style="color:#0ff;font-weight:bold">&#34;warning&#34;</span>)[<span style="color:#ff0;font-weight:bold">0</span>].textContent;
+    if ((request.readyState === 4) &amp; (request.status === 200)) {
+      const dom = request.responseXML;
+      const text = dom.getElementsByTagName(&quot;warning&quot;)[0].textContent;
       console.log(text.trim());
     }
   };
   request.send();
 };
-</code></pre></div><h1 id="heading-6">总结</h1>
+</code></pre>
+<h1 id="heading-6">总结</h1>
 <h2 id="http-">HTTP 是个框，什么都能往里装</h2>
 <ul>
 <li>可以装 HTML、CSS、JS、XML&hellip;</li>
@@ -432,38 +440,41 @@ getHTML.onclick = () =&gt; {
 <li>调用对象的 send 方法(发送请求)</li>
 </ol>
 <p>HTML:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#0f0;font-weight:bold">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="font-weight:bold">html</span>&gt;
-  &lt;<span style="font-weight:bold">head</span>&gt;
-    &lt;<span style="font-weight:bold">title</span>&gt;ajax&lt;/<span style="font-weight:bold">title</span>&gt;
-  &lt;/<span style="font-weight:bold">head</span>&gt;
-  &lt;<span style="font-weight:bold">body</span>&gt;
-    &lt;<span style="font-weight:bold">h1</span>&gt;AJAX Hello &lt;<span style="font-weight:bold">span</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">&#34;myName&#34;</span>&gt;&lt;/<span style="font-weight:bold">span</span>&gt;&lt;/<span style="font-weight:bold">h1</span>&gt;
-    &lt;<span style="font-weight:bold">p</span>&gt;
-      &lt;<span style="font-weight:bold">button</span> <span style="color:#007f7f">id</span>=<span style="color:#0ff;font-weight:bold">&#34;getJSON&#34;</span>&gt;request JSON&lt;/<span style="font-weight:bold">button</span>&gt;
-    &lt;/<span style="font-weight:bold">p</span>&gt;
-    &lt;<span style="font-weight:bold">script</span> <span style="color:#007f7f">src</span>=<span style="color:#0ff;font-weight:bold">&#34;/main.js&#34;</span>&gt;&lt;/<span style="font-weight:bold">script</span>&gt;
-  &lt;/<span style="font-weight:bold">body</span>&gt;
-&lt;/<span style="font-weight:bold">html</span>&gt;
-</code></pre></div><p>JSON:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="font-weight:bold">&#34;name&#34;</span>: <span style="color:#0ff;font-weight:bold">&#34;xiu&#34;</span>,
-  <span style="font-weight:bold">&#34;age&#34;</span>: <span style="color:#ff0;font-weight:bold">24</span>,
-  <span style="font-weight:bold">&#34;xxx&#34;</span>: <span style="color:#fff;font-weight:bold">null</span>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;ajax&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;AJAX Hello &lt;span id=&quot;myName&quot;&gt;&lt;/span&gt;&lt;/h1&gt;
+    &lt;p&gt;
+      &lt;button id=&quot;getJSON&quot;&gt;request JSON&lt;/button&gt;
+    &lt;/p&gt;
+    &lt;script src=&quot;/main.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>JSON:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;xiu&quot;,
+  &quot;age&quot;: 24,
+  &quot;xxx&quot;: null
 }
-</code></pre></div><p>JavaScript:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">getJSON.onclick = () =&gt; {
-  <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
-  request.open(<span style="color:#0ff;font-weight:bold">&#34;GET&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/5.json&#34;</span>);
+</code></pre>
+<p>JavaScript:</p>
+<pre><code class="language-javascript">getJSON.onclick = () =&gt; {
+  const request = new XMLHttpRequest();
+  request.open(&quot;GET&quot;, &quot;/5.json&quot;);
   request.onreadystatechange = () =&gt; {
-    <span style="color:#fff;font-weight:bold">if</span> (request.readyState === <span style="color:#ff0;font-weight:bold">4</span> &amp;&amp; request.status === <span style="color:#ff0;font-weight:bold">200</span>) {
-      <span style="color:#fff;font-weight:bold">const</span> object = JSON.parse(request.response);
+    if (request.readyState === 4 &amp;&amp; request.status === 200) {
+      const object = JSON.parse(request.response);
       myName.textContent = object.name;
     }
   };
   request.send();
 };
-</code></pre></div><h2 id="windowjson">window.JSON</h2>
+</code></pre>
+<h2 id="windowjson">window.JSON</h2>
 <h3 id="jsonparse"><code>JSON.parse</code></h3>
 <ul>
 <li>将符合<code>JSON</code>语法的字符串转换成<code>JS</code>对应类型的数据</li>

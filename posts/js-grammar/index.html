@@ -205,120 +205,130 @@ JS语法 · 修的个人网站
 </ul>
 <h1 id="heading-10">顺序循环分支结构</h1>
 <h2 id="ifelse">if…else&hellip;语句</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">if</span>() {
-} <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span>(){
-} <span style="color:#fff;font-weight:bold">else</span> {
+<pre><code class="language-javascript">if() {
+} else if(){
+} else {
 }
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p>没有{}的话就只管到第一个语句</p>
 </blockquote>
 <h2 id="switch-">switch 语句</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">switch</span>(fruit) {
-	<span style="color:#fff;font-weight:bold">case</span> <span style="color:#f00">“</span>banana<span style="color:#f00">”</span>:
-		<span style="color:#007f7f">// …
-</span><span style="color:#007f7f"></span>		<span style="color:#fff;font-weight:bold">break</span>;
-	<span style="color:#fff;font-weight:bold">case</span> <span style="color:#f00">“</span>apple<span style="color:#f00">&#34;</span>:
-		<span style="color:#007f7f">// …
-</span><span style="color:#007f7f"></span>		<span style="color:#fff;font-weight:bold">break</span>;
-	<span style="color:#fff;font-weight:bold">default</span>:
-		<span style="color:#007f7f">// …
-</span><span style="color:#007f7f"></span>}
-</code></pre></div><blockquote>
+<pre><code class="language-javascript">switch(fruit) {
+	case “banana”:
+		// …
+		break;
+	case “apple&quot;:
+		// …
+		break;
+	default:
+		// …
+}
+</code></pre>
+<blockquote>
 <p>大部分时候，省略 break 你就完了</p>
 <p>少部分时候，可以利用 break</p>
 </blockquote>
 <h2 id="heading-11">三元表达式</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">A ? B : C;
-</code></pre></div><h2 id="--">&amp;&amp; 和 ||</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console &amp;&amp; console.log &amp;&amp; console.log(<span style="color:#f00">’</span>hi<span style="color:#f00">‘</span>)
+<pre><code class="language-javascript">A ? B : C;
+</code></pre>
+<h2 id="--">&amp;&amp; 和 ||</h2>
+<pre><code class="language-javascript">console &amp;&amp; console.log &amp;&amp; console.log(’hi‘)
 
-a = a || <span style="color:#ff0;font-weight:bold">100</span> <span style="color:#007f7f">// 保底值
-</span></code></pre></div><h2 id="while-">while 语句</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">while</span>() {}
-</code></pre></div><h2 id="for-">for 语句</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">var</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">5</span>; i++) {
+a = a || 100 // 保底值
+</code></pre>
+<h2 id="while-">while 语句</h2>
+<pre><code class="language-javascript">while() {}
+</code></pre>
+<h2 id="for-">for 语句</h2>
+<pre><code class="language-javascript">for(var i = 0; i &lt; 5; i++) {
 }
-i === <span style="color:#ff0;font-weight:bold">5</span> <span style="color:#007f7f">// true
-</span><span style="color:#007f7f"></span>
-<span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">var</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">5</span>; i++) {
+i === 5 // true
+
+for(var i = 0; i &lt; 5; i++) {
 	setTimeout(()=&gt;{
-		console.log(i + <span style="color:#f00">&#39;</span>random number<span style="color:#f00">’</span> + <span style="color:#fff;font-weight:bold">Math</span>.random())
-	}, <span style="color:#ff0;font-weight:bold">0</span>)
+		console.log(i + 'random number’ + Math.random())
+	}, 0)
 }
-<span style="color:#007f7f">/*
-</span><span style="color:#007f7f">	5random number0.3423243
-</span><span style="color:#007f7f">	5random number0.5892132
-</span><span style="color:#007f7f">	…
-</span><span style="color:#007f7f">	5random number0.2343241
-</span><span style="color:#007f7f">*/</span>
+/*
+	5random number0.3423243
+	5random number0.5892132
+	…
+	5random number0.2343241
+*/
 
-<span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">5</span>; i++) {
+for(let i = 0; i &lt; 5; i++) {
 	setTimeout(()=&gt;{
 		console.log(i)
-	}, <span style="color:#ff0;font-weight:bold">0</span>)
+	}, 0)
 }
-<span style="color:#007f7f">/*
-</span><span style="color:#007f7f">	0
-</span><span style="color:#007f7f">	1
-</span><span style="color:#007f7f">	2
-</span><span style="color:#007f7f">	3
-</span><span style="color:#007f7f">	4
-</span><span style="color:#007f7f">*/</span>
+/*
+	0
+	1
+	2
+	3
+	4
+*/
 }
-</code></pre></div><h2 id="break--continue">break 和 continue</h2>
+</code></pre>
+<h2 id="break--continue">break 和 continue</h2>
 <blockquote>
 <p>退出所有循环 V.S. 退出当前一次循环</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">var</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">10</span>; i++) {
-  <span style="color:#fff;font-weight:bold">if</span> (i % <span style="color:#ff0;font-weight:bold">2</span> === <span style="color:#ff0;font-weight:bold">1</span>) {
-    <span style="color:#fff;font-weight:bold">break</span>;
+<pre><code class="language-javascript">for (var i = 0; i &lt; 10; i++) {
+  if (i % 2 === 1) {
+    break;
   }
 }
-console.log(i); <span style="color:#007f7f">// 1
-</span><span style="color:#007f7f"></span>
-<span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">var</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">10</span>; i++) {
-  <span style="color:#fff;font-weight:bold">if</span> (i % <span style="color:#ff0;font-weight:bold">2</span> === <span style="color:#ff0;font-weight:bold">1</span>) {
-    <span style="color:#fff;font-weight:bold">continue</span>;
-  } <span style="color:#fff;font-weight:bold">else</span> {
+console.log(i); // 1
+
+for (var i = 0; i &lt; 10; i++) {
+  if (i % 2 === 1) {
+    continue;
+  } else {
     console.log(i);
   }
 }
-<span style="color:#007f7f">/*
-</span><span style="color:#007f7f">	0
-</span><span style="color:#007f7f">	2
-</span><span style="color:#007f7f">	4
-</span><span style="color:#007f7f">	6
-</span><span style="color:#007f7f">	8
-</span><span style="color:#007f7f">*/</span>
-</code></pre></div><p>break 会中断离他最近的一个 for:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">var</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">5</span>; i++) {
-  <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">var</span> j = <span style="color:#ff0;font-weight:bold">101</span>; j &lt; <span style="color:#ff0;font-weight:bold">110</span>; j++) {
-    <span style="color:#fff;font-weight:bold">if</span> (i === <span style="color:#ff0;font-weight:bold">2</span>) {
-      <span style="color:#fff;font-weight:bold">break</span>;
+/*
+	0
+	2
+	4
+	6
+	8
+*/
+</code></pre>
+<p>break 会中断离他最近的一个 for:</p>
+<pre><code class="language-javascript">for (var i = 0; i &lt; 5; i++) {
+  for (var j = 101; j &lt; 110; j++) {
+    if (i === 2) {
+      break;
     }
   }
   console.log(i);
 }
-<span style="color:#007f7f">/*
-</span><span style="color:#007f7f">	0
-</span><span style="color:#007f7f">	1
-</span><span style="color:#007f7f">	2
-</span><span style="color:#007f7f">	3
-</span><span style="color:#007f7f">	4
-</span><span style="color:#007f7f">*/</span>
-</code></pre></div><h2 id="label-">label 语句</h2>
+/*
+	0
+	1
+	2
+	3
+	4
+*/
+</code></pre>
+<h2 id="label-">label 语句</h2>
 <h3 id="heading-12">语法</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">foo: {
-	console.log(<span style="color:#ff0;font-weight:bold">1</span>);
-	<span style="color:#fff;font-weight:bold">break</span> foo;
-	console.log(<span style="color:#f00">&#39;</span>本行不会输出<span style="color:#f00">’</span>);
+<pre><code class="language-javascript">foo: {
+	console.log(1);
+	break foo;
+	console.log('本行不会输出’);
 }
-console.log(<span style="color:#ff0;font-weight:bold">2</span>);
-</code></pre></div><h3 id="heading-13">面试</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
-  foo: <span style="color:#ff0;font-weight:bold">1</span>;
+console.log(2);
+</code></pre>
+<h3 id="heading-13">面试</h3>
+<pre><code class="language-javascript">{
+  foo: 1;
 }
-</code></pre></div><p>Q: 上面的是什么?</p>
+</code></pre>
+<p>Q: 上面的是什么?</p>
 <p>A: foo 是一个 label，语句是个 1.</p>
 <blockquote>
 <p>推荐的书籍:</p>

@@ -34,7 +34,7 @@
       <description>JS 异步编程模型
  同步、异步、轮询和回调 如果能直接拿到结果  那就是同步 比如你在医院挂号，你拿到号才会离开窗口 同步任务可能消耗 10 毫秒，也可能需要 3 秒 总之不拿到结果你是不会离开的  如果不能直接拿到结果  那就是异步 比如你在餐厅等位置，你拿到号可以去逛街 什么时候才能真正吃饭呢？ 你可以每 10 分钟去餐厅问一下(轮询) 你也可以扫码用微信接收通知(回调)  异步举例 以 AJAX 为例  request.send()之后，并不能直接得到response  不信console.log(request.response)试试
   必须等到readyState变为4后，浏览器回头调用request.onreadystatechange函数 我们才能得到request.response 这跟餐厅给你发送微信提醒的过程是类似的  回调 callback  你写给自己用的函数，不是回调 你写给别人用的函数，就是回调 request.onreadystatechange就是我写给浏览器调用的 意思就是你(浏览器)回头调用一下这个函数  在中文里，’回头’ 也有 &amp;lsquo;将来&amp;rsquo; 的意思, 如 ‘我回头请你吃饭’
-   回调举例 把函数 1 给另一个函数 2 function f1() {} function f2(fn) { fn(); } f2(f1); 分析  Q: 我调用f1没有？A: 没有调用 Q: 我把f1传给f2(别人)了没有？A: 传了 Q: f2调用f1了没有？A: f2调用了f1 Q: 那么，f1是不是我写给f2调用的函数？A: 是   所以，f1是回调</description>
+   回调举例 把函数 1 给另一个函数 2 function f1() {} function f2(fn) { fn(); } f2(f1);  分析  Q: 我调用f1没有？A: 没有调用 Q: 我把f1传给f2(别人)了没有？A: 传了 Q: f2调用f1了没有？A: f2调用了f1 Q: 那么，f1是不是我写给f2调用的函数？A: 是   所以，f1是回调</description>
     </item>
     
     <item>
@@ -47,7 +47,7 @@
  让我们通过使用 AJAX 来加载 CSS、JavaScript、HTML、XML 和 JSON，学会 AJAX 的原理和用法。
  示例代码
  背景 AJAX 是浏览器上的功能  浏览器可以发请求，收响应 浏览器在 window 上加了一个XMLHttpRequest函数 用这个构造函数(类)可以构造出一个对象 JS 通过它实现发请求，收响应  小工具:node-dev
-   准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &amp;#34;/index.html&amp;#34;) { response.statusCode = 200; response.setHeader(&amp;#34;Content-Type&amp;#34;, &amp;#34;text/html;charset=utf-8&amp;#34;); response.write(`&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt;&amp;lt;title&amp;gt;ajax&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt; &amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;AJAX demo&amp;lt;/h1&amp;gt; &amp;lt;script src=&amp;#34;/main.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; `); response.end(); } else if (path === &amp;#34;/main.</description>
+   准备一个服务器  使用server.js作为我们的服务器 用node server.js 8888启动 添加index.html/main.js两个路由:  if (path === &amp;quot;/index.html&amp;quot;) { response.statusCode = 200; response.setHeader(&amp;quot;Content-Type&amp;quot;, &amp;quot;text/html;charset=utf-8&amp;quot;); response.write(` &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt;&amp;lt;title&amp;gt;ajax&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt; &amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;AJAX demo&amp;lt;/h1&amp;gt; &amp;lt;script src=&amp;quot;/main.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; `); response.end(); } else if (path === &amp;quot;/main.</description>
     </item>
     
   </channel>

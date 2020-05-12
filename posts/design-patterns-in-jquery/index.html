@@ -18,26 +18,26 @@
 jQuery 都过时了，那我还学它干嘛? - 方应杭
 jQuery 设计思想 - 阮一峰的网络日志
 jQuery Fundamentals - Bocoup
- 特殊函数 jQuery window.jQuery(); // 提供的全局函数  jQuery(选择器)用来获取对应的元素 但它却不返回这些元素 相反，它返回一个 jQuery 构造出来的对象 这个对象可以操作对应的元素   jQuery 是构造函数吗?
+ 特殊函数 jQuery window.jQuery(); // 提供的全局函数   jQuery(选择器)用来获取对应的元素 但它却不返回这些元素 相反，它返回一个 jQuery 构造出来的对象 这个对象可以操作对应的元素   jQuery 是构造函数吗?
 是: 因为 jQuery 函数确实构造出了一个对象.
 不是: 因为不需要new jQuery()就能构造一个对象.
 结论: jQuery 是一个不需要加 new 的构造函数
   嫌 jQuery 太长？
 还记得 bash alias 吗，添加一个别名即可: window.$ = window.jQuery
- 命名风格  下面的代码令人误解:  const div = $(‘div#test&#39;)  我们会误以为 div 是一个 DOM，实际上 div 是 jQuery 构造的 api 对象，怎么避免这种误解呢？"/>
+ 命名风格  下面的代码令人误解:  const div = $(‘div#test&#39;)   我们会误以为 div 是一个 DOM，实际上 div 是 jQuery 构造的 api 对象，怎么避免这种误解呢？"/>
 
     <meta property="og:title" content="jQuery 中的设计模式和思想" />
 <meta property="og:description" content="参考资料:
 jQuery 都过时了，那我还学它干嘛? - 方应杭
 jQuery 设计思想 - 阮一峰的网络日志
 jQuery Fundamentals - Bocoup
- 特殊函数 jQuery window.jQuery(); // 提供的全局函数  jQuery(选择器)用来获取对应的元素 但它却不返回这些元素 相反，它返回一个 jQuery 构造出来的对象 这个对象可以操作对应的元素   jQuery 是构造函数吗?
+ 特殊函数 jQuery window.jQuery(); // 提供的全局函数   jQuery(选择器)用来获取对应的元素 但它却不返回这些元素 相反，它返回一个 jQuery 构造出来的对象 这个对象可以操作对应的元素   jQuery 是构造函数吗?
 是: 因为 jQuery 函数确实构造出了一个对象.
 不是: 因为不需要new jQuery()就能构造一个对象.
 结论: jQuery 是一个不需要加 new 的构造函数
   嫌 jQuery 太长？
 还记得 bash alias 吗，添加一个别名即可: window.$ = window.jQuery
- 命名风格  下面的代码令人误解:  const div = $(‘div#test&#39;)  我们会误以为 div 是一个 DOM，实际上 div 是 jQuery 构造的 api 对象，怎么避免这种误解呢？" />
+ 命名风格  下面的代码令人误解:  const div = $(‘div#test&#39;)   我们会误以为 div 是一个 DOM，实际上 div 是 jQuery 构造的 api 对象，怎么避免这种误解呢？" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/design-patterns-in-jquery/" />
 <meta property="article:published_time" content="2020-03-09T15:21:33-08:00" />
@@ -160,8 +160,9 @@ jQuery 中的设计模式和思想 · 修的个人网站
 <p><a href="http://jqfundamentals.com/">jQuery Fundamentals - Bocoup</a></p>
 </blockquote>
 <h1 id="-jquery">特殊函数 jQuery</h1>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">window</span>.jQuery(); <span style="color:#007f7f">// 提供的全局函数
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">window.jQuery(); // 提供的全局函数
+</code></pre>
+<ul>
 <li>jQuery(选择器)用来获取对应的元素</li>
 <li>但它却不返回这些元素</li>
 <li>相反，它返回一个 jQuery 构造出来的对象</li>
@@ -181,146 +182,163 @@ jQuery 中的设计模式和思想 · 修的个人网站
 <ul>
 <li>下面的代码令人误解:</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">const</span> div = $(<span style="color:#f00">‘</span>div<span style="color:#f00">#</span>test<span style="color:#f00">&#39;</span>)
-</code></pre></div><blockquote>
+<pre><code class="language-javascript">const div = $(‘div#test')
+</code></pre>
+<blockquote>
 <p>我们会误以为 div 是一个 DOM，实际上 div 是 jQuery 构造的 api 对象，怎么避免这种误解呢？</p>
 </blockquote>
 <ul>
 <li>改成这样:</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">const</span> $div = $(<span style="color:#f00">‘</span>div<span style="color:#f00">#</span>test<span style="color:#f00">&#39;</span>)
-<span style="color:#007f7f">// $div.appendChild不存在，因为它不是DOM对象
-</span><span style="color:#007f7f"></span><span style="color:#007f7f">// $div.find存在，因为它是jQuery对象
-</span></code></pre></div><h1 id="heading-1">链式操作</h1>
+<pre><code class="language-javascript">const $div = $(‘div#test')
+// $div.appendChild不存在，因为它不是DOM对象
+// $div.find存在，因为它是jQuery对象
+</code></pre>
+<h1 id="heading-1">链式操作</h1>
 <blockquote>
 <p>原理是因为每一步的 jQuery 操作，返回的都是一个 jQuery 对象，所以不同操作可以连在一起。</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>)
-  .find(<span style="color:#0ff;font-weight:bold">&#34;h3&#34;</span>)
+<pre><code class="language-javascript">$(&quot;div&quot;)
+  .find(&quot;h3&quot;)
 
-  .eq(<span style="color:#ff0;font-weight:bold">2</span>)
+  .eq(2)
 
-  .html(<span style="color:#0ff;font-weight:bold">&#34;Hi&#34;</span>)
+  .html(&quot;Hi&quot;)
 
-  .end() <span style="color:#007f7f">//退回到选中所有的h3元素的那一步
-</span><span style="color:#007f7f"></span>
-  .eq(<span style="color:#ff0;font-weight:bold">0</span>) <span style="color:#007f7f">//选中第一个h3元素
-</span><span style="color:#007f7f"></span>
-  .html(<span style="color:#0ff;font-weight:bold">&#34;There&#34;</span>); <span style="color:#007f7f">//将它的内容改为World
-</span></code></pre></div><h1 id="heading-2">选择元素</h1>
+  .end() //退回到选中所有的h3元素的那一步
+
+  .eq(0) //选中第一个h3元素
+
+  .html(&quot;There&quot;); //将它的内容改为World
+</code></pre>
+<h1 id="heading-2">选择元素</h1>
 <h2 id="-css-">使用 CSS 选择器</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#fff;font-weight:bold">document</span>); <span style="color:#007f7f">//选择整个文档对象
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;#myId&#34;</span>); <span style="color:#007f7f">//选择ID为myId的网页元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div.myClass&#34;</span>); <span style="color:#007f7f">// 选择class为myClass的div元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;input[name=first]&#34;</span>); <span style="color:#007f7f">// 选择name属性等于first的input元素
-</span></code></pre></div><h2 id="-jquery-">使用 jQuery 特有的表达式</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#0ff;font-weight:bold">&#34;a:first&#34;</span>); <span style="color:#007f7f">//选择网页中第一个a元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;tr:odd&#34;</span>); <span style="color:#007f7f">//选择表格的奇数行
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;#myForm :input&#34;</span>); <span style="color:#007f7f">// 选择表单中的input元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div:visible&#34;</span>); <span style="color:#007f7f">//选择可见的div元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div:gt(2)&#34;</span>); <span style="color:#007f7f">// 选择所有的div元素，除了前三个
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div:animated&#34;</span>); <span style="color:#007f7f">// 选择当前处于动画状态的div元素
-</span></code></pre></div><h2 id="heading-3">筛选结果集</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).has(<span style="color:#0ff;font-weight:bold">&#34;p&#34;</span>); <span style="color:#007f7f">// 选择包含p元素的div元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).not(<span style="color:#0ff;font-weight:bold">&#34;.myClass&#34;</span>); <span style="color:#007f7f">//选择class不等于myClass的div元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).filter(<span style="color:#0ff;font-weight:bold">&#34;.myClass&#34;</span>); <span style="color:#007f7f">//选择class等于myClass的div元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).first(); <span style="color:#007f7f">//选择第1个div元素
-</span><span style="color:#007f7f"></span>
-.eq(<span style="color:#ff0;font-weight:bold">5</span>); <span style="color:#007f7f">//选择第6个div元素
-</span></code></pre></div><h2 id="heading-4">根据结果集，移动到附近的相关元素</h2>
+<pre><code class="language-javascript">$(document); //选择整个文档对象
+
+$(&quot;#myId&quot;); //选择ID为myId的网页元素
+
+$(&quot;div.myClass&quot;); // 选择class为myClass的div元素
+
+$(&quot;input[name=first]&quot;); // 选择name属性等于first的input元素
+</code></pre>
+<h2 id="-jquery-">使用 jQuery 特有的表达式</h2>
+<pre><code class="language-javascript">$(&quot;a:first&quot;); //选择网页中第一个a元素
+
+$(&quot;tr:odd&quot;); //选择表格的奇数行
+
+$(&quot;#myForm :input&quot;); // 选择表单中的input元素
+
+$(&quot;div:visible&quot;); //选择可见的div元素
+
+$(&quot;div:gt(2)&quot;); // 选择所有的div元素，除了前三个
+
+$(&quot;div:animated&quot;); // 选择当前处于动画状态的div元素
+</code></pre>
+<h2 id="heading-3">筛选结果集</h2>
+<pre><code class="language-javascript">$(&quot;div&quot;).has(&quot;p&quot;); // 选择包含p元素的div元素
+
+$(&quot;div&quot;).not(&quot;.myClass&quot;); //选择class不等于myClass的div元素
+
+$(&quot;div&quot;).filter(&quot;.myClass&quot;); //选择class等于myClass的div元素
+
+$(&quot;div&quot;).first(); //选择第1个div元素
+
+.eq(5); //选择第6个div元素
+</code></pre>
+<h2 id="heading-4">根据结果集，移动到附近的相关元素</h2>
 <blockquote>
 <p>在 DOM 树上的移动方法</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).next(<span style="color:#0ff;font-weight:bold">&#34;p&#34;</span>); <span style="color:#007f7f">//选择div元素后面的第一个p元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).parent(); <span style="color:#007f7f">//选择div元素的父元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).closest(<span style="color:#0ff;font-weight:bold">&#34;form&#34;</span>); <span style="color:#007f7f">//选择离div最近的那个form父元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).children(); <span style="color:#007f7f">//选择div的所有子元素
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).siblings(); <span style="color:#007f7f">//选择div的同级元素
-</span></code></pre></div><h1 id="getter--setter">getter &amp; setter</h1>
+<pre><code class="language-javascript">$(&quot;div&quot;).next(&quot;p&quot;); //选择div元素后面的第一个p元素
+
+$(&quot;div&quot;).parent(); //选择div元素的父元素
+
+$(&quot;div&quot;).closest(&quot;form&quot;); //选择离div最近的那个form父元素
+
+$(&quot;div&quot;).children(); //选择div的所有子元素
+
+$(&quot;div&quot;).siblings(); //选择div的同级元素
+</code></pre>
+<h1 id="getter--setter">getter &amp; setter</h1>
 <blockquote>
 <p>使用同一个重载来完成取值(getter)和赋值(setter)</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#0ff;font-weight:bold">&#34;h1&#34;</span>).html(); <span style="color:#007f7f">//html()没有参数，表示取出h1的值
-</span><span style="color:#007f7f"></span>
-$(<span style="color:#0ff;font-weight:bold">&#34;h1&#34;</span>).html(<span style="color:#0ff;font-weight:bold">&#34;Hello&#34;</span>); <span style="color:#007f7f">//html()有参数Hello，表示对h1进行赋值
-</span></code></pre></div><h1 id="heading-5">移动元素</h1>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 把div元素移动p元素后面
-</span><span style="color:#007f7f"></span>$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).insertAfter($(<span style="color:#0ff;font-weight:bold">&#34;p&#34;</span>));
-<span style="color:#007f7f">// 把p元素加到div元素前面
-</span><span style="color:#007f7f"></span>$(<span style="color:#0ff;font-weight:bold">&#34;p&#34;</span>).after($(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>));
-</code></pre></div><blockquote>
+<pre><code class="language-javascript">$(&quot;h1&quot;).html(); //html()没有参数，表示取出h1的值
+
+$(&quot;h1&quot;).html(&quot;Hello&quot;); //html()有参数Hello，表示对h1进行赋值
+</code></pre>
+<h1 id="heading-5">移动元素</h1>
+<pre><code class="language-javascript">// 把div元素移动p元素后面
+$(&quot;div&quot;).insertAfter($(&quot;p&quot;));
+// 把p元素加到div元素前面
+$(&quot;p&quot;).after($(&quot;div&quot;));
+</code></pre>
+<blockquote>
 <p>实际上，两种方法返回的元素不一样。第一种方法返回 div 元素，第二种方法返回 p 元素。</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 其他操作方法
-</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 在现存元素的外部，从后面插入元素
-</span><span style="color:#007f7f"></span>.insertAfter()
+<pre><code class="language-javascript">// 其他操作方法
+// 在现存元素的外部，从后面插入元素
+.insertAfter()
 .after()
-<span style="color:#007f7f">// 在现存元素的外部，从前面插入元素
-</span><span style="color:#007f7f"></span>.insertBefore()
+// 在现存元素的外部，从前面插入元素
+.insertBefore()
 .before()
-<span style="color:#007f7f">// 在现存元素的内部，从后面插入元素
-</span><span style="color:#007f7f"></span>.appendTo()
+// 在现存元素的内部，从后面插入元素
+.appendTo()
 .append()
-<span style="color:#007f7f">// 在现存元素的内部，从前面插入元素
-</span><span style="color:#007f7f"></span>.prependTo()
+// 在现存元素的内部，从前面插入元素
+.prependTo()
 .prepend()
-</code></pre></div><h1 id="heading-6">复制、删除和创建元素</h1>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 复制元素
-</span><span style="color:#007f7f"></span>.clone()
-<span style="color:#007f7f">// 删除元素
-</span><span style="color:#007f7f"></span>.remove() <span style="color:#007f7f">// 不保留被删除元素的事件
-</span><span style="color:#007f7f"></span>.detach() <span style="color:#007f7f">// 留被删除元素的事件,有利于重新插入文档时使用
-</span><span style="color:#007f7f"></span><span style="color:#007f7f">// 清空元素内容但是不删除元素
-</span><span style="color:#007f7f"></span>.empty()
-<span style="color:#007f7f">// 创建新元素,直接把新元素直接传入jQuery的构造函数
-</span><span style="color:#007f7f"></span>$(<span style="color:#0ff;font-weight:bold">&#34;&lt;p&gt;Hello&lt;/p&gt;&#34;</span>);
-$(<span style="color:#0ff;font-weight:bold">&#34;&lt;li class=“new”&gt;new list item&lt;/li&gt;&#34;</span>);
-$(<span style="color:#0ff;font-weight:bold">&#34;ul&#34;</span>).append(<span style="color:#0ff;font-weight:bold">&#34;&lt;li&gt;list item&lt;/li&gt;&#34;</span>);
-</code></pre></div><h1 id="jquery-">jQuery 中的设计模式</h1>
+</code></pre>
+<h1 id="heading-6">复制、删除和创建元素</h1>
+<pre><code class="language-javascript">// 复制元素
+.clone()
+// 删除元素
+.remove() // 不保留被删除元素的事件
+.detach() // 留被删除元素的事件,有利于重新插入文档时使用
+// 清空元素内容但是不删除元素
+.empty()
+// 创建新元素,直接把新元素直接传入jQuery的构造函数
+$(&quot;&lt;p&gt;Hello&lt;/p&gt;&quot;);
+$(&quot;&lt;li class=“new”&gt;new list item&lt;/li&gt;&quot;);
+$(&quot;ul&quot;).append(&quot;&lt;li&gt;list item&lt;/li&gt;&quot;);
+</code></pre>
+<h1 id="jquery-">jQuery 中的设计模式</h1>
 <h2 id="heading-7">发布订阅模式</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">var</span> eventHub = $({});
-eventHub.on(<span style="color:#0ff;font-weight:bold">&#34;xxx&#34;</span>, <span style="color:#fff;font-weight:bold">function</span> () {
-  console.log(<span style="color:#0ff;font-weight:bold">&#34;收到&#34;</span>);
+<pre><code class="language-javascript">var eventHub = $({});
+eventHub.on(&quot;xxx&quot;, function () {
+  console.log(&quot;收到&quot;);
 });
-eventHub.trigger(<span style="color:#0ff;font-weight:bold">&#34;xxx&#34;</span>);
-</code></pre></div><h2 id="heading-8">用原型继承实现插件系统</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$.fn.modal = <span style="color:#fff;font-weight:bold">function</span>(){ ... }
-$(<span style="color:#0ff;font-weight:bold">&#34;#div1&#34;</span>).modal()
-</code></pre></div><h2 id="heading-9">事件委托</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).on(<span style="color:#0ff;font-weight:bold">&#34;click&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;span&#34;</span>, <span style="color:#fff;font-weight:bold">function</span>(){<span style="color:#f00">…</span>})
-</code></pre></div><h2 id="heading-10">链式调用</h2>
+eventHub.trigger(&quot;xxx&quot;);
+</code></pre>
+<h2 id="heading-8">用原型继承实现插件系统</h2>
+<pre><code class="language-javascript">$.fn.modal = function(){ ... }
+$(&quot;#div1&quot;).modal()
+</code></pre>
+<h2 id="heading-9">事件委托</h2>
+<pre><code class="language-javascript">$(&quot;div&quot;).on(&quot;click&quot;, &quot;span&quot;, function(){…})
+</code></pre>
+<h2 id="heading-10">链式调用</h2>
 <blockquote>
 <p>前文提到过</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>).text(<span style="color:#0ff;font-weight:bold">&#34;hi&#34;</span>).addClass(<span style="color:#0ff;font-weight:bold">&#34;red&#34;</span>).animate({ left: <span style="color:#ff0;font-weight:bold">100</span> });
-</code></pre></div><h2 id="heading-11">函数重载</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(fn);
-$(<span style="color:#0ff;font-weight:bold">&#34;div&#34;</span>);
+<pre><code class="language-javascript">$(&quot;div&quot;).text(&quot;hi&quot;).addClass(&quot;red&quot;).animate({ left: 100 });
+</code></pre>
+<h2 id="heading-11">函数重载</h2>
+<pre><code class="language-javascript">$(fn);
+$(&quot;div&quot;);
 $(div);
 $($(div));
-$(<span style="color:#0ff;font-weight:bold">&#34;span&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;#scope1&#34;</span>);
-</code></pre></div><h2 id="heading-12">命名空间</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 你的插件在一个 button 上绑定了很多事件
-</span><span style="color:#007f7f"></span>$button.on(<span style="color:#0ff;font-weight:bold">&#34;click.plugin&#34;</span>, <span style="color:#fff;font-weight:bold">function</span>(){<span style="color:#f00">…</span>})
-$button.on(<span style="color:#0ff;font-weight:bold">&#34;mouseenter.plugin&#34;</span>, <span style="color:#fff;font-weight:bold">function</span>(){<span style="color:#f00">…</span>})
-<span style="color:#007f7f">// 然后你想在某个时刻移除以上所有事件
-</span><span style="color:#007f7f"></span>$button.off(<span style="color:#0ff;font-weight:bold">&#34;.plugin&#34;</span>)
-</code></pre></div><blockquote>
+$(&quot;span&quot;, &quot;#scope1&quot;);
+</code></pre>
+<h2 id="heading-12">命名空间</h2>
+<pre><code class="language-javascript">// 你的插件在一个 button 上绑定了很多事件
+$button.on(&quot;click.plugin&quot;, function(){…})
+$button.on(&quot;mouseenter.plugin&quot;, function(){…})
+// 然后你想在某个时刻移除以上所有事件
+$button.off(&quot;.plugin&quot;)
+</code></pre>
+<blockquote>
 <p>此时利用 jQuery 会很简单</p>
 </blockquote>
 <blockquote>

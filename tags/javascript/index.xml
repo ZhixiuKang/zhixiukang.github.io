@@ -21,13 +21,13 @@
 jQuery 都过时了，那我还学它干嘛? - 方应杭
 jQuery 设计思想 - 阮一峰的网络日志
 jQuery Fundamentals - Bocoup
- 特殊函数 jQuery window.jQuery(); // 提供的全局函数  jQuery(选择器)用来获取对应的元素 但它却不返回这些元素 相反，它返回一个 jQuery 构造出来的对象 这个对象可以操作对应的元素   jQuery 是构造函数吗?
+ 特殊函数 jQuery window.jQuery(); // 提供的全局函数   jQuery(选择器)用来获取对应的元素 但它却不返回这些元素 相反，它返回一个 jQuery 构造出来的对象 这个对象可以操作对应的元素   jQuery 是构造函数吗?
 是: 因为 jQuery 函数确实构造出了一个对象.
 不是: 因为不需要new jQuery()就能构造一个对象.
 结论: jQuery 是一个不需要加 new 的构造函数
   嫌 jQuery 太长？
 还记得 bash alias 吗，添加一个别名即可: window.$ = window.jQuery
- 命名风格  下面的代码令人误解:  const div = $(‘div#test&amp;#39;)  我们会误以为 div 是一个 DOM，实际上 div 是 jQuery 构造的 api 对象，怎么避免这种误解呢？</description>
+ 命名风格  下面的代码令人误解:  const div = $(‘div#test&#39;)   我们会误以为 div 是一个 DOM，实际上 div 是 jQuery 构造的 api 对象，怎么避免这种误解呢？</description>
     </item>
     
     <item>
@@ -36,13 +36,13 @@ jQuery Fundamentals - Bocoup
       <pubDate>Sat, 07 Mar 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/dom-programming/</guid>
-      <description>获取任意元素 有很多 API window.idxxx; // 或者直接idxxx document.getElementById(&amp;#34;idxxx&amp;#34;); document.getElementsByTagName(&amp;#34;div&amp;#34;)[0]; document.getElementsByClassName(&amp;#34;red&amp;#34;)[0]; document.querySelector(&amp;#34;#idxxx&amp;#34;); // 记得加# document.querySelectorAll(&amp;#34;.red&amp;#34;)[0]; 用哪一个  工作中用querySelector和querySelectorAll
+      <description>获取任意元素 有很多 API window.idxxx; // 或者直接idxxx document.getElementById(&amp;quot;idxxx&amp;quot;); document.getElementsByTagName(&amp;quot;div&amp;quot;)[0]; document.getElementsByClassName(&amp;quot;red&amp;quot;)[0]; document.querySelector(&amp;quot;#idxxx&amp;quot;); // 记得加# document.querySelectorAll(&amp;quot;.red&amp;quot;)[0];  用哪一个  工作中用querySelector和querySelectorAll
 例子:document.querySelectorAll(&#39;div&amp;gt;span:nth-child(2)&#39;)
   做 demo 直接用idxxx，千万别让人发现 hhh
   要兼容 IE 的可怜虫才用getElement(s)ByXXX
- 获取特定元素 获取 html 元素 document.documentElement; 获取 head 元素 document.head; 获取 body 元素 document.body; 获取窗口  窗口不是元素
- window; 获取所有元素 document.all; // false  这个 document.all 是个奇葩，第 6 个 falsy 值。原因是过去用来判断是否是 IE 浏览器。
- 元素的 6 层原型链 抓一只 div 对象来看看 console.dir(div1); // 查看原型链  Chrome 显示错了</description>
+ 获取特定元素 获取 html 元素 document.documentElement;  获取 head 元素 document.head;  获取 body 元素 document.body;  获取窗口  窗口不是元素
+ window;  获取所有元素 document.all; // false   这个 document.all 是个奇葩，第 6 个 falsy 值。原因是过去用来判断是否是 IE 浏览器。
+ 元素的 6 层原型链 抓一只 div 对象来看看 console.</description>
     </item>
     
     <item>
@@ -53,14 +53,14 @@ jQuery Fundamentals - Bocoup
       <guid>http://zhixiukang.com/posts/js-conclusion/</guid>
       <description>知识点 基本概念 内存、变量、数据类型、对象
 控制语句  if…else&amp;hellip; for…  对象  原型、原型链 对象分类 new一个新对象 构造函数 this的隐式传递和显式传递  难点  JS三座大山
-  原型 this AJAX  最重要的知识 JS公式 对象.__proto__===其构造函数.prototype  JS唯一公式，如果不会就套公式
- 根公理 Object.prototype是所有对象的(直接或间接)原型  加了一个直接或间接，所谓公理就是规定好的
- 函数公理 所有函数都是由Function构造的  任何函数.__proto__===Function.prototype
+  原型 this AJAX  最重要的知识 JS公式 对象.__proto__===其构造函数.prototype   JS唯一公式，如果不会就套公式
+ 根公理 Object.prototype是所有对象的(直接或间接)原型   加了一个直接或间接，所谓公理就是规定好的
+ 函数公理 所有函数都是由Function构造的   任何函数.__proto__===Function.prototype
 任意函数有Object/Array/Function
  拨乱反正 乱一 XXX的原型  {name:&#39;frank&#39;}的原型   Object.prototype
   [1, 2, 3]的原型   Array.prototype
   Object的原型   Function.prototype
- 解读  Object的原型是Object.__proto__   对</description>
+ 解读  Object的原型是Object.</description>
     </item>
     
     <item>
@@ -69,8 +69,8 @@ jQuery Fundamentals - Bocoup
       <pubDate>Tue, 03 Mar 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/js-operators/</guid>
-      <description>算数运算符  ＋－* / 余数%  //JS的错误 -1%7 //-1 而不是 6  指数 x**3 自增自减  x++ //这个表达式的值为x，最后返回x+1 ++x //这个表达式的值为x+1，最后返回x+1 x-- //这个表达式的值为x，最后返回x-1 --x //这个表达式的值为x-1，最后返回x-1  尽量少用自增自减
-  求值运算符  // 可以将任何值转为数值（与Number函数的作用相同） +(-1)// -1 +true // 1 +[] // 0 +{} // NaN  负数运算符  // 同样具有将一个值转为数值的功能，只不过得到的值正负相反 -(-1) // 1 -true // -1 -[] // -0 -{} // NaN  JS的一个糟粕  1 + &amp;#39;2&amp;#39; //&amp;#34;12&amp;#34; 2 - &amp;#39;1&amp;#39; // 1 // +号运算符默认把所有运算子变成字符串然后运算 // -号运算符默认把所有运算子变成数值然后运算 比较运算符  JS三位一体  意思是:</description>
+      <description>算数运算符  ＋－* / 余数%  //JS的错误 -1%7 //-1 而不是 6   指数 x**3 自增自减  x++ //这个表达式的值为x，最后返回x+1 ++x //这个表达式的值为x+1，最后返回x+1 x-- //这个表达式的值为x，最后返回x-1 --x //这个表达式的值为x-1，最后返回x-1   尽量少用自增自减
+  求值运算符  // 可以将任何值转为数值（与Number函数的作用相同） +(-1)// -1 +true // 1 +[] // 0 +{} // NaN   负数运算符  // 同样具有将一个值转为数值的功能，只不过得到的值正负相反 -(-1) // 1 -true // -1 -[] // -0 -{} // NaN   JS的一个糟粕  1 + &#39;2&#39; //&amp;quot;12&amp;quot; 2 - &#39;1&#39; // 1 // +号运算符默认把所有运算子变成字符串然后运算 // -号运算符默认把所有运算子变成数值然后运算  比较运算符  JS三位一体  意思是:</description>
     </item>
     
     <item>
@@ -79,7 +79,7 @@ jQuery Fundamentals - Bocoup
       <pubDate>Sun, 01 Mar 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/js-funtion-and-this/</guid>
-      <description>四种方式定义函数 具名函数 function 函数名(形式参数1, 形式参数2) { 语句 return 返回值 } 匿名函数  上面的具名函数，去掉函数名就是匿名函数 let a = function(x, y) {return x+y} 也叫函数表达式  箭头函数 let f1 = x =&amp;gt; x*x let f2 = (x, y) =&amp;gt; x+y // 圆括号不能省 let f3 = (x, y) =&amp;gt; {return x+y} //花括号不能省 let f4 = (x, y) =&amp;gt; ({name:x, age: y})  直接返回对象会出错，需要加个圆括号
+      <description>四种方式定义函数 具名函数 function 函数名(形式参数1, 形式参数2) { 语句 return 返回值 }  匿名函数  上面的具名函数，去掉函数名就是匿名函数 let a = function(x, y) {return x+y} 也叫函数表达式  箭头函数 let f1 = x =&amp;gt; x*x let f2 = (x, y) =&amp;gt; x+y // 圆括号不能省 let f3 = (x, y) =&amp;gt; {return x+y} //花括号不能省 let f4 = (x, y) =&amp;gt; ({name:x, age: y})   直接返回对象会出错，需要加个圆括号
  构造函数  let f = new Function(‘x’, ‘y’, ‘return x+y’) 所有函数都是Function构造出来的 包括Object、Array、Function也是   基本没人用，但是能让你知道函数是谁构造的</description>
     </item>
     
@@ -89,7 +89,7 @@ jQuery Fundamentals - Bocoup
       <pubDate>Thu, 27 Feb 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/js-array/</guid>
-      <description>JS 的数组不是典型数组 典型的数组  元素的数据类型相同 使用连续的内存存储 通过数字下标获取元素  但 JS 的数组不这样  元素的数据类型可以不同 内存不一定是连续的(对象是随机存储的) 不能通过数字下标，而是通过字符串下标 这意味着数组可以有任何 key  let arr = [1, 2, 3] arr[‘xxx&amp;#39;] = 1 创建一个数组 新建 let arr = [1, 2, 3]; let arr = new Array(1, 2, 3); let arr = new Array(3); 转化 let arr = &amp;#39;1, 2, 3&amp;#39;.split(‘,’) let arr = &amp;#39;123&amp;#39;.split(‘’) Array.from(&amp;#39;123&amp;#39;) 伪数组 let divList = document.querySelector(‘div’) let divArray = Array.from(divList)  伪数组的原型链中并没有数组的原型。</description>
+      <description>JS 的数组不是典型数组 典型的数组  元素的数据类型相同 使用连续的内存存储 通过数字下标获取元素  但 JS 的数组不这样  元素的数据类型可以不同 内存不一定是连续的(对象是随机存储的) 不能通过数字下标，而是通过字符串下标 这意味着数组可以有任何 key  let arr = [1, 2, 3] arr[‘xxx&#39;] = 1  创建一个数组 新建 let arr = [1, 2, 3]; let arr = new Array(1, 2, 3); let arr = new Array(3);  转化 let arr = &#39;1, 2, 3&#39;.split(‘,’) let arr = &#39;123&#39;.split(‘’) Array.from(&#39;123&#39;)  伪数组 let divList = document.querySelector(‘div’) let divArray = Array.</description>
     </item>
     
     <item>
@@ -103,7 +103,7 @@ jQuery Fundamentals - Bocoup
 JS 的 new 到底是干什么的？
 JS 中 proto 和 prototype 存在的意义是什么？
 ES6 所有新特性
- 构造函数 函数和原型结合 function createSquare(width) { let obj = Object.create(createSquare.squarePrototype) obj.width = width return obj } createSquare.squarePrototype = { getArea() { return this.width * this.width	}, getLength() { return this.width * 4 }, constructor: createSquare } let square = createSquare(5) 简化为：
+ 构造函数 函数和原型结合 function createSquare(width) { let obj = Object.create(createSquare.squarePrototype) obj.width = width return obj } createSquare.squarePrototype = { getArea() { return this.width * this.width	}, getLength() { return this.width * 4 }, constructor: createSquare } let square = createSquare(5)  简化为：
 function Square(width) { this.width = width } Square.prototype.getArea = function() { return this.</description>
     </item>
     
@@ -121,8 +121,8 @@ object
 null undefined
 0 NaN
 ‘’
- 对象的语法 定义  无序的数据集合 键值对的集合  写法 let obj = {&amp;#39;name&amp;#39;: &amp;#39;frank’, ‘age’: 18} let obj = new Object({‘name’: ‘frank’}) console.log({&amp;#39;name&amp;#39;: ‘frank’, ‘age’: 18}) 细节  键名是字符串，不是标识符，可以包含任意字符 引号可省略，省略之后就只能写标识符 就算引号省略了，键名也还是字符串  Object.keys(object)可以得到 object 的所有 key
-   变量作属性名 如何用变量做属性名 let p1 = &amp;#39;name&amp;#39; // 这样写，属性名为&amp;#39;p1&amp;#39; let obj = {p1: &amp;#39;frank’} // 这样写，属性名为&amp;#39;name&amp;#39; let obj = {[p1]: &amp;#39;frank’} 对比  不加[]的属性名会自动变成字符串 加了[]的则会被当做变量求值 值如果不是字符串，则会自动变成字符串  对象的隐藏属性  JS 中每一个对象都有一个隐藏属性 这个隐藏属性存储着其共有属性组成的对象的地址 这个公有属性组成的对象叫做原型 也就是说，隐藏属性储存着原型的地址  var obj = {}; obj.</description>
+ 对象的语法 定义  无序的数据集合 键值对的集合  写法 let obj = {&#39;name&#39;: &#39;frank’, ‘age’: 18} let obj = new Object({‘name’: ‘frank’}) console.log({&#39;name&#39;: ‘frank’, ‘age’: 18})  细节  键名是字符串，不是标识符，可以包含任意字符 引号可省略，省略之后就只能写标识符 就算引号省略了，键名也还是字符串  Object.keys(object)可以得到 object 的所有 key
+   变量作属性名 如何用变量做属性名 let p1 = &#39;name&#39; // 这样写，属性名为&#39;p1&#39; let obj = {p1: &#39;frank’} // 这样写，属性名为&#39;name&#39; let obj = {[p1]: &#39;frank’}  对比  不加[]的属性名会自动变成字符串 加了[]的则会被当做变量求值 值如果不是字符串，则会自动变成字符串  对象的隐藏属性  JS 中每一个对象都有一个隐藏属性 这个隐藏属性存储着其共有属性组成的对象的地址 这个公有属性组成的对象叫做原型 也就是说，隐藏属性储存着原型的地址  var obj = {}; obj.</description>
     </item>
     
     <item>
@@ -134,7 +134,7 @@ null undefined
       <description>推荐阅读: 我用了两个月的时间才理解 let - 知乎
   字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志
  JS 中的数据类型 7 种  数字 number 字符串 string 布尔 bool 符号 symbol 空 undefined 空 null 对象 object  总结: 四基两空一对象
-   以下不是数据类型  数组、函数、日期 它们都属于 object  数字 number(64 位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123 或 00123 或 0o123 十六进制写法: 0x3F 或 0X3F 二进制写法: 0b11 或 0B11  特殊值  正 0 和负 0: 都等于 0，要严谨 无穷大: Infinity、+Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN; false; 64 位浮点数 JS 数字的存储形式:</description>
+   以下不是数据类型  数组、函数、日期 它们都属于 object  数字 number(64 位浮点数) 写法  整数写法: 1 小数写法: 0.1 科学计数法: 1.23e4 八进制写法: 0123 或 00123 或 0o123 十六进制写法: 0x3F 或 0X3F 二进制写法: 0b11 或 0B11  特殊值  正 0 和负 0: 都等于 0，要严谨 无穷大: Infinity、+Infinity、-Infinity 无法表示的数字: NaN(Not a Number), 但它是一个数字  NaN === NaN; false;  64 位浮点数 JS 数字的存储形式:</description>
     </item>
     
     <item>

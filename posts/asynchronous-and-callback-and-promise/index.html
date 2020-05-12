@@ -17,13 +17,13 @@
 <meta name="twitter:description" content="JS 异步编程模型
  同步、异步、轮询和回调 如果能直接拿到结果  那就是同步 比如你在医院挂号，你拿到号才会离开窗口 同步任务可能消耗 10 毫秒，也可能需要 3 秒 总之不拿到结果你是不会离开的  如果不能直接拿到结果  那就是异步 比如你在餐厅等位置，你拿到号可以去逛街 什么时候才能真正吃饭呢？ 你可以每 10 分钟去餐厅问一下(轮询) 你也可以扫码用微信接收通知(回调)  异步举例 以 AJAX 为例  request.send()之后，并不能直接得到response  不信console.log(request.response)试试
   必须等到readyState变为4后，浏览器回头调用request.onreadystatechange函数 我们才能得到request.response 这跟餐厅给你发送微信提醒的过程是类似的  回调 callback  你写给自己用的函数，不是回调 你写给别人用的函数，就是回调 request.onreadystatechange就是我写给浏览器调用的 意思就是你(浏览器)回头调用一下这个函数  在中文里，’回头’ 也有 &lsquo;将来&rsquo; 的意思, 如 ‘我回头请你吃饭’
-   回调举例 把函数 1 给另一个函数 2 function f1() {} function f2(fn) { fn(); } f2(f1); 分析  Q: 我调用f1没有？A: 没有调用 Q: 我把f1传给f2(别人)了没有？A: 传了 Q: f2调用f1了没有？A: f2调用了f1 Q: 那么，f1是不是我写给f2调用的函数？A: 是   所以，f1是回调"/>
+   回调举例 把函数 1 给另一个函数 2 function f1() {} function f2(fn) { fn(); } f2(f1);  分析  Q: 我调用f1没有？A: 没有调用 Q: 我把f1传给f2(别人)了没有？A: 传了 Q: f2调用f1了没有？A: f2调用了f1 Q: 那么，f1是不是我写给f2调用的函数？A: 是   所以，f1是回调"/>
 
     <meta property="og:title" content="异步、回调和Promise" />
 <meta property="og:description" content="JS 异步编程模型
  同步、异步、轮询和回调 如果能直接拿到结果  那就是同步 比如你在医院挂号，你拿到号才会离开窗口 同步任务可能消耗 10 毫秒，也可能需要 3 秒 总之不拿到结果你是不会离开的  如果不能直接拿到结果  那就是异步 比如你在餐厅等位置，你拿到号可以去逛街 什么时候才能真正吃饭呢？ 你可以每 10 分钟去餐厅问一下(轮询) 你也可以扫码用微信接收通知(回调)  异步举例 以 AJAX 为例  request.send()之后，并不能直接得到response  不信console.log(request.response)试试
   必须等到readyState变为4后，浏览器回头调用request.onreadystatechange函数 我们才能得到request.response 这跟餐厅给你发送微信提醒的过程是类似的  回调 callback  你写给自己用的函数，不是回调 你写给别人用的函数，就是回调 request.onreadystatechange就是我写给浏览器调用的 意思就是你(浏览器)回头调用一下这个函数  在中文里，’回头’ 也有 &lsquo;将来&rsquo; 的意思, 如 ‘我回头请你吃饭’
-   回调举例 把函数 1 给另一个函数 2 function f1() {} function f2(fn) { fn(); } f2(f1); 分析  Q: 我调用f1没有？A: 没有调用 Q: 我把f1传给f2(别人)了没有？A: 传了 Q: f2调用f1了没有？A: f2调用了f1 Q: 那么，f1是不是我写给f2调用的函数？A: 是   所以，f1是回调" />
+   回调举例 把函数 1 给另一个函数 2 function f1() {} function f2(fn) { fn(); } f2(f1);  分析  Q: 我调用f1没有？A: 没有调用 Q: 我把f1传给f2(别人)了没有？A: 传了 Q: f2调用f1了没有？A: f2调用了f1 Q: 那么，f1是不是我写给f2调用的函数？A: 是   所以，f1是回调" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/asynchronous-and-callback-and-promise/" />
 <meta property="article:published_time" content="2020-03-15T15:21:33-08:00" />
@@ -181,12 +181,13 @@
 </ul>
 <h1 id="heading-4">回调举例</h1>
 <h2 id="-1--2">把函数 1 给另一个函数 2</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> f1() {}
-<span style="color:#fff;font-weight:bold">function</span> f2(fn) {
+<pre><code class="language-javascript">function f1() {}
+function f2(fn) {
   fn();
 }
 f2(f1);
-</code></pre></div><h2 id="heading-5">分析</h2>
+</code></pre>
+<h2 id="heading-5">分析</h2>
 <ol>
 <li>Q: 我调用<code>f1</code>没有？A: 没有调用</li>
 <li>Q: 我把<code>f1</code>传给<code>f2</code>(别人)了没有？A: 传了</li>
@@ -268,30 +269,32 @@ f2(f1);
 <ul>
 <li>方法一: 回调接收两个参数</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">fs.readFile(<span style="color:#0ff;font-weight:bold">&#34;./1.txt&#34;</span>, (error, data) =&gt; {
-  <span style="color:#fff;font-weight:bold">if</span> (error) {
-    console.log(<span style="color:#0ff;font-weight:bold">&#34;失败&#34;</span>);
-    <span style="color:#fff;font-weight:bold">return</span>;
+<pre><code class="language-javascript">fs.readFile(&quot;./1.txt&quot;, (error, data) =&gt; {
+  if (error) {
+    console.log(&quot;失败&quot;);
+    return;
   }
-  console.log(data.toString()); <span style="color:#007f7f">// 成功
-</span><span style="color:#007f7f"></span>});
-</code></pre></div><ul>
+  console.log(data.toString()); // 成功
+});
+</code></pre>
+<ul>
 <li>方法二: 搞两个回调</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">ajax(
-  <span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>,
-  <span style="color:#0ff;font-weight:bold">&#34;/1.json&#34;</span>,
+<pre><code class="language-javascript">ajax(
+  &quot;get&quot;,
+  &quot;/1.json&quot;,
   (data) =&gt; {},
   (error) =&gt; {}
 );
-<span style="color:#007f7f">// 前面函数是成功回调，后面函数是失败回调
-</span><span style="color:#007f7f"></span>
-ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/1.json&#34;</span>, {
+// 前面函数是成功回调，后面函数是失败回调
+
+ajax(&quot;get&quot;, &quot;/1.json&quot;, {
   success: () =&gt; {},
   fail: () =&gt; {},
 });
-<span style="color:#007f7f">// 接收一个对象，对象有两个key表示成功和失败
-</span></code></pre></div><h2 id="heading-15">这些方法的不足</h2>
+// 接收一个对象，对象有两个key表示成功和失败
+</code></pre>
+<h2 id="heading-15">这些方法的不足</h2>
 <ol>
 <li>不规范，成功回调和失败回调的名称五花八门，比如 success+error、success+fail、done+fail</li>
 <li>容易出现回调地狱(callback hell)，代码变得看不懂</li>
@@ -313,47 +316,49 @@ ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style
 <blockquote>
 <p>来解释 Promise 的用法</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">ajax = (method, url, options) =&gt; {
-  <span style="color:#fff;font-weight:bold">const</span> { success, fail } = options; <span style="color:#007f7f">// 析构赋值
-</span><span style="color:#007f7f"></span>  <span style="color:#007f7f">// const success = options.success
-</span><span style="color:#007f7f"></span>  <span style="color:#007f7f">// const fail = options.fail
-</span><span style="color:#007f7f"></span>  <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
+<pre><code class="language-javascript">ajax = (method, url, options) =&gt; {
+  const { success, fail } = options; // 析构赋值
+  // const success = options.success
+  // const fail = options.fail
+  const request = new XMLHttpRequest();
   request.open(method, url);
   request.onreadystatechange = () =&gt; {
-    <span style="color:#fff;font-weight:bold">if</span> (request.readyState === <span style="color:#ff0;font-weight:bold">4</span>) {
-      <span style="color:#007f7f">//成功就调用success，失败就调用fail
-</span><span style="color:#007f7f"></span>      <span style="color:#fff;font-weight:bold">if</span> (request.status &lt; <span style="color:#ff0;font-weight:bold">400</span>) {
-        success.call(<span style="color:#fff;font-weight:bold">null</span>, request.response);
-      } <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (request.status &gt;= <span style="color:#ff0;font-weight:bold">400</span>) {
-        fail.call(<span style="color:#fff;font-weight:bold">null</span>, request, request.status);
+    if (request.readyState === 4) {
+      //成功就调用success，失败就调用fail
+      if (request.status &lt; 400) {
+        success.call(null, request.response);
+      } else if (request.status &gt;= 400) {
+        fail.call(null, request, request.status);
       }
     }
   };
   request.send();
 };
 
-ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/xxx&#34;</span>, {
+ajax(&quot;get&quot;, &quot;/xxx&quot;, {
   success(response) {},
   fail: (request, status) =&gt; {},
-}); <span style="color:#007f7f">// 左边是 function 缩写，右边是箭头函数
-</span></code></pre></div><h2 id="promise-">Promise 说这代码太傻了</h2>
+}); // 左边是 function 缩写，右边是箭头函数
+</code></pre>
+<h2 id="promise-">Promise 说这代码太傻了</h2>
 <blockquote>
 <p>因为这代码不规范、容易出现回调地狱和很难进行错误处理。所以太傻了。</p>
 </blockquote>
 <p>让我们改成 Promise 写法:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 先改一下调用的姿势
-</span><span style="color:#007f7f"></span>ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/xxx&#34;</span>, {
+<pre><code class="language-javascript">// 先改一下调用的姿势
+ajax(&quot;get&quot;, &quot;/xxx&quot;, {
   success(response) {},
   fail: (request, status) =&gt; {},
 });
-<span style="color:#007f7f">// 上面用到了两个回调，还是用了success和fail
-</span><span style="color:#007f7f"></span>
-<span style="color:#007f7f">// 改成Promise写法
-</span><span style="color:#007f7f"></span>ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style="color:#0ff;font-weight:bold">&#34;/xxx&#34;</span>).then(
+// 上面用到了两个回调，还是用了success和fail
+
+// 改成Promise写法
+ajax(&quot;get&quot;, &quot;/xxx&quot;).then(
   (response) =&gt; {},
   (request) =&gt; {}
 );
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p>虽然也是回调,但是不需要记 success 和 fail 了,then 的第一个参数就是 success,then 的第二个参数就是 fail</p>
 </blockquote>
 <blockquote>
@@ -362,27 +367,28 @@ ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style
 </blockquote>
 <p>那么如何得到这个含有 .then() 的对象呢？</p>
 <p>那就要改造 ajax 的源码了:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 与之前的版本相比，改动的三行已经标出。
-</span><span style="color:#007f7f"></span>ajax = (method, url, options) =&gt; {
-  <span style="color:#007f7f">// 改动
-</span><span style="color:#007f7f"></span>  <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">new</span> <span style="color:#fff;font-weight:bold">Promise</span>((resolve, reject) =&gt; {
-    <span style="color:#fff;font-weight:bold">const</span> { success, fail } = options;
-    <span style="color:#fff;font-weight:bold">const</span> request = <span style="color:#fff;font-weight:bold">new</span> XMLHttpRequest();
+<pre><code class="language-javascript">// 与之前的版本相比，改动的三行已经标出。
+ajax = (method, url, options) =&gt; {
+  // 改动
+  return new Promise((resolve, reject) =&gt; {
+    const { success, fail } = options;
+    const request = new XMLHttpRequest();
     request.open(method, url);
     request.onreadystatechange = () =&gt; {
-      <span style="color:#fff;font-weight:bold">if</span> (request.readyState === <span style="color:#ff0;font-weight:bold">4</span>) {
-        <span style="color:#007f7f">//成功就调用success，失败就调用fail
-</span><span style="color:#007f7f"></span>        <span style="color:#fff;font-weight:bold">if</span> (request.status &lt; <span style="color:#ff0;font-weight:bold">400</span>) {
-          resolve.call(<span style="color:#fff;font-weight:bold">null</span>, request.response); <span style="color:#007f7f">// 改动
-</span><span style="color:#007f7f"></span>        } <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (request.status &gt;= <span style="color:#ff0;font-weight:bold">400</span>) {
-          reject.call(<span style="color:#fff;font-weight:bold">null</span>, request); <span style="color:#007f7f">// 改动
-</span><span style="color:#007f7f"></span>        }
+      if (request.readyState === 4) {
+        //成功就调用success，失败就调用fail
+        if (request.status &lt; 400) {
+          resolve.call(null, request.response); // 改动
+        } else if (request.status &gt;= 400) {
+          reject.call(null, request); // 改动
+        }
       }
     };
     request.send();
   });
 };
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p>把这个形式背下来:<code>return new Promise((resolve,reject)=&gt;{})</code></p>
 </blockquote>
 <h2 id="heading-17">小结</h2>
@@ -448,8 +454,9 @@ ajax(<span style="color:#0ff;font-weight:bold">&#34;get&#34;</span>, <span style
 <ul>
 <li>代码示例</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">axios.get(<span style="color:#0ff;font-weight:bold">&#34;/5.json&#34;</span>).then((response) =&gt; console.log(response));
-</code></pre></div><h2 id="axios-">axios 高级用法</h2>
+<pre><code class="language-javascript">axios.get(&quot;/5.json&quot;).then((response) =&gt; console.log(response));
+</code></pre>
+<h2 id="axios-">axios 高级用法</h2>
 <h3 id="json-">JSON 自动处理</h3>
 <ul>
 <li><code>axios</code>如果发现响应的<code>Content-Type</code>是<code>json</code>，就会自动调用<code>JSON.parse</code></li>

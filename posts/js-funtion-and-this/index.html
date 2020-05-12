@@ -14,11 +14,11 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JS函数和你不知道的this"/>
-<meta name="twitter:description" content="四种方式定义函数 具名函数 function 函数名(形式参数1, 形式参数2) { 语句 return 返回值 } 匿名函数  上面的具名函数，去掉函数名就是匿名函数 let a = function(x, y) {return x&#43;y} 也叫函数表达式  箭头函数 let f1 = x =&gt; x*x let f2 = (x, y) =&gt; x&#43;y // 圆括号不能省 let f3 = (x, y) =&gt; {return x&#43;y} //花括号不能省 let f4 = (x, y) =&gt; ({name:x, age: y})  直接返回对象会出错，需要加个圆括号
+<meta name="twitter:description" content="四种方式定义函数 具名函数 function 函数名(形式参数1, 形式参数2) { 语句 return 返回值 }  匿名函数  上面的具名函数，去掉函数名就是匿名函数 let a = function(x, y) {return x&#43;y} 也叫函数表达式  箭头函数 let f1 = x =&gt; x*x let f2 = (x, y) =&gt; x&#43;y // 圆括号不能省 let f3 = (x, y) =&gt; {return x&#43;y} //花括号不能省 let f4 = (x, y) =&gt; ({name:x, age: y})   直接返回对象会出错，需要加个圆括号
  构造函数  let f = new Function(‘x’, ‘y’, ‘return x&#43;y’) 所有函数都是Function构造出来的 包括Object、Array、Function也是   基本没人用，但是能让你知道函数是谁构造的"/>
 
     <meta property="og:title" content="JS函数和你不知道的this" />
-<meta property="og:description" content="四种方式定义函数 具名函数 function 函数名(形式参数1, 形式参数2) { 语句 return 返回值 } 匿名函数  上面的具名函数，去掉函数名就是匿名函数 let a = function(x, y) {return x&#43;y} 也叫函数表达式  箭头函数 let f1 = x =&gt; x*x let f2 = (x, y) =&gt; x&#43;y // 圆括号不能省 let f3 = (x, y) =&gt; {return x&#43;y} //花括号不能省 let f4 = (x, y) =&gt; ({name:x, age: y})  直接返回对象会出错，需要加个圆括号
+<meta property="og:description" content="四种方式定义函数 具名函数 function 函数名(形式参数1, 形式参数2) { 语句 return 返回值 }  匿名函数  上面的具名函数，去掉函数名就是匿名函数 let a = function(x, y) {return x&#43;y} 也叫函数表达式  箭头函数 let f1 = x =&gt; x*x let f2 = (x, y) =&gt; x&#43;y // 圆括号不能省 let f3 = (x, y) =&gt; {return x&#43;y} //花括号不能省 let f4 = (x, y) =&gt; ({name:x, age: y})   直接返回对象会出错，需要加个圆括号
  构造函数  let f = new Function(‘x’, ‘y’, ‘return x&#43;y’) 所有函数都是Function构造出来的 包括Object、Array、Function也是   基本没人用，但是能让你知道函数是谁构造的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://zhixiukang.com/posts/js-funtion-and-this/" />
@@ -135,22 +135,24 @@ JS函数和你不知道的this · 修的个人网站
     <div>
       <h1 id="heading">四种方式定义函数</h1>
 <h2 id="heading-1">具名函数</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> 函数名(形式参数1, 形式参数2) {
+<pre><code class="language-javascript">function 函数名(形式参数1, 形式参数2) {
 	语句
-	<span style="color:#fff;font-weight:bold">return</span> 返回值
+	return 返回值
 }
-</code></pre></div><h2 id="heading-2">匿名函数</h2>
+</code></pre>
+<h2 id="heading-2">匿名函数</h2>
 <ul>
 <li>上面的具名函数，去掉函数名就是匿名函数</li>
 <li><code>let a = function(x, y) {return x+y}</code></li>
 <li>也叫函数表达式</li>
 </ul>
 <h2 id="heading-3">箭头函数</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> f1 = x =&gt; x*x
-<span style="color:#fff;font-weight:bold">let</span> f2 = (x, y) =&gt; x+y <span style="color:#007f7f">// 圆括号不能省
-</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">let</span> f3 = (x, y) =&gt; {<span style="color:#fff;font-weight:bold">return</span> x+y} <span style="color:#007f7f">//花括号不能省
-</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">let</span> f4 = (x, y) =&gt; ({name:x, age: y})
-</code></pre></div><blockquote>
+<pre><code class="language-javascript">let f1 = x =&gt; x*x
+let f2 = (x, y) =&gt; x+y // 圆括号不能省
+let f3 = (x, y) =&gt; {return x+y} //花括号不能省
+let f4 = (x, y) =&gt; ({name:x, age: y})
+</code></pre>
+<blockquote>
 <p>直接返回对象会出错，需要加个圆括号</p>
 </blockquote>
 <h2 id="heading-4">构造函数</h2>
@@ -176,46 +178,51 @@ JS函数和你不知道的this · 修的个人网站
 </ul>
 <h2 id="heading-6">调用时机</h2>
 <p>来看三个例子，看看JS有多操蛋。</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> a = <span style="color:#ff0;font-weight:bold">1</span>
-<span style="color:#fff;font-weight:bold">function</span> fn(){
+<pre><code class="language-javascript">let a = 1
+function fn(){
 	setTimeout(()=&gt;{
 		console.log(a)
-	}, <span style="color:#ff0;font-weight:bold">0</span>)
+	}, 0)
 	fn()
-	a = <span style="color:#ff0;font-weight:bold">2</span>
+	a = 2
 }
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p>打印多少？ 2</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>
-<span style="color:#fff;font-weight:bold">for</span>(i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">6</span>; i++){
+<pre><code class="language-javascript">let i = 0
+for(i = 0; i &lt; 6; i++){
 	setTimeout(()=&gt;{
 		console.log(i)
-	}, <span style="color:#ff0;font-weight:bold">0</span>)
+	}, 0)
 }
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p>打印多少？ 不是0,1,2,3,4,5.而是6个6。循环到每一个i都是过一会打印出i。过一会就是指要把所有循环走完。那么当循环走完，i就为6，所以要打印出6个6</p>
 </blockquote>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">for</span>(<span style="color:#fff;font-weight:bold">let</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; <span style="color:#ff0;font-weight:bold">6</span>; i++){
+<pre><code class="language-javascript">for(let i = 0; i &lt; 6; i++){
 	setTimeout(()=&gt;{
 		console.log(i)
-	}, <span style="color:#ff0;font-weight:bold">0</span>)
+	}, 0)
 }
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p>打印多少？</p>
 <p>是0,1,2,3,4,5. 因为JS在for和let一起用的时候会加东西。每次循环会多复制一个i留在那里，不跟随新的i变化。(彳亍口巴)。</p>
 <p>那这样setTimeout还有什么意义？</p>
 <p>好问题，🈚️意义。</p>
 </blockquote>
 <h2 id="--">作用域：就近原则 &amp; 闭包</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> fn(){
-	<span style="color:#fff;font-weight:bold">let</span> a = <span style="color:#ff0;font-weight:bold">1</span>
+<pre><code class="language-javascript">function fn(){
+	let a = 1
 }
 fn()
-console.log(a) <span style="color:#007f7f">// a不存在
-</span></code></pre></div><p>全局变量:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">window</span>.c = <span style="color:#ff0;font-weight:bold">1</span>
-</code></pre></div><blockquote>
+console.log(a) // a不存在
+</code></pre>
+<p>全局变量:</p>
+<pre><code class="language-javascript">window.c = 1
+</code></pre>
+<blockquote>
 <p>如果多个作用域有同名变量a, 那么查找a的声明时,就向上取最近的作用域,查找a的过程与函数执行无关,但a的值与函数执行有关。</p>
 </blockquote>
 <blockquote>
@@ -230,12 +237,13 @@ console.log(a) <span style="color:#007f7f">// a不存在
 <ul>
 <li>形参可认为是变量声明，类似于:</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> add(){
-	<span style="color:#fff;font-weight:bold">var</span> x = arguments[<span style="color:#ff0;font-weight:bold">0</span>]
-	<span style="color:#fff;font-weight:bold">var</span> y = arguments[<span style="color:#ff0;font-weight:bold">1</span>]
-	<span style="color:#fff;font-weight:bold">return</span> x+y
+<pre><code class="language-javascript">function add(){
+	var x = arguments[0]
+	var y = arguments[1]
+	return x+y
 }
-</code></pre></div><ul>
+</code></pre>
+<ul>
 <li>没return返回值是undefined</li>
 </ul>
 <h2 id="heading-8">递归、调用栈与爆栈</h2>
@@ -251,12 +259,13 @@ console.log(a) <span style="color:#007f7f">// a不存在
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Call_stack">Call stack（调用栈)  | MDN</a></p>
 </blockquote>
 <h3 id="heading-10">递归函数</h3>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">// 阶乘
-</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">function</span> f(n){
-	<span style="color:#007f7f">// return n === 1 ? 1 : n * f(n-1)
-</span><span style="color:#007f7f"></span>	<span style="color:#fff;font-weight:bold">return</span> n !== <span style="color:#ff0;font-weight:bold">1</span> ? n * f(n-<span style="color:#ff0;font-weight:bold">1</span>) : <span style="color:#ff0;font-weight:bold">1</span>
+<pre><code class="language-javascript">// 阶乘
+function f(n){
+	// return n === 1 ? 1 : n * f(n-1)
+	return n !== 1 ? n * f(n-1) : 1
 }
-</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">f(4) 
+</code></pre>
+<pre><code>f(4) 
 = 4 * f(3)
 = 4 * (3 * f(2))
 = 4 * (3 * (2 * f(1)))
@@ -264,7 +273,8 @@ console.log(a) <span style="color:#007f7f">// a不存在
 = 4 * (3 * (2))
 = 4 * (6)
 = 24
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p>先递进，再回归</p>
 </blockquote>
 <p>想想递归的调用栈(压栈和弹栈):</p>
@@ -300,22 +310,25 @@ console.log(a) <span style="color:#007f7f">// a不存在
 <ul>
 <li>小白调用法</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">person.sayHi()
-<span style="color:#007f7f">// 会自动把person传到函数里，作为this
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">person.sayHi()
+// 会自动把person传到函数里，作为this
+</code></pre>
+<ul>
 <li>大师调用法</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">person.sayHi.call(person)
-<span style="color:#007f7f">// 需要自己手动把person传到函数里，作为this
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">person.sayHi.call(person)
+// 需要自己手动把person传到函数里，作为this
+</code></pre>
+<ul>
 <li>例子</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> add(x,y) {
-	<span style="color:#fff;font-weight:bold">return</span> x +y
+<pre><code class="language-javascript">function add(x,y) {
+	return x +y
 }
-<span style="color:#007f7f">// 不用this
-</span><span style="color:#007f7f"></span>add.call(<span style="color:#fff;font-weight:bold">undefined</span>, <span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>) <span style="color:#007f7f">// 传undefined是占位，因为第一个参数要作为this。
-</span></code></pre></div><p><strong>用this:</strong></p>
+// 不用this
+add.call(undefined, 1, 2) // 传undefined是占位，因为第一个参数要作为this。
+</code></pre>
+<p><strong>用this:</strong></p>
 <p><img src="http://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-0923.39.44.png" alt=""></p>
 <blockquote>
 <p>上面的例子，用array作为this，调用了forEach2</p>
@@ -329,24 +342,27 @@ console.log(a) <span style="color:#007f7f">// a不存在
 <ul>
 <li>隐式传递</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">fn(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">2</span>) <span style="color:#007f7f">//等价于fn.call(undefined, 1, 2)
-</span><span style="color:#007f7f"></span>obj.child.fn(<span style="color:#ff0;font-weight:bold">1</span>) <span style="color:#007f7f">//等价于obj.child.fn.call(obj.child,1)
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">fn(1,2) //等价于fn.call(undefined, 1, 2)
+obj.child.fn(1) //等价于obj.child.fn.call(obj.child,1)
+</code></pre>
+<ul>
 <li>显式传递</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">fn.call(<span style="color:#fff;font-weight:bold">undefined</span>, <span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">2</span>)
-fn.apply(<span style="color:#fff;font-weight:bold">undefined</span>, [<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">2</span>])
-</code></pre></div><h3 id="this-1">绑定this</h3>
+<pre><code class="language-javascript">fn.call(undefined, 1, 2)
+fn.apply(undefined, [1,2])
+</code></pre>
+<h3 id="this-1">绑定this</h3>
 <ul>
 <li>使用<code>.bind</code>可以让this不被改变</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">function</span> f1(p1, p2){
-console.log(<span style="color:#fff;font-weight:bold">this</span>, p1, p2)
+<pre><code class="language-javascript">function f1(p1, p2){
+console.log(this, p1, p2)
 }
-<span style="color:#fff;font-weight:bold">let</span> f2 = f1.bind({name:<span style="color:#0ff;font-weight:bold">&#39;frank&#39;</span>})
-<span style="color:#007f7f">// 那么f2就是f1绑定了this之后的新函数 
-</span><span style="color:#007f7f"></span>f2() <span style="color:#007f7f">// 等价于f1.call({name:&#39;frank&#39;})
-</span></code></pre></div><blockquote>
+let f2 = f1.bind({name:'frank'})
+// 那么f2就是f1绑定了this之后的新函数 
+f2() // 等价于f1.call({name:'frank'})
+</code></pre>
+<blockquote>
 <p>就调f2相当于调f1,唯一的区别是你把this绑定了</p>
 </blockquote>
 <blockquote>
@@ -355,33 +371,38 @@ console.log(<span style="color:#fff;font-weight:bold">this</span>, p1, p2)
 <ul>
 <li><code>.bind</code>还可以绑定其他参数</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> f3 = f1.bind({name:<span style="color:#0ff;font-weight:bold">&#39;frank&#39;</span>}, <span style="color:#0ff;font-weight:bold">&#39;hi&#39;</span>)
-f3() <span style="color:#007f7f">// 等价于f1.call({name:&#39;frank&#39;}, hi)
-</span></code></pre></div><h1 id="heading-14">箭头函数</h1>
+<pre><code class="language-javascript">let f3 = f1.bind({name:'frank'}, 'hi')
+f3() // 等价于f1.call({name:'frank'}, hi)
+</code></pre>
+<h1 id="heading-14">箭头函数</h1>
 <blockquote>
 <p>箭头函数没有arguments和this</p>
 </blockquote>
 <ul>
 <li>里面的this就是外面的this</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">console.log(<span style="color:#fff;font-weight:bold">this</span>) <span style="color:#007f7f">//外面的this是window
-</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">let</span> fn = () =&gt; console.log(<span style="color:#fff;font-weight:bold">this</span>)
-fn() <span style="color:#007f7f">// window
-</span></code></pre></div><ul>
+<pre><code class="language-javascript">console.log(this) //外面的this是window
+let fn = () =&gt; console.log(this)
+fn() // window
+</code></pre>
+<ul>
 <li>就算你加call都没有用</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">fn.call({name:<span style="color:#0ff;font-weight:bold">&#39;frank&#39;</span>}) <span style="color:#007f7f">// window,没有用，指定什么都没有用，还是window
-</span></code></pre></div><p>就如同:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> b = <span style="color:#ff0;font-weight:bold">1</span>
-<span style="color:#fff;font-weight:bold">let</span> fn = () =&gt; console.log(b)
-</code></pre></div><p>b是外面的b，this也是外面的this(window)</p>
+<pre><code class="language-javascript">fn.call({name:'frank'}) // window,没有用，指定什么都没有用，还是window
+</code></pre>
+<p>就如同:</p>
+<pre><code class="language-javascript">let b = 1
+let fn = () =&gt; console.log(b)
+</code></pre>
+<p>b是外面的b，this也是外面的this(window)</p>
 <ul>
 <li>同样的，箭头函数没有arguments，舒服:</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#fff;font-weight:bold">let</span> fn = () =&gt; console.log(arguments)
-fn(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;font-weight:bold">2</span>,<span style="color:#ff0;font-weight:bold">3</span>)
-<span style="color:#007f7f">// Uncaught ReferenceError: arguments is not defined at fn
-</span></code></pre></div><h1 id="heading-15">立即执行函数(生成局部变量的方法)</h1>
+<pre><code class="language-javascript">let fn = () =&gt; console.log(arguments)
+fn(1,2,3)
+// Uncaught ReferenceError: arguments is not defined at fn
+</code></pre>
+<h1 id="heading-15">立即执行函数(生成局部变量的方法)</h1>
 <blockquote>
 <p>只有JS有的变态玩意，现在用得少</p>
 </blockquote>
@@ -398,37 +419,40 @@ fn(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#ff0;fo
 <li>但是这里面有些运算符会往上走</li>
 <li>所以推荐永远用!来解决</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">//ES5老方法
-</span><span style="color:#007f7f"></span>!<span style="color:#fff;font-weight:bold">function</span> (){
-	<span style="color:#fff;font-weight:bold">var</span> a =<span style="color:#ff0;font-weight:bold">2</span>
+<pre><code class="language-javascript">//ES5老方法
+!function (){
+	var a =2
 	console.log(a)
 } ()
-</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">//ES6最新方法
-</span><span style="color:#007f7f"></span>{
-    <span style="color:#fff;font-weight:bold">let</span> a = <span style="color:#ff0;font-weight:bold">2</span>
+</code></pre>
+<pre><code class="language-javascript">//ES6最新方法
+{
+    let a = 2
 }
-</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#007f7f">//不推荐()
-</span><span style="color:#007f7f"></span>console.log(<span style="color:#0ff;font-weight:bold">&#39;hi&#39;</span>)  <span style="color:#007f7f">//如果立即执行函数前面这句代码
-</span><span style="color:#007f7f"></span>(<span style="color:#fff;font-weight:bold">function</span> (){
-	<span style="color:#fff;font-weight:bold">var</span> a =<span style="color:#ff0;font-weight:bold">2</span>
+</code></pre>
+<pre><code class="language-javascript">//不推荐()
+console.log('hi')  //如果立即执行函数前面这句代码
+(function (){
+	var a =2
 	console.log(a)
-} ()) <span style="color:#007f7f">//Uncaught TypeError：console.log(...) is not a function
-</span><span style="color:#007f7f"></span>
+} ()) //Uncaught TypeError：console.log(...) is not a function
 
-<span style="color:#007f7f">//因为js中回车没意义，所以把下面的立即执行函数接到前面去了，所以相当于
-</span><span style="color:#007f7f"></span><span style="color:#fff;font-weight:bold">undefined</span>(<span style="color:#fff;font-weight:bold">function</span> (){
-	<span style="color:#fff;font-weight:bold">var</span> a =<span style="color:#ff0;font-weight:bold">2</span>
+
+//因为js中回车没意义，所以把下面的立即执行函数接到前面去了，所以相当于
+undefined(function (){
+	var a =2
 	console.log(a)
-} ()) <span style="color:#007f7f">//把undefined当一个函数来执行了，哪来的undefined这个函数，所以报错
-</span><span style="color:#007f7f"></span>
+} ()) //把undefined当一个函数来执行了，哪来的undefined这个函数，所以报错
 
-<span style="color:#007f7f">//补救措施
-</span><span style="color:#007f7f"></span>console.log(<span style="color:#0ff;font-weight:bold">&#39;hi&#39;</span>);  <span style="color:#007f7f">//在他俩之间加分号。注意这是js语言中唯一两句代码之间需要加分号的情况
-</span><span style="color:#007f7f"></span>(<span style="color:#fff;font-weight:bold">function</span> (){
-	<span style="color:#fff;font-weight:bold">var</span> a =<span style="color:#ff0;font-weight:bold">2</span>
+
+//补救措施
+console.log('hi');  //在他俩之间加分号。注意这是js语言中唯一两句代码之间需要加分号的情况
+(function (){
+	var a =2
 	console.log(a)
 } ())
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p>结论，你就用ES6语法就完事了。</p>
 </blockquote>
 <p>￼</p>

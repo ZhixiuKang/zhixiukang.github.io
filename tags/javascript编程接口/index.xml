@@ -21,13 +21,13 @@
 jQuery 都过时了，那我还学它干嘛? - 方应杭
 jQuery 设计思想 - 阮一峰的网络日志
 jQuery Fundamentals - Bocoup
- 特殊函数 jQuery window.jQuery(); // 提供的全局函数  jQuery(选择器)用来获取对应的元素 但它却不返回这些元素 相反，它返回一个 jQuery 构造出来的对象 这个对象可以操作对应的元素   jQuery 是构造函数吗?
+ 特殊函数 jQuery window.jQuery(); // 提供的全局函数   jQuery(选择器)用来获取对应的元素 但它却不返回这些元素 相反，它返回一个 jQuery 构造出来的对象 这个对象可以操作对应的元素   jQuery 是构造函数吗?
 是: 因为 jQuery 函数确实构造出了一个对象.
 不是: 因为不需要new jQuery()就能构造一个对象.
 结论: jQuery 是一个不需要加 new 的构造函数
   嫌 jQuery 太长？
 还记得 bash alias 吗，添加一个别名即可: window.$ = window.jQuery
- 命名风格  下面的代码令人误解:  const div = $(‘div#test&amp;#39;)  我们会误以为 div 是一个 DOM，实际上 div 是 jQuery 构造的 api 对象，怎么避免这种误解呢？</description>
+ 命名风格  下面的代码令人误解:  const div = $(‘div#test&#39;)   我们会误以为 div 是一个 DOM，实际上 div 是 jQuery 构造的 api 对象，怎么避免这种误解呢？</description>
     </item>
     
     <item>
@@ -36,13 +36,13 @@ jQuery Fundamentals - Bocoup
       <pubDate>Sat, 07 Mar 2020 15:21:33 -0800</pubDate>
       
       <guid>http://zhixiukang.com/posts/dom-programming/</guid>
-      <description>获取任意元素 有很多 API window.idxxx; // 或者直接idxxx document.getElementById(&amp;#34;idxxx&amp;#34;); document.getElementsByTagName(&amp;#34;div&amp;#34;)[0]; document.getElementsByClassName(&amp;#34;red&amp;#34;)[0]; document.querySelector(&amp;#34;#idxxx&amp;#34;); // 记得加# document.querySelectorAll(&amp;#34;.red&amp;#34;)[0]; 用哪一个  工作中用querySelector和querySelectorAll
+      <description>获取任意元素 有很多 API window.idxxx; // 或者直接idxxx document.getElementById(&amp;quot;idxxx&amp;quot;); document.getElementsByTagName(&amp;quot;div&amp;quot;)[0]; document.getElementsByClassName(&amp;quot;red&amp;quot;)[0]; document.querySelector(&amp;quot;#idxxx&amp;quot;); // 记得加# document.querySelectorAll(&amp;quot;.red&amp;quot;)[0];  用哪一个  工作中用querySelector和querySelectorAll
 例子:document.querySelectorAll(&#39;div&amp;gt;span:nth-child(2)&#39;)
   做 demo 直接用idxxx，千万别让人发现 hhh
   要兼容 IE 的可怜虫才用getElement(s)ByXXX
- 获取特定元素 获取 html 元素 document.documentElement; 获取 head 元素 document.head; 获取 body 元素 document.body; 获取窗口  窗口不是元素
- window; 获取所有元素 document.all; // false  这个 document.all 是个奇葩，第 6 个 falsy 值。原因是过去用来判断是否是 IE 浏览器。
- 元素的 6 层原型链 抓一只 div 对象来看看 console.dir(div1); // 查看原型链  Chrome 显示错了</description>
+ 获取特定元素 获取 html 元素 document.documentElement;  获取 head 元素 document.head;  获取 body 元素 document.body;  获取窗口  窗口不是元素
+ window;  获取所有元素 document.all; // false   这个 document.all 是个奇葩，第 6 个 falsy 值。原因是过去用来判断是否是 IE 浏览器。
+ 元素的 6 层原型链 抓一只 div 对象来看看 console.</description>
     </item>
     
   </channel>

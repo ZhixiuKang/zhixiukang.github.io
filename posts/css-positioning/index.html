@@ -23,7 +23,7 @@
 A: 这里有一个例子
   Q: 浮动元素脱离文档流是什么意思?
 A: 其实就是浮起来了一点点
- 新属性 - position static默认值，待在文档流里 relative相对定位，升起来，但不脱离文档流 .demo { position: relative; top: 10px; left: 10px; }  站的位置一样，但是显示的地方有一定的偏移量。
+ 新属性 - position static默认值，待在文档流里 relative相对定位，升起来，但不脱离文档流 .demo { position: relative; top: 10px; left: 10px; }   站的位置一样，但是显示的地方有一定的偏移量。
  使用场景  用于做位移(很少用) 用于给 absolute 元素做爸爸  爸爸用 relative，儿子用 absolute
    配合 z-index  z-index:auto默认值，不创建新层叠上下文 z-index: 0/ 1/ 2 z-index: -1/ -2  默认为z-index: auto;，auto其实等于 0, 但是你不可以写z-index: 0;。"/>
 
@@ -37,7 +37,7 @@ A: 其实就是浮起来了一点点
 A: 这里有一个例子
   Q: 浮动元素脱离文档流是什么意思?
 A: 其实就是浮起来了一点点
- 新属性 - position static默认值，待在文档流里 relative相对定位，升起来，但不脱离文档流 .demo { position: relative; top: 10px; left: 10px; }  站的位置一样，但是显示的地方有一定的偏移量。
+ 新属性 - position static默认值，待在文档流里 relative相对定位，升起来，但不脱离文档流 .demo { position: relative; top: 10px; left: 10px; }   站的位置一样，但是显示的地方有一定的偏移量。
  使用场景  用于做位移(很少用) 用于给 absolute 元素做爸爸  爸爸用 relative，儿子用 absolute
    配合 z-index  z-index:auto默认值，不创建新层叠上下文 z-index: 0/ 1/ 2 z-index: -1/ -2  默认为z-index: auto;，auto其实等于 0, 但是你不可以写z-index: 0;。" />
 <meta property="og:type" content="article" />
@@ -177,12 +177,13 @@ A: 其实就是浮起来了一点点</p>
 <h1 id="---position">新属性 - <code>position</code></h1>
 <h2 id="static"><code>static</code>默认值，待在文档流里</h2>
 <h2 id="relative"><code>relative</code>相对定位，升起来，但不脱离文档流</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.demo {
-  <span style="color:#fff;font-weight:bold">position</span>: <span style="color:#fff;font-weight:bold">relative</span>;
-  <span style="color:#fff;font-weight:bold">top</span>: <span style="color:#ff0;font-weight:bold">10</span><span style="color:#fff;font-weight:bold">px</span>;
-  <span style="color:#fff;font-weight:bold">left</span>: <span style="color:#ff0;font-weight:bold">10</span><span style="color:#fff;font-weight:bold">px</span>;
+<pre><code class="language-css">.demo {
+  position: relative;
+  top: 10px;
+  left: 10px;
 }
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p>站的位置一样，但是显示的地方有一定的偏移量。</p>
 </blockquote>
 <h3 id="heading">使用场景</h3>
@@ -210,20 +211,21 @@ A: 其实就是浮起来了一点点</p>
 <li>学会管理<code>z-index</code></li>
 </ul>
 <h2 id="absolute-static"><code>absolute</code>绝对定位，定位基准是祖先里的非 static</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.container {
-  <span style="color:#fff;font-weight:bold">border</span>: <span style="color:#ff0;font-weight:bold">1</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#fff;font-weight:bold">solid</span> <span style="color:#fff;font-weight:bold">red</span>;
-  <span style="color:#fff;font-weight:bold">height</span>: <span style="color:#ff0;font-weight:bold">300</span><span style="color:#fff;font-weight:bold">px</span>;
-  <span style="color:#fff;font-weight:bold">position</span>: <span style="color:#fff;font-weight:bold">relative</span>;
+<pre><code class="language-css">.container {
+  border: 1px solid red;
+  height: 300px;
+  position: relative;
 }
 
 .close {
-  <span style="color:#fff;font-weight:bold">border</span>: <span style="color:#ff0;font-weight:bold">1</span><span style="color:#fff;font-weight:bold">px</span> <span style="color:#fff;font-weight:bold">solid</span> <span style="color:#fff;font-weight:bold">black</span>;
-  <span style="color:#fff;font-weight:bold">position</span>: <span style="color:#fff;font-weight:bold">absolute</span>;
-  <span style="color:#fff;font-weight:bold">top</span>: <span style="color:#ff0;font-weight:bold">0</span>;
-  <span style="color:#fff;font-weight:bold">right</span>: <span style="color:#ff0;font-weight:bold">0</span>;
-  <span style="color:#fff;font-weight:bold">padding</span>: <span style="color:#ff0;font-weight:bold">0</span>;
+  border: 1px solid black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
 }
-</code></pre></div><blockquote>
+</code></pre>
+<blockquote>
 <p>一般来说一个东西的关闭按钮都是用绝对定位做的，正好跑到最右上方去。<br>
 相对定位一般做不到，因为相对定位一般都是相对于自身，你不能相对定位你爸爸。</p>
 </blockquote>
@@ -254,9 +256,10 @@ postion 不是 static 的，就是定位元素。</p>
 <li>善用 left:100%</li>
 <li>善用 left:50%;加负 margin</li>
 </ul>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="font-weight:bold">left</span>: <span style="font-weight:bold">50</span>%;
-<span style="font-weight:bold">margin-left</span>: <span style="font-weight:bold">-27px</span>;
-</code></pre></div><blockquote>
+<pre><code class="language-css">left: 50%;
+margin-left: -27px;
+</code></pre>
+<blockquote>
 <p>这个方法比较弱，你要自己去算。<br>
 可以用<code>transform: translatexX(-50%);</code></p>
 </blockquote>

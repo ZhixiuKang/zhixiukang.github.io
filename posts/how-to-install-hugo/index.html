@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="用Hugo搭建个人博客"/>
 <meta name="twitter:description" content="安装Hugo 官方教程 Hugo官方教程
-Mac安装方式 brew install hugo hugo version  快速搭建博客 使用Hugo搭建博客 按照Quick Start | Hugo操作。
+Mac安装方式 brew install hugo hugo version   快速搭建博客 使用Hugo搭建博客 按照Quick Start | Hugo操作。
 注意:
  当新建站点时，可以自定义参数，举个例子:  当写完每篇.md后， 可以将draft:true改为draft:false以达到发布的目的。  把 Hugo 生成的博客托管在 GitHub Pages 教程讲完了，现在问题是怎么把public这个目录挂到网上。
 步骤如下:
@@ -27,7 +27,7 @@ Complete List | Hugo Themes 你想来什么主题就来什么主题。"/>
 
     <meta property="og:title" content="用Hugo搭建个人博客" />
 <meta property="og:description" content="安装Hugo 官方教程 Hugo官方教程
-Mac安装方式 brew install hugo hugo version  快速搭建博客 使用Hugo搭建博客 按照Quick Start | Hugo操作。
+Mac安装方式 brew install hugo hugo version   快速搭建博客 使用Hugo搭建博客 按照Quick Start | Hugo操作。
 注意:
  当新建站点时，可以自定义参数，举个例子:  当写完每篇.md后， 可以将draft:true改为draft:false以达到发布的目的。  把 Hugo 生成的博客托管在 GitHub Pages 教程讲完了，现在问题是怎么把public这个目录挂到网上。
 步骤如下:
@@ -153,9 +153,10 @@ Complete List | Hugo Themes 你想来什么主题就来什么主题。" />
 <h2 id="heading">官方教程</h2>
 <p><a href="https://gohugo.io/getting-started/installing">Hugo官方教程</a></p>
 <h2 id="mac">Mac安装方式</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install hugo
+<pre><code class="language-bash">brew install hugo
 hugo version
-</code></pre></div><hr>
+</code></pre>
+<hr>
 <h1 id="heading-1">快速搭建博客</h1>
 <h2 id="hugo-1">使用Hugo搭建博客</h2>
 <p>按照<a href="https://gohugo.io/getting-started/quick-start/">Quick Start | Hugo</a>操作。</p>
@@ -197,10 +198,12 @@ hugo version
 <li>
 <p>如何在Hugo里插入图片</p>
 <p>注意：如果你在<code>static</code>里创建了<code>images</code>目录，那么在博客里写</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">![](/images/temp.png)
-</code></pre></div><p>不要写成</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">![](/static/images/temp.png)
-</code></pre></div><p>如果写成下面这种方式，会导致无法加载。</p>
+<pre><code>![](/images/temp.png)
+</code></pre>
+<p>不要写成</p>
+<pre><code>![](/static/images/temp.png)
+</code></pre>
+<p>如果写成下面这种方式，会导致无法加载。</p>
 </li>
 </ul>
 

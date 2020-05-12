@@ -57,7 +57,7 @@ http-server . -c-1
     还可以使用parcel：
 yarn global add parcel
 parcel #filename.suffix
-  target  &amp;lt;!— 可以指定在哪个地方打开超链接 (在空白页打开)—&amp;gt; &amp;lt;a href=“https://google.com” target=“_blank”&amp;gt;hyper link&amp;lt;/a&amp;gt;  download  &amp;lt;!--下载这个网页，基本不能用—&amp;gt; &amp;lt;a href=“https://google.com” download&amp;gt;hyper link&amp;lt;/a&amp;gt;  rel=noopener 防止一个 js 的 bug。  作用  跳转外部页面 跳转内部锚点 跳转到邮箱或电话等  a的href的取值  网址  https://google.com http://google.</description>
+  target  &amp;lt;!— 可以指定在哪个地方打开超链接 (在空白页打开)—&amp;gt; &amp;lt;a href=“https://google.com” target=“_blank”&amp;gt;hyper link&amp;lt;/a&amp;gt;   download  &amp;lt;!-- 下载这个网页，基本不能用—&amp;gt; &amp;lt;a href=“https://google.com” download&amp;gt;hyper link&amp;lt;/a&amp;gt;   rel=noopener 防止一个 js 的 bug。  作用  跳转外部页面 跳转内部锚点 跳转到邮箱或电话等  a的href的取值  网址  https://google.</description>
     </item>
     
     <item>
@@ -70,7 +70,7 @@ parcel #filename.suffix
  三上:马上，枕上，厕上
  VSCode 插件推荐  Prettier 更好地格式化工具 cmd+shift+p-&amp;gt; format doc  两个工具  jsbin 饥人谷 偏好 JShint 关闭 codesandbox settings: auto save  可以将需要纠错的 URL 分享给别人
    HTML 起手式&amp;ndash;Emmet 感叹号 在空的 html 文件中，输入!+tab。
-&amp;lt;!— 文档类型 --&amp;gt; &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!— html标签，可以把lang改成zh-CN —&amp;gt; &amp;lt;html lang=&amp;#34;“en”&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;!— 文件的字符编码 —&amp;gt; &amp;lt;meta charset=&amp;#34;“UTF-8”&amp;#34; /&amp;gt; &amp;lt;!— 禁用缩放 —&amp;gt; &amp;lt;meta name=“viewport” content=“width=device-width, initial-scale=1.0” /&amp;gt; &amp;lt;!— 兼容手机，告诉IE使用最新内核 —&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34; /&amp;gt; &amp;lt;!</description>
+&amp;lt;!— 文档类型 --&amp;gt; &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;!— html标签，可以把lang改成zh-CN —&amp;gt; &amp;lt;html lang=&amp;quot;“en”&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;!— 文件的字符编码 —&amp;gt; &amp;lt;meta charset=&amp;quot;“UTF-8”&amp;quot; /&amp;gt; &amp;lt;!— 禁用缩放 —&amp;gt; &amp;lt;meta name=“viewport” content=“width=device-width, initial-scale=1.0” /&amp;gt; &amp;lt;!— 兼容手机，告诉IE使用最新内核 —&amp;gt; &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;ie=edge&amp;quot; /&amp;gt; &amp;lt;!</description>
     </item>
     
   </channel>
