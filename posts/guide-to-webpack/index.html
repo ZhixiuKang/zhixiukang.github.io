@@ -179,19 +179,19 @@ if (!doNotTrack) {
 </ul>
 <h1 id="webpack-1">安装webpack</h1>
 <ul>
-<li><code>webpack@4</code></li>
+<li><strong>webpack@4</strong></li>
 </ul>
 <blockquote>
 <p>如果<strong>webpack</strong>升级到了<strong>5</strong>，本文的思路依然有效</p>
 </blockquote>
 <ul>
-<li><code>webpack-dev-server</code></li>
+<li><strong>webpack-dev-server</strong></li>
 </ul>
 <blockquote>
 <p>用于本地预览</p>
 </blockquote>
 <blockquote>
-<p>查看<code>webpack</code>版本:<code>npm info webpack</code></p>
+<p>查看<strong>webpack</strong>版本:<code>npm info webpack</code></p>
 </blockquote>
 <h1 id="webpack-2">在一个文件夹里引入webpack</h1>
 <blockquote>
@@ -219,7 +219,7 @@ yarn add webpack webpack-cli --dev // 多了一个node_modules目录
 </blockquote>
 <h1 id="webpackentryoutput">webpack配置entry和output</h1>
 <ul>
-<li>设置<code>webpage.config.js</code></li>
+<li>设置<strong>webpage.config.js</strong></li>
 </ul>
 <pre><code class="language-javascript">// webpack.config.js
 var path = require(&quot;path&quot;);
@@ -239,7 +239,7 @@ module.exports = {
 </code></pre>
 <h1 id="webpackhtml">webpack插件自动生成HTML</h1>
 <ul>
-<li>修改<code>package.json</code></li>
+<li>修改<strong>package.json</strong></li>
 </ul>
 <pre><code class="language-json"> &quot;scripts&quot;: {
     &quot;build&quot;: &quot;rm -rf dist; webpack&quot;,
@@ -278,7 +278,7 @@ module.exports = {
 <pre><code class="language-bash">npm install --save-dev style-loader
 </code></pre>
 <ul>
-<li>配置<code>webpack.config.js</code></li>
+<li>配置<strong>webpage.config.js</strong></li>
 </ul>
 <pre><code class="language-javascript">module.exports = {
   module: {
@@ -299,7 +299,7 @@ module.exports = {
 <p>如果你觉得每次build很麻烦，可以使用<strong>webpack-dev-server</strong>来加快开发: <a href="https://webpack.js.org/guides/development/">Development | webpack</a></p>
 </blockquote>
 <ul>
-<li>Setting <code>mode</code> to <code>development</code></li>
+<li>Setting <strong>mode</strong> to <strong>development</strong></li>
 </ul>
 <pre><code class="language-javascript">// webpack.config.js
 module.exports = {
@@ -440,7 +440,7 @@ module.exports = {
   },
 </code></pre>
 <blockquote>
-<p>注意将<strong>webpack.config.prod.js</strong>中的<strong>mode</strong>改为<code>production</code></p>
+<p>注意将<strong>webpack.config.prod.js</strong>中的<strong>mode</strong>改为<strong>production</strong></p>
 </blockquote>
 <h2 id="webpack-config">多份webpack config配置</h2>
 <blockquote>
