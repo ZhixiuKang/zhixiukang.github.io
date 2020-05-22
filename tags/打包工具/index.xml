@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>打包工具 on 修的个人网站</title>
+    <link>https://zhixiukang.com/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 打包工具 on 修的个人网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 25 Mar 2020 15:21:33 -0800</lastBuildDate>
+    
+	<atom:link href="https://zhixiukang.com/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WebPack的使用及思路</title>
+      <link>https://zhixiukang.com/posts/guide-to-webpack/</link>
+      <pubDate>Wed, 25 Mar 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/guide-to-webpack/</guid>
+      <description>webpack每年升级, 本文基于webpack@4.43.0。
+  即使版本升级，每部分细节会有变化，本文思路依然有效。
+ webpack是干什么的  转译代码   ES6转为ES5, SCSS转为CSS
+  构建build 代码压缩 代码分析  安装webpack  webpack@4   如果webpack升级到了5，本文的思路依然有效
+  webpack-dev-server   用于本地预览
+  查看webpack版本:npm info webpack
+ 在一个文件夹里引入webpack  Getting Started | webpack
+ mkdir webpack-demo cd webpack-demo npm init -y // 创建了package.json yarn add webpack webpack-cli --dev // 多了一个node_modules目录  如何调用本地安装的webpack ./node_modules/.bin/webpack --version   简易写法:  npx webpack   不够稳定，不能使用的话，就用上一种方法</description>
+    </item>
+    
+  </channel>
+</rss>
