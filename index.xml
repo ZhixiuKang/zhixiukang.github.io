@@ -21,6 +21,24 @@
     </item>
     
     <item>
+      <title>Vue: 起手式</title>
+      <link>https://zhixiukang.com/posts/vue-getting-started/</link>
+      <pubDate>Sat, 28 Mar 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/vue-getting-started/</guid>
+      <description>Vue目前不是一个MVVM框架(Vue 1是MVVM框架)，Vue现在是MV* 框架
+  中文文档 — Vue.js
+ Vue自学线路图 项目搭建  目标一: 搞出一个使用Vue的项目
+ 方法一: 使用@vue/cli  安装 | Vue CLI
+  创建一个项目 | Vue CLI
+  安装**@vue/cli**  yarn global add @vue/cli   可以通过vue --version查看是否安装成功
+  创建一个项目  vue create vue-demo   路径可以使用.，在当前目录下创建一个项目
+  本文中的Vue选项   这次的选项只适合本篇文章，如果是真实项目，请自行斟酌选项
+  使用空格选中或取消
+  开启webpack-dev-server  cd vue-demo yarn serve   扩展阅读: Vue CLI</description>
+    </item>
+    
+    <item>
       <title>WebPack的使用及思路</title>
       <link>https://zhixiukang.com/posts/guide-to-webpack/</link>
       <pubDate>Wed, 25 Mar 2020 15:21:33 -0800</pubDate>
