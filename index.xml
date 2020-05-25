@@ -34,10 +34,8 @@
  Vue.prototype后面还有没有什么prototype?   函数的原型还有没有原型？
   可能还需要几篇博客来回答这五个问题，一旦把这五个问题回答清楚了，Vue就全部懂了
  options 的五类属性 数据  选项 / 数据 - Vue.js
- data、props、propsData、computed、methods、watch
-DOM  选项 / DOM - Vue.js
- el、template、render、renderError
-生命周期钩子  选项 / 生命周期钩子 - Vue.</description>
+  data、props、propsData、computed、methods、watch  DOM  选项 / DOM - Vue.js
+  el、template、render、renderError  生命周期钩子  选项 / 生命周期钩子 - Vue.</description>
     </item>
     
     <item>
