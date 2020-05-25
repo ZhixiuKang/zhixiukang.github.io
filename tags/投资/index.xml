@@ -6,10 +6,35 @@
     <description>Recent content in 投资 on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 08 Mar 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2020 22:21:33 -0800</lastBuildDate>
     
 	<atom:link href="https://zhixiukang.com/tags/%E6%8A%95%E8%B5%84/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>股市长期回报率其影响因素</title>
+      <link>https://zhixiukang.com/explore/stock-market-long-term-return-on-investment-and-its-influence-factors/</link>
+      <pubDate>Sun, 24 May 2020 22:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/explore/stock-market-long-term-return-on-investment-and-its-influence-factors/</guid>
+      <description>在谈这个问题之前，先科普一下股息率、盈利增长率和市盈率。
+股息率  Dividend yield
+  每股股息 除以 每股股价 就是股息率 举个例子:  现金股息为 1元，股价20元，则股息率为5%；若来年配息仍为 1元，股价已至25元，则股息率降为4%。
+盈利增长率  这个很简单，年盈利增长率就是当年利润减去上一年的利润然后除以上一年利润 举个例子:  某企业当年利润5亿，上一年利润4亿，那么该企业的年盈利增长率就是(5-4)/4=25%
+市盈率  Price-to-Earning Ratio, P/E或PER
+  指每股市价除以每股盈余   每股盈余(Earnings Per Share, EPS)
+  每股盈余的计算方法，一般是该企业在过去一年的净利润，除以总发行已售出股份净值。
+  举个例子:  假设某股票的市价为24元，而过去一年的每股盈余为3元，那么市盈率就是每股市价除以每股盈余为24/3=8。该股票就被视为有8倍的市盈率。
+ 不考虑通货膨胀等因素，回本期为8年，折合平均年回报率为12.5%
+  比较不同行业、不同国家、不同时段的市盈率是不大可靠的，比较同类股票的市盈率才比较有实用价值。
+  理论上，股票的市盈率愈低，表示该股票的投资风险越小，愈值得投资。（股价低，盈余高)
+ 市场长期回报率 Jack Bogle在《共同基金常识》中总结了决定股市长期回报率的三个变量，分别就是:
+ 初始投资时刻的股息率 随后的盈利增长率 在投资期内市盈率的变化   通过分析这三个因素对总回报率的贡献，我们能够理性地预测未来的回报率。
+ 初始的股息率是一个已知的量。相对而言，在一个相当窄的参数范围内，盈利增长率通常是可预测的。同时，市盈率的变化已被证明具有高度投机性，总回报率就是这三个因素之和。
+例如，假定初始股息率为3%，在随后的10年内，预测盈利增长率为每年7%，则回报率将为10%。
+如果市盈率P/E从期初的15倍，预期变为期末的18倍，这将使总回报率增加两个百分点，股票回报率将达到12%。
+ 现实回报率 = 初始股息率 + 年平均盈利增长率 ＋ 年平均市盈率变动   在对10年期权股市名义回报率(1927年至2009年中)的历史数据分析中，历史数据和这一推测吻合的很好。比如，从1960年一月到1969年12月，初始股息率3.</description>
+    </item>
     
     <item>
       <title>Bogleheads的投资哲学</title>
