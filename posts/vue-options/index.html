@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="Zhixiu Kang, 康知修, 修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue: 构造选项"/>
+<meta name="twitter:description" content="创建 Vue 实例 const vm = new Vue(options);  内存图  把Vue的实例命名为vm是尤雨溪的习惯，我们应该沿用
+  vm对象封装了对视图的所有操作，包括数据读写、事件绑定、DOM更新 vm的构造函数是Vue，按照ES6的说法，vm所属的类是Vue options是new Vue的参数，一般称之为选项或构造选项   构造选项(构造函数后面的选项)
+  图中一共有五个问号，我们一个一个地来了解
+ 图中的 5 个问号  我们在初始化的时候，到底能写些什么对象进去？   options的参数有哪些？
+ 这个vm对象有哪些属性？ Vue函数本身有哪些属性？ Vue.prototype有哪些属性？   函数的原型有哪些属性？
+ Vue.prototype后面还有没有什么prototype?   函数的原型还有没有原型？
+  可能还需要几篇博客来回答这五个问题，一旦把这五个问题回答清楚了，Vue就全部懂了
+ options 的五类属性 数据  选项 / 数据 - Vue.js
+ data、props、propsData、computed、methods、watch
+DOM  选项 / DOM - Vue.js
+ el、template、render、renderError
+生命周期钩子  选项 / 生命周期钩子 - Vue."/>
+
+    <meta property="og:title" content="Vue: 构造选项" />
+<meta property="og:description" content="创建 Vue 实例 const vm = new Vue(options);  内存图  把Vue的实例命名为vm是尤雨溪的习惯，我们应该沿用
+  vm对象封装了对视图的所有操作，包括数据读写、事件绑定、DOM更新 vm的构造函数是Vue，按照ES6的说法，vm所属的类是Vue options是new Vue的参数，一般称之为选项或构造选项   构造选项(构造函数后面的选项)
+  图中一共有五个问号，我们一个一个地来了解
+ 图中的 5 个问号  我们在初始化的时候，到底能写些什么对象进去？   options的参数有哪些？
+ 这个vm对象有哪些属性？ Vue函数本身有哪些属性？ Vue.prototype有哪些属性？   函数的原型有哪些属性？
+ Vue.prototype后面还有没有什么prototype?   函数的原型还有没有原型？
+  可能还需要几篇博客来回答这五个问题，一旦把这五个问题回答清楚了，Vue就全部懂了
+ options 的五类属性 数据  选项 / 数据 - Vue.js
+ data、props、propsData、computed、methods、watch
+DOM  选项 / DOM - Vue.js
+ el、template、render、renderError
+生命周期钩子  选项 / 生命周期钩子 - Vue." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhixiukang.com/posts/vue-options/" />
+<meta property="article:published_time" content="2020-03-31T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-03-31T15:21:33-08:00" />
+
+
+    
+      <base href="https://zhixiukang.com/posts/vue-options/">
+    
+    <title>
+Vue: 构造选项 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="https://zhixiukang.com/posts/vue-options/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-167283959-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+
+    
+      
+      
+      <link rel="stylesheet" href="https://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/tags/">分类</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">Vue: 构造选项</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-03-31T15:21:33-08:00'>
+              March 31, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://zhixiukang.com/tags/vue%E5%85%A8%E8%A7%A3/">Vue全解</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h1 id="-vue-">创建 Vue 实例</h1>
+<pre><code class="language-javascript">const vm = new Vue(options);
+</code></pre>
+<h2 id="heading">内存图</h2>
+<p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-05-2321.45.50.png" alt=""></p>
+<blockquote>
+<p>把<strong>Vue</strong>的实例命名为<strong>vm</strong>是尤雨溪的习惯，我们应该沿用</p>
+</blockquote>
+<ul>
+<li><strong>vm</strong>对象封装了对视图的所有操作，包括数据读写、事件绑定、<strong>DOM</strong>更新</li>
+<li><strong>vm</strong>的构造函数是<strong>Vue</strong>，按照<strong>ES6</strong>的说法，<strong>vm</strong>所属的类是<strong>Vue</strong></li>
+<li><strong>options</strong>是<strong>new Vue</strong>的参数，一般称之为选项或构造选项</li>
+</ul>
+<blockquote>
+<p>构造选项(构造函数后面的选项)</p>
+</blockquote>
+<blockquote>
+<p>图中一共有五个问号，我们一个一个地来了解</p>
+</blockquote>
+<h2 id="-5-">图中的 5 个问号</h2>
+<ol>
+<li>我们在初始化的时候，到底能写些什么对象进去？</li>
+</ol>
+<blockquote>
+<p><strong>options</strong>的参数有哪些？</p>
+</blockquote>
+<ol start="2">
+<li>这个<strong>vm</strong>对象有哪些属性？</li>
+<li><strong>Vue</strong>函数本身有哪些属性？</li>
+<li><strong>Vue.prototype</strong>有哪些属性？</li>
+</ol>
+<blockquote>
+<p>函数的原型有哪些属性？</p>
+</blockquote>
+<ol start="5">
+<li><strong>Vue.prototype</strong>后面还有没有什么<strong>prototype</strong>?</li>
+</ol>
+<blockquote>
+<p>函数的原型还有没有原型？</p>
+</blockquote>
+<blockquote>
+<p>可能还需要几篇博客来回答这五个问题，一旦把这五个问题回答清楚了，<strong>Vue</strong>就全部懂了</p>
+</blockquote>
+<h1 id="options-">options 的五类属性</h1>
+<h2 id="heading-1">数据</h2>
+<blockquote>
+<p><a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E6%95%B0%E6%8D%AE">选项 / 数据 - Vue.js</a></p>
+</blockquote>
+<p><strong>data</strong>、<strong>props</strong>、<strong>propsData</strong>、<strong>computed</strong>、<strong>methods</strong>、<strong>watch</strong></p>
+<h2 id="dom">DOM</h2>
+<blockquote>
+<p><a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-DOM">选项 / DOM - Vue.js</a></p>
+</blockquote>
+<p><strong>el</strong>、<strong>template</strong>、<strong>render</strong>、<strong>renderError</strong></p>
+<h2 id="heading-2">生命周期钩子</h2>
+<blockquote>
+<p><a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90">选项 / 生命周期钩子 - Vue.js</a></p>
+</blockquote>
+<p><strong>beforeCreate</strong>、<strong>created</strong>、<strong>beforeMount</strong>、<strong>mounted</strong>、<strong>beforeUpdate</strong>、<strong>updated</strong>、<strong>activated</strong>、<strong>deactivated</strong>、<strong>beforeDestroy</strong>、<strong>destroyed</strong>、<strong>errorCaptured</strong></p>
+<h2 id="heading-3">资源</h2>
+<blockquote>
+<p><a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E8%B5%84%E6%BA%90">选项 / 资源 - Vue.js</a></p>
+</blockquote>
+<p><strong>directives</strong>、<strong>filters</strong>、<strong>components</strong></p>
+<h2 id="heading-4">组合</h2>
+<blockquote>
+<p><a href="https://cn.vuejs.org/v2/api/#%E9%80%89%E9%A1%B9-%E7%BB%84%E5%90%88">选项 / 组合 - Vue.js</a></p>
+</blockquote>
+<p><strong>parent</strong>、<strong>mixins</strong>、<strong>extends</strong>、<strong>provide</strong>、<strong>inject</strong></p>
+<h2 id="heading-5">其他</h2>
+<blockquote>
+<p><a href="https://cn.vuejs.org/v2/api/?#%E9%80%89%E9%A1%B9-%E5%85%B6%E5%AE%83">选项 / 其它 - Vue.js</a></p>
+</blockquote>
+<blockquote>
+<p>先不说</p>
+</blockquote>
+<h1 id="heading-6">入门属性</h1>
+<h2 id="el---">el - 挂载点</h2>
+<blockquote>
+<p>与<code>$mount</code>有替换关系</p>
+</blockquote>
+<pre><code class="language-javascript">new Vue({
+  el: &quot;#app&quot;,
+  render: (h) =&gt; h(Demo),
+});
+</code></pre>
+<p>等价于</p>
+<pre><code class="language-javascript">new Vue({
+  render: (h) =&gt; h(Demo),
+}).$mount(&quot;#app&quot;);
+</code></pre>
+<h2 id="data---">data - 内部数据</h2>
+<blockquote>
+<p>支持对象和函数，优先用函数</p>
+</blockquote>
+<pre><code class="language-javascript">new Vue({
+  data: {
+    n: 0,
+  },
+}).$mount(&quot;#app&quot;);
+</code></pre>
+<pre><code class="language-javascript">new Vue({
+  data: function() {
+    return {
+      n: 0,
+    };
+  },
+}).$mount(&quot;#app&quot;);
+</code></pre>
+<pre><code class="language-javascript">new Vue({
+  data() {
+    return {
+      n: 0,
+    };
+  },
+}).$mount(&quot;#app&quot;);
+</code></pre>
+<blockquote>
+<p><strong>data</strong>在组件里必须用<strong>function</strong></p>
+</blockquote>
+<h2 id="methods---">methods - 方法</h2>
+<blockquote>
+<p>事件处理函数</p>
+</blockquote>
+<p><strong>main.js</strong></p>
+<pre><code class="language-javascript">new Vue({
+  data() {
+    return {
+      n: 0,
+    };
+  },
+  template: `
+        &lt;div id=&quot;app&quot;&gt;
+            {{n}}
+            &lt;button @click=&quot;add&quot;&gt;+1&lt;/button&gt;
+        &lt;/div&gt;
+    `,
+  methods: {
+    add() {
+      this.n += 1;
+    },
+  },
+}).$mount(&quot;#base&quot;);
+</code></pre>
+<blockquote>
+<p>或者普通函数</p>
+</blockquote>
+<p><strong>main.js</strong></p>
+<pre><code class="language-javascript">new Vue({
+  data() {
+    return {
+      array: [1, 2, 3, 4, 5, 6, 7, 8],
+    };
+  },
+  template: `
+        &lt;div id=&quot;app&quot;&gt;
+            &lt;!—                {{filter(array)}}—&gt;
+            {{filter()}}
+        &lt;/div&gt;
+    `,
+  methods: {
+    // filter(array) {
+    //     return array.filter(i =&gt; i % 2 === 0)
+    // }
+    filter() {
+      return this.array.filter((i) =&gt; i % 2 === 0);
+    },
+  },
+}).$mount(&quot;#base&quot;);
+</code></pre>
+<h2 id="components">components</h2>
+<blockquote>
+<p><strong>Vue</strong>组件，用大写开头</p>
+</blockquote>
+<blockquote>
+<p>三种引入方式，推荐第一种</p>
+</blockquote>
+<p><strong>main.js</strong></p>
+<pre><code class="language-javascript">import Demo from &quot;./Demo.vue&quot;;
+
+const vm = new Vue({
+  components: { Demo }, // components: {Demo: Demo}
+  template: `
+        &lt;div id=&quot;app&quot;&gt;
+            &lt;Demo/&gt;
+        &lt;/div&gt;
+    `,
+}).$mount(&quot;#base&quot;);
+</code></pre>
+<p><strong>main.js</strong></p>
+<pre><code class="language-javascript">const Vue = window.Vue;
+
+Vue.component(&quot;Demo2&quot;, {
+  template: `
+        &lt;div&gt;demo2&lt;/div&gt; 
+    `,
+});
+
+const vm = new Vue({
+  template: `
+        &lt;div id=&quot;app&quot;&gt;
+            &lt;Demo2/&gt;
+        &lt;/div&gt;
+    `,
+}).$mount(&quot;#base&quot;);
+</code></pre>
+<p><strong>main.js</strong></p>
+<pre><code class="language-javascript">const vm = new Vue({
+  components: {
+    Demo3: {
+      template: `
+                &lt;div&gt;demo3&lt;/div&gt; 
+            `,
+    },
+  },
+  template: `
+        &lt;div id=&quot;app&quot;&gt;
+            &lt;Demo3/&gt;
+        &lt;/div&gt;
+    `,
+}).$mount(&quot;#base&quot;);
+</code></pre>
+<h2 id="heading-7">四个钩子</h2>
+<ul>
+<li><strong>created</strong> <strong>-</strong> 实例出现在内存中</li>
+<li><strong>mounted</strong> <strong>-</strong> 实例出现在页面中</li>
+<li><strong>updated</strong> <strong>-</strong> 实例更新了</li>
+<li><strong>destroyed</strong> <strong>-</strong> 实例从页面和内存中消亡了</li>
+<li>来个例子:</li>
+</ul>
+<p><strong>Demo.vue</strong></p>
+<pre><code class="language-javascript">&lt;template&gt;
+    &lt;div class=&quot;red&quot;&gt;
+        {{n}}
+        &lt;button @click=&quot;add&quot;&gt;+1&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default {
+        data() {
+            return {
+                n: 0
+            }
+        },
+        created() {
+            console.log('这玩意出现在内存中,没有出现在页面中')
+        },
+        mounted() {
+            console.log('这玩意出现在页面中')
+        },
+        updated() {
+            console.log('更新啦')
+            console.log(this.n)
+        },
+        destroyed() {
+            console.log('已经消亡了')
+        },
+        methods: {
+            add() {
+                this.n += 1
+            }
+        }
+    }
+&lt;/script&gt;
+&lt;style&gt;&lt;/style&gt;
+</code></pre>
+<p><strong>main.js</strong></p>
+<pre><code class="language-javascript">import Demo from &quot;./Demo.vue&quot;;
+
+const Vue = window.Vue;
+new Vue({
+  components: { Demo },
+  data: {
+    visible: true,
+  },
+  template: `
+        &lt;div&gt;
+            &lt;button @click=&quot;toggle&quot;&gt;toggle&lt;/button&gt;
+            &lt;hr&gt;
+            &lt;Demo v-if=&quot;visible === true&quot;/&gt;
+        &lt;/div&gt;
+    `,
+  methods: {
+    toggle() {
+      this.visible = !this.visible;
+    },
+  },
+}).$mount(&quot;#base&quot;);
+</code></pre>
+<h2 id="props---">props - 外部属性</h2>
+<ul>
+<li><code>message=&quot;n&quot;</code>传入字符串</li>
+<li><code>:message=&quot;n&quot;</code>传入<code>this.n</code>数据</li>
+<li><code>:fn=&quot;add&quot;</code>传入<code>this.add</code>函数</li>
+<li>来个例子:
+<strong>Demo.vue</strong></li>
+</ul>
+<pre><code class="language-javascript">&lt;template&gt;
+    &lt;div class=&quot;red”&gt;
+        这里是Demo的内部
+        &lt;!—        {{this.message}}—&gt;
+        {{message}}
+        &lt;button @click=&quot;fn&quot;&gt;call fn&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default {
+        // 从外部接受一个message，这个message会自动绑到this上
+        props: ['message', 'fn']
+    }
+&lt;/script&gt;
+&lt;style scoped&gt;
+    .red {
+        color: red;
+        border: 1px solid red;
+    }
+&lt;/style&gt;
+</code></pre>
+<p><strong>main.js</strong></p>
+<pre><code class="language-javascript">import Demo from &quot;./Demo.vue&quot;;
+
+const Vue = window.Vue;
+new Vue({
+  components: { Demo },
+  data: {
+    n: 0,
+  },
+  template: `
+        &lt;div&gt;
+            &lt;!--            字符串 '你好2'--&gt;
+            &lt;Demo message=&quot;你好2&quot;&gt;&lt;/Demo&gt;
+
+            &lt;!--            注意冒号':',说明后面是JS代码--&gt;
+            &lt;!--            字符串 '你好2'--&gt;
+            &lt;Demo :message=&quot;'你好2'&quot;&gt;&lt;/Demo&gt;
+            &lt;Demo :message=&quot;'n'&quot;&gt;&lt;/Demo&gt;
+
+            &lt;!--            还可以传函数--&gt;
+            {{n}}
+            &lt;Demo :message=&quot;n&quot; :fn=&quot;add&quot;&gt;&lt;/Demo&gt;
+        &lt;/div&gt;
+    `,
+  methods: {
+    add() {
+      this.n += 1;
+    },
+  },
+}).$mount(&quot;#base&quot;);
+</code></pre>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-167283959-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

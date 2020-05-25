@@ -6,10 +6,30 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 28 Mar 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="https://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue: 构造选项</title>
+      <link>https://zhixiukang.com/posts/vue-options/</link>
+      <pubDate>Tue, 31 Mar 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/vue-options/</guid>
+      <description>创建 Vue 实例 const vm = new Vue(options);  内存图  把Vue的实例命名为vm是尤雨溪的习惯，我们应该沿用
+  vm对象封装了对视图的所有操作，包括数据读写、事件绑定、DOM更新 vm的构造函数是Vue，按照ES6的说法，vm所属的类是Vue options是new Vue的参数，一般称之为选项或构造选项   构造选项(构造函数后面的选项)
+  图中一共有五个问号，我们一个一个地来了解
+ 图中的 5 个问号  我们在初始化的时候，到底能写些什么对象进去？   options的参数有哪些？
+ 这个vm对象有哪些属性？ Vue函数本身有哪些属性？ Vue.prototype有哪些属性？   函数的原型有哪些属性？
+ Vue.prototype后面还有没有什么prototype?   函数的原型还有没有原型？
+  可能还需要几篇博客来回答这五个问题，一旦把这五个问题回答清楚了，Vue就全部懂了
+ options 的五类属性 数据  选项 / 数据 - Vue.js
+ data、props、propsData、computed、methods、watch
+DOM  选项 / DOM - Vue.js
+ el、template、render、renderError
+生命周期钩子  选项 / 生命周期钩子 - Vue.</description>
+    </item>
     
     <item>
       <title>Vue: 起手式</title>
