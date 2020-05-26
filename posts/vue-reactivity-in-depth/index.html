@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="Zhixiu Kang, 康知修, 修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue: 深入理解数据响应式"/>
+<meta name="twitter:description" content="通过这篇文章，深入理解一下options.data，方便之后学习options的进阶属性。
+  主要原理在文档的深入响应式原理章节可以找到，但是本篇文章扩充了非常多的内容。
+ Vue 对 data 做了什么  重要议题
+ 小实验 - data 变了  示例代码: myData居然变了 一开始是{n:0}，传给new Vue之后立马变成{n: (...)}   {n: (...)}是个什么玩意，为什么表现和{n:0}一致？
+  我们需要先看一下ES6的getter 和 setter
+  示例代码 学完之后呢？还是不理解{n: (...)}呀。   我们需要再看一下Object.defineProperty() | MDN
+  看完了，还是不理解:( 继续试验   现在理解了吗？
+ 示意图  如果data有多个属性n、m、k，那么就会有get n,get m,get k等
+ getter 和 setter  定义的时候可以直接去设置一个getter和setter
+ 来两个例子:
+const obj = { log: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], get latest() { if (this."/>
+
+    <meta property="og:title" content="Vue: 深入理解数据响应式" />
+<meta property="og:description" content="通过这篇文章，深入理解一下options.data，方便之后学习options的进阶属性。
+  主要原理在文档的深入响应式原理章节可以找到，但是本篇文章扩充了非常多的内容。
+ Vue 对 data 做了什么  重要议题
+ 小实验 - data 变了  示例代码: myData居然变了 一开始是{n:0}，传给new Vue之后立马变成{n: (...)}   {n: (...)}是个什么玩意，为什么表现和{n:0}一致？
+  我们需要先看一下ES6的getter 和 setter
+  示例代码 学完之后呢？还是不理解{n: (...)}呀。   我们需要再看一下Object.defineProperty() | MDN
+  看完了，还是不理解:( 继续试验   现在理解了吗？
+ 示意图  如果data有多个属性n、m、k，那么就会有get n,get m,get k等
+ getter 和 setter  定义的时候可以直接去设置一个getter和setter
+ 来两个例子:
+const obj = { log: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], get latest() { if (this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhixiukang.com/posts/vue-reactivity-in-depth/" />
+<meta property="article:published_time" content="2020-04-03T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-04-03T15:21:33-08:00" />
+
+
+    
+      <base href="https://zhixiukang.com/posts/vue-reactivity-in-depth/">
+    
+    <title>
+Vue: 深入理解数据响应式 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="https://zhixiukang.com/posts/vue-reactivity-in-depth/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-167283959-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+
+    
+      
+      
+      <link rel="stylesheet" href="https://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/tags/">分类</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">Vue: 深入理解数据响应式</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-04-03T15:21:33-08:00'>
+              April 3, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://zhixiukang.com/tags/vue%E5%85%A8%E8%A7%A3/">Vue全解</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <blockquote>
+<p>通过这篇文章，深入理解一下<strong>options.data</strong>，方便之后学习<strong>options</strong>的进阶属性。</p>
+</blockquote>
+<blockquote>
+<p>主要原理在文档的<a href="https://cn.vuejs.org/v2/guide/reactivity.html">深入响应式原理</a>章节可以找到，但是本篇文章扩充了非常多的内容。</p>
+</blockquote>
+<h1 id="vue--data-">Vue 对 data 做了什么</h1>
+<blockquote>
+<p>重要议题</p>
+</blockquote>
+<h2 id="---data-">小实验 - data 变了</h2>
+<ul>
+<li><a href="https://codesandbox.io/s/nervous-matsumoto-syqrn">示例代码</a>: <code>myData</code>居然变了</li>
+<li>一开始是<code>{n:0}</code>，传给<code>new Vue</code>之后立马变成<code>{n: (...)}</code></li>
+</ul>
+<blockquote>
+<p><code>{n: (...)}</code>是个什么玩意，为什么表现和<code>{n:0}</code>一致？</p>
+</blockquote>
+<blockquote>
+<p>我们需要先看一下<a href="https://fangyinghang.com/es-6-tutorials/">ES6</a>的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Object_initializer#ECMAScript_6%E6%96%B0%E6%A0%87%E8%AE%B0">getter 和 setter</a></p>
+</blockquote>
+<ul>
+<li><a href="https://codesandbox.io/s/cranky-voice-odmgo">示例代码</a></li>
+<li>学完之后呢？还是不理解<code>{n: (...)}</code>呀。</li>
+</ul>
+<blockquote>
+<p>我们需要再看一下<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty() | MDN</a></p>
+</blockquote>
+<ul>
+<li>看完了，还是不理解:(</li>
+<li><a href="https://codesandbox.io/s/adoring-burnell-xqi7o">继续试验</a></li>
+</ul>
+<blockquote>
+<p>现在理解了吗？</p>
+</blockquote>
+<h2 id="heading">示意图</h2>
+<p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-05-2520.37.02.png" alt=""></p>
+<blockquote>
+<p>如果<strong>data</strong>有多个属性<strong>n</strong>、<strong>m</strong>、<strong>k</strong>，那么就会有<code>get n</code>,<code>get m</code>,<code>get k</code>等</p>
+</blockquote>
+<h2 id="getter--setter">getter 和 setter</h2>
+<blockquote>
+<p>定义的时候可以直接去设置一个<strong>getter</strong>和<strong>setter</strong></p>
+</blockquote>
+<p>来两个例子:</p>
+<pre><code class="language-javascript">const obj = {
+  log: [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;],
+  get latest() {
+    if (this.log.length === 0) {
+      return undefined;
+    }
+    return this.log[this.log.length - 1];
+  },
+};
+
+console.log(obj.latest);
+// expected output: &quot;c&quot;
+</code></pre>
+<pre><code class="language-javascript">const language = {
+  set current(name) {
+    this.log.push(name);
+  },
+  log: [],
+};
+
+language.current = &quot;EN&quot;;
+language.current = &quot;CN&quot;;
+
+console.log(language.log);
+// expected output: Array [&quot;EN&quot;, &quot;CN&quot;]
+</code></pre>
+<h2 id="objectdefineproperty">Object.defineProperty</h2>
+<blockquote>
+<p>定义完了之后，你又突然想加一个<strong>getter</strong>和<strong>setter</strong>，就可以使用 <code>Object.defineProperty</code></p>
+</blockquote>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty() | MDN</a></p>
+</blockquote>
+<h2 id="heading-1">小结</h2>
+<h3 id="objectdefineproperty-1">Object.defineProperty</h3>
+<ul>
+<li>可以给对象添加属性<strong>value</strong></li>
+<li>可以给对象添加<strong>getter</strong> / <strong>setter</strong></li>
+<li><strong>getter</strong> / <strong>setter</strong>用于对属性的读写进行监控</li>
+</ul>
+<h3 id="heading-2">代理和监听</h3>
+<ul>
+<li>对<strong>myData</strong>对象的属性读写，全权由另一个对象<strong>vm</strong>负责</li>
+<li>那么<strong>vm</strong>就是<strong>myData</strong>的代理</li>
+<li>比如不用<strong>myData.n</strong>，偏要用<strong>vm.n</strong>来操作<strong>myData.n</strong></li>
+</ul>
+<h3 id="vm--new-vuedata-mydata">vm = new Vue({data: mydata})</h3>
+<ul>
+<li>首先，会让<strong>vm</strong>成为<strong>myData</strong>的代理(proxy)</li>
+<li>其次，会对<strong>myData</strong>的所有属性进行监控</li>
+</ul>
+<blockquote>
+<p>Q: 为什么要监控？</p>
+<p>A: 好问题，为了防止<strong>myData</strong>的属性变了，而<strong>vm</strong>不知道。</p>
+</blockquote>
+<blockquote>
+<p>Q: <strong>vm</strong>知道了又如何？</p>
+<p>A: 你是不是傻，知道属性变了，就可以调用<code>render(data)</code>了呀。</p>
+</blockquote>
+<ul>
+<li><code>UI = render(data)</code></li>
+</ul>
+<h1 id="heading-3">数据响应式</h1>
+<h2 id="heading-4">什么是响应式</h2>
+<ul>
+<li>如果一个物体能对外界的刺激做出反应，它就是响应式的</li>
+</ul>
+<blockquote>
+<p>我打你一拳，你会喊疼，那你就是响应式的:)</p>
+</blockquote>
+<h2 id="vue--data--1">Vue 的 data 是响应式</h2>
+<ul>
+<li><code>const vm = new Vue({data:{n:0}})</code></li>
+<li>如果修改<strong>vm.n</strong>,那么<strong>UI</strong>中的<strong>n</strong>就会响应</li>
+<li><strong>Vue 2</strong>通过<strong>Object.defineProperty</strong>来实现数据响应式</li>
+</ul>
+<h2 id="heading-5">什么是响应式网页</h2>
+<ul>
+<li>如果用户改变窗口大小，网页内容会做出响应，那这个网页就是响应式网页。</li>
+</ul>
+<blockquote>
+<p>比如著名的响应式网页: <a href="https://www.smashingmagazine.com/">Smashing Magazine</a></p>
+</blockquote>
+<h1 id="vue--data--bug">Vue 的 data 的 bug</h1>
+<h2 id="objectdefineproperty-">Object.defineProperty 的问题</h2>
+<p>Q: 对于 <code>Object.defineProperty(obj, 'n', {...})</code>，必须要有一个<strong>n</strong>，才能监听和代理<strong>obj.n</strong>对吧，可是如果前端开发者差点意思，没有给<strong>n</strong>怎么办？比如下面这两个例子:</p>
+<blockquote>
+<p><a href="https://codesandbox.io/s/focused-mayer-o12wo">示例一</a>: <strong>Vue</strong>会给出一个警告</p>
+<p><a href="https://codesandbox.io/s/morning-cache-7hy2j">示例二</a>: <strong>Vue</strong>只会检查第一层属性</p>
+</blockquote>
+<blockquote>
+<p>Q: 那此时如果我点击<strong>set b</strong>，请问视图中会显示<strong>1</strong>吗?</p>
+<p>A: 不会。因为<strong>Vue</strong>没有办法监听一开始就不存在的<strong>obj.b</strong></p>
+</blockquote>
+<h2 id="heading-6">那怎么办</h2>
+<ol>
+<li>
+<p>我把 key 都声明好，后面不再加属性不就行了</p>
+</li>
+<li>
+<p>使用<code>Vue.set</code>或者<code>this.$set</code></p>
+</li>
+</ol>
+<h2 id="vueset--thisset">Vue.set 和 this.$set</h2>
+<ul>
+<li>作用一: 新增<strong>key</strong></li>
+<li>作用二: 触发<strong>UI</strong>更新(但不会立刻更新)</li>
+<li>举个例子:</li>
+</ul>
+<pre><code class="language-javascript">console.log(Vue.set === this.$set);
+Vue.set(this.obj, &quot;b&quot;, 1);
+this.$set(this.obj, &quot;b&quot;, 1);
+</code></pre>
+<blockquote>
+<p><a href="https://codesandbox.io/s/competent-noyce-xzpov">完整代码 - 自己试试</a></p>
+</blockquote>
+<h2 id="data-">data 中有数组怎么办</h2>
+<p>Q: 刚才说了如果<strong>data</strong>中新增了<strong>key</strong>有两种方法可以解决，但有没有可能没有办法提前声明好，只能使用<strong>set</strong>呢?比如说<strong>data</strong>里有数组怎么办？</p>
+<p>A: 好问题，继续看。</p>
+<ul>
+<li>你没法提前声明所有<strong>key</strong>:</li>
+</ul>
+<p><a href="https://codesandbox.io/s/focused-banach-emkiy">示例 1</a>: 数组的长度可以一直增加，下标就是<strong>key</strong>，你看，你没有办法提前把数组的<strong>key</strong>都声明出来，<strong>Vue</strong>也不能检测对你新增了下标，难道每次改数组都要用<code>Vue.set</code>或者<code>this.$set</code>?</p>
+<ul>
+<li>尤雨溪的做法:</li>
+</ul>
+<p>篡改数组的<strong>API</strong>,见文档中<a href="https://cn.vuejs.org/v2/guide/list.html#%E5%8F%98%E6%9B%B4%E6%96%B9%E6%B3%95">变更方法</a>，这 7 个<strong>API</strong>都会被<strong>Vue</strong>篡改，调用后会更新<strong>UI</strong>.</p>
+<ul>
+<li>篡改的<strong>ES6</strong>写法:</li>
+</ul>
+<blockquote>
+<p>不代表<strong>Vue</strong>的真实实现，只是说个思路</p>
+</blockquote>
+<pre><code class="language-javascript">class VueArray extends Array {
+  push(...args) {
+    const oldLength = this.length; // this就是当前数组
+    super.push(...args); //会调用上一层原型（原来数组）的push方法
+    console.log(&quot; push &quot;);
+    for (let i = oldLength; i &lt; this.length; i++) {
+      Vue.set(this, i, this[i]); // 将每个新增的key都告诉Vue
+    }
+  }
+}
+</code></pre>
+<blockquote>
+<p>可以看到，<strong>Vue</strong>中的<strong>push()<strong>做了两件事，第一个是调用以前的</strong>push()</strong>，同时还帮你把新增的<strong>key</strong>通过<code>Vue.set</code>或者<code>this.$set</code>通知给<strong>Vue</strong>。</p>
+</blockquote>
+<ul>
+<li>结果:</li>
+</ul>
+<p>你还是可以通过<code>this.array.push()</code>就可以完成对数组增的操作，但其实你要明白，这个<strong>push()</strong> 其实已经不是最原始的那个<strong>push()</strong> 了。</p>
+<blockquote>
+<p>你: <strong>push()</strong> 你变了</p>
+<p><strong>push()</strong>: 没错我变了</p>
+</blockquote>
+<h1 id="heading-7">总结</h1>
+<h2 id="-key">对象中新增的 key</h2>
+<ul>
+<li><strong>Vue</strong>没有办法事先监听和代理</li>
+<li>要使用<strong>set</strong>来新增<strong>key</strong>，创建监听和代理，更新<strong>UI</strong></li>
+<li>最好提前把属性都写出来，不要新增<strong>key</strong></li>
+<li>但数组做不到 &ldquo;不新增<strong>key</strong>&rdquo;</li>
+</ul>
+<h2 id="-key-1">数组中新增的 key</h2>
+<ul>
+<li>也可以用<strong>set</strong>来新增<strong>key</strong>，更新<strong>UI</strong></li>
+<li>不过尤雨溪篡改了 7 个<strong>API</strong>方便你对数组进行增删</li>
+<li>这 7 个<strong>API</strong>会自动处理监听和代理，并更新<strong>UI</strong></li>
+</ul>
+<blockquote>
+<p>注意，<code>this.$set</code>作用于数组时，并不会自动添加监听和代理，原因未知，可以问尤雨溪:)</p>
+</blockquote>
+<blockquote>
+<p>使用 <strong>Vue</strong> 提供的<a href="https://cn.vuejs.org/v2/guide/list.html#%E5%8F%98%E6%9B%B4%E6%96%B9%E6%B3%95">变更方法</a> <strong>API</strong> 时，会自动添加监听和代理</p>
+</blockquote>
+<h1 id="-vue-">说说对 Vue 数据响应式的理解</h1>
+<blockquote>
+<p>好了，写了这么多，最后说说我对<strong>Vue</strong>数据响应式的理解</p>
+</blockquote>
+<ol>
+<li><strong>Vue</strong>通过使用<strong>getter</strong>&amp;<strong>setter</strong>和<strong>Object.defineProperty</strong>来追踪<strong>data</strong>的变化，这样来实现响应式</li>
+<li><strong>Vue</strong>通过使用<code>Vue.set</code>或者<code>this.$set</code>来新增<strong>key</strong>，并且创建监听和代理，触发<strong>UI</strong>更新(不会立即更新)</li>
+</ol>
+<blockquote>
+<p>扩展阅读: <a href="https://zhuanlan.zhihu.com/p/39421405">Vue 数据响应式中的一个刁钻的题 - 知乎</a></p>
+</blockquote>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-167283959-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>
