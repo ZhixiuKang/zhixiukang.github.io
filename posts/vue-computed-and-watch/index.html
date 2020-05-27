@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="Zhixiu Kang, 康知修, 修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue: computed和watch"/>
+<meta name="twitter:description" content="回顾一下响应式原理  完整文章: Vue: 深入理解数据响应式 | 修
+ options.data  会被Vue监听 会被Vue示例代理 每次对data的读写都会被Vue监控 Vue会在data变化时更新UI  本篇文章讲  data变化时除了更新UI，还能做些什么？  computed - 计算属性 用途  被计算出来的属性就是计算属性  例子一:  用户名展示  main.js
+// 引用完整版 Vue，方便说明 import Vue from &quot;vue/dist/vue.js&quot;; new Vue({ data: { user: { email: &quot;hahaha123@gmail.com&quot;, nickname: &quot;修&quot;, phone: &quot;18832388888&quot;, }, }, computed: { displayName: { get() { const user = this.user; return user.nickname || user.email || user.phone; }, set(value) { console."/>
+
+    <meta property="og:title" content="Vue: computed和watch" />
+<meta property="og:description" content="回顾一下响应式原理  完整文章: Vue: 深入理解数据响应式 | 修
+ options.data  会被Vue监听 会被Vue示例代理 每次对data的读写都会被Vue监控 Vue会在data变化时更新UI  本篇文章讲  data变化时除了更新UI，还能做些什么？  computed - 计算属性 用途  被计算出来的属性就是计算属性  例子一:  用户名展示  main.js
+// 引用完整版 Vue，方便说明 import Vue from &quot;vue/dist/vue.js&quot;; new Vue({ data: { user: { email: &quot;hahaha123@gmail.com&quot;, nickname: &quot;修&quot;, phone: &quot;18832388888&quot;, }, }, computed: { displayName: { get() { const user = this.user; return user.nickname || user.email || user.phone; }, set(value) { console." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhixiukang.com/posts/vue-computed-and-watch/" />
+<meta property="article:published_time" content="2020-04-06T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-04-06T15:21:33-08:00" />
+
+
+    
+      <base href="https://zhixiukang.com/posts/vue-computed-and-watch/">
+    
+    <title>
+Vue: computed和watch · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="https://zhixiukang.com/posts/vue-computed-and-watch/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-167283959-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+
+    
+      
+      
+      <link rel="stylesheet" href="https://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.62.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/tags/">分类</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">Vue: computed和watch</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-04-06T15:21:33-08:00'>
+              April 6, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://zhixiukang.com/tags/vue%E5%85%A8%E8%A7%A3/">Vue全解</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <h1 id="heading">回顾一下响应式原理</h1>
+<blockquote>
+<p>完整文章: <a href="https://zhixiukang.com/posts/vue-reactivity-in-depth/">Vue: 深入理解数据响应式 | 修</a></p>
+</blockquote>
+<h2 id="optionsdata">options.data</h2>
+<ul>
+<li>会被<strong>Vue</strong>监听</li>
+<li>会被<strong>Vue</strong>示例代理</li>
+<li>每次对<strong>data</strong>的读写都会被<strong>Vue</strong>监控</li>
+<li><strong>Vue</strong>会在<strong>data</strong>变化时更新<strong>UI</strong></li>
+</ul>
+<h2 id="heading-1">本篇文章讲</h2>
+<ul>
+<li><strong>data</strong>变化时除了更新<strong>UI</strong>，还能做些什么？</li>
+</ul>
+<h1 id="computed---">computed - 计算属性</h1>
+<h2 id="heading-2">用途</h2>
+<ul>
+<li>被计算出来的属性就是计算属性</li>
+</ul>
+<h2 id="heading-3">例子一:</h2>
+<ul>
+<li><a href="https://codesandbox.io/s/great-torvalds-xogr5">用户名展示</a></li>
+</ul>
+<p><strong>main.js</strong></p>
+<pre><code class="language-javascript">// 引用完整版 Vue，方便说明
+import Vue from &quot;vue/dist/vue.js&quot;;
+
+new Vue({
+  data: {
+    user: {
+      email: &quot;hahaha123@gmail.com&quot;,
+      nickname: &quot;修&quot;,
+      phone: &quot;18832388888&quot;,
+    },
+  },
+  computed: {
+    displayName: {
+      get() {
+        const user = this.user;
+        return user.nickname || user.email || user.phone;
+      },
+      set(value) {
+        console.log(value);
+        this.user.nickname = value;
+      },
+    },
+  },
+  // 不如用 computed 来计算 displayName
+  template: `
+      &lt;div&gt;
+      {{displayName}}
+      &lt;button @click=&quot;add&quot;&gt;set&lt;/button&gt;
+      &lt;/div&gt;
+  `,
+  methods: {
+    add() {
+      this.displayName = &quot;大白&quot;;
+    },
+  },
+}).$mount(&quot;#app&quot;);
+</code></pre>
+<h2 id="heading-4">例子二:</h2>
+<ul>
+<li><a href="https://codesandbox.io/s/mystifying-nightingale-i1pv4">不用 computed 筛选男女</a></li>
+</ul>
+<pre><code class="language-javascript">import Vue from &quot;vue/dist/vue.js&quot;;
+
+Vue.config.productionTip = false;
+let id = 0;
+const createUser = (name, gender) =&gt; {
+  id += 1;
+  return { id: id, name: name, gender: gender };
+};
+new Vue({
+  data() {
+    return {
+      users: [
+        createUser(&quot;Alice&quot;, &quot;Female&quot;),
+        createUser(&quot;Bob&quot;, &quot;Male&quot;),
+        createUser(&quot;Charlie&quot;, &quot;Male&quot;),
+        createUser(&quot;Dupon&quot;, &quot;Female&quot;)
+      ],
+      displayUsers: []
+    };
+  },
+  created() {
+    this.displayUsers = this.users;
+  },
+  methods: {
+    showAll() {
+      this.displayUsers = this.users;
+    },
+    showMale() {
+      this.displayUsers = this.users.filter(u =&gt; u.gender === &quot;Male&quot;);
+    },
+    showFemale() {
+      this.displayUsers = this.users.filter(u =&gt; u.gender === &quot;Female&quot;);
+    }
+  },
+  template: `
+    &lt;div&gt;
+      &lt;div&gt;
+      &lt;button @click=&quot;showAll&quot;&gt;All&lt;/button&gt;
+      &lt;button @click=&quot;showMale&quot;&gt;Male&lt;/button&gt;
+      &lt;button @click=&quot;showFemale&quot;&gt;Female&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;ul&gt;
+        &lt;li v-for=&quot;(u, index) in displayUsers&quot; :key=&quot;index&quot;&gt;{{u.name}} - {{u.gender}}&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  `
+}).$mount(“#app”);
+</code></pre>
+<ul>
+<li><a href="https://codesandbox.io/s/tender-firefly-ix1dm">使用 computed 筛选男女</a></li>
+</ul>
+<pre><code class="language-javascript">import Vue from &quot;vue/dist/vue.js&quot;;
+
+Vue.config.productionTip = false;
+let id = 0;
+const createUser = (name, gender) =&gt; {
+  id += 1;
+  return { id: id, name: name, gender: gender };
+};
+new Vue({
+  data() {
+    return {
+      users: [
+        createUser(&quot;Alice&quot;, &quot;Female&quot;),
+        createUser(&quot;Bob&quot;, &quot;Male&quot;),
+        createUser(&quot;Charlie&quot;, &quot;Male&quot;),
+        createUser(&quot;Dupon&quot;, &quot;Female&quot;),
+      ],
+      gender: &quot;&quot;,
+    };
+  },
+  computed: {
+    displayUsers() {
+      const hash = {
+        Male: &quot;Male&quot;,
+        Female: &quot;Female&quot;,
+      };
+      const { users, gender } = this;
+      if (gender === &quot;&quot;) {
+        return users;
+      } else if (typeof gender === &quot;string&quot;) {
+        return users.filter((u) =&gt; u.gender === hash[gender]);
+      } else {
+        throw new Error(&quot;Unexpected gender!&quot;);
+      }
+    },
+  },
+  methods: {
+    setGender(string) {
+      this.gender = string;
+    },
+    // showAll() {
+    //   this.gender = &quot;&quot;;
+    // },
+    // showMale() {
+    //   this.gender = &quot;Male&quot;;
+    // },
+    // showFemale() {
+    //   this.gender = &quot;Female&quot;;
+    // }
+  },
+  template: `
+    &lt;div&gt;
+      &lt;div&gt;
+      &lt;button @click=&quot;setGender('')&quot;&gt;All&lt;/button&gt;
+      &lt;button @click=&quot;setGender('Male')&quot;&gt;Male&lt;/button&gt;
+      &lt;button @click=&quot;setGender('Female')&quot;&gt;Female&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;ul&gt;
+        &lt;li v-for=&quot;(u, index) in displayUsers&quot; :key=&quot;index&quot;&gt;{{u.name}} - {{u.gender}}&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  `,
+}).$mount(&quot;#app&quot;);
+</code></pre>
+<h2 id="heading-5">缓存</h2>
+<ul>
+<li>如果依赖的属性没有变化，就不会重新计算</li>
+<li><strong>getter / setter</strong>默认不会做缓存，<strong>Vue</strong>做了特殊处理</li>
+<li>如何缓存? 看<a href="https://codesandbox.io/s/quizzical-goldberg-druef">示例</a></li>
+</ul>
+<blockquote>
+<p>这只是一种思路，不代表<strong>Vue</strong>这样实现</p>
+</blockquote>
+<h1 id="watch-----">watch - 监听 / 侦听</h1>
+<h2 id="heading-6">用途</h2>
+<ul>
+<li>当数据变化时，执行一个函数</li>
+</ul>
+<h2 id="heading-7">两个例子</h2>
+<ul>
+<li>例子一: <a href="https://codesandbox.io/s/fast-cdn-nquxl">撤销</a></li>
+</ul>
+<pre><code class="language-javascript">import Vue from &quot;vue/dist/vue.js&quot;;
+
+Vue.config.productionTip = false;
+
+new Vue({
+  data: {
+    n: 0,
+    history: [],
+    // 是否处于撤销模式
+    inUndoMode: false
+  },
+  watch: {
+    n(newValue, oldValue) {
+      if (!this.inUndoMode) {
+        this.history.push({ from: oldValue, to: newValue });
+      }
+    }
+  },
+  // 不如用 computed 来计算 displayName
+  template: `
+    &lt;div&gt;
+      {{n}}
+      &lt;hr /&gt;
+      &lt;button @click=“add1”&gt;+1&lt;/button&gt;
+      &lt;button @click=“add2”&gt;+2&lt;/button&gt;
+      &lt;button @click=“minus1”&gt;-1&lt;/button&gt;
+      &lt;button @click=&quot;minus2&quot;&gt;-2&lt;/button&gt;
+      &lt;hr/&gt;
+      &lt;button @click=&quot;undo&quot;&gt;撤销&lt;/button&gt;
+      &lt;hr/&gt;
+
+      {{history}}
+    &lt;/div&gt;
+  `,
+  methods: {
+    add1() {
+      this.n += 1;
+    },
+    add2() {
+      this.n += 2;
+    },
+    minus1() {
+      this.n -= 1;
+    },
+    minus2() {
+      this.n -= 2;
+    },
+    undo() {
+      const last = this.history.pop();
+      // 不能这么做，因为撤销的操作也会被watch到
+      // const old = last.from;
+      // this.n = old;
+      // 那能不能不watch data changes？
+      // Evan: just do a conditional check inside the watcher callback
+
+      // ok,我继续试试
+      // const old = last.from;
+      // this.inUndoMode = true;
+      // this.n = old; // watch是异步的
+      // this.inUndoMode = false;
+      // 这个时候才会检查inUndoMode,那肯定它一直都是false
+      // 那怎么办？
+
+      // 让子弹飞一会，等watch执行完了，你再变成false
+      const old = last.from;
+      this.inUndoMode = true;
+      this.n = old; // watch是异步的
+      this.$nextTick(() =&gt; {// 精髓之笔
+        this.inUndoMode = false;
+      }, 0);
+    }
+  }
+}).$mount(“#app”);
+</code></pre>
+<blockquote>
+<p>附录:<a href="https://github.com/vuejs/vue/issues/1829#issuecomment-158183493">Ability to not trigger watch handler on data? | Evan You</a>:</p>
+<p>The point of a watcher is that it will fire when the data changes. Instead of thinking about stopping it from firing, just do a conditional check inside the watcher callback.</p>
+</blockquote>
+<blockquote>
+<p>通过这个例子，发现<strong>watch</strong>是完美实现历史功能的一个方法。</p>
+</blockquote>
+<ul>
+<li>例子二: <a href="https://codesandbox.io/s/objective-shtern-5pst2">模拟 computed</a></li>
+</ul>
+<blockquote>
+<p>说实话，这样做很傻</p>
+</blockquote>
+<p>这个例子告诉我们，既可以用<strong>computed</strong>也可以用<strong>watch</strong>的话，就先用<strong>computed</strong>，不行再用<strong>watch</strong>。他们都是在数据变化的时候去执行一个函数，只不过<strong>computed</strong>主要着重于依赖之间的变化以及缓存，<strong>watch</strong>主要着重于变化的时候去执行一个什么东西，而不是得出一个结果(也可能什么结果都没有)。比如我<strong>watch</strong>的时候，我就打一个<strong>log</strong>，那你用<strong>computed</strong>就不合适吧，或者说<strong>watch</strong>的时候我就记录一个历史，那你用<strong>computed</strong>也不合适吧。因为此时我并不需要你得出一个属性结果出来，我只需要你去执行一个函数，去操作一个内部数据而已。</p>
+<h2 id="heading-8">何为变化？</h2>
+<blockquote>
+<p>对于<strong>watch</strong>或是对于<strong>vue</strong>的所有监听器来说，什么是变化？</p>
+</blockquote>
+<ul>
+<li>看<a href="https://codesandbox.io/s/quirky-poincare-777m8">示例</a></li>
+</ul>
+<p>Q: <strong>obj</strong>原本是<code>{a: ‘a’}</code>，现在<code>obj = {a: 'a'}</code>，请问<strong>obj</strong>变了没有？<strong>obj.a</strong>变了没有?</p>
+<p>A: <strong>obj</strong>没有变， <strong>obj.a</strong>变了。因为<strong>obj</strong>是对象且地址没变，<strong>obj.a</strong>是简单类型而值变了。</p>
+<blockquote>
+<p>简单类型看值，复杂类型(对象)看地址。</p>
+</blockquote>
+<blockquote>
+<p>这其实就是<code>===</code>的规则</p>
+</blockquote>
+<h2 id="watch--deep-">watch 的 deep 选项</h2>
+<p>Q: 如果<strong>obj.a</strong>变了，请问<strong>obj</strong>算不算也变了？</p>
+<p>A: 如果你需要的答案是&quot;也变了&rdquo;，那么就用<code>deep:true</code>，如果你需要的答案是&quot;没有变&rdquo;，那么就用<code>deep:false</code>。</p>
+<blockquote>
+<p><strong>deep</strong>的意思是，监听<strong>object</strong>的时候是否往深了看</p>
+</blockquote>
+<pre><code class="language-javascript">import Vue from &quot;vue/dist/vue.js&quot;;
+
+new Vue({
+  data: {
+    obj: {
+      a: &quot;a&quot;
+    }
+  }
+  watch: {
+    obj: {
+      deep: true
+    }
+  }
+}).$mount(“#app”);
+</code></pre>
+<blockquote>
+<p><a href="https://codesandbox.io/s/stoic-cloud-14ees">自己试试</a></p>
+</blockquote>
+<h2 id="watch-">watch 的完整语法</h2>
+<blockquote>
+<p><strong>watch</strong>的功能已经说完了，现在聊聊<strong>watch</strong>的完整语法</p>
+</blockquote>
+<ul>
+<li>语法一:</li>
+</ul>
+<blockquote>
+<p>官方文档: <a href="https://cn.vuejs.org/v2/api/#watch">watch — Vue.js</a></p>
+</blockquote>
+<pre><code class="language-javascript">watch: {
+  o1: () =&gt; {}， // 别用这种，这里的this是全局对象
+
+  o2: function(value, oldValue){},
+
+  o3(){},
+
+  o4:[f1,f2],  // o4变化的时候依次执行f1, f2
+
+  o5:'methodName'
+
+  o6: {handler:fn, deep :true, immediate:true},
+
+	'object.a' : function(){}
+}
+</code></pre>
+<ul>
+<li>语法二:</li>
+</ul>
+<pre><code class="language-javascript">vm.$watch('xxx', fn, {deep:...;immediate:...})
+// 其中'xxx’可以改为一个返回字符串的函数
+
+// 上面的写法很丑，不如挂在生命周期钩子里
+created(){
+    this.$watch('xxx', fn, {deep:...;immediate:...})
+}
+</code></pre>
+<h1 id="computed--watch-">computed 和 watch 的区别</h1>
+<blockquote>
+<p>Q: 前面讲了<strong>computed</strong>和<strong>watch</strong>，现在灵魂一问来了，<strong>computed</strong>和<strong>watch</strong>的区别是什么？</p>
+<p>A: 好吧，那谈谈我的想法</p>
+</blockquote>
+<ul>
+<li><strong>computed</strong>是计算属性，<strong>watch</strong>是监听</li>
+<li><strong>computed</strong>是用来计算出一个值的，这个值在调用的时候，第一个是不需要加括号，可以当属性这样用，第二个是根据依赖会自动缓存，如果依赖不变，这个<strong>computed</strong>的值就不会重新计算</li>
+<li><strong>watch</strong>是用来监听的，如果某个属性变化了就去执行一个函数。<strong>watch</strong>有两个选项，第一个选项是<strong>immediate</strong>，表示在第一次渲染的时候是否执行这个函数，第二个选项是<strong>deep</strong>，表示如果我们监听一个对象，那么我们是否要看这个对象里面的属性的变化</li>
+</ul>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2020
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-167283959-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

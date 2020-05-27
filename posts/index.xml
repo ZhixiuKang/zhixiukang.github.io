@@ -6,10 +6,21 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 03 Apr 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="https://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue: computed和watch</title>
+      <link>https://zhixiukang.com/posts/vue-computed-and-watch/</link>
+      <pubDate>Mon, 06 Apr 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/vue-computed-and-watch/</guid>
+      <description>回顾一下响应式原理  完整文章: Vue: 深入理解数据响应式 | 修
+ options.data  会被Vue监听 会被Vue示例代理 每次对data的读写都会被Vue监控 Vue会在data变化时更新UI  本篇文章讲  data变化时除了更新UI，还能做些什么？  computed - 计算属性 用途  被计算出来的属性就是计算属性  例子一:  用户名展示  main.js
+// 引用完整版 Vue，方便说明 import Vue from &amp;quot;vue/dist/vue.js&amp;quot;; new Vue({ data: { user: { email: &amp;quot;hahaha123@gmail.com&amp;quot;, nickname: &amp;quot;修&amp;quot;, phone: &amp;quot;18832388888&amp;quot;, }, }, computed: { displayName: { get() { const user = this.user; return user.nickname || user.email || user.phone; }, set(value) { console.</description>
+    </item>
     
     <item>
       <title>Vue: 深入理解数据响应式</title>
