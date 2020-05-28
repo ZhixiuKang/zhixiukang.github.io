@@ -6,10 +6,23 @@
     <description>Recent content in Tech on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 06 Apr 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="https://zhixiukang.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue: 模板、指令与操作符</title>
+      <link>https://zhixiukang.com/posts/vue-template-directives-and-modifier/</link>
+      <pubDate>Fri, 10 Apr 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/vue-template-directives-and-modifier/</guid>
+      <description>模板 template 三种写法 Vue 完整版，写在 HTML 里 index.html:
+&amp;lt;div id=xxx&amp;gt; {{n}} &amp;lt;button @click= &amp;quot;add&amp;quot;&amp;gt;+1&amp;lt; /button&amp;gt; &amp;lt;/div&amp;gt;  main.js的new Vue()的options里就不需要写template属性:
+new Vue({ el: &#39;#xxx&#39; data:{n:0}, // data可以改成函数 methods:{add(){}} })  Vue 完整版，写在选项里 在index.html里写好挂载点:
+&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;  main.js的new Vue()的options里写template属性:
+new Vue({ template: ` &amp;lt;div&amp;gt; {{n}} &amp;lt;button @click= &amp;quot;add&amp;quot;&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt;`, data: { n: 0 }, methods: { add() { this.n += 1; }, }, }).$mount(&amp;quot;#app&amp;quot;); // 注意一个细节: div#app会被替代  Vue 非完整版，配合 xxx.vue 文件 xxx.</description>
+    </item>
     
     <item>
       <title>Vue: computed和watch</title>
