@@ -6,10 +6,26 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 10 Apr 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="https://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue: 进阶构造属性</title>
+      <link>https://zhixiukang.com/posts/vue-options-advanced-examples/</link>
+      <pubDate>Wed, 15 Apr 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/vue-options-advanced-examples/</guid>
+      <description>之前在Vue: 构造选项 里罗列了options 的五类属性，今天就把剩下的关于资源和组合的属性说一说。
+ directives、 mixins、 extends、 provide、 inject
+ directives - 指令 自定义指令  我们已经学了一些内置指令   如 v-if、 v-for、 v-show、 v-html等
+  今天学习如何自己造一个指令   目标: 造出v-x， 点击即出现一个x
+ 两种写法  声明一个全局指令  Vue.directive(&amp;quot;x&amp;quot;, directiveOptions);   这样你就可以在任何组件里用v-x了，动手试试
+  声明一个局部指令  new Vue({ ..., directives: { &amp;quot;x&amp;quot;: directiveOptions } })   注意，v-x只能用在该实例中，动手试试
+ directiveOptions  上面例子中的directiveOptions里有哪些属性？
+ 五个函数属性  bind(el, info, vnode, oldVnode) - 类似created inserted(参数同上) - 类似mounted updated(参数同上) - 类似updated componentUpdated(参数同上) - 用得不多，见文档 unbind(参数同上) - 类似destroyed  举例  自制 v-on2 指令，模仿 v-on  main.</description>
+    </item>
     
     <item>
       <title>Vue: 模板、指令与操作符</title>
