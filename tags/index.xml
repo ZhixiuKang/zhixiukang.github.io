@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 24 May 2020 22:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="https://zhixiukang.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>理解React</title>
+      <link>https://zhixiukang.com/tags/%E7%90%86%E8%A7%A3react/</link>
+      <pubDate>Sat, 15 Aug 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/tags/%E7%90%86%E8%A7%A3react/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>投资</title>
