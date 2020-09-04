@@ -6,7 +6,7 @@
     <description>Recent content in 理解React on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 15 Aug 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="https://zhixiukang.com/tags/%E7%90%86%E8%A7%A3react/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>React: Hooks原理解析</title>
       <link>https://zhixiukang.com/posts/react-hooks-principles/</link>
-      <pubDate>Sat, 15 Aug 2020 15:21:33 -0800</pubDate>
+      <pubDate>Mon, 10 Aug 2020 15:21:33 -0800</pubDate>
       
       <guid>https://zhixiukang.com/posts/react-hooks-principles/</guid>
       <description>最简单的 useState 实现 useState 原理 import React from &amp;quot;react&amp;quot;; import ReactDOM from &amp;quot;react-dom&amp;quot;; const rootElement = document.getElementById(&amp;quot;root&amp;quot;); function App() { const [n, setN] = React.useState(0); return ( &amp;lt;div className=&amp;quot;App&amp;quot;&amp;gt; &amp;lt;p&amp;gt;{n}&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; &amp;lt;button onClick={() =&amp;gt; setN(n + 1)}&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; ); } ReactDOM.render(&amp;lt;App /&amp;gt;, rootElement);   自己试试 - CodeSandbox

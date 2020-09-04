@@ -6,15 +6,24 @@
     <description>Recent content in Tags on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 15 Aug 2020 15:21:33 -0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2020 15:21:33 -0800</lastBuildDate>
     
 	<atom:link href="https://zhixiukang.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Agile Framework</title>
+      <link>https://zhixiukang.com/tags/agile-framework/</link>
+      <pubDate>Wed, 12 Aug 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/tags/agile-framework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>理解React</title>
       <link>https://zhixiukang.com/tags/%E7%90%86%E8%A7%A3react/</link>
-      <pubDate>Sat, 15 Aug 2020 15:21:33 -0800</pubDate>
+      <pubDate>Mon, 10 Aug 2020 15:21:33 -0800</pubDate>
       
       <guid>https://zhixiukang.com/tags/%E7%90%86%E8%A7%A3react/</guid>
       <description></description>
