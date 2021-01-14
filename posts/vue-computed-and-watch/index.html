@@ -75,7 +75,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -149,7 +149,7 @@ if (!doNotTrack) {
     </header>
 
     <div>
-      <h1 id="heading">回顾一下响应式原理</h1>
+      <h1 id="回顾一下响应式原理">回顾一下响应式原理</h1>
 <blockquote>
 <p>完整文章: <a href="https://zhixiukang.com/posts/vue-reactivity-in-depth/">Vue: 深入理解数据响应式 | 修</a></p>
 </blockquote>
@@ -160,16 +160,16 @@ if (!doNotTrack) {
 <li>每次对<strong>data</strong>的读写都会被<strong>Vue</strong>监控</li>
 <li><strong>Vue</strong>会在<strong>data</strong>变化时更新<strong>UI</strong></li>
 </ul>
-<h2 id="heading-1">本篇文章讲</h2>
+<h2 id="本篇文章讲">本篇文章讲</h2>
 <ul>
 <li><strong>data</strong>变化时除了更新<strong>UI</strong>，还能做些什么？</li>
 </ul>
-<h1 id="computed---">computed - 计算属性</h1>
-<h2 id="heading-2">用途</h2>
+<h1 id="computed---计算属性">computed - 计算属性</h1>
+<h2 id="用途">用途</h2>
 <ul>
 <li>被计算出来的属性就是计算属性</li>
 </ul>
-<h2 id="heading-3">例子一:</h2>
+<h2 id="例子一">例子一:</h2>
 <ul>
 <li><a href="https://codesandbox.io/s/great-torvalds-xogr5">用户名展示</a></li>
 </ul>
@@ -211,7 +211,7 @@ new Vue({
   },
 }).$mount(&quot;#app&quot;);
 </code></pre>
-<h2 id="heading-4">例子二:</h2>
+<h2 id="例子二">例子二:</h2>
 <ul>
 <li><a href="https://codesandbox.io/s/mystifying-nightingale-i1pv4">不用 computed 筛选男女</a></li>
 </ul>
@@ -330,7 +330,7 @@ new Vue({
   `,
 }).$mount(&quot;#app&quot;);
 </code></pre>
-<h2 id="heading-5">缓存</h2>
+<h2 id="缓存">缓存</h2>
 <ul>
 <li>如果依赖的属性没有变化，就不会重新计算</li>
 <li><strong>getter / setter</strong>默认不会做缓存，<strong>Vue</strong>做了特殊处理</li>
@@ -339,12 +339,12 @@ new Vue({
 <blockquote>
 <p>这只是一种思路，不代表<strong>Vue</strong>这样实现</p>
 </blockquote>
-<h1 id="watch-----">watch - 监听 / 侦听</h1>
-<h2 id="heading-6">用途</h2>
+<h1 id="watch---监听--侦听">watch - 监听 / 侦听</h1>
+<h2 id="用途-1">用途</h2>
 <ul>
 <li>当数据变化时，执行一个函数</li>
 </ul>
-<h2 id="heading-7">两个例子</h2>
+<h2 id="两个例子">两个例子</h2>
 <ul>
 <li>例子一: <a href="https://codesandbox.io/s/fast-cdn-nquxl">撤销</a></li>
 </ul>
@@ -436,7 +436,7 @@ new Vue({
 <p>说实话，这样做很傻</p>
 </blockquote>
 <p>这个例子告诉我们，既可以用<strong>computed</strong>也可以用<strong>watch</strong>的话，就先用<strong>computed</strong>，不行再用<strong>watch</strong>。他们都是在数据变化的时候去执行一个函数，只不过<strong>computed</strong>主要着重于依赖之间的变化以及缓存，<strong>watch</strong>主要着重于变化的时候去执行一个什么东西，而不是得出一个结果(也可能什么结果都没有)。比如我<strong>watch</strong>的时候，我就打一个<strong>log</strong>，那你用<strong>computed</strong>就不合适吧，或者说<strong>watch</strong>的时候我就记录一个历史，那你用<strong>computed</strong>也不合适吧。因为此时我并不需要你得出一个属性结果出来，我只需要你去执行一个函数，去操作一个内部数据而已。</p>
-<h2 id="heading-8">何为变化？</h2>
+<h2 id="何为变化">何为变化？</h2>
 <blockquote>
 <p>对于<strong>watch</strong>或是对于<strong>vue</strong>的所有监听器来说，什么是变化？</p>
 </blockquote>
@@ -451,9 +451,9 @@ new Vue({
 <blockquote>
 <p>这其实就是<code>===</code>的规则</p>
 </blockquote>
-<h2 id="watch--deep-">watch 的 deep 选项</h2>
+<h2 id="watch-的-deep-选项">watch 的 deep 选项</h2>
 <p>Q: 如果<strong>obj.a</strong>变了，请问<strong>obj</strong>算不算也变了？</p>
-<p>A: 如果你需要的答案是&quot;也变了&rdquo;，那么就用<code>deep:true</code>，如果你需要的答案是&quot;没有变&rdquo;，那么就用<code>deep:false</code>。</p>
+<p>A: 如果你需要的答案是&quot;也变了&quot;，那么就用<code>deep:true</code>，如果你需要的答案是&quot;没有变&quot;，那么就用<code>deep:false</code>。</p>
 <blockquote>
 <p><strong>deep</strong>的意思是，监听<strong>object</strong>的时候是否往深了看</p>
 </blockquote>
@@ -475,7 +475,7 @@ new Vue({
 <blockquote>
 <p><a href="https://codesandbox.io/s/stoic-cloud-14ees">自己试试</a></p>
 </blockquote>
-<h2 id="watch-">watch 的完整语法</h2>
+<h2 id="watch-的完整语法">watch 的完整语法</h2>
 <blockquote>
 <p><strong>watch</strong>的功能已经说完了，现在聊聊<strong>watch</strong>的完整语法</p>
 </blockquote>
@@ -512,7 +512,7 @@ created(){
     this.$watch('xxx', fn, {deep:...;immediate:...})
 }
 </code></pre>
-<h1 id="computed--watch-">computed 和 watch 的区别</h1>
+<h1 id="computed-和-watch-的区别">computed 和 watch 的区别</h1>
 <blockquote>
 <p>Q: 前面讲了<strong>computed</strong>和<strong>watch</strong>，现在灵魂一问来了，<strong>computed</strong>和<strong>watch</strong>的区别是什么？</p>
 <p>A: 好吧，那谈谈我的想法</p>
@@ -579,7 +579,7 @@ created(){
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

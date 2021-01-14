@@ -91,7 +91,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -173,7 +173,7 @@ if (!doNotTrack) {
 <p><a href="http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html">jQuery 设计思想 - 阮一峰的网络日志</a></p>
 <p><a href="http://jqfundamentals.com/">jQuery Fundamentals - Bocoup</a></p>
 </blockquote>
-<h1 id="-jquery">特殊函数 jQuery</h1>
+<h1 id="特殊函数-jquery">特殊函数 jQuery</h1>
 <pre><code class="language-javascript">window.jQuery(); // 提供的全局函数
 </code></pre>
 <ul>
@@ -192,7 +192,7 @@ if (!doNotTrack) {
 <p>嫌 jQuery 太长？</p>
 <p>还记得 bash alias 吗，添加一个别名即可: <code>window.$ = window.jQuery</code></p>
 </blockquote>
-<h1 id="heading">命名风格</h1>
+<h1 id="命名风格">命名风格</h1>
 <ul>
 <li>下面的代码令人误解:</li>
 </ul>
@@ -208,7 +208,7 @@ if (!doNotTrack) {
 // $div.appendChild不存在，因为它不是DOM对象
 // $div.find存在，因为它是jQuery对象
 </code></pre>
-<h1 id="heading-1">链式操作</h1>
+<h1 id="链式操作">链式操作</h1>
 <blockquote>
 <p>原理是因为每一步的 jQuery 操作，返回的都是一个 jQuery 对象，所以不同操作可以连在一起。</p>
 </blockquote>
@@ -225,8 +225,8 @@ if (!doNotTrack) {
 
   .html(&quot;There&quot;); //将它的内容改为World
 </code></pre>
-<h1 id="heading-2">选择元素</h1>
-<h2 id="-css-">使用 CSS 选择器</h2>
+<h1 id="选择元素">选择元素</h1>
+<h2 id="使用-css-选择器">使用 CSS 选择器</h2>
 <pre><code class="language-javascript">$(document); //选择整个文档对象
 
 $(&quot;#myId&quot;); //选择ID为myId的网页元素
@@ -235,7 +235,7 @@ $(&quot;div.myClass&quot;); // 选择class为myClass的div元素
 
 $(&quot;input[name=first]&quot;); // 选择name属性等于first的input元素
 </code></pre>
-<h2 id="-jquery-">使用 jQuery 特有的表达式</h2>
+<h2 id="使用-jquery-特有的表达式">使用 jQuery 特有的表达式</h2>
 <pre><code class="language-javascript">$(&quot;a:first&quot;); //选择网页中第一个a元素
 
 $(&quot;tr:odd&quot;); //选择表格的奇数行
@@ -248,7 +248,7 @@ $(&quot;div:gt(2)&quot;); // 选择所有的div元素，除了前三个
 
 $(&quot;div:animated&quot;); // 选择当前处于动画状态的div元素
 </code></pre>
-<h2 id="heading-3">筛选结果集</h2>
+<h2 id="筛选结果集">筛选结果集</h2>
 <pre><code class="language-javascript">$(&quot;div&quot;).has(&quot;p&quot;); // 选择包含p元素的div元素
 
 $(&quot;div&quot;).not(&quot;.myClass&quot;); //选择class不等于myClass的div元素
@@ -259,7 +259,7 @@ $(&quot;div&quot;).first(); //选择第1个div元素
 
 .eq(5); //选择第6个div元素
 </code></pre>
-<h2 id="heading-4">根据结果集，移动到附近的相关元素</h2>
+<h2 id="根据结果集移动到附近的相关元素">根据结果集，移动到附近的相关元素</h2>
 <blockquote>
 <p>在 DOM 树上的移动方法</p>
 </blockquote>
@@ -281,7 +281,7 @@ $(&quot;div&quot;).siblings(); //选择div的同级元素
 
 $(&quot;h1&quot;).html(&quot;Hello&quot;); //html()有参数Hello，表示对h1进行赋值
 </code></pre>
-<h1 id="heading-5">移动元素</h1>
+<h1 id="移动元素">移动元素</h1>
 <pre><code class="language-javascript">// 把div元素移动p元素后面
 $(&quot;div&quot;).insertAfter($(&quot;p&quot;));
 // 把p元素加到div元素前面
@@ -304,7 +304,7 @@ $(&quot;p&quot;).after($(&quot;div&quot;));
 .prependTo()
 .prepend()
 </code></pre>
-<h1 id="heading-6">复制、删除和创建元素</h1>
+<h1 id="复制删除和创建元素">复制、删除和创建元素</h1>
 <pre><code class="language-javascript">// 复制元素
 .clone()
 // 删除元素
@@ -317,35 +317,35 @@ $(&quot;&lt;p&gt;Hello&lt;/p&gt;&quot;);
 $(&quot;&lt;li class=“new”&gt;new list item&lt;/li&gt;&quot;);
 $(&quot;ul&quot;).append(&quot;&lt;li&gt;list item&lt;/li&gt;&quot;);
 </code></pre>
-<h1 id="jquery-">jQuery 中的设计模式</h1>
-<h2 id="heading-7">发布订阅模式</h2>
+<h1 id="jquery-中的设计模式">jQuery 中的设计模式</h1>
+<h2 id="发布订阅模式">发布订阅模式</h2>
 <pre><code class="language-javascript">var eventHub = $({});
 eventHub.on(&quot;xxx&quot;, function () {
   console.log(&quot;收到&quot;);
 });
 eventHub.trigger(&quot;xxx&quot;);
 </code></pre>
-<h2 id="heading-8">用原型继承实现插件系统</h2>
+<h2 id="用原型继承实现插件系统">用原型继承实现插件系统</h2>
 <pre><code class="language-javascript">$.fn.modal = function(){ ... }
 $(&quot;#div1&quot;).modal()
 </code></pre>
-<h2 id="heading-9">事件委托</h2>
+<h2 id="事件委托">事件委托</h2>
 <pre><code class="language-javascript">$(&quot;div&quot;).on(&quot;click&quot;, &quot;span&quot;, function(){…})
 </code></pre>
-<h2 id="heading-10">链式调用</h2>
+<h2 id="链式调用">链式调用</h2>
 <blockquote>
 <p>前文提到过</p>
 </blockquote>
 <pre><code class="language-javascript">$(&quot;div&quot;).text(&quot;hi&quot;).addClass(&quot;red&quot;).animate({ left: 100 });
 </code></pre>
-<h2 id="heading-11">函数重载</h2>
+<h2 id="函数重载">函数重载</h2>
 <pre><code class="language-javascript">$(fn);
 $(&quot;div&quot;);
 $(div);
 $($(div));
 $(&quot;span&quot;, &quot;#scope1&quot;);
 </code></pre>
-<h2 id="heading-12">命名空间</h2>
+<h2 id="命名空间">命名空间</h2>
 <pre><code class="language-javascript">// 你的插件在一个 button 上绑定了很多事件
 $button.on(&quot;click.plugin&quot;, function(){…})
 $button.on(&quot;mouseenter.plugin&quot;, function(){…})
@@ -415,7 +415,7 @@ $button.off(&quot;.plugin&quot;)
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

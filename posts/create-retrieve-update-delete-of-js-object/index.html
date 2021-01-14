@@ -89,7 +89,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -175,18 +175,18 @@ if (!doNotTrack) {
 <p>0 NaN</p>
 <p>‘’</p>
 </blockquote>
-<h1 id="heading">对象的语法</h1>
-<h2 id="heading-1">定义</h2>
+<h1 id="对象的语法">对象的语法</h1>
+<h2 id="定义">定义</h2>
 <ul>
 <li>无序的数据集合</li>
 <li>键值对的集合</li>
 </ul>
-<h2 id="heading-2">写法</h2>
+<h2 id="写法">写法</h2>
 <pre><code class="language-javascript">let obj = {'name': 'frank’, ‘age’: 18}
 let obj = new Object({‘name’: ‘frank’})
 console.log({'name': ‘frank’, ‘age’: 18})
 </code></pre>
-<h2 id="heading-3">细节</h2>
+<h2 id="细节">细节</h2>
 <ul>
 <li>键名是字符串，不是标识符，可以包含任意字符</li>
 <li>引号可省略，省略之后就只能写标识符</li>
@@ -196,21 +196,21 @@ console.log({'name': ‘frank’, ‘age’: 18})
 </blockquote>
 </li>
 </ul>
-<h2 id="heading-4">变量作属性名</h2>
-<h3 id="heading-5">如何用变量做属性名</h3>
+<h2 id="变量作属性名">变量作属性名</h2>
+<h3 id="如何用变量做属性名">如何用变量做属性名</h3>
 <pre><code class="language-javascript">let p1 = 'name'
 // 这样写，属性名为'p1'
 let obj = {p1: 'frank’}
 // 这样写，属性名为'name'
 let obj = {[p1]: 'frank’}
 </code></pre>
-<h3 id="heading-6">对比</h3>
+<h3 id="对比">对比</h3>
 <ul>
 <li>不加[]的属性名会自动变成字符串</li>
 <li>加了[]的则会被当做变量求值</li>
 <li>值如果不是字符串，则会自动变成字符串</li>
 </ul>
-<h2 id="heading-7">对象的隐藏属性</h2>
+<h2 id="对象的隐藏属性">对象的隐藏属性</h2>
 <ul>
 <li>JS 中每一个对象都有一个隐藏属性</li>
 <li>这个隐藏属性存储着其共有属性组成的对象的地址</li>
@@ -220,14 +220,14 @@ let obj = {[p1]: 'frank’}
 <pre><code class="language-javascript">var obj = {};
 obj.toString();
 </code></pre>
-<h2 id="heading-8">超纲知识</h2>
+<h2 id="超纲知识">超纲知识</h2>
 <ul>
 <li>除了字符串，symbol 也能做属性名</li>
 </ul>
 <pre><code class="language-javascript">let a = Symbol()
 let obj = {[a]: 'Hello’}
 </code></pre>
-<h1 id="heading-9">删属性</h1>
+<h1 id="删属性">删属性</h1>
 <pre><code class="language-javascript">// 区别两种方式
 var obj = {name: 'xiu’, age: 22}
 obj.name = undefined
@@ -261,8 +261,8 @@ delete obj2.name
 </blockquote>
 </li>
 </ul>
-<h1 id="heading-10">读属性</h1>
-<h2 id="heading-11">查看所有属性</h2>
+<h1 id="读属性">读属性</h1>
+<h2 id="查看所有属性">查看所有属性</h2>
 <ul>
 <li>查看自身所有属性</li>
 </ul>
@@ -279,7 +279,7 @@ delete obj2.name
 </ul>
 <pre><code class="language-javascript">obj.hasOwnProperty('toString’)
 </code></pre>
-<h2 id="heading-12">查看属性</h2>
+<h2 id="查看属性">查看属性</h2>
 <ul>
 <li>中括号语法: <code>obj['key']</code></li>
 <li>点语法: <code>obj.key</code></li>
@@ -290,7 +290,7 @@ delete obj2.name
 <blockquote>
 <p>请优先使用中括号语法。点语法会误导你，让你以为 key 不是字符串。等你确定不会弄混两种语法，再改用点语法。</p>
 </blockquote>
-<h2 id="heading-13">注意事项</h2>
+<h2 id="注意事项">注意事项</h2>
 <pre><code>obj.name 等价于 obj['name’]
 
 obj.name 不等价于 obj[name]
@@ -321,23 +321,23 @@ for(let i = 0; i &lt; list.length; i++){
 <blockquote>
 <p>答案是 2.</p>
 </blockquote>
-<h1 id="heading-14">原型</h1>
-<h2 id="heading-15">每个对象都有原型</h2>
+<h1 id="原型">原型</h1>
+<h2 id="每个对象都有原型">每个对象都有原型</h2>
 <ul>
 <li>原型里存着对象的共有属性</li>
 <li>比如 obj 的原型就是一个对象</li>
 <li><code>obj.__proto__</code>存着这个对象的地址</li>
 <li>这个对象里有 toString/ constructor/ valueOf 等属性</li>
 </ul>
-<h2 id="heading-16">对象的原型也是对象</h2>
+<h2 id="对象的原型也是对象">对象的原型也是对象</h2>
 <ul>
 <li>所以对象的原型也有原型</li>
 <li>obj = {}的原型即为所有对象的原型</li>
 <li>这个原型包含所有对象的共有属性，是对象的根</li>
 <li>这个原型也有原型，是 null</li>
 </ul>
-<h1 id="heading-17">修改或增加属性(写属性)</h1>
-<h2 id="heading-18">直接赋值</h2>
+<h1 id="修改或增加属性写属性">修改或增加属性(写属性)</h1>
+<h2 id="直接赋值">直接赋值</h2>
 <pre><code class="language-javascript">let obj = {name: 'frank'} // name是字符串
 obj.name = ‘frank' // name是字符串
 obj[‘name’] = 'frank'
@@ -347,10 +347,10 @@ let key = ‘name'; obj[key] = ‘frank’
 let key = ‘name'; obj.key = ‘frank’ //错
 // 因为obj.key 等价于 obj['key’]
 </code></pre>
-<h2 id="heading-19">批量赋值</h2>
+<h2 id="批量赋值">批量赋值</h2>
 <pre><code class="language-javascript">Object.assign(obj, {age: 18, gender: ‘man’})
 </code></pre>
-<h2 id="heading-20">修改或增加共有属性</h2>
+<h2 id="修改或增加共有属性">修改或增加共有属性</h2>
 <ul>
 <li>无法通过自身修改或增加共有属性</li>
 </ul>
@@ -366,7 +366,7 @@ obj.toString = &quot;xxx&quot;; //只会在改obj自身属性
 Object.prototype.toString=‘xxx’
 // 一般来说，不要修改原型，会引起很多问题
 </code></pre>
-<h2 id="heading-21">修改隐藏属性</h2>
+<h2 id="修改隐藏属性">修改隐藏属性</h2>
 <ul>
 <li>不推荐使用<code>__proto__</code></li>
 </ul>
@@ -387,20 +387,20 @@ obj2.name = ‘jack’
 <blockquote>
 <p>规范大概的意思是，要改就一开始就改，别后来再改。</p>
 </blockquote>
-<h1 id="heading-22">总结</h1>
-<h2 id="heading-23">删</h2>
+<h1 id="总结">总结</h1>
+<h2 id="删">删</h2>
 <pre><code class="language-javascript">delete obj[‘name']
 ‘name’ in obj // false
 obj.hasOwnProperty('name') // false
 </code></pre>
-<h2 id="heading-24">查</h2>
+<h2 id="查">查</h2>
 <pre><code class="language-javascript">Object.keys(obj)
 console.dir(obj)
 obj[‘name’]
 obj.name // 记住这里的name是字符串
 obj[name] // 记住这里的name是字符串
 </code></pre>
-<h2 id="heading-25">改</h2>
+<h2 id="改">改</h2>
 <pre><code class="language-javascript">//改自身
 obj[‘name’] = 'jack'
 //批量改自身
@@ -412,7 +412,7 @@ Object.prototype['toString’] = ‘xxx’
 obj.__proto__=common //不推荐
 let obj = Object.create(common)
 </code></pre>
-<h2 id="heading-26">增</h2>
+<h2 id="增">增</h2>
 <pre><code class="language-javascript">// 基本同上: 已有属性则改; 没有属性则增。
 </code></pre>
 
@@ -472,7 +472,7 @@ let obj = Object.create(common)
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

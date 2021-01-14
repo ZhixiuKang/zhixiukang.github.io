@@ -85,7 +85,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -163,8 +163,8 @@ if (!doNotTrack) {
 <blockquote>
 <p>directives、 mixins、 extends、 provide、 inject</p>
 </blockquote>
-<h1 id="directives---">directives - 指令</h1>
-<h2 id="heading">自定义指令</h2>
+<h1 id="directives---指令">directives - 指令</h1>
+<h2 id="自定义指令">自定义指令</h2>
 <ul>
 <li>我们已经学了一些内置指令</li>
 </ul>
@@ -177,7 +177,7 @@ if (!doNotTrack) {
 <blockquote>
 <p>目标: 造出<strong>v-x</strong>， 点击即出现一个<strong>x</strong></p>
 </blockquote>
-<h2 id="heading-1">两种写法</h2>
+<h2 id="两种写法">两种写法</h2>
 <ul>
 <li>声明一个全局指令</li>
 </ul>
@@ -203,7 +203,7 @@ if (!doNotTrack) {
 <blockquote>
 <p>上面例子中的<strong>directiveOptions</strong>里有哪些属性？</p>
 </blockquote>
-<h3 id="heading-2">五个函数属性</h3>
+<h3 id="五个函数属性">五个函数属性</h3>
 <ul>
 <li><strong>bind(el, info, vnode, oldVnode)</strong> - 类似<strong>created</strong></li>
 <li><strong>inserted</strong>(参数同上) - 类似<strong>mounted</strong></li>
@@ -211,7 +211,7 @@ if (!doNotTrack) {
 <li><strong>componentUpdated</strong>(参数同上) - 用得不多，<a href="https://cn.vuejs.org/v2/guide/custom-directive.html#%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0">见文档</a></li>
 <li><strong>unbind</strong>(参数同上) - 类似<strong>destroyed</strong></li>
 </ul>
-<h3 id="heading-3">举例</h3>
+<h3 id="举例">举例</h3>
 <ul>
 <li><a href="https://codesandbox.io/s/quiet-mountain-dfh86">自制 v-on2 指令，模仿 v-on</a></li>
 </ul>
@@ -243,27 +243,27 @@ new Vue({
   },
 }).$mount(&quot;#app&quot;);
 </code></pre>
-<h3 id="heading-4">缩写</h3>
+<h3 id="缩写">缩写</h3>
 <ul>
 <li><strong>directiveOptions</strong>在某些条件下可以缩写为函数，用得不多，可以自行<a href="https://cn.vuejs.org/v2/guide/custom-directive.html#%E5%87%BD%E6%95%B0%E7%AE%80%E5%86%99">看文档</a></li>
 </ul>
-<h2 id="directives----">directives - 指令 的作用</h2>
-<h3 id="-dom-">主要用于 DOM 操作</h3>
+<h2 id="directives---指令-的作用">directives - 指令 的作用</h2>
+<h3 id="主要用于-dom-操作">主要用于 DOM 操作</h3>
 <ul>
 <li><strong>Vue</strong> 实例/组件用于数据绑定、事件监听、<strong>DOM</strong>更新</li>
 <li><strong>Vue</strong> 指令主要目的就是原生<strong>DOM</strong>操作</li>
 </ul>
-<h3 id="heading-5">减少重复</h3>
+<h3 id="减少重复">减少重复</h3>
 <ul>
 <li>如果某个<strong>DOM</strong>操作你经常使用，就可以封装为指令</li>
 <li>如果某个<strong>DOM</strong>操作比较复杂，也可以封装为指令</li>
 </ul>
-<h1 id="mixins---">mixins - 混入</h1>
+<h1 id="mixins---混入">mixins - 混入</h1>
 <blockquote>
 <p>混入其实就是复制</p>
 </blockquote>
-<h2 id="heading-6">减少重复</h2>
-<h3 id="heading-7">类比</h3>
+<h2 id="减少重复-1">减少重复</h2>
+<h3 id="类比">类比</h3>
 <ul>
 <li><strong>directives</strong>的作用是减少<strong>DOM</strong>操作的重复</li>
 <li><strong>mixins</strong>的作用是减少<strong>data</strong>、 <strong>methods</strong>、 钩子的重复</li>
@@ -271,7 +271,7 @@ new Vue({
 <blockquote>
 <p>所有在构造选项里放的东西都可以放到<strong>mixins</strong>里来，真香</p>
 </blockquote>
-<h3 id="heading-8">场景描述</h3>
+<h3 id="场景描述">场景描述</h3>
 <p>假设我们需要再每个组件上添加<strong>name</strong>和<strong>time</strong>，在<strong>created</strong>和<strong>destroyed</strong>时，打出提示，并报出存活时间。一共有五个组件，请问你怎么做？</p>
 <ul>
 <li>给每个组件添加<strong>data</strong>和钩子，共五次</li>
@@ -325,7 +325,7 @@ export default log;
 <blockquote>
 <p><strong>log.js</strong>和<strong>Child1.vue</strong>会智能合并，所以叫<strong>mixins</strong></p>
 </blockquote>
-<h2 id="mixins-">mixins 技巧</h2>
+<h2 id="mixins-技巧">mixins 技巧</h2>
 <ul>
 <li>选项智能合并</li>
 </ul>
@@ -338,8 +338,8 @@ export default log;
 <blockquote>
 <p><a href="https://cn.vuejs.org/v2/api/#Vue-mixin">见文档，不推荐使用</a>，因为容易出现范围过大的问题</p>
 </blockquote>
-<h1 id="extends---">extends - 继承</h1>
-<h2 id="heading-9">减少重复</h2>
+<h1 id="extends---继承">extends - 继承</h1>
+<h2 id="减少重复-2">减少重复</h2>
 <ul>
 <li>还是与<strong>mixins</strong>同样的需求</li>
 </ul>
@@ -402,11 +402,11 @@ export default MyVue;
 <blockquote>
 <p>平时我还是基本用<strong>mixins</strong>，<strong>extends</strong>很少用到</p>
 </blockquote>
-<h1 id="provide--inject---">provide 和 inject - 提供和注入</h1>
+<h1 id="provide-和-inject---提供和注入">provide 和 inject - 提供和注入</h1>
 <blockquote>
 <p>使用举例</p>
 </blockquote>
-<h2 id="heading-10">需求</h2>
+<h2 id="需求">需求</h2>
 <ul>
 <li>一键换肤功能: 默认蓝色， 可以切换为红色</li>
 <li>文字大小: 默认正常，可以改成大或小</li>
@@ -498,7 +498,7 @@ export default MyVue;
 <ul>
 <li>祖先栽树(<strong>provide</strong>)，后人乘凉(<strong>inject</strong>)</li>
 </ul>
-<h2 id="heading-11">总结</h2>
+<h2 id="总结">总结</h2>
 <ul>
 <li>作用: 大范围的 <strong>data</strong> 和 <strong>method</strong> 等共用</li>
 <li>注意: 不能只传 <strong>themeName</strong> 不传 <strong>changeTheme</strong>，因为 <strong>themeName</strong> 的值是被复制给 <strong>provide</strong> 的</li>
@@ -507,26 +507,26 @@ export default MyVue;
 <p>思考题: 传引用可以吗？</p>
 <p>答: 可以，但是不推荐，因为容易失控</p>
 </blockquote>
-<h1 id="heading-12">总结</h1>
-<h2 id="directives-">directives 指令</h2>
+<h1 id="总结-1">总结</h1>
+<h2 id="directives-指令">directives 指令</h2>
 <ul>
 <li>全局用<code>Vue.directive('x', {...})</code></li>
 <li>局部用<code>options.directives</code></li>
 <li>作用是减少<strong>DOM</strong>操作相关重复代码</li>
 </ul>
-<h2 id="mixins--1">mixins 混入</h2>
+<h2 id="mixins-混入">mixins 混入</h2>
 <ul>
 <li>全局用<code>Vue.mixin({...})</code></li>
 <li>局部用<code>options.mixins:[mixin1, mixin2]</code></li>
 <li>作用是减少<strong>options</strong>里的重复</li>
 </ul>
-<h2 id="extends-">extends 继承/扩展</h2>
+<h2 id="extends-继承扩展">extends 继承/扩展</h2>
 <ul>
 <li>全局用<code>Vue.extend({...})</code></li>
 <li>局部用<code>options.extends:{...}</code></li>
 <li>作用跟<strong>mixins</strong>差不多，只是形式不同</li>
 </ul>
-<h2 id="provide--inject-">provide / inject 提供和注入</h2>
+<h2 id="provide--inject-提供和注入">provide / inject 提供和注入</h2>
 <ul>
 <li>祖先提供东西，后代注入东西</li>
 <li>作用是大范围、隔 N 代共享信息</li>
@@ -588,7 +588,7 @@ export default MyVue;
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

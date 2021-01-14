@@ -81,7 +81,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -155,7 +155,7 @@ if (!doNotTrack) {
     </header>
 
     <div>
-      <h1 id="heading">跨域关键知识</h1>
+      <h1 id="跨域关键知识">跨域关键知识</h1>
 <ul>
 <li>同源策略</li>
 </ul>
@@ -174,24 +174,24 @@ if (!doNotTrack) {
 <blockquote>
 <p>IE 时代的妥协</p>
 </blockquote>
-<h1 id="heading-1">同源策略</h1>
+<h1 id="同源策略">同源策略</h1>
 <blockquote>
 <p>不同源的页面之间，不准互相访问数据</p>
 </blockquote>
-<h2 id="heading-2">同源定义</h2>
-<h3 id="heading-3">源</h3>
+<h2 id="同源定义">同源定义</h2>
+<h3 id="源">源</h3>
 <ul>
 <li><code>window.origin</code>或<code>location.origin</code>可以得到当前源</li>
 <li>源 = 协议 + 域名 + 端口号</li>
 </ul>
-<h3 id="-url-">如果两个 url 的</h3>
+<h3 id="如果两个-url-的">如果两个 url 的</h3>
 <ul>
 <li>协议</li>
 <li>域名</li>
 <li>端口号</li>
 <li>完全一致，那么这两个 url 就是同源的</li>
 </ul>
-<h3 id="heading-4">举例</h3>
+<h3 id="举例">举例</h3>
 <ul>
 <li><code>https://qq.com</code>、<code>https://www.baidu.com</code>不同源</li>
 <li><code>https://baidu.com</code>、<code>https://www.baidu.com</code>不同源
@@ -200,13 +200,13 @@ if (!doNotTrack) {
 </blockquote>
 </li>
 </ul>
-<h2 id="heading-5">同源策略定义</h2>
-<h3 id="heading-6">浏览器规定</h3>
+<h2 id="同源策略定义">同源策略定义</h2>
+<h3 id="浏览器规定">浏览器规定</h3>
 <ul>
 <li>如果 JS 运行在源 A 里，那么就只能获取源 A 的数据</li>
 <li>不能获取源 B 的数据，即不允许跨域</li>
 </ul>
-<h3 id="-http-">举例(省略 http 协议)</h3>
+<h3 id="举例省略-http-协议">举例(省略 http 协议)</h3>
 <ul>
 <li>假设<code>frank.com/index.html</code>引用了<code>cdn.com/1.js</code></li>
 <li>那么就说<code>1.js</code>运行在源<code>frank.com</code>里</li>
@@ -218,8 +218,8 @@ if (!doNotTrack) {
 </blockquote>
 </li>
 </ul>
-<h2 id="heading-7">如果没有同源策略</h2>
-<h3 id="-qq-">以 QQ 空间为例</h3>
+<h2 id="如果没有同源策略">如果没有同源策略</h2>
+<h3 id="以-qq-空间为例">以 QQ 空间为例</h3>
 <ul>
 <li>源为<code>https://user.qzone.qq.com</code></li>
 <li>假设，当前用户已经登录(用 Cookie)</li>
@@ -229,7 +229,7 @@ if (!doNotTrack) {
 </blockquote>
 </li>
 </ul>
-<h3 id="heading-8">黑客来了</h3>
+<h3 id="黑客来了">黑客来了</h3>
 <ul>
 <li>假设你的好朋友分享<code>https://qzone-qq.com</code>给你
 <blockquote>
@@ -243,8 +243,8 @@ if (!doNotTrack) {
 </blockquote>
 </li>
 </ul>
-<h2 id="heading-9">问题的根源</h2>
-<h3 id="heading-10">无法区分发送者</h3>
+<h2 id="问题的根源">问题的根源</h2>
+<h3 id="无法区分发送者">无法区分发送者</h3>
 <ul>
 <li>QQ 空间页面里的 JS 和黑客网页里的 JS</li>
 <li>发的请求几乎没有区别(referer 有区别)
@@ -259,7 +259,7 @@ if (!doNotTrack) {
 </blockquote>
 </li>
 </ul>
-<h3 id="-referer-">那检查 referer 不就好了？</h3>
+<h3 id="那检查-referer-不就好了">那检查 referer 不就好了？</h3>
 <ul>
 <li>安全原则: 安全链条的强度取决于最弱一环
 <blockquote>
@@ -269,14 +269,14 @@ if (!doNotTrack) {
 <li>所以浏览器应该主动预防这种偷数据的行为</li>
 <li>总之，浏览器为了用户隐私，设置了严格的同源策略</li>
 </ul>
-<h2 id="heading-11">演示一下</h2>
+<h2 id="演示一下">演示一下</h2>
 <blockquote>
 <p>我们需要做两个网站来演示一下</p>
 </blockquote>
 <blockquote>
 <p><a href="https://github.com/ZhixiuKang/cross-domain">完整代码</a></p>
 </blockquote>
-<h3 id="heading-12">创建目录</h3>
+<h3 id="创建目录">创建目录</h3>
 <ul>
 <li><code>qq-com</code>里面有一个<code>server.js</code>，用来模拟 QQ 空间</li>
 <li><code>frank-com</code>里面有一个<code>server.js</code>，用来模拟坏人网站</li>
@@ -294,7 +294,7 @@ if (!doNotTrack) {
 <li><code>/frank.js</code>是 JS 脚本文件</li>
 <li>端口监听为 9999，访问<code>http://127.0.0.1:9999</code></li>
 </ul>
-<h3 id="heading-13">设置本地域名映射</h3>
+<h3 id="设置本地域名映射">设置本地域名映射</h3>
 <ul>
 <li>让<code>qq.com</code>映射到<code>127.0.0.1</code>，就可以访问<code>http://qq.com:8888/index.html</code>了</li>
 <li>让<code>frank.com</code>映射到<code>127.0.0.1</code>，就可以访问<code>http://frank.com:9999/index.html</code>了
@@ -307,7 +307,7 @@ if (!doNotTrack) {
 <blockquote>
 <p>记得做完之后，删掉 hosts 里的两行，否则 qq.com 无法正常访问!</p>
 </blockquote>
-<h3 id="-ajax">跨域 AJAX</h3>
+<h3 id="跨域-ajax">跨域 AJAX</h3>
 <ul>
 <li>正常使用 AJAX:在<code>qq.com</code>里运行的 JS 可以访问<code>/friends.json</code></li>
 <li>黑客偷数据: 在<code>frank.com:9999</code>里运行的 JS 不能访问
@@ -328,7 +328,7 @@ if (!doNotTrack) {
 <p>Q: 就没有浏览器不限制跨域么？</p>
 <p>A: 如果不限制，就是浏览器 bug 了，快向浏览器反馈</p>
 </blockquote>
-<h2 id="heading-14">其他疑问</h2>
+<h2 id="其他疑问">其他疑问</h2>
 <blockquote>
 <p>为什么<code>a.qq.com</code>访问<code>qq.com</code>也算跨域？</p>
 <p>因为历史上，出现过不同公司共用域名， <code>a.qq.com</code>和<code>qq.com</code>不一定是同一个网站，浏览器谨慎起见，认为这是不同的源</p>
@@ -346,16 +346,16 @@ if (!doNotTrack) {
 <p>同源策略限制的是数据访问，我们引用 CSS、JS 和图片的时候，其实并不知道其内容，我们只是在引用。
 不信我问你，你能知道 CSS 的第一个字符是什么吗?</p>
 </blockquote>
-<h1 id="cors--">跨域解法一：CORS&ndash;我就要跨域</h1>
+<h1 id="跨域解法一cors--我就要跨域">跨域解法一：CORS&ndash;我就要跨域</h1>
 <blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS"> Cross-Origin Resource Sharing (CORS) - HTTP | MDN</a></p>
 </blockquote>
-<h2 id="heading-15">问题根源</h2>
+<h2 id="问题根源">问题根源</h2>
 <ul>
 <li>浏览器默认不同源之间不能互相访问数据</li>
 <li>但是<code>qq.com</code>和<code>frank.com</code>其实都是我的网站，我就是想要两个网站互相访问，浏览器为什么阻止？</li>
 </ul>
-<h2 id="-cors">好吧，用 CORS</h2>
+<h2 id="好吧用-cors">好吧，用 CORS</h2>
 <ul>
 <li>浏览器说，如果要共享数据，需要提前声明</li>
 <li>如何声明呢？浏览器说，<code>qq.com</code>在响应头里写<code>frank.com</code>可以访问</li>
@@ -369,8 +369,8 @@ if (!doNotTrack) {
 <blockquote>
 <p>注意: CORS 分为简单请求和复杂请求，具体看<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS">文档</a>。</p>
 </blockquote>
-<h1 id="jsonp--ie-">跨域解法二：JSONP&ndash;IE 就要跨域</h1>
-<h2 id="heading-16">定义</h2>
+<h1 id="跨域解法二jsonp--ie-就要跨域">跨域解法二：JSONP&ndash;IE 就要跨域</h1>
+<h2 id="定义">定义</h2>
 <ul>
 <li>JSONP 和 JSON 半毛钱关系都没有
 <blockquote>
@@ -378,7 +378,7 @@ if (!doNotTrack) {
 </blockquote>
 </li>
 </ul>
-<h2 id="heading-17">我们现在面临的问题</h2>
+<h2 id="我们现在面临的问题">我们现在面临的问题</h2>
 <ul>
 <li>IE 不支持 CORS，那怎么跨域？
 <blockquote>
@@ -392,8 +392,8 @@ if (!doNotTrack) {
 <ul>
 <li>我们让 JS 包含数据不就好了…</li>
 </ul>
-<h2 id="heading-18">步骤</h2>
-<h3 id="frankcomqqcom"><code>frank.com</code>访问<code>qq.com</code></h3>
+<h2 id="步骤">步骤</h2>
+<h3 id="frankcom访问qqcom"><code>frank.com</code>访问<code>qq.com</code></h3>
 <ul>
 <li><code>qq.com</code>将数据写到<code>/friends.js</code></li>
 <li><code>frank.com</code>用<code>script</code>标签引用<code>/friends.js</code></li>
@@ -410,7 +410,7 @@ if (!doNotTrack) {
 <blockquote>
 <p>再优化一下，封装成<code>jsonp('url').then(f1,f2)</code>,具体看<a href="https://github.com/ZhixiuKang/cross-domain">完整代码</a></p>
 </blockquote>
-<h2 id="-jsonp-">总结一下: JSONP 是什么?</h2>
+<h2 id="总结一下-jsonp-是什么">总结一下: JSONP 是什么?</h2>
 <ul>
 <li>我们在跨域的时候，由于当前浏览器不支持 CORS，或者因为某些原因不支持 CORS，我们必须使用另外一种方式来跨域。</li>
 <li>于是我们就请求一个 JS 文件，这个 JS 文件会执行一个回调，回调里面就有我们的数据。
@@ -423,7 +423,7 @@ if (!doNotTrack) {
 <blockquote>
 <p>JSONP 就是当前网站创建一个 script 标签去请求另外一个网站的 JS，JS 里面会夹带我要的数据，而且这个 JS 会调用我写的一个全局函数来运行，就可以把数据给我了。</p>
 </blockquote>
-<h3 id="heading-19">优点</h3>
+<h3 id="优点">优点</h3>
 <ul>
 <li>兼容 IE</li>
 <li>它可以跨域
@@ -432,7 +432,7 @@ if (!doNotTrack) {
 </blockquote>
 </li>
 </ul>
-<h3 id="heading-20">缺点</h3>
+<h3 id="缺点">缺点</h3>
 <ul>
 <li>由于 JSONP 是 script 标签，所以它读不到 AJAX 那么精确的状态，比如状态码和响应头等，它只知道响应成功还是失败了</li>
 <li>不支持 POST
@@ -498,7 +498,7 @@ if (!doNotTrack) {
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

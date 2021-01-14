@@ -79,7 +79,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -153,8 +153,8 @@ if (!doNotTrack) {
     </header>
 
     <div>
-      <h1 id="-template-">模板 template 三种写法</h1>
-<h2 id="vue--html-">Vue 完整版，写在 HTML 里</h2>
+      <h1 id="模板-template-三种写法">模板 template 三种写法</h1>
+<h2 id="vue-完整版写在-html-里">Vue 完整版，写在 HTML 里</h2>
 <p><strong>index.html</strong>:</p>
 <pre><code class="language-html">&lt;div id=xxx&gt;
   {{n}}
@@ -168,7 +168,7 @@ if (!doNotTrack) {
  methods:{add(){}}
  })
 </code></pre>
-<h2 id="vue-">Vue 完整版，写在选项里</h2>
+<h2 id="vue-完整版写在选项里">Vue 完整版，写在选项里</h2>
 <p>在<strong>index.html</strong>里写好挂载点:</p>
 <pre><code class="language-html">&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
 </code></pre>
@@ -188,7 +188,7 @@ if (!doNotTrack) {
 }).$mount(&quot;#app&quot;);
 // 注意一个细节: div#app会被替代
 </code></pre>
-<h2 id="vue--xxxvue-">Vue 非完整版，配合 xxx.vue 文件</h2>
+<h2 id="vue-非完整版配合-xxxvue-文件">Vue 非完整版，配合 xxx.vue 文件</h2>
 <p><strong>xxx.vue</strong></p>
 <pre><code class="language-xml">&lt;template&gt;
   &lt;div&gt;
@@ -215,12 +215,12 @@ new Vue({
  render: h =&gt; h(Xxx)  //视图用render
 }).$mount('#app')
 </code></pre>
-<h1 id="heading">模板中的语法</h1>
+<h1 id="模板中的语法">模板中的语法</h1>
 <blockquote>
 <p>我们把<strong>HTML</strong>模板叫做<strong>template</strong></p>
 </blockquote>
-<h2 id="heading-1">展示内容</h2>
-<h3 id="heading-2">表达式</h3>
+<h2 id="展示内容">展示内容</h2>
+<h3 id="表达式">表达式</h3>
 <ul>
 <li><code>{{ object.a }}</code> 表达式</li>
 <li><code>{{ n + 1 }}</code> 可以写任何运算</li>
@@ -231,17 +231,17 @@ new Vue({
 <blockquote>
 <p>基本没人用这种写法</p>
 </blockquote>
-<h3 id="html-">HTML 内容</h3>
+<h3 id="html-内容">HTML 内容</h3>
 <ul>
 <li>假设 <strong>data.x</strong> 值为<code>&lt;strong&gt;hi&lt;/strong&gt;</code></li>
 <li><code>&lt;div v-html=&quot;x&quot;&gt;&lt;/div&gt;</code>即可显示粗体的 hi</li>
 </ul>
-<h3 id="n">我就想展示{{n}}</h3>
+<h3 id="我就想展示n">我就想展示{{n}}</h3>
 <ul>
 <li><code>&lt;div v-pre&gt;{{ n }}&lt;/div&gt;</code></li>
 <li><strong>v-pre</strong> 不会对模板进行编译</li>
 </ul>
-<h2 id="heading-3">绑定属性</h2>
+<h2 id="绑定属性">绑定属性</h2>
 <ul>
 <li>绑定 <strong>src</strong></li>
 </ul>
@@ -260,7 +260,7 @@ new Vue({
 	&lt;!-- 注意这里可以把'100px'写成100 --&gt;
 &lt;/div&gt;
 </code></pre>
-<h2 id="heading-4">绑定事件</h2>
+<h2 id="绑定事件">绑定事件</h2>
 <ul>
 <li><code>v-on:事件名</code></li>
 </ul>
@@ -282,7 +282,7 @@ new Vue({
 <blockquote>
 <p>正常人都用缩写</p>
 </blockquote>
-<h2 id="heading-5">条件判断</h2>
+<h2 id="条件判断">条件判断</h2>
 <ul>
 <li><strong>if…else</strong></li>
 </ul>
@@ -296,7 +296,7 @@ new Vue({
   x小于0
 &lt;/div&gt;
 </code></pre>
-<h2 id="heading-6">循环</h2>
+<h2 id="循环">循环</h2>
 <ul>
 <li><strong>for (value, key) in 对象或数组</strong></li>
 </ul>
@@ -315,7 +315,7 @@ new Vue({
 <blockquote>
 <p>注意: 每个<strong>v-for</strong>后面一定要接一个 <strong>:key</strong>，否则会有警告。</p>
 </blockquote>
-<h2 id="heading-7">显示、隐藏</h2>
+<h2 id="显示隐藏">显示、隐藏</h2>
 <ul>
 <li><strong>v-show</strong></li>
 </ul>
@@ -329,48 +329,48 @@ new Vue({
 <blockquote>
 <p>但是要注意，看得见的元素<strong>display</strong>不只有<strong>block</strong>，如<strong>table</strong>的<strong>display</strong>为<strong>table</strong>，如<strong>li</strong>的<strong>display</strong>为<strong>list-item</strong></p>
 </blockquote>
-<h2 id="heading-8">总结</h2>
-<h3 id="vue"><strong>Vue</strong>模板主要特点有:</h3>
+<h2 id="总结">总结</h2>
+<h3 id="vue模板主要特点有"><strong>Vue</strong>模板主要特点有:</h3>
 <ul>
 <li>使用<strong>XML</strong>语法(不是<strong>HTML</strong>)</li>
 <li>使用 <strong>{{}}</strong> 插入表达式</li>
 <li>使用 <strong>v-html</strong>、 <strong>v-on</strong>、 <strong>v-bind</strong>等指令操作<strong>DOM</strong></li>
 <li>使用 <strong>v-if</strong>、 <strong>v-for</strong>等指令实现条件判断和循环</li>
 </ul>
-<h3 id="heading-9">其他指令</h3>
+<h3 id="其他指令">其他指令</h3>
 <ul>
 <li><a href="https://cn.vuejs.org/v2/api/#v-model">v-model — Vue.js</a></li>
 <li><a href="https://cn.vuejs.org/v2/api/#v-slot">v-slot — Vue.js</a></li>
 <li><a href="https://cn.vuejs.org/v2/api/#v-cloak">v-cloak — Vue.js</a></li>
 <li><a href="https://cn.vuejs.org/v2/api/#v-once">v-once — Vue.js</a></li>
 </ul>
-<h1 id="-directive">指令 directive</h1>
-<h2 id="heading-10">什么是指令</h2>
+<h1 id="指令-directive">指令 directive</h1>
+<h2 id="什么是指令">什么是指令</h2>
 <ul>
 <li>以 <strong>v-</strong> 开头的东西就是指令</li>
 </ul>
 <pre><code class="language-html">&lt;div v-text=&quot;x&quot;&gt;&lt;/div&gt;
 &lt;div v-html=&quot;x&quot;&gt;&lt;/div&gt;
 </code></pre>
-<h2 id="heading-11">语法</h2>
+<h2 id="语法">语法</h2>
 <ul>
 <li><code>v-指令名:参数=值</code>，如<code>v-on:click=add</code></li>
 <li>如果值里没有特殊字符，则可以不加引号</li>
 <li>有些指令没有参数和值，如 <strong>v-pre</strong></li>
 <li>有些指令没有值，如 <code>v-on:click.prevent</code></li>
 </ul>
-<h1 id="heading-12">修饰符</h1>
-<h2 id="heading-13">有些指令支持修饰符</h2>
+<h1 id="修饰符">修饰符</h1>
+<h2 id="有些指令支持修饰符">有些指令支持修饰符</h2>
 <ul>
 <li><code>@click.stop=&quot;add&quot;</code>表示阻止事件传播/冒泡</li>
 <li><code>@click.prevent=&quot;add&quot;</code>表示阻止默认动作</li>
 <li><code>@click.stop.prevent=“add&quot;</code>同时表示上述两种意思</li>
 </ul>
-<h2 id="heading-14">一共有多少修饰符呢</h2>
+<h2 id="一共有多少修饰符呢">一共有多少修饰符呢</h2>
 <blockquote>
 <p>加粗的比较重要</p>
 </blockquote>
-<h3 id="v-on-">v-on 支持的有:</h3>
+<h3 id="v-on-支持的有">v-on 支持的有:</h3>
 <p><strong>.{keycode | keyAlias}</strong>, <strong>.stop</strong>, <strong>.prevent</strong>, .capture, .self, .once, .passive, .native</p>
 <ul>
 <li>快捷键相关:</li>
@@ -380,12 +380,12 @@ new Vue({
 <li>鼠标相关:</li>
 </ul>
 <p>.left, .right, .middle</p>
-<h3 id="v-bind-">v-bind 支持的有:</h3>
+<h3 id="v-bind-支持的有">v-bind 支持的有:</h3>
 <p>.prop, .camel, <strong>.sync</strong></p>
-<h3 id="v-model-">v-model 支持的有:</h3>
+<h3 id="v-model-支持的有">v-model 支持的有:</h3>
 <p><strong>.lazy</strong>, <strong>.number</strong>, <strong>.trim</strong></p>
-<h1 id="sync-">.sync 修饰符</h1>
-<h2 id="heading-15">场景描述</h2>
+<h1 id="sync-修饰符">.sync 修饰符</h1>
+<h2 id="场景描述">场景描述</h2>
 <blockquote>
 <p>Q: 爸爸给儿子钱，儿子要花钱怎么办，<a href="https://codesandbox.io/s/interesting-yalow-swrh1">示例</a></p>
 <p>A: 儿子打电话(触发事件)向爸爸要钱</p>
@@ -456,7 +456,7 @@ export default {
 <li><strong>Vue</strong>规则: <code>this.$emit</code>可以触发事件，并传参</li>
 <li><strong>Vue</strong>规则: <code>$event</code>可以获取<code>$emit</code>的参数</li>
 </ul>
-<h2 id="heading-16">由于这种场景很常见</h2>
+<h2 id="由于这种场景很常见">由于这种场景很常见</h2>
 <ul>
 <li>尤雨溪发明了<code>.sync</code>，<a href="https://codesandbox.io/s/relaxed-chaplygin-vfwp0">修改后的示例</a></li>
 </ul>
@@ -470,7 +470,7 @@ export default {
 <p><a href="https://www.jianshu.com/p/6b062af8cf01">深入理解 vue 修饰符 sync - 简书</a></p>
 <p><a href="https://segmentfault.com/a/1190000010700521">如何理解 Vue 的.sync 修饰符 - SegmentFault 思否</a></p>
 </blockquote>
-<h1 id="heading-17">总结</h1>
+<h1 id="总结-1">总结</h1>
 <blockquote>
 <p>搞清楚下面这 4 个修饰符就行了</p>
 </blockquote>
@@ -537,7 +537,7 @@ export default {
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

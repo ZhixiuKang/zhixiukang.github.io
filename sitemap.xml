@@ -3,52 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://zhixiukang.com/tags/agile-framework/</loc>
-    <lastmod>2020-08-12T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zhixiukang.com/categories/</loc>
-    <lastmod>2020-08-12T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zhixiukang.com/posts/</loc>
-    <lastmod>2020-08-12T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zhixiukang.com/posts/scrum-framework/</loc>
-    <lastmod>2020-08-12T15:21:33-08:00</lastmod>
+    <loc>https://zhixiukang.com/explore/</loc>
+    <lastmod>2020-05-24T22:21:33-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://zhixiukang.com/tags/</loc>
-    <lastmod>2020-08-12T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zhixiukang.com/categories/tech/</loc>
-    <lastmod>2020-08-12T15:21:33-08:00</lastmod>
+    <lastmod>2020-05-24T22:21:33-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://zhixiukang.com/</loc>
-    <lastmod>2020-08-12T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zhixiukang.com/posts/react-hooks-principles/</loc>
-    <lastmod>2020-08-10T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zhixiukang.com/tags/%E7%90%86%E8%A7%A3react/</loc>
-    <lastmod>2020-08-10T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zhixiukang.com/explore/</loc>
     <lastmod>2020-05-24T22:21:33-08:00</lastmod>
   </url>
   
@@ -60,6 +25,51 @@
   <url>
     <loc>https://zhixiukang.com/explore/stock-market-long-term-return-on-investment-and-its-influence-factors/</loc>
     <lastmod>2020-05-24T22:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/categories/</loc>
+    <lastmod>2020-05-03T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/tags/javascript/</loc>
+    <lastmod>2020-05-03T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/posts/</loc>
+    <lastmod>2020-05-03T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/categories/tech/</loc>
+    <lastmod>2020-05-03T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/posts/virtual-dom-and-dom-diff/</loc>
+    <lastmod>2020-05-03T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/tags/agile-framework/</loc>
+    <lastmod>2020-04-26T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/posts/scrum-framework/</loc>
+    <lastmod>2020-04-26T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/posts/react-hooks-principles/</loc>
+    <lastmod>2020-04-21T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/tags/%E7%90%86%E8%A7%A3react/</loc>
+    <lastmod>2020-04-21T15:21:33-08:00</lastmod>
   </url>
   
   <url>
@@ -145,11 +155,6 @@
   <url>
     <loc>https://zhixiukang.com/posts/ajax-principles-and-load-json-with-ajax/</loc>
     <lastmod>2020-03-11T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zhixiukang.com/tags/javascript/</loc>
-    <lastmod>2020-03-09T15:21:33-08:00</lastmod>
   </url>
   
   <url>

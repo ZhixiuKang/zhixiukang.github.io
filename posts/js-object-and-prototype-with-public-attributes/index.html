@@ -83,7 +83,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -164,8 +164,8 @@ if (!doNotTrack) {
 <p><a href="https://www.zhihu.com/question/56770432/answer/315342130">JS 中 proto 和 prototype 存在的意义是什么？</a></p>
 <p><a href="http://frankfang.github.io/es-6-tutorials/">ES6 所有新特性</a></p>
 </blockquote>
-<h1 id="heading">构造函数</h1>
-<h2 id="heading-1">函数和原型结合</h2>
+<h1 id="构造函数">构造函数</h1>
+<h2 id="函数和原型结合">函数和原型结合</h2>
 <pre><code class="language-javascript">function createSquare(width) {
 	let obj = Object.create(createSquare.squarePrototype)
 	obj.width = width
@@ -194,25 +194,25 @@ Square.prototype.getLength = function() {
 }
 let square = new Square(5)
 </code></pre>
-<h2 id="heading-2">总结</h2>
-<h3 id="new-x-">new X() 自动做了四件事情</h3>
+<h2 id="总结">总结</h2>
+<h3 id="new-x-自动做了四件事情">new X() 自动做了四件事情</h3>
 <ul>
 <li>自动创建空对象</li>
 <li>自动为空对象关联原型，原型地址指定为X.prototype</li>
 <li>自动将空对象作为this关键字运行构造函数</li>
 <li>自动return this</li>
 </ul>
-<h3 id="x">构造函数X</h3>
+<h3 id="构造函数x">构造函数X</h3>
 <ul>
 <li>X函数本身负责给对象本身添加属性</li>
 <li>X.prototype对象负责保存对象的共用属性</li>
 </ul>
-<h1 id="heading-3">原型和公用属性的关系</h1>
+<h1 id="原型和公用属性的关系">原型和公用属性的关系</h1>
 <p><img src="https://zhixiukang.com/images/3241585266239_.pic.jpg" alt=""></p>
 <blockquote>
 <p>你是谁构造的，你的原型就是谁的prototype属性对应的对象。</p>
 </blockquote>
-<h2 id="heading-4">原型公式</h2>
+<h2 id="原型公式">原型公式</h2>
 <pre><code>对象.__proto__ === 其构造函数.prototype
 </code></pre>
 <blockquote>
@@ -224,25 +224,25 @@ let square = new Square(5)
 <blockquote>
 <p>一个例外: <code>Object.prototype.__proto__ === null</code></p>
 </blockquote>
-<h1 id="js">JS终极一问</h1>
-<h2 id="window">window是谁创造的</h2>
+<h1 id="js终极一问">JS终极一问</h1>
+<h2 id="window是谁创造的">window是谁创造的</h2>
 <ul>
 <li>Window</li>
 <li>可以通过constructor属性看出构造者</li>
 </ul>
-<h2 id="windowobject">window.Object是谁构造的</h2>
+<h2 id="windowobject是谁构造的">window.Object是谁构造的</h2>
 <ul>
 <li>window.Function</li>
 <li>因为所有函数都是window.Function构造的</li>
 </ul>
-<h2 id="windowfunction">window.Function是谁构造的</h2>
+<h2 id="windowfunction是谁构造的">window.Function是谁构造的</h2>
 <ul>
 <li>window.Function</li>
 <li>因为所有函数都是window.Function够早的</li>
 <li>自己构造自己？不是的，浏览器的JS引擎构造了Function，然后指定它的构造者是自己</li>
 </ul>
-<h1 id="es6">ES6语法</h1>
-<h2 id="square">重写下之前的Square</h2>
+<h1 id="es6语法">ES6语法</h1>
+<h2 id="重写下之前的square">重写下之前的Square</h2>
 <p>非常遗憾，有的前端认为下面的代码是过时的:</p>
 <pre><code class="language-javascript">function Square(width) {
 	this.width = width
@@ -268,7 +268,7 @@ let square = new Square(5)
 	}// 函数的两种写法都对
 }
 </code></pre>
-<h2 id="heading-5">到底有多少新语法</h2>
+<h2 id="到底有多少新语法">到底有多少新语法</h2>
 <blockquote>
 <p><a href="https://fangyinghang.com/es-6-tutorials/">ES 6 新特性列表</a></p>
 </blockquote>
@@ -329,7 +329,7 @@ let square = new Square(5)
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

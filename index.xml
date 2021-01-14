@@ -6,41 +6,7 @@
     <description>Recent content on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Aug 2020 15:21:33 -0800</lastBuildDate>
-    
-	<atom:link href="https://zhixiukang.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Scrum框架</title>
-      <link>https://zhixiukang.com/posts/scrum-framework/</link>
-      <pubDate>Wed, 12 Aug 2020 15:21:33 -0800</pubDate>
-      
-      <guid>https://zhixiukang.com/posts/scrum-framework/</guid>
-      <description>最近发现很多地方都用 Scrum 框架来管理软件开发项目，那么什么是 Scrum 框架呢，它有什么用并且如何使用呢？下面让我一一讲讲自己的理解。
-两张好图 结合图说说 在做软件开发的时候，一开始总是会有一些想法，我们把这些想法统一放到一个地方，也就是product backlog(代办列表)。这里面有一个人对这里面的所有条目负责，这个人就叫做product owner。有了这些条目和产品负责人后，我们可以进入到我们的迭代，也就是我们的sprint，注意，在进入sprint之前，我们的product backlog里还是会有准备好的至少一个sprint的内容。
-在进入sprint后呢，第一个事情，就是开一个sprint planning，在这个计划会中有两件重要的内容，一个就是我们在这个sprint里要做什么，一个就是这些条目如何实现。我们会从product backlog中选择一些条目放进sprint planning，sprint planning结束后，我们会有两个输出: 一个输出是这个 sprint的目标(sprint goal)，一个就是白板(sprint backlog)。一般的白板会包括TO DO, DOING, DONE几个部分。
-有了这个sprint backlog后，开发团队每天会对着这个这个白板进行daily scrum，在daily scrum上，每个成员要回答三个问题，即昨天我做了什么帮助团队实现sprint目标，今天我准备做什么帮助团队实现sprint目标，还有在这中间有没有遇到什么问题或者障碍。
-随着sprint一天一天的进行，团队最后有一个产出物，叫做increment(产品增量)。产品增量的含义是，我们从 product backlog中取出了几个条目，这几个条目已经被完全实现了，产生了最后的产品增量。
-有了产品增量后，我们会在sprint review中，去对交付内容(产品增量)进行反馈，sprint review主要是对产品进行反馈。sprint review结束后，我们还有一个sprint retrospective，整个团队会回顾整个sprint哪些地方做的好或不好，主要是团队对自己的工作流程工作方法进行反馈。
-这里面注意，进行sprint的人叫做development team，而组织整个scrum的，则称为scrum master。
-总结 现在我们可以看到，scrum的元素已经基本呈现出来了:
- product backlog, sprint backlog和 increment是三个工件。 product owner, development team和scrum master是三个角色 sprint, sprint planning, daily scrum, sprint review和sprint retrospective是五个事件 Openness, Courage, Commitment, Respect, Focus, 即开放、勇气、承诺、尊重、专注是五个价值观  以上就是Scrum框架的全部内容，举个例子让我们再完整的看一下: 从一开始有 product backlog，我们从中选取了几个条目放入 sprint planning， 在 sprint planning 对他进行拆分，形成 sprint backlog 和 sprint goal。有了 sprint backlog 后，团队每天会进行 daily scrum。在这个过程中，整个团队会不断进行，最终会生成产品增量 increment，产品增量会进入我们的 sprint review，而sprint review 最关键的则是对我们的产品进行反馈，反馈又会体现在一开始的 product backlog 里。</description>
-    </item>
-    
-    <item>
-      <title>React: Hooks原理解析</title>
-      <link>https://zhixiukang.com/posts/react-hooks-principles/</link>
-      <pubDate>Mon, 10 Aug 2020 15:21:33 -0800</pubDate>
-      
-      <guid>https://zhixiukang.com/posts/react-hooks-principles/</guid>
-      <description>最简单的 useState 实现 useState 原理 import React from &amp;quot;react&amp;quot;; import ReactDOM from &amp;quot;react-dom&amp;quot;; const rootElement = document.getElementById(&amp;quot;root&amp;quot;); function App() { const [n, setN] = React.useState(0); return ( &amp;lt;div className=&amp;quot;App&amp;quot;&amp;gt; &amp;lt;p&amp;gt;{n}&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; &amp;lt;button onClick={() =&amp;gt; setN(n + 1)}&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; ); } ReactDOM.render(&amp;lt;App /&amp;gt;, rootElement);   自己试试 - CodeSandbox
-  你以为的n一开始是0，然后通过setN改变n，这是一般人看这个代码脑补的过程，但是，这个过程是错误的。
- 这里是实际的情况:
-脑补之后 问自己几个问题  执行setN的时候会发生什么？n会变吗？App() 会重新执行吗？   要重新渲染UI，因为把n变了。n不会变，而是说我要把n变了，这个时候n是不变的，也就是说setN并不会改变n。App() 当然会重新执行
-  如果 App() 会重新执行，那么 useState(0) 的时候，n每次的值会有不同吗？   通过console.</description>
-    </item>
-    
+    <lastBuildDate>Sun, 24 May 2020 22:21:33 -0800</lastBuildDate><atom:link href="https://zhixiukang.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>股市长期回报率的影响因素</title>
       <link>https://zhixiukang.com/explore/stock-market-long-term-return-on-investment-and-its-influence-factors/</link>
@@ -64,6 +30,47 @@
 例如，假定初始股息率为3%，在随后的10年内，预测盈利增长率为每年7%，则回报率将为10%。
 如果市盈率P/E从期初的15倍，预期变为期末的18倍，这将使总回报率增加两个百分点，股票回报率将达到12%。
  现实回报率 = 初始股息率 + 年平均盈利增长率 ＋ 年平均市盈率变动   在对10年期权股市名义回报率(1927年至2009年中)的历史数据分析中，历史数据和这一推测吻合的很好。比如，从1960年一月到1969年12月，初始股息率3.</description>
+    </item>
+    
+    <item>
+      <title>虚拟 DOM 和 DOM diff</title>
+      <link>https://zhixiukang.com/posts/virtual-dom-and-dom-diff/</link>
+      <pubDate>Sun, 03 May 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/virtual-dom-and-dom-diff/</guid>
+      <description>虚拟 DOM  与「真实 DOM」对应
+ 关于 DOM 的谣言 DOM 操作慢？虚拟 DOM 快  这句话类似于：刘翔矮（对比于姚明） DOM 操作慢是对比于 JS 原生 API，如数组操作 任何基于 DOM 的库（Vue/React）都不可能在操作 DOM 时比 DOM 快  为什么网上有这样的谣言？  因为在某些情况下，虚拟 DOM 快  哪些情况请继续看
+   虚拟 DOM 是什么  是一个能代表 DOM 树的对象，通常含有标签名、标签上的属性、事件监听和子元素们，以及其他属性  虚拟 DOM 的优点 减少 DOM 操作  虚拟 DOM 可以将多次操作合并为一次操作，比如你添加 1000 个节点，却是一个接一个操作的（减少频率） 虚拟 DOM 借助 DOM diff 可以把多余的操作省掉，比如你添加 1000 个节点，其实只有 10 个是新增的（减少范围）  跨平台  虚拟 DOM 不仅可以变成 DOM，还可以变成小程序、iOS 应用、安卓应用，因为虚拟 DOM 本质上只是一个 JS 对象  虚拟 DOM 长什么样子  React  const vNode = { key: null, props: { children: [ // 子元素们 { type: &#39;span&#39;, .</description>
+    </item>
+    
+    <item>
+      <title>Scrum框架</title>
+      <link>https://zhixiukang.com/posts/scrum-framework/</link>
+      <pubDate>Sun, 26 Apr 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/scrum-framework/</guid>
+      <description>最近发现很多地方都用 Scrum 框架来管理软件开发项目，那么什么是 Scrum 框架呢，它有什么用并且如何使用呢？下面让我一一讲讲自己的理解。
+两张好图 结合图说说 在做软件开发的时候，一开始总是会有一些想法，我们把这些想法统一放到一个地方，也就是product backlog(代办列表)。这里面有一个人对这里面的所有条目负责，这个人就叫做product owner。有了这些条目和产品负责人后，我们可以进入到我们的迭代，也就是我们的sprint，注意，在进入sprint之前，我们的product backlog里还是会有准备好的至少一个sprint的内容。
+在进入sprint后呢，第一个事情，就是开一个sprint planning，在这个计划会中有两件重要的内容，一个就是我们在这个sprint里要做什么，一个就是这些条目如何实现。我们会从product backlog中选择一些条目放进sprint planning，sprint planning结束后，我们会有两个输出: 一个输出是这个 sprint的目标(sprint goal)，一个就是白板(sprint backlog)。一般的白板会包括TO DO, DOING, DONE几个部分。
+有了这个sprint backlog后，开发团队每天会对着这个这个白板进行daily scrum，在daily scrum上，每个成员要回答三个问题，即昨天我做了什么帮助团队实现sprint目标，今天我准备做什么帮助团队实现sprint目标，还有在这中间有没有遇到什么问题或者障碍。
+随着sprint一天一天的进行，团队最后有一个产出物，叫做increment(产品增量)。产品增量的含义是，我们从 product backlog中取出了几个条目，这几个条目已经被完全实现了，产生了最后的产品增量。
+有了产品增量后，我们会在sprint review中，去对交付内容(产品增量)进行反馈，sprint review主要是对产品进行反馈。sprint review结束后，我们还有一个sprint retrospective，整个团队会回顾整个sprint哪些地方做的好或不好，主要是团队对自己的工作流程工作方法进行反馈。
+这里面注意，进行sprint的人叫做development team，而组织整个scrum的，则称为scrum master。
+总结 现在我们可以看到，scrum的元素已经基本呈现出来了:
+ product backlog, sprint backlog和 increment是三个工件。 product owner, development team和scrum master是三个角色 sprint, sprint planning, daily scrum, sprint review和sprint retrospective是五个事件 Openness, Courage, Commitment, Respect, Focus, 即开放、勇气、承诺、尊重、专注是五个价值观  以上就是Scrum框架的全部内容，举个例子让我们再完整的看一下: 从一开始有 product backlog，我们从中选取了几个条目放入 sprint planning， 在 sprint planning 对他进行拆分，形成 sprint backlog 和 sprint goal。有了 sprint backlog 后，团队每天会进行 daily scrum。在这个过程中，整个团队会不断进行，最终会生成产品增量 increment，产品增量会进入我们的 sprint review，而sprint review 最关键的则是对我们的产品进行反馈，反馈又会体现在一开始的 product backlog 里。</description>
+    </item>
+    
+    <item>
+      <title>React: Hooks原理解析</title>
+      <link>https://zhixiukang.com/posts/react-hooks-principles/</link>
+      <pubDate>Tue, 21 Apr 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/react-hooks-principles/</guid>
+      <description>最简单的 useState 实现 useState 原理 import React from &amp;quot;react&amp;quot;; import ReactDOM from &amp;quot;react-dom&amp;quot;; const rootElement = document.getElementById(&amp;quot;root&amp;quot;); function App() { const [n, setN] = React.useState(0); return ( &amp;lt;div className=&amp;quot;App&amp;quot;&amp;gt; &amp;lt;p&amp;gt;{n}&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; &amp;lt;button onClick={() =&amp;gt; setN(n + 1)}&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; ); } ReactDOM.render(&amp;lt;App /&amp;gt;, rootElement);   自己试试 - CodeSandbox
+  你以为的n一开始是0，然后通过setN改变n，这是一般人看这个代码脑补的过程，但是，这个过程是错误的。
+ 这里是实际的情况:
+脑补之后 问自己几个问题  执行setN的时候会发生什么？n会变吗？App() 会重新执行吗？   要重新渲染UI，因为把n变了。n不会变，而是说我要把n变了，这个时候n是不变的，也就是说setN并不会改变n。App() 当然会重新执行
+  如果 App() 会重新执行，那么 useState(0) 的时候，n每次的值会有不同吗？   通过console.</description>
     </item>
     
     <item>

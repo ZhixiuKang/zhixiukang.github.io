@@ -87,7 +87,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -166,18 +166,18 @@ if (!doNotTrack) {
 WWW = URL + HTTP + HTML</p>
 </blockquote>
 <h1 id="ip">IP</h1>
-<h2 id="-ip">什么是 IP</h2>
+<h2 id="什么是-ip">什么是 IP</h2>
 <p>Internet Protocol 主要约定了两件事:</p>
 <ol>
 <li>如何定位一台设备</li>
 <li>如何封装数据报文，以跟其他设备交流</li>
 </ol>
-<h2 id="ip-">IP 分为内网和外网</h2>
+<h2 id="ip-分为内网和外网">IP 分为内网和外网</h2>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2219.56.07.png" alt=""></p>
 <blockquote>
 <p><a href="https://www.h3xed.com/web-and-internet/whats-the-difference-between-external-and-local-ip-addresses">Difference between External and Local IP Addresses</a></p>
 </blockquote>
-<h2 id="-ip-1">几个特殊的 IP</h2>
+<h2 id="几个特殊的-ip">几个特殊的 IP</h2>
 <ul>
 <li>127.0.0.1 表示自己</li>
 <li>localhost 通过 hosts 指定为自己</li>
@@ -190,8 +190,8 @@ WWW = URL + HTTP + HTML</p>
 </blockquote>
 </li>
 </ul>
-<h1 id="heading">端口</h1>
-<h2 id="heading-1">端口号</h2>
+<h1 id="端口">端口</h1>
+<h2 id="端口号">端口号</h2>
 <p>一台机器可以提供很多服务，每个服务一个号码，这个号码就叫端口号 port。</p>
 <blockquote>
 <p>要提供 HTTP 服务最好使用 80 端口<br>
@@ -202,7 +202,7 @@ WWW = URL + HTTP + HTML</p>
 <blockquote>
 <p><a href="https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8#0.E5.88.B01023.E5.8F.B7.E7.AB.AF.E5.8F.A3">TCP/UDP 端口列表</a></p>
 </blockquote>
-<h2 id="heading-2">端口使用的其他规则</h2>
+<h2 id="端口使用的其他规则">端口使用的其他规则</h2>
 <ul>
 <li>0 到 1023 号端口是留给系统使用的</li>
 <li>你只有拥有了管理员权限后，才能使用这 1024 个端口</li>
@@ -214,12 +214,12 @@ WWW = URL + HTTP + HTML</p>
 </blockquote>
 </li>
 </ul>
-<h1 id="heading-3">域名</h1>
+<h1 id="域名">域名</h1>
 <p>域名就是对 IP 的别称</p>
-<h2 id="baiducom--ip">baidu.com 对应什么 IP</h2>
+<h2 id="baiducom-对应什么-ip">baidu.com 对应什么 IP</h2>
 <pre><code class="language-bash">ping baidu.com
 </code></pre>
-<h2 id="heading-4">知识点</h2>
+<h2 id="知识点">知识点</h2>
 <ul>
 <li>一个域名可以对应不同 IP
 <blockquote>
@@ -232,7 +232,7 @@ WWW = URL + HTTP + HTML</p>
 </blockquote>
 </li>
 </ul>
-<h2 id="-ip-">域名和 IP 是怎么对应起来的</h2>
+<h2 id="域名和-ip-是怎么对应起来的">域名和 IP 是怎么对应起来的</h2>
 <p>通过 DNS。查看域名的 IP:</p>
 <pre><code class="language-bash">nslookup google.com
 </code></pre>
@@ -243,11 +243,11 @@ WWW = URL + HTTP + HTML</p>
 <p>Q: 为什么是 80 或 443 端口？<br>
 A: 服务器默认用 80 提供 http 服务，用 443 提供 https 服务。</p>
 </blockquote>
-<h2 id="heading-5">题外话</h2>
+<h2 id="题外话">题外话</h2>
 <h3 id="www">www</h3>
 <p>Q: <code>www.zhixiukang.com</code>和<code>zhixiukang.com</code>是同一个域名吗？</p>
 <p>A: 不是 🙅‍♀️</p>
-<h3 id="heading-6">他们是什么关系</h3>
+<h3 id="他们是什么关系">他们是什么关系</h3>
 <ul>
 <li>com 是顶级域名</li>
 <li><code>zhixiukang.com</code>是二级域名</li>
@@ -264,14 +264,14 @@ A: 服务器默认用 80 提供 http 服务，用 443 提供 https 服务。</p>
 HTTP 默认端口 443</p>
 </blockquote>
 <p><strong>URL = 协议 + 域名或 IP + 端口号 + 路径 + 查询字符串 + 锚点</strong></p>
-<h1 id="curl-">curl 命令</h1>
-<h2 id="-curl--http-">用 curl 可以发 HTTP 请求</h2>
+<h1 id="curl-命令">curl 命令</h1>
+<h2 id="用-curl-可以发-http-请求">用 curl 可以发 HTTP 请求</h2>
 <pre><code class="language-bash">curl -v http://google.com
 curl -s -v -- https://www.google.com
 </code></pre>
 <pre><code class="language-bash">curl http://zhixiukang.com
 </code></pre>
-<h2 id="heading-7">理解以下概念</h2>
+<h2 id="理解以下概念">理解以下概念</h2>
 <ul>
 <li>url 会被 curl 工具重写，先请求 DNS 获得 IP</li>
 <li>先进行 TCP 连接，TCP 连接成功后，开始发送 HTTP 请求</li>
@@ -341,7 +341,7 @@ curl -s -v -- https://www.google.com
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

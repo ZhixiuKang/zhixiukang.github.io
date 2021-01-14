@@ -89,7 +89,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -163,15 +163,15 @@ if (!doNotTrack) {
     </header>
 
     <div>
-      <h1 id="heading">知识点</h1>
-<h2 id="heading-1">基本概念</h2>
+      <h1 id="知识点">知识点</h1>
+<h2 id="基本概念">基本概念</h2>
 <p>内存、变量、数据类型、对象</p>
-<h2 id="heading-2">控制语句</h2>
+<h2 id="控制语句">控制语句</h2>
 <ul>
 <li>if…else&hellip;</li>
 <li>for…</li>
 </ul>
-<h2 id="heading-3">对象</h2>
+<h2 id="对象">对象</h2>
 <ul>
 <li>原型、原型链</li>
 <li>对象分类</li>
@@ -179,7 +179,7 @@ if (!doNotTrack) {
 <li>构造函数</li>
 <li>this的隐式传递和显式传递</li>
 </ul>
-<h2 id="heading-4">难点</h2>
+<h2 id="难点">难点</h2>
 <blockquote>
 <p>JS三座大山</p>
 </blockquote>
@@ -188,29 +188,29 @@ if (!doNotTrack) {
 <li>this</li>
 <li>AJAX</li>
 </ul>
-<h1 id="heading-5">最重要的知识</h1>
-<h2 id="js">JS公式</h2>
+<h1 id="最重要的知识">最重要的知识</h1>
+<h2 id="js公式">JS公式</h2>
 <pre><code>对象.__proto__===其构造函数.prototype
 </code></pre>
 <blockquote>
 <p>JS唯一公式，如果不会就套公式</p>
 </blockquote>
-<h2 id="heading-6">根公理</h2>
+<h2 id="根公理">根公理</h2>
 <pre><code>Object.prototype是所有对象的(直接或间接)原型
 </code></pre>
 <blockquote>
 <p>加了一个直接或间接，所谓公理就是规定好的</p>
 </blockquote>
-<h2 id="heading-7">函数公理</h2>
+<h2 id="函数公理">函数公理</h2>
 <pre><code>所有函数都是由Function构造的
 </code></pre>
 <blockquote>
 <p><code>任何函数.__proto__===Function.prototype</code></p>
 <p>任意函数有<code>Object/Array/Function</code></p>
 </blockquote>
-<h1 id="heading-8">拨乱反正</h1>
-<h2 id="heading-9">乱一</h2>
-<h3 id="xxx">XXX的原型</h3>
+<h1 id="拨乱反正">拨乱反正</h1>
+<h2 id="乱一">乱一</h2>
+<h3 id="xxx的原型">XXX的原型</h3>
 <ul>
 <li><code>{name:'frank'}</code>的原型</li>
 </ul>
@@ -229,7 +229,7 @@ if (!doNotTrack) {
 <blockquote>
 <p><code>Function.prototype</code></p>
 </blockquote>
-<h3 id="heading-10">解读</h3>
+<h3 id="解读">解读</h3>
 <ul>
 <li><code>Object</code>的原型是<code>Object.__proto__</code></li>
 </ul>
@@ -242,15 +242,15 @@ if (!doNotTrack) {
 <blockquote>
 <p>错</p>
 </blockquote>
-<h3 id="heading-11">错在哪</h3>
+<h3 id="错在哪">错在哪</h3>
 <ul>
 <li><code>的原型</code>等价于<code>.__proto__</code></li>
 <li>中文的<code>原型</code>无法区分<code>__proto__</code>和<code>prototype</code></li>
 <li>所以我们只能约定，原型默认表示<code>__proto__</code></li>
 <li>只不过<code>__proto__</code>正好等于某个函数的<code>prototype</code></li>
 </ul>
-<h2 id="heading-12">乱二</h2>
-<h3 id="heading-13">我觉得你矛盾了</h3>
+<h2 id="乱二">乱二</h2>
+<h3 id="我觉得你矛盾了">我觉得你矛盾了</h3>
 <ul>
 <li><code>[1, 2, 3]</code>的原型是<code>Array.prototype</code></li>
 <li>你又说<code>Object.prototype</code>是所有对象的原型</li>
@@ -259,15 +259,15 @@ if (!doNotTrack) {
 <blockquote>
 <p>其实<code>Array.prototype</code>和<code>Object.prototype</code>都是<code>[1, 2, 3]</code>的原型。只不过一个是直接原型，一个是间接原型。</p>
 </blockquote>
-<h3 id="heading-14">错在哪</h3>
+<h3 id="错在哪-1">错在哪</h3>
 <ul>
 <li>原型分为两种: 直接原型和间接原型</li>
 <li>对于普通对象来说，<code>Object.prototype</code>是直接原型</li>
 <li>对于数组、函数来说，<code>Object.prototype</code>是间接原型</li>
 </ul>
-<h2 id="heading-15">乱三</h2>
-<h3 id="objectprototype"><code>Object.prototype</code>不是根对象</h3>
-<h3 id="heading-16">理由</h3>
+<h2 id="乱三">乱三</h2>
+<h3 id="objectprototype不是根对象"><code>Object.prototype</code>不是根对象</h3>
+<h3 id="理由">理由</h3>
 <ul>
 <li><code>Object.prototype</code>是所有对象的原型</li>
 <li><code>Object</code>是<code>Function</code>构造出来的</li>
@@ -279,16 +279,16 @@ if (!doNotTrack) {
 <ul>
 <li>推论，<code>Function</code>才是万物之源呀</li>
 </ul>
-<h3 id="heading-17">错在哪</h3>
+<h3 id="错在哪-2">错在哪</h3>
 <ul>
 <li><code>Object.prototype</code>(的地址)和<code>Object.prototype对象</code>的区别</li>
 <li>对象里面从来都不会包含另一个对象(它只会包含另一个对象的地址)</li>
 </ul>
-<h1 id="js-1">再画JS世界</h1>
+<h1 id="再画js世界">再画JS世界</h1>
 <blockquote>
 <p>上一版的JS世界:  <a href="http://zhixiukang.com/posts/memory-map-and-js-world/">内存图和 JS 世界</a></p>
 </blockquote>
-<h2 id="js-2">JS世界的构造顺序</h2>
+<h2 id="js世界的构造顺序">JS世界的构造顺序</h2>
 <ol>
 <li>创建根对象<code>#101</code>(toString)，根对象没有名字</li>
 <li>创建函数的原型<code>#208</code>(call/appy)，原型<code>__proto__</code>为 <code>#101</code></li>
@@ -304,7 +304,7 @@ if (!doNotTrack) {
 <li>用window的<code>'Object'``’Array’</code>属性将7和9中的函数命名</li>
 <li>记住一点，JS创建一个对象时，不会给这个对象名字的</li>
 </ol>
-<h2 id="js-3">JS世界的构造顺序(续)</h2>
+<h2 id="js世界的构造顺序续">JS世界的构造顺序(续)</h2>
 <p>如果要有一个新的对象，要做什么事情呢？</p>
 <ol>
 <li>用<code>new Object()</code>创建<code>obj1</code></li>
@@ -323,7 +323,7 @@ if (!doNotTrack) {
 <blockquote>
 <p>new什么，就把这个对象的原型设置成 什么的prototype.</p>
 </blockquote>
-<h2 id="js-4">JS世界的构造顺序(续)</h2>
+<h2 id="js世界的构造顺序续-1">JS世界的构造顺序(续)</h2>
 <ol>
 <li>自己定义构造函数Person，函数里给this加属性</li>
 <li>Person自动创建prototype属性和对应的对象<code>#502</code></li>
@@ -331,7 +331,7 @@ if (!doNotTrack) {
 <li>用<code>new Person()</code>创建对象p</li>
 <li>new会将p的原型<code>__proto__</code>设为<code>#502</code></li>
 </ol>
-<h2 id="heading-18">漂亮的图示</h2>
+<h2 id="漂亮的图示">漂亮的图示</h2>
 <blockquote>
 <p>Object函数的prototype存储了根，就是对象的原型这么一个对象</p>
 </blockquote>
@@ -342,8 +342,8 @@ if (!doNotTrack) {
 <blockquote>
 <p>你品，你细品，你再自己好好细品。</p>
 </blockquote>
-<h2 id="heading-19">总结</h2>
-<h3 id="heading-20">构造函数</h3>
+<h2 id="总结">总结</h2>
+<h3 id="构造函数">构造函数</h3>
 <ul>
 <li>是用来构造对象的</li>
 </ul>
@@ -354,15 +354,15 @@ if (!doNotTrack) {
 <li>会预先存好对象的原型，原型的原型是根</li>
 <li><code>new</code>的时候将对象的<code>__proto__</code>指向原型</li>
 </ul>
-<h3 id="heading-21">对象</h3>
+<h3 id="对象-1">对象</h3>
 <ul>
 <li>所有对象都直接或间接指向根对象</li>
 <li>如果对象想要分类，就在原型链上加一环</li>
 <li>用构造对象可以加这一环</li>
 </ul>
-<h1 id="js-5">JS三大定理</h1>
+<h1 id="js三大定理">JS三大定理</h1>
 <p>结合JS三大定理来回答一下下面的这些问题</p>
-<h2 id="heading-22">问题</h2>
+<h2 id="问题">问题</h2>
 <ul>
 <li><code>Object.prototype</code>的原型？</li>
 </ul>
@@ -462,7 +462,7 @@ if (!doNotTrack) {
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

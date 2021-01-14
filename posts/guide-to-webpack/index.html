@@ -85,7 +85,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -165,7 +165,7 @@ if (!doNotTrack) {
 <blockquote>
 <p>即使版本升级，每部分细节会有变化，本文思路依然有效。</p>
 </blockquote>
-<h1 id="webpack">webpack是干什么的</h1>
+<h1 id="webpack是干什么的">webpack是干什么的</h1>
 <ul>
 <li>转译代码</li>
 </ul>
@@ -177,7 +177,7 @@ if (!doNotTrack) {
 <li>代码压缩</li>
 <li>代码分析</li>
 </ul>
-<h1 id="webpack-1">安装webpack</h1>
+<h1 id="安装webpack">安装webpack</h1>
 <ul>
 <li><strong>webpack@4</strong></li>
 </ul>
@@ -193,7 +193,7 @@ if (!doNotTrack) {
 <blockquote>
 <p>查看<strong>webpack</strong>版本:<code>npm info webpack</code></p>
 </blockquote>
-<h1 id="webpack-2">在一个文件夹里引入webpack</h1>
+<h1 id="在一个文件夹里引入webpack">在一个文件夹里引入webpack</h1>
 <blockquote>
 <p><a href="https://webpack.js.org/guides/getting-started/">Getting Started | webpack</a></p>
 </blockquote>
@@ -202,7 +202,7 @@ cd webpack-demo
 npm init -y // 创建了package.json
 yarn add webpack webpack-cli --dev // 多了一个node_modules目录
 </code></pre>
-<h1 id="webpack-3">如何调用本地安装的webpack</h1>
+<h1 id="如何调用本地安装的webpack">如何调用本地安装的webpack</h1>
 <pre><code class="language-bash">./node_modules/.bin/webpack --version
 </code></pre>
 <ul>
@@ -217,7 +217,7 @@ yarn add webpack webpack-cli --dev // 多了一个node_modules目录
 <p><code>Error: The 'mode' option has not been set</code></p>
 <p>解决方法: <a href="https://webpack.js.org/concepts/configuration/#simple-configuration">Configuration | webpack</a></p>
 </blockquote>
-<h1 id="webpackentryoutput">webpack配置entry和output</h1>
+<h1 id="webpack配置entry和output">webpack配置entry和output</h1>
 <ul>
 <li>设置<strong>webpage.config.js</strong></li>
 </ul>
@@ -237,7 +237,7 @@ module.exports = {
   }
 };
 </code></pre>
-<h1 id="webpackhtml">webpack插件自动生成HTML</h1>
+<h1 id="webpack插件自动生成html">webpack插件自动生成HTML</h1>
 <ul>
 <li>修改<strong>package.json</strong></li>
 </ul>
@@ -263,7 +263,7 @@ module.exports = {
 <blockquote>
 <p>扩展阅读: <a href="https://github.com/jantimon/html-webpack-plugin#generating-multiple-html-files">利用template生成HTML</a></p>
 </blockquote>
-<h1 id="webpackcss">webpack引入CSS</h1>
+<h1 id="webpack引入css">webpack引入CSS</h1>
 <blockquote>
 <p><a href="https://webpack.js.org/loaders/css-loader/">css-loader | webpack</a></p>
 </blockquote>
@@ -294,7 +294,7 @@ module.exports = {
 <blockquote>
 <p><a href="https://github.com/ZhixiuKang/webpack-demo/commit/209d81476a2adcb683b24fd2fad646fd24564791">示例代码</a></p>
 </blockquote>
-<h1 id="webpack-dev-server">使用webpack-dev-server</h1>
+<h1 id="使用webpack-dev-server">使用webpack-dev-server</h1>
 <blockquote>
 <p>如果你觉得每次build很麻烦，可以使用<strong>webpack-dev-server</strong>来加快开发: <a href="https://webpack.js.org/guides/development/">Development | webpack</a></p>
 </blockquote>
@@ -345,7 +345,7 @@ module.exports = {
 <blockquote>
 <p><a href="https://github.com/ZhixiuKang/webpack-demo/commit/688cf9759d4228fb955e9dfaeea8b62d36aad758">示例代码</a></p>
 </blockquote>
-<h1 id="css">使用插件提取CSS文件</h1>
+<h1 id="使用插件提取css文件">使用插件提取CSS文件</h1>
 <blockquote>
 <p><a href="https://webpack.js.org/plugins/mini-css-extract-plugin/">MiniCssExtractPlugin | webpack</a></p>
 </blockquote>
@@ -397,7 +397,7 @@ module.exports = {
 <blockquote>
 <p>更多配置:  <a href="https://webpack.js.org/plugins/mini-css-extract-plugin/#string">MiniCssExtractPlugin | Options</a></p>
 </blockquote>
-<h1 id="webpack-configwebpack-config">使用两个webpack config文件(多份webpack config配置)</h1>
+<h1 id="使用两个webpack-config文件多份webpack-config配置">使用两个webpack config文件(多份webpack config配置)</h1>
 <blockquote>
 <p>开发环境(<strong>development</strong>)和生产环境(<strong>production</strong>)的<strong>webpack</strong>配置</p>
 </blockquote>
@@ -407,7 +407,7 @@ module.exports = {
 <p><strong>production</strong>:</p>
 <pre><code class="language-bash">yarn build
 </code></pre>
-<h2 id="developmentproductionmode">为什么要有development和production两个mode</h2>
+<h2 id="为什么要有development和production两个mode">为什么要有development和production两个mode</h2>
 <ul>
 <li>开发环境和生产环境的构建目标是有很大的不同的。</li>
 <li>在开发环境中,为了便于代码调试以及实现浏览器实时更新,我们需要开启 <code>source map</code>和<code>localhost server</code>。</li>
@@ -417,7 +417,7 @@ module.exports = {
 <blockquote>
 <p>start开发用，build打包给用户。(development开发用, production给用户用)</p>
 </blockquote>
-<h2 id="heading">如何区分</h2>
+<h2 id="如何区分">如何区分</h2>
 <blockquote>
 <p>Q: 上面看了那么多，既然是不同的命令，那能不能设置他们两个用不同的config？如果用不同的config，不就可以自由切换了？</p>
 <p>A: 你可真是个小机灵鬼，那我们就试试吧。</p>
@@ -442,7 +442,7 @@ module.exports = {
 <blockquote>
 <p>注意将<strong>webpack.config.prod.js</strong>中的<strong>mode</strong>改为<strong>production</strong></p>
 </blockquote>
-<h2 id="webpack-config">多份webpack config配置</h2>
+<h2 id="多份webpack-config配置">多份webpack config配置</h2>
 <blockquote>
 <p>Q: 我们现在使用了两个配置文件，分别是<strong>webpack.config.js</strong>用于开发模式，<strong>webpack.config.prod.js</strong>用于生产模式， 对吧？</p>
 <p>A: 对。</p>
@@ -541,7 +541,7 @@ module.exports = {
 <li><strong>loader</strong>是加载器，用来加载某些资源文件。比如说，<a href="https://webpack.js.org/loaders/babel-loader/">babel-loader</a>是用来加载高级的<strong>JS</strong>，把它变成浏览器支持的<strong>JS</strong>。<strong>css-loader</strong>和<strong>style-loader</strong>是用来加载<strong>css</strong>的，把它变成页面中的<strong>style</strong>标签。</li>
 <li><strong>plugin</strong>是插件，用来扩展<strong>webpack</strong>的功能。比如<strong>html-webpack-plugin</strong>是用来生成<strong>HTML</strong>文件的，<strong>mini-css-extract-plugin</strong>则是用来抽取<strong>css</strong>的代码，把它合并成一个<strong>css</strong>文件的。</li>
 </ul>
-<h1 id="scss">引入SCSS</h1>
+<h1 id="引入scss">引入SCSS</h1>
 <blockquote>
 <p><a href="https://webpack.js.org/loaders/sass-loader/">sass-loader | webpack</a></p>
 </blockquote>
@@ -583,7 +583,7 @@ module.exports = {
 <blockquote>
 <p>扩展阅读 <a href="https://github.com/sass/dart-sass">GitHub - sass/dart-sass: The reference implementation of Sass, written in Dart.</a></p>
 </blockquote>
-<h1 id="less">引入LESS</h1>
+<h1 id="引入less">引入LESS</h1>
 <blockquote>
 <p><a href="https://webpack.js.org/loaders/less-loader/">less-loader | webpack</a></p>
 </blockquote>
@@ -634,7 +634,7 @@ module.exports = {
 <blockquote>
 <p><a href="https://github.com/ZhixiuKang/webpack-demo/commit/a6dce7a47a477427aa3b2d60735869a1208d6562">示例代码</a></p>
 </blockquote>
-<h1 id="stylus">引入Stylus</h1>
+<h1 id="引入stylus">引入Stylus</h1>
 <blockquote>
 <p><a href="https://github.com/shama/stylus-loader">GitHub - shama/stylus-loader: A stylus loader for webpack.</a></p>
 </blockquote>
@@ -669,7 +669,7 @@ module.exports = {
 <blockquote>
 <p><a href="https://github.com/ZhixiuKang/webpack-demo/commit/d43cff7558f44739f4b74245a4bed2a7ae30b29e">示例代码</a></p>
 </blockquote>
-<h1 id="file-loader">使用file-loader引入图片</h1>
+<h1 id="使用file-loader引入图片">使用file-loader引入图片</h1>
 <blockquote>
 <p><a href="https://webpack.js.org/loaders/file-loader/">file-loader | webpack</a></p>
 </blockquote>
@@ -702,7 +702,7 @@ module.exports = {
 <blockquote>
 <p><a href="https://github.com/ZhixiuKang/webpack-demo/commit/a2527d5f3a6d8388eb386e4461bf696ffc954059">示例代码</a></p>
 </blockquote>
-<h1 id="webpack-import-">webpack import() 懒加载</h1>
+<h1 id="webpack-import-懒加载">webpack import() 懒加载</h1>
 <blockquote>
 <p>所谓懒加载，顾名思义，该加载的时候不加载，等不得不加载的时候再加载</p>
 </blockquote>
@@ -737,8 +737,8 @@ button.onclick = () =&gt; {
 <blockquote>
 <p><a href="https://github.com/ZhixiuKang/webpack-demo/commit/e0bdab91a54e36176be895b262f539ff3a912365">示例代码</a></p>
 </blockquote>
-<h1 id="webpackgithub">webpack一键部署到github</h1>
-<h2 id="--master">原始的方法&ndash;使用master分支</h2>
+<h1 id="webpack一键部署到github">webpack一键部署到github</h1>
+<h2 id="原始的方法--使用master分支">原始的方法&ndash;使用master分支</h2>
 <blockquote>
 <p>分两步，第一步是本地打包，第二部是上传到github</p>
 </blockquote>
@@ -768,7 +768,7 @@ git push -u origin master
 <blockquote>
 <p>此时项目发布在 <strong>URL/dist/index.html</strong></p>
 </blockquote>
-<h2 id="gh-pages">使用gh-pages分支</h2>
+<h2 id="使用gh-pages分支">使用gh-pages分支</h2>
 <blockquote>
 <p>Q: 我不想用<strong>dist</strong>,我不希望用户看到<code>/dist/index.html</code>这么奇怪的路径，怎么办？</p>
 <p>A: 彳亍口巴，那我们使用新分支。</p>
@@ -800,7 +800,7 @@ rm -rf dist
 <li>进入项目的<strong>Settings &gt; GitHub Pages</strong>，<strong>Source</strong>改为<strong>gh-pages</strong>分支。</li>
 <li>稍等<strong>GitHub</strong>一会，就可以预览啦~</li>
 </ul>
-<h2 id="heading-1">使用脚本简化</h2>
+<h2 id="使用脚本简化">使用脚本简化</h2>
 <blockquote>
 <p>每次这么做也太累了⑧，使用脚本简化一下吧</p>
 </blockquote>
@@ -888,7 +888,7 @@ git checkout - # '-'代表之前的分支
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

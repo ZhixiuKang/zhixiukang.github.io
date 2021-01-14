@@ -77,7 +77,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -157,8 +157,8 @@ if (!doNotTrack) {
 <blockquote>
 <p><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志</a></p>
 </blockquote>
-<h1 id="js-">JS 中的数据类型</h1>
-<h2 id="7-">7 种</h2>
+<h1 id="js-中的数据类型">JS 中的数据类型</h1>
+<h2 id="7-种">7 种</h2>
 <ul>
 <li>数字 number</li>
 <li>字符串 string</li>
@@ -172,13 +172,13 @@ if (!doNotTrack) {
 </blockquote>
 </li>
 </ul>
-<h2 id="heading">以下不是数据类型</h2>
+<h2 id="以下不是数据类型">以下不是数据类型</h2>
 <ul>
 <li>数组、函数、日期</li>
 <li>它们都属于 object</li>
 </ul>
-<h1 id="-number64-">数字 number(64 位浮点数)</h1>
-<h2 id="heading-1">写法</h2>
+<h1 id="数字-number64-位浮点数">数字 number(64 位浮点数)</h1>
+<h2 id="写法">写法</h2>
 <ul>
 <li>整数写法: 1</li>
 <li>小数写法: 0.1</li>
@@ -187,7 +187,7 @@ if (!doNotTrack) {
 <li>十六进制写法: 0x3F 或 0X3F</li>
 <li>二进制写法: 0b11 或 0B11</li>
 </ul>
-<h2 id="heading-2">特殊值</h2>
+<h2 id="特殊值">特殊值</h2>
 <ul>
 <li>正 0 和负 0: 都等于 0，要严谨</li>
 <li>无穷大: Infinity、+Infinity、-Infinity</li>
@@ -197,14 +197,14 @@ if (!doNotTrack) {
 
 false;
 </code></pre>
-<h2 id="64-">64 位浮点数</h2>
+<h2 id="64-位浮点数">64 位浮点数</h2>
 <p>JS 数字的存储形式:</p>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-03-0417.00.58.png" alt=""></p>
 <blockquote>
 <p>符号占 1 位，指数占 11 位(-1023 到 1024), 有效数字占 52 位(开头的 1 省略)</p>
 </blockquote>
-<h2 id="heading-3">范围和精度</h2>
-<h3 id="heading-4">范围</h3>
+<h2 id="范围和精度">范围和精度</h2>
+<h3 id="范围">范围</h3>
 <ul>
 <li>指数拉满、有效数字拉满，得到最大二进制数字</li>
 </ul>
@@ -215,7 +215,7 @@ false;
 </ul>
 <pre><code>Number.MIN_VALUE:5E-324
 </code></pre>
-<h3 id="heading-5">精度(有效数字)</h3>
+<h3 id="精度有效数字">精度(有效数字)</h3>
 <ul>
 <li>最多只能到 52+1 个二进制位表示有效数字</li>
 <li>2^53 对应的十进制是 9 后面 15 个零</li>
@@ -223,11 +223,11 @@ false;
 <li>16 位有效数字如果小于 90 开头，也能精确表示</li>
 <li>9110000000000001 就存不下来</li>
 </ul>
-<h1 id="heading-6">字符串</h1>
+<h1 id="字符串">字符串</h1>
 <blockquote>
 <p>每个字符两个字节(阉割版 UTF8)</p>
 </blockquote>
-<h2 id="heading-7">转义</h2>
+<h2 id="转义">转义</h2>
 <ul>
 <li><code>\’</code>表示<code>’</code></li>
 <li><code>\n</code> 换行</li>
@@ -237,7 +237,7 @@ false;
 <li><code>\uFFFF</code>表示对应的 Unicode 制表符</li>
 <li><code>xFF</code>表示前 256 个 Unicode 字符</li>
 </ul>
-<h2 id="heading-8">多行字符串</h2>
+<h2 id="多行字符串">多行字符串</h2>
 <ul>
 <li>如果你想要在字符串里回车:</li>
 </ul>
@@ -250,7 +250,7 @@ make it
 <li>以前没有反引号的时候
 写起来很麻烦，可以看<a href="https://wangdoc.com/javascript/types/string.html">网道教程</a></li>
 </ul>
-<h2 id="base64-">base64 转码</h2>
+<h2 id="base64-转码">base64 转码</h2>
 <ul>
 <li><code>window.btoa</code> 正常字符串转为 Base64 编码的字符串</li>
 <li><code>window.atob</code> Base64 编码的字符串转为原来的字符串</li>
@@ -263,8 +263,8 @@ make it
 <ul>
 <li>有时候也用来自欺欺人(所谓的加密 🙅‍♂️)</li>
 </ul>
-<h1 id="-boolean">布尔 boolean</h1>
-<h2 id="-falsy-">五个 falsy 值</h2>
+<h1 id="布尔-boolean">布尔 boolean</h1>
+<h2 id="五个-falsy-值">五个 falsy 值</h2>
 <p>falsy 就是相当于 false 但又不是 false 的值。分别是:</p>
 <ul>
 <li><code>undefined</code></li>
@@ -273,11 +273,11 @@ make it
 <li><code>NaN</code></li>
 <li><code>’’</code></li>
 </ul>
-<h1 id="undefined--null-">undefined 和 null 两种空类型</h1>
+<h1 id="undefined-和-null-两种空类型">undefined 和 null 两种空类型</h1>
 <blockquote>
 <p>JS 的垃圾之处</p>
 </blockquote>
-<h2 id="heading-9">区别</h2>
+<h2 id="区别">区别</h2>
 <ul>
 <li>没有本质区别</li>
 <li>细节一:
@@ -291,7 +291,7 @@ make it
 </blockquote>
 </li>
 </ul>
-<h1 id="symbol-">symbol 符号</h1>
+<h1 id="symbol-符号">symbol 符号</h1>
 <blockquote>
 <p>不怎么常用的数据类型</p>
 </blockquote>
@@ -299,18 +299,18 @@ make it
 <p>直接看<a href="https://zhuanlan.zhihu.com/p/22652486">这篇文章</a></p>
 </blockquote>
 <hr>
-<h1 id="heading-10">变量声明</h1>
+<h1 id="变量声明">变量声明</h1>
 <blockquote>
 <p>变量声明的时候，既指定了值，同时也指定了类型。但是值和类型都可以随意变化。</p>
 </blockquote>
-<h2 id="heading-11">三种声明方式</h2>
+<h2 id="三种声明方式">三种声明方式</h2>
 <ul>
 <li>var a = 1</li>
 <li>let a = 1</li>
 <li>const a = 1</li>
 <li>a = 1</li>
 </ul>
-<h2 id="heading-12">区别</h2>
+<h2 id="区别-1">区别</h2>
 <ul>
 <li>var 是过时的，不好用的方式</li>
 <li>let 是新的，更合理的方式</li>
@@ -321,11 +321,11 @@ make it
 </blockquote>
 </li>
 </ul>
-<h2 id="var-">var 变量提升</h2>
+<h2 id="var-变量提升">var 变量提升</h2>
 <blockquote>
 <p>可以看<a href="https://wangdoc.com/javascript/basic/grammar.html#%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87">网道教程</a></p>
 </blockquote>
-<h2 id="let-">let 声明的规则</h2>
+<h2 id="let-声明的规则">let 声明的规则</h2>
 <ul>
 <li>遵循块作用域，即使用范围不能超出{}</li>
 <li>不能重复声明</li>
@@ -359,13 +359,13 @@ for(let i = 0; i &lt; 5; i++) {
 */
 }
 </code></pre>
-<h2 id="const-">const 声明的规则</h2>
+<h2 id="const-声明的规则">const 声明的规则</h2>
 <ul>
 <li>跟 let 几乎一样</li>
 <li>只有一条不一样: 声明时就要赋值，赋值后不能改</li>
 </ul>
 <hr>
-<h1 id="heading-13">类型转换</h1>
+<h1 id="类型转换">类型转换</h1>
 <ul>
 <li>number =&gt; string</li>
 </ul>
@@ -455,7 +455,7 @@ x.toString()
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

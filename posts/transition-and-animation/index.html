@@ -75,7 +75,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -149,13 +149,13 @@ if (!doNotTrack) {
     </header>
 
     <div>
-      <h1 id="transition-">transition 过渡</h1>
+      <h1 id="transition-过渡">transition 过渡</h1>
 <p>完整文档: <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition">transition | MDN</a></p>
-<h2 id="heading">作用</h2>
+<h2 id="作用">作用</h2>
 <ul>
 <li>补充中间帧</li>
 </ul>
-<h2 id="heading-1">语法:</h2>
+<h2 id="语法">语法:</h2>
 <ul>
 <li><code>transition: 属性名 时长 过渡方式 延迟时间</code></li>
 <li><code>transition: left 200ms linear</code></li>
@@ -171,7 +171,7 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
 <blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/timing-function"><!-- raw HTML omitted --></a>的具体含义要靠数学知识</p>
 </blockquote>
-<h2 id="heading-2">注意</h2>
+<h2 id="注意">注意</h2>
 <ul>
 <li><strong>并不是所有属性都能过渡</strong></li>
 <li><code>display: none=&gt;block</code>没法过渡</li>
@@ -186,8 +186,8 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
 <blockquote>
 <p>一般只有一次动画，或者两次。比如 hover 和非 hover 状态的过渡。</p>
 </blockquote>
-<h2 id="heading-3">如果除了起始，还有中间点，怎么办？</h2>
-<h3 id="-transform">使用两次 transform</h3>
+<h2 id="如果除了起始还有中间点怎么办">如果除了起始，还有中间点，怎么办？</h2>
+<h3 id="使用两次-transform">使用两次 transform</h3>
 <ul>
 <li><code>.a===transform===&gt;.b</code></li>
 <li><code>.b===transform===&gt;.c</code></li>
@@ -198,7 +198,7 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
 </blockquote>
 </li>
 </ul>
-<h3 id="-animation">使用 animation</h3>
+<h3 id="使用-animation">使用 animation</h3>
 <ul>
 <li>声明关键帧</li>
 <li>添加动画
@@ -207,7 +207,7 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
 </blockquote>
 </li>
 </ul>
-<h2 id="heading-4">如何让动画停在最后一帧</h2>
+<h2 id="如何让动画停在最后一帧">如何让动画停在最后一帧</h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css3-animation/12991203#12991203">加个<code>forwards</code></a>
 <blockquote>
@@ -215,7 +215,7 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
 </blockquote>
 </li>
 </ul>
-<h2 id="keyframe-">@keyframe 的完整语法</h2>
+<h2 id="keyframe-的完整语法">@keyframe 的完整语法</h2>
 <p>完整文档: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">keyframes | MDN</a></p>
 <ul>
 <li>一种写法是 from to</li>
@@ -253,7 +253,7 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
 </code></pre>
 <h1 id="animation">animation</h1>
 <p>完整文档: <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation">animation | MDN</a></p>
-<h2 id="heading-5">缩写语法</h2>
+<h2 id="缩写语法">缩写语法</h2>
 <pre><code>animation: 时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动画名;
 </code></pre>
 <ul>
@@ -272,7 +272,7 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
 <blockquote>
 <p><a href="http://js.jirengu.com/peran/2/edit?html,css,js,output">示例代码</a></p>
 </blockquote>
-<h2 id="heading-6">实践</h2>
+<h2 id="实践">实践</h2>
 <p>把红心重新做一遍。关键代码:</p>
 <pre><code class="language-css">#heart {
   display: inline-block;
@@ -349,7 +349,7 @@ where  &lt;cubic-bezier-timing-function&gt; = ease | ease-in | ease-out | ease
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

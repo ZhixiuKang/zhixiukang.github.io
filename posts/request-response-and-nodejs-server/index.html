@@ -79,7 +79,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -153,12 +153,12 @@ if (!doNotTrack) {
     </header>
 
     <div>
-      <h1 id="heading">请求与响应模型</h1>
+      <h1 id="请求与响应模型">请求与响应模型</h1>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2319.19.18.png" alt=""></p>
 <blockquote>
 <p>帮你发请求的工具叫做<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/User-Agent">User-Agent</a></p>
 </blockquote>
-<h1 id="heading-1">如何做出一个响应</h1>
+<h1 id="如何做出一个响应">如何做出一个响应</h1>
 <ul>
 <li>Node.js 有一个 http 模块可以做到
 <blockquote>
@@ -166,7 +166,7 @@ if (!doNotTrack) {
 </blockquote>
 </li>
 </ul>
-<h2 id="heading-2">注意事项</h2>
+<h2 id="注意事项">注意事项</h2>
 <ul>
 <li>这些代码就是服务器代码，一般放在服务器上</li>
 <li>path 是不带查询参数的路径 /x</li>
@@ -176,7 +176,7 @@ if (!doNotTrack) {
 <li>request 是请求对象</li>
 <li>response 是响应对象</li>
 </ul>
-<h2 id="heading-3">代码逻辑</h2>
+<h2 id="代码逻辑">代码逻辑</h2>
 <ul>
 <li>每次收到请求都会把中间的代码执行一遍</li>
 <li>用 if else 判断路径，并返回响应</li>
@@ -192,7 +192,7 @@ if (!doNotTrack) {
 <blockquote>
 <p>Content-Type 才是决定文件类型的关键</p>
 </blockquote>
-<h1 id="http-">HTTP 基础概念之请求</h1>
+<h1 id="http-基础概念之请求">HTTP 基础概念之请求</h1>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2320.37.32.png" alt=""></p>
 <ul>
 <li><strong>请求动词 路径加查询参数 协议名/版本</strong></li>
@@ -202,7 +202,7 @@ if (!doNotTrack) {
 <li>回车</li>
 <li>请求体(也就是上传内容)</li>
 </ul>
-<h2 id="heading-4">细节</h2>
+<h2 id="细节">细节</h2>
 <ul>
 <li>三部分: 请求行、请求头、请求体</li>
 <li>请求动词有 GET/POST/PUT/PATCH/DELETE 等</li>
@@ -219,7 +219,7 @@ if (!doNotTrack) {
 <li>文档位于<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html">RFC 2612 Chapter 5</a></li>
 <li>大小写不敏感(随意)</li>
 </ul>
-<h1 id="http--1">HTTP 基础概念之响应</h1>
+<h1 id="http-基础概念之响应">HTTP 基础概念之响应</h1>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2320.37.48.png" alt=""></p>
 <ul>
 <li><strong>协议名/版本 状态码 状态字符串</strong></li>
@@ -227,7 +227,7 @@ if (!doNotTrack) {
 <li>回车</li>
 <li>响应体(也就是下载内容)</li>
 </ul>
-<h2 id="heading-5">细节</h2>
+<h2 id="细节-1">细节</h2>
 <ul>
 <li>三部分: 状态行、 响应头、 响应体</li>
 <li>常见的状态码是考点
@@ -237,7 +237,7 @@ if (!doNotTrack) {
 </li>
 <li>文档位于<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html">RFC 2612 Chapter 6</a></li>
 </ul>
-<h1 id="-curl-">用 curl 构造请求</h1>
+<h1 id="用-curl-构造请求">用 curl 构造请求</h1>
 <pre><code class="language-bash">curl -v http://localhost:8888/
 </code></pre>
 <p>可以得到</p>
@@ -294,72 +294,72 @@ if (!doNotTrack) {
 <p>总结一下：</p>
 <pre><code class="language-bash">curl -v http://127.0.0.1:8888
 </code></pre>
-<h2 id="heading-6">设置请求动词</h2>
+<h2 id="设置请求动词">设置请求动词</h2>
 <ul>
 <li><code>-X POST</code></li>
 <li>注意大小写</li>
 </ul>
-<h2 id="heading-7">设置路径和查询参数</h2>
+<h2 id="设置路径和查询参数">设置路径和查询参数</h2>
 <ul>
 <li>直接在 url 后面加</li>
 </ul>
-<h2 id="heading-8">设置请求头</h2>
+<h2 id="设置请求头">设置请求头</h2>
 <ul>
 <li><code>-H ’Name: Value’</code>或者<code>—header 'Name: Value’</code></li>
 </ul>
-<h2 id="heading-9">设置请求体</h2>
+<h2 id="设置请求体">设置请求体</h2>
 <ul>
 <li><code>-d ‘内容’</code>或者<code>—data ‘内容’</code></li>
 </ul>
-<h1 id="-nodejs-">用 Node.js 读取请求</h1>
-<h2 id="heading-10">读取请求动词</h2>
+<h1 id="用-nodejs-读取请求">用 Node.js 读取请求</h1>
+<h2 id="读取请求动词">读取请求动词</h2>
 <ul>
 <li>request.method</li>
 </ul>
-<h2 id="heading-11">读取路径</h2>
+<h2 id="读取路径">读取路径</h2>
 <ul>
 <li>request.url 路径，带查询参数</li>
 <li>path 纯路径，不带查询参数</li>
 <li>query 只有查询参数</li>
 </ul>
-<h2 id="heading-12">读取请求头</h2>
+<h2 id="读取请求头">读取请求头</h2>
 <ul>
 <li><code>request.headers[‘accept']</code></li>
 </ul>
-<h2 id="heading-13">读取请求体</h2>
+<h2 id="读取请求体">读取请求体</h2>
 <ul>
 <li>比较复杂，先不说</li>
 </ul>
-<h1 id="-nodejs--1">用 Node.js 设置响应</h1>
-<h2 id="heading-14">设置响应状态码</h2>
+<h1 id="用-nodejs-设置响应">用 Node.js 设置响应</h1>
+<h2 id="设置响应状态码">设置响应状态码</h2>
 <ul>
 <li><code>response.statusCode = 200</code></li>
 </ul>
-<h2 id="heading-15">设置响应头</h2>
+<h2 id="设置响应头">设置响应头</h2>
 <ul>
 <li><code>response.setHeader(‘Content-Type', 'text/html’)</code></li>
 </ul>
-<h2 id="heading-16">设置响应体</h2>
+<h2 id="设置响应体">设置响应体</h2>
 <ul>
 <li><code>response.write(’内容’)</code></li>
 <li>可追加内容</li>
 </ul>
-<h1 id="heading-17">经验</h1>
+<h1 id="经验">经验</h1>
 <blockquote>
 <p>console.log 可以验证对错，不要相信自己，要相信 console.log</p>
 </blockquote>
 <blockquote>
 <p>我不要你觉得，<strong>我要</strong> <del>我觉得</del><strong>console.log 觉得</strong></p>
 </blockquote>
-<h1 id="-nodejs--2">部署 Node.js 应用到云服务器</h1>
-<h2 id="ssh-">ssh 远程登录</h2>
+<h1 id="部署-nodejs-应用到云服务器">部署 Node.js 应用到云服务器</h1>
+<h2 id="ssh-远程登录">ssh 远程登录</h2>
 <pre><code class="language-bash">echo ‘复制本地~/.ssh/id_rsa.pub内容' &gt;&gt; ~/.ssh/authorized_keys
 </code></pre>
-<h2 id="-ssh-">防止 ssh 卡住</h2>
+<h2 id="防止-ssh-卡住">防止 ssh 卡住</h2>
 <pre><code class="language-bash">echo “Host *” &gt;&gt; /etc/ssh/ssh_config
 echo “  ServerAliveInterval 30” &gt;&gt; /etc/ssh/ssh_config
 </code></pre>
-<h2 id="heading-18">创建应用账户</h2>
+<h2 id="创建应用账户">创建应用账户</h2>
 <pre><code class="language-bash">adduser frank
 mkdir  /home/frank/.ssh
 cp ~/.ssh/authorized_keys /home/frank/.ssh/
@@ -368,7 +368,7 @@ chown frank:frank /home/frank/.ssh/authorized_keys
 
 adduser frank sudo
 </code></pre>
-<h2 id="-nodejs-8">安装 Node.js 8</h2>
+<h2 id="安装-nodejs-8">安装 Node.js 8</h2>
 <pre><code class="language-bash">curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
 sudo sed -i ’s/deb.nodesource.com\/node_8.x/mirrors.tuna.tsinghua.edu.cn\/nodesource\/deb_8.x/g’ /etc/apt/sources.list.d/nodesource.list
 sudo apt-get update
@@ -379,7 +379,7 @@ npx -v
 
 sudo apt install git
 </code></pre>
-<h2 id="heading-19">部署应用</h2>
+<h2 id="部署应用">部署应用</h2>
 <pre><code class="language-bash">git clone https://github.com/FrankFang/nodejs-test.git
 cd nodejs-test
 touch log
@@ -391,7 +391,7 @@ tail log 看 log 内容
 kill -9 pid 可以关掉进程
 killall node 可以关掉所有 node 进程
 </code></pre>
-<h2 id="heading-20">如何重启应用</h2>
+<h2 id="如何重启应用">如何重启应用</h2>
 <pre><code class="language-bash">ssh frank@实例ip
 cd nodejs-test
 git pull
@@ -455,7 +455,7 @@ sh ./start
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

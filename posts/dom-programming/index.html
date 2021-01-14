@@ -83,7 +83,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -159,8 +159,8 @@ if (!doNotTrack) {
     </header>
 
     <div>
-      <h1 id="heading">获取任意元素</h1>
-<h2 id="-api">有很多 API</h2>
+      <h1 id="获取任意元素">获取任意元素</h1>
+<h2 id="有很多-api">有很多 API</h2>
 <pre><code class="language-javascript">window.idxxx; // 或者直接idxxx
 document.getElementById(&quot;idxxx&quot;);
 document.getElementsByTagName(&quot;div&quot;)[0];
@@ -168,7 +168,7 @@ document.getElementsByClassName(&quot;red&quot;)[0];
 document.querySelector(&quot;#idxxx&quot;); // 记得加#
 document.querySelectorAll(&quot;.red&quot;)[0];
 </code></pre>
-<h2 id="heading-1">用哪一个</h2>
+<h2 id="用哪一个">用哪一个</h2>
 <blockquote>
 <p>工作中用<code>querySelector</code>和<code>querySelectorAll</code></p>
 <p>例子:<code>document.querySelectorAll('div&gt;span:nth-child(2)')</code></p>
@@ -179,30 +179,30 @@ document.querySelectorAll(&quot;.red&quot;)[0];
 <blockquote>
 <p>要兼容 IE 的可怜虫才用<code>getElement(s)ByXXX</code></p>
 </blockquote>
-<h1 id="heading-2">获取特定元素</h1>
-<h2 id="-html-">获取 html 元素</h2>
+<h1 id="获取特定元素">获取特定元素</h1>
+<h2 id="获取-html-元素">获取 html 元素</h2>
 <pre><code class="language-javascript">document.documentElement;
 </code></pre>
-<h2 id="-head-">获取 head 元素</h2>
+<h2 id="获取-head-元素">获取 head 元素</h2>
 <pre><code class="language-javascript">document.head;
 </code></pre>
-<h2 id="-body-">获取 body 元素</h2>
+<h2 id="获取-body-元素">获取 body 元素</h2>
 <pre><code class="language-javascript">document.body;
 </code></pre>
-<h2 id="heading-3">获取窗口</h2>
+<h2 id="获取窗口">获取窗口</h2>
 <blockquote>
 <p>窗口不是元素</p>
 </blockquote>
 <pre><code class="language-javascript">window;
 </code></pre>
-<h2 id="heading-4">获取所有元素</h2>
+<h2 id="获取所有元素">获取所有元素</h2>
 <pre><code class="language-javascript">document.all; // false
 </code></pre>
 <blockquote>
 <p>这个 document.all 是个奇葩，第 6 个 falsy 值。原因是过去用来判断是否是 IE 浏览器。</p>
 </blockquote>
-<h1 id="-6-">元素的 6 层原型链</h1>
-<h2 id="-div-">抓一只 div 对象来看看</h2>
+<h1 id="元素的-6-层原型链">元素的 6 层原型链</h1>
+<h2 id="抓一只-div-对象来看看">抓一只 div 对象来看看</h2>
 <pre><code class="language-javascript">console.dir(div1); // 查看原型链
 </code></pre>
 <blockquote>
@@ -237,13 +237,13 @@ document.querySelectorAll(&quot;.red&quot;)[0];
 </li>
 <li>最后一层原型就是<code>Object.prototype</code>了</li>
 </ul>
-<h2 id="div-">div 原型链</h2>
+<h2 id="div-原型链">div 原型链</h2>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-2018.45.47.png" alt=""></p>
 <blockquote>
 <p>节点和元素的区别: 节点 Node 包括(Element 和 Text 等)：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType">Node.nodeType - Web API 接口参考 | MDN</a></p>
 </blockquote>
-<h1 id="heading-5">元素的增删改查</h1>
-<h2 id="heading-6">增</h2>
+<h1 id="元素的增删改查">元素的增删改查</h1>
+<h2 id="增">增</h2>
 <ul>
 <li>创建一个标签节点</li>
 </ul>
@@ -274,7 +274,7 @@ div1.innerText = &quot;Hi there&quot;; // 或者 div1.textContent = 'Hi there'
 <pre><code class="language-javascript">document.body.appendChild(div);
 // 或者 已在页面中的元素.appendChild(div)
 </code></pre>
-<h2 id="heading-7">删</h2>
+<h2 id="删">删</h2>
 <ul>
 <li>两种方法</li>
 </ul>
@@ -286,8 +286,8 @@ childNode.remove();
 <blockquote>
 <p>如果一个 node 被移出页面(DOM 树)，那么它还可以再次回到页面中吗？可以，自己试试。</p>
 </blockquote>
-<h2 id="heading-8">改</h2>
-<h3 id="heading-9">改属性</h3>
+<h2 id="改">改</h2>
+<h3 id="改属性">改属性</h3>
 <ul>
 <li>写标准属性</li>
 </ul>
@@ -317,7 +317,7 @@ div.getAttribute(&quot;class&quot;); // 或者 a.getAttribute(&quot;href&quot;)
 <blockquote>
 <p>两种方法都可以，但值可能稍微有些不同</p>
 </blockquote>
-<h3 id="heading-10">改事件处理函数</h3>
+<h3 id="改事件处理函数">改事件处理函数</h3>
 <ul>
 <li><code>div.onclick</code>默认为<code>null</code>
 <blockquote>
@@ -331,7 +331,7 @@ div.getAttribute(&quot;class&quot;); // 或者 a.getAttribute(&quot;href&quot;)
 </blockquote>
 </li>
 </ul>
-<h3 id="heading-11">改内容</h3>
+<h3 id="改内容">改内容</h3>
 <ul>
 <li>改文本内容</li>
 </ul>
@@ -352,10 +352,10 @@ div.textContent = &quot;xxx&quot;;
 <pre><code class="language-javascript">div.innerHTML = &quot;&quot;; // 先清空
 div.appendChild(div2); // 再加内容
 </code></pre>
-<h3 id="heading-12">改父节点</h3>
+<h3 id="改父节点">改父节点</h3>
 <pre><code class="language-javascript">newParent.appendChild(div);
 </code></pre>
-<h2 id="heading-13">查</h2>
+<h2 id="查">查</h2>
 <ul>
 <li>查父节点</li>
 </ul>
@@ -410,14 +410,14 @@ node.nextSibling; // 查下一个兄弟节点
 };
 travel(div1, (node) =&gt; console.log(node));
 </code></pre>
-<h1 id="dom-">DOM 操作跨线程</h1>
-<h2 id="heading-14">跨线程操作</h2>
-<h3 id="heading-15">各线程各司其职</h3>
+<h1 id="dom-操作跨线程">DOM 操作跨线程</h1>
+<h2 id="跨线程操作">跨线程操作</h2>
+<h3 id="各线程各司其职">各线程各司其职</h3>
 <ul>
 <li>JS 引擎不能操作页面，只能操作 JS</li>
 <li>渲染引擎不能操作 JS，只能操作页面</li>
 </ul>
-<h3 id="heading-16">跨线程通信</h3>
+<h3 id="跨线程通信">跨线程通信</h3>
 <blockquote>
 <p><code>document.body.appendChild(div1)</code>这句话是如何改变页面的？</p>
 </blockquote>
@@ -426,41 +426,41 @@ travel(div1, (node) =&gt; console.log(node));
 <li>浏览器就会通知渲染引擎在页面里也新增一个 div 元素</li>
 <li>新增的 div 元素所有属性都照抄 div1 对象</li>
 </ul>
-<h3 id="heading-17">图示跨线程操作</h3>
+<h3 id="图示跨线程操作">图示跨线程操作</h3>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-2022.12.13.png" alt=""></p>
-<h2 id="heading-18">插入新标签的完整过程</h2>
-<h3 id="-div1-">在 div1 放入页面之前</h3>
+<h2 id="插入新标签的完整过程">插入新标签的完整过程</h2>
+<h3 id="在-div1-放入页面之前">在 div1 放入页面之前</h3>
 <ul>
 <li>你对 div1 所有的操作都属于 JS 线程内的操作</li>
 </ul>
 <pre><code class="language-javascript">let div1 = document.createElement(&quot;div&quot;);
 div1.textContent = &quot;hi&quot;;
 </code></pre>
-<h3 id="-div1--1">把 div1 放入页面之时</h3>
+<h3 id="把-div1-放入页面之时">把 div1 放入页面之时</h3>
 <pre><code class="language-javascript">document.body.appendChild(div1);
 </code></pre>
 <ul>
 <li>浏览器会发现 JS 的意图，就会通知渲染线程在页面中渲染 div1 对应的元素</li>
 </ul>
-<h3 id="-div1--2">把 div1 放入页面之后</h3>
+<h3 id="把-div1-放入页面之后">把 div1 放入页面之后</h3>
 <ul>
 <li>你对 div1 的操作都有可能会触发重新渲染</li>
 <li>如果你连续对 div1 多次操作，浏览器可能会合并成一次操作，也可能不会，详情见之前的博客: <a href="http://zhixiukang.com/posts/browser-rendering/">CSS 动画的原理和浏览器渲染原理</a>
 <blockquote>
-<p>启示: 可以用'看似无用的代码&rsquo;, 比如获取一下页面的 width, 强制浏览器多次渲染。</p>
+<p>启示: 可以用&rsquo;看似无用的代码', 比如获取一下页面的 width, 强制浏览器多次渲染。</p>
 </blockquote>
 </li>
 </ul>
-<h2 id="heading-19">属性同步</h2>
-<h3 id="heading-20">标准属性</h3>
+<h2 id="属性同步">属性同步</h2>
+<h3 id="标准属性">标准属性</h3>
 <ul>
 <li>对 div1 的标准属性的修改，会被浏览器同步到页面中，比如<code>id</code>、<code>className</code>、<code>title</code>等</li>
 </ul>
-<h3 id="data-">data-*属性</h3>
+<h3 id="data-属性">data-*属性</h3>
 <blockquote>
 <p>同上</p>
 </blockquote>
-<h3 id="heading-21">非标准属性</h3>
+<h3 id="非标准属性">非标准属性</h3>
 <ul>
 <li>对非标准属性的修改，则只会停留在 JS 线程中,不会同步到页面里
 <blockquote>
@@ -468,26 +468,26 @@ div1.textContent = &quot;hi&quot;;
 </blockquote>
 </li>
 </ul>
-<h3 id="heading-22">启示</h3>
+<h3 id="启示">启示</h3>
 <ul>
 <li>如果你有自定义属性，又想被同步到页面中，请使用<code>data-</code>作为前缀</li>
 </ul>
-<h3 id="heading-23">图示</h3>
+<h3 id="图示">图示</h3>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-04-2022.24.45.png" alt=""></p>
 <blockquote>
 <p>左边的在<code>JS</code>里的属性，叫做<code>properties</code>，右边的在<code>HTML</code>里的属性，叫做<code>attributes</code>。</p>
 <p>所以我们<code>getAttributes()</code>获取的是页面中的属性。</p>
 </blockquote>
 <h2 id="property-vs-attribute">Property v.s. Attribute</h2>
-<h3 id="property-">property 属性</h3>
+<h3 id="property-属性">property 属性</h3>
 <ul>
 <li>JS 线程中 div1 对象的所有属性，叫做 div1 的 property</li>
 </ul>
-<h3 id="attribute-">attribute 也是属性</h3>
+<h3 id="attribute-也是属性">attribute 也是属性</h3>
 <ul>
 <li>渲染引擎中 div1 对应标签的属性，叫做 attribute</li>
 </ul>
-<h3 id="heading-24">区别</h3>
+<h3 id="区别">区别</h3>
 <ul>
 <li>大部分时候，同名的 property 和 attribute 值相等</li>
 <li>但如果不是标准属性（把 div1 放入页面之后只有标准属性会同步），那么它俩只会在一开始时相等</li>
@@ -561,7 +561,7 @@ div1.textContent = &quot;hi&quot;;
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

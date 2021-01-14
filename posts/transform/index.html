@@ -81,7 +81,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -156,7 +156,7 @@ if (!doNotTrack) {
 
     <div>
       <p>完整文档: <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform">transform - CSS（层叠样式表） | MDN</a></p>
-<h1 id="heading">四个常用功能</h1>
+<h1 id="四个常用功能">四个常用功能</h1>
 <ul>
 <li>位移 translate</li>
 <li>缩放 scale</li>
@@ -169,8 +169,8 @@ inline 元素不支持 transform,需要先变成 block</p>
 </blockquote>
 </li>
 </ul>
-<h1 id="transform--translate">transform 之 translate</h1>
-<h2 id="heading-1">常用写法</h2>
+<h1 id="transform-之-translate">transform 之 translate</h1>
+<h2 id="常用写法">常用写法</h2>
 <pre><code>&lt;translateX()&gt; = translateX(  &lt;length-percentage&gt;  )
 &lt;translateY()&gt; = translateY(  &lt;length-percentage&gt;  )
 &lt;translateZ()&gt; = translateZ( &lt;length&gt; )且父容器perspective
@@ -180,7 +180,7 @@ inline 元素不支持 transform,需要先变成 block</p>
 <blockquote>
 <p><a href="http://js.jirengu.com/gucut/1/edit?html,css,output">示例代码</a></p>
 </blockquote>
-<h2 id="heading-2">经验</h2>
+<h2 id="经验">经验</h2>
 <ul>
 <li>要学会看懂 MDN 的语法示例</li>
 <li><code>translate(-50%, -50%)</code>可做绝对定位元素的居中</li>
@@ -191,8 +191,8 @@ inline 元素不支持 transform,需要先变成 block</p>
   transform: translate(-50%, -50%);
 }
 </code></pre>
-<h1 id="transform--scale">transform 之 scale</h1>
-<h2 id="heading-3">常用写法</h2>
+<h1 id="transform-之-scale">transform 之 scale</h1>
+<h2 id="常用写法-1">常用写法</h2>
 <pre><code>&lt;scaleX()&gt; = scaleX( &lt;number&gt; )
 &lt;scaleY()&gt; = scaleY( &lt;number&gt; )
 &lt;scale()&gt; = scale( &lt;number&gt; , &lt;number&gt;? )
@@ -200,12 +200,12 @@ inline 元素不支持 transform,需要先变成 block</p>
 <blockquote>
 <p><a href="http://js.jirengu.com/vukes/9/edit">示例代码</a></p>
 </blockquote>
-<h2 id="heading-4">经验</h2>
+<h2 id="经验-1">经验</h2>
 <ul>
 <li>用得较少，因为容易出现模糊</li>
 </ul>
-<h1 id="transform--rotate">transform 之 rotate</h1>
-<h2 id="heading-5">常用写法</h2>
+<h1 id="transform-之-rotate">transform 之 rotate</h1>
+<h2 id="常用写法-2">常用写法</h2>
 <pre><code>&lt;rotate()&gt; = rotate( [ &lt;angle&gt; | &lt;zero&gt; ] )
 &lt;rotateZ()&gt; = rotateZ( [ &lt;angle&gt; | &lt;zero&gt; ] )
 &lt;rotateX()&gt; = rotateX( [ &lt;angle&gt; | &lt;zero&gt; ] )
@@ -218,13 +218,13 @@ transform: rotateX(45deg);/* 例子 */
 <blockquote>
 <p><a href="http://js.jirengu.com/ciher/1/edit">示例代码</a></p>
 </blockquote>
-<h2 id="heading-6">经验</h2>
+<h2 id="经验-2">经验</h2>
 <ul>
 <li>一般用于 360 度旋转制作 loading</li>
 <li>用到时再搜索 rotate MDN 看文档</li>
 </ul>
-<h1 id="transform--skew">transform 之 skew</h1>
-<h2 id="heading-7">常用写法</h2>
+<h1 id="transform-之-skew">transform 之 skew</h1>
+<h2 id="常用写法-3">常用写法</h2>
 <pre><code>&lt;skewX()&gt; = skewX( [ &lt;angle&gt; | &lt;zero&gt; ] )
 &lt;skewY()&gt; = skewY( [ &lt;angle&gt; | &lt;zero&gt; ] )
 &lt;skew()&gt; = skew( [ &lt;angle&gt; | &lt;zero&gt; ] , [ &lt;angle&gt; | &lt;zero&gt; ]? )
@@ -232,24 +232,24 @@ transform: rotateX(45deg);/* 例子 */
 <blockquote>
 <p><a href="http://js.jirengu.com/qerep/1/edit">示例代码</a></p>
 </blockquote>
-<h2 id="heading-8">经验</h2>
+<h2 id="经验-3">经验</h2>
 <ul>
 <li>用得较少</li>
 <li>用到时再搜 skew MDN 文档</li>
 </ul>
-<h1 id="transform-">transform 多重效果</h1>
+<h1 id="transform-多重效果">transform 多重效果</h1>
 <ul>
 <li>组合使用
 <code>transform: scale(0.5) translate(-100%, -100%) rotate(45deg);</code></li>
 <li><code>transform: none;</code>取消所有</li>
 </ul>
-<h1 id="heading-9">实践</h1>
-<h2 id="heading-10">跳动的心</h2>
+<h1 id="实践">实践</h1>
+<h2 id="跳动的心">跳动的心</h2>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-02-2122.12.07.png" alt=""></p>
 <blockquote>
 <p><a href="http://js.jirengu.com/wacup/1/edit">示例代码</a></p>
 </blockquote>
-<h2 id="heading-11">心得</h2>
+<h2 id="心得">心得</h2>
 <ul>
 <li>CSS 需要你有想象力，而不是逻辑</li>
 <li>CSS 给出的属性都很简单，但是可以组合的很复杂</li>
@@ -311,7 +311,7 @@ transform: rotateX(45deg);/* 例子 */
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

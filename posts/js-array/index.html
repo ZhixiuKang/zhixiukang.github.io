@@ -71,7 +71,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -145,15 +145,15 @@ if (!doNotTrack) {
     </header>
 
     <div>
-      <h1 id="js-">JS 的数组不是典型数组</h1>
-<h2 id="heading">典型的数组</h2>
+      <h1 id="js-的数组不是典型数组">JS 的数组不是典型数组</h1>
+<h2 id="典型的数组">典型的数组</h2>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-03-2619.01.57.png" alt=""></p>
 <ul>
 <li>元素的数据类型相同</li>
 <li>使用连续的内存存储</li>
 <li>通过数字下标获取元素</li>
 </ul>
-<h2 id="-js-">但 JS 的数组不这样</h2>
+<h2 id="但-js-的数组不这样">但 JS 的数组不这样</h2>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-03-2619.02.14.png" alt=""></p>
 <ul>
 <li>元素的数据类型可以不同</li>
@@ -164,44 +164,44 @@ if (!doNotTrack) {
 <pre><code class="language-javascript">let arr = [1, 2, 3]
 arr[‘xxx'] = 1
 </code></pre>
-<h1 id="heading-1">创建一个数组</h1>
-<h2 id="heading-2">新建</h2>
+<h1 id="创建一个数组">创建一个数组</h1>
+<h2 id="新建">新建</h2>
 <pre><code class="language-javascript">let arr = [1, 2, 3];
 let arr = new Array(1, 2, 3);
 let arr = new Array(3);
 </code></pre>
-<h2 id="heading-3">转化</h2>
+<h2 id="转化">转化</h2>
 <pre><code class="language-javascript">let arr = '1, 2, 3'.split(‘,’)
 let arr = '123'.split(‘’)
 Array.from('123')
 </code></pre>
-<h2 id="heading-4">伪数组</h2>
+<h2 id="伪数组">伪数组</h2>
 <pre><code class="language-javascript">let divList = document.querySelector(‘div’)
 let divArray = Array.from(divList)
 </code></pre>
 <blockquote>
 <p>伪数组的原型链中并没有数组的原型。</p>
-<p>没有数组共用属性的'数组&rsquo;，就是伪数组。</p>
+<p>没有数组共用属性的&rsquo;数组'，就是伪数组。</p>
 </blockquote>
-<h2 id="heading-5">合并两个数组，得到新数组</h2>
+<h2 id="合并两个数组得到新数组">合并两个数组，得到新数组</h2>
 <pre><code class="language-javascript">arr1.concat(arr2);
 </code></pre>
-<h2 id="heading-6">截取一个数组的一部分</h2>
+<h2 id="截取一个数组的一部分">截取一个数组的一部分</h2>
 <pre><code class="language-javascript">arr1.slice(1); //从第二个元素开始
 arr1.slice(0); //全部截取
 </code></pre>
 <blockquote>
 <p>注意，JS 只提供浅拷贝</p>
 </blockquote>
-<h1 id="heading-7">增删改查</h1>
-<h2 id="heading-8">删元素</h2>
-<h3 id="heading-9">跟对象一样</h3>
+<h1 id="增删改查">增删改查</h1>
+<h2 id="删元素">删元素</h2>
+<h3 id="跟对象一样">跟对象一样</h3>
 <pre><code class="language-javascript">let arr = ['a', 'b', ‘c’]
 delete arr['0']
 arr // [empty, 'b', ‘c’]
 // 神奇，数组的长度并没有变
 </code></pre>
-<h3 id="-length-">如果直接改 length 可以删元素吗</h3>
+<h3 id="如果直接改-length-可以删元素吗">如果直接改 length 可以删元素吗</h3>
 <pre><code class="language-javascript">let arr = [1, 2, 3, 4, 5];
 arr.length = 1;
 // 我X，居然可以？？？JS真操蛋
@@ -209,7 +209,7 @@ arr.length = 1;
 <blockquote>
 <p>重要: 不要随便改 length</p>
 </blockquote>
-<h3 id="heading-10">三种方法删元素</h3>
+<h3 id="三种方法删元素">三种方法删元素</h3>
 <ul>
 <li>删除头部的元素</li>
 </ul>
@@ -227,8 +227,8 @@ arr.length = 1;
 arr.splice(index, 1, ‘x’) // 并在删除位置添加’x’
 arr.splice(index, 1, ‘x’, ‘y’) // 并在删除位置添加’x’, ‘y’
 </code></pre>
-<h2 id="heading-11">查看元素</h2>
-<h3 id="heading-12">查看所有属性名</h3>
+<h2 id="查看元素">查看元素</h2>
+<h3 id="查看所有属性名">查看所有属性名</h3>
 <pre><code class="language-javascript">let arr = [1, 2, 3, 4, 5];
 Object.keys(arr);
 
@@ -237,7 +237,7 @@ for (let key in arr) {
 }
 </code></pre>
 <p>这些都适用于对象，不适用于数组</p>
-<h3 id="heading-13">查看数字(字符串)属性名和值</h3>
+<h3 id="查看数字字符串属性名和值">查看数字(字符串)属性名和值</h3>
 <pre><code class="language-javascript">for(let i = 0; i &lt; arr.length; i++){
 	console.log(`${i}: ${arr[i]}`)
 }
@@ -246,7 +246,7 @@ arr.forEach(function(item, index){
 	console.log(`${index}: ${item}`)
 }
 </code></pre>
-<h3 id="heading-14">查看单个属性</h3>
+<h3 id="查看单个属性">查看单个属性</h3>
 <ul>
 <li>跟对象一样</li>
 </ul>
@@ -280,7 +280,7 @@ arr[-1] === undefined;
 </ul>
 <pre><code class="language-javascript">arr.findIndex(item =&gt; item % 2 === 0); // 找第一个偶数的索引
 </code></pre>
-<h2 id="heading-15">增加数组中的元素</h2>
+<h2 id="增加数组中的元素">增加数组中的元素</h2>
 <ul>
 <li>在尾部加元素</li>
 </ul>
@@ -299,7 +299,7 @@ arr.unshift(item1, item2); // 修改arr, 返回新长度
 <pre><code class="language-javascript">arr.splice(index, 0, ‘x’) // 在index处插入’x’
 arr.splice(index, 0, ‘x’, ‘y’)
 </code></pre>
-<h2 id="heading-16">修改数组中的元素</h2>
+<h2 id="修改数组中的元素">修改数组中的元素</h2>
 <ul>
 <li>反转顺序</li>
 </ul>
@@ -322,8 +322,8 @@ arr.sort(function(a, b) {
   }
 });
 </code></pre>
-<h1 id="heading-17">数组变换</h1>
-<h2 id="map-filter--reduce">map, filter 和 reduce</h2>
+<h1 id="数组变换">数组变换</h1>
+<h2 id="map-filter-和-reduce">map, filter 和 reduce</h2>
 <p>用个生动的图来描述下数组变换:
 <img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-03-2722.26.06.png" alt=""></p>
 <ul>
@@ -368,7 +368,7 @@ arr.reduce((result, item) =&gt; {
 // 再给我简化
 arr.reduce((result, item) =&gt; result.concat(item % 2 === 1 ? [] : item), []);
 </code></pre>
-<h2 id="heading-18">做个题</h2>
+<h2 id="做个题">做个题</h2>
 <pre><code class="language-javascript">let arr = [
 	{ name:’Animal’, id: 1, parent: null},
 	{ name:’Dog’, id: 2, parent: 1},
@@ -457,7 +457,7 @@ arr.reduce((result, item) =&gt; {
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

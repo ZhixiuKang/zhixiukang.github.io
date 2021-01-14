@@ -91,7 +91,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -171,11 +171,11 @@ if (!doNotTrack) {
 <blockquote>
 <p>主要原理在文档的<a href="https://cn.vuejs.org/v2/guide/reactivity.html">深入响应式原理</a>章节可以找到，但是本篇文章扩充了非常多的内容。</p>
 </blockquote>
-<h1 id="vue--data-">Vue 对 data 做了什么</h1>
+<h1 id="vue-对-data-做了什么">Vue 对 data 做了什么</h1>
 <blockquote>
 <p>重要议题</p>
 </blockquote>
-<h2 id="---data-">小实验 - data 变了</h2>
+<h2 id="小实验---data-变了">小实验 - data 变了</h2>
 <ul>
 <li><a href="https://codesandbox.io/s/nervous-matsumoto-syqrn">示例代码</a>: <code>myData</code>居然变了</li>
 <li>一开始是<code>{n:0}</code>，传给<code>new Vue</code>之后立马变成<code>{n: (...)}</code></li>
@@ -200,12 +200,12 @@ if (!doNotTrack) {
 <blockquote>
 <p>现在理解了吗？</p>
 </blockquote>
-<h2 id="heading">示意图</h2>
+<h2 id="示意图">示意图</h2>
 <p><img src="https://zhixiukang.com/images/%E6%88%AA%E5%B1%8F2020-05-2520.37.02.png" alt=""></p>
 <blockquote>
 <p>如果<strong>data</strong>有多个属性<strong>n</strong>、<strong>m</strong>、<strong>k</strong>，那么就会有<code>get n</code>,<code>get m</code>,<code>get k</code>等</p>
 </blockquote>
-<h2 id="getter--setter">getter 和 setter</h2>
+<h2 id="getter-和-setter">getter 和 setter</h2>
 <blockquote>
 <p>定义的时候可以直接去设置一个<strong>getter</strong>和<strong>setter</strong></p>
 </blockquote>
@@ -243,14 +243,14 @@ console.log(language.log);
 <blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty() | MDN</a></p>
 </blockquote>
-<h2 id="heading-1">小结</h2>
+<h2 id="小结">小结</h2>
 <h3 id="objectdefineproperty-1">Object.defineProperty</h3>
 <ul>
 <li>可以给对象添加属性<strong>value</strong></li>
 <li>可以给对象添加<strong>getter</strong> / <strong>setter</strong></li>
 <li><strong>getter</strong> / <strong>setter</strong>用于对属性的读写进行监控</li>
 </ul>
-<h3 id="heading-2">代理和监听</h3>
+<h3 id="代理和监听">代理和监听</h3>
 <ul>
 <li>对<strong>myData</strong>对象的属性读写，全权由另一个对象<strong>vm</strong>负责</li>
 <li>那么<strong>vm</strong>就是<strong>myData</strong>的代理</li>
@@ -272,29 +272,29 @@ console.log(language.log);
 <ul>
 <li><code>UI = render(data)</code></li>
 </ul>
-<h1 id="heading-3">数据响应式</h1>
-<h2 id="heading-4">什么是响应式</h2>
+<h1 id="数据响应式">数据响应式</h1>
+<h2 id="什么是响应式">什么是响应式</h2>
 <ul>
 <li>如果一个物体能对外界的刺激做出反应，它就是响应式的</li>
 </ul>
 <blockquote>
 <p>我打你一拳，你会喊疼，那你就是响应式的:)</p>
 </blockquote>
-<h2 id="vue--data--1">Vue 的 data 是响应式</h2>
+<h2 id="vue-的-data-是响应式">Vue 的 data 是响应式</h2>
 <ul>
 <li><code>const vm = new Vue({data:{n:0}})</code></li>
 <li>如果修改<strong>vm.n</strong>,那么<strong>UI</strong>中的<strong>n</strong>就会响应</li>
 <li><strong>Vue 2</strong>通过<strong>Object.defineProperty</strong>来实现数据响应式</li>
 </ul>
-<h2 id="heading-5">什么是响应式网页</h2>
+<h2 id="什么是响应式网页">什么是响应式网页</h2>
 <ul>
 <li>如果用户改变窗口大小，网页内容会做出响应，那这个网页就是响应式网页。</li>
 </ul>
 <blockquote>
 <p>比如著名的响应式网页: <a href="https://www.smashingmagazine.com/">Smashing Magazine</a></p>
 </blockquote>
-<h1 id="vue--data--bug">Vue 的 data 的 bug</h1>
-<h2 id="objectdefineproperty-">Object.defineProperty 的问题</h2>
+<h1 id="vue-的-data-的-bug">Vue 的 data 的 bug</h1>
+<h2 id="objectdefineproperty-的问题">Object.defineProperty 的问题</h2>
 <p>Q: 对于 <code>Object.defineProperty(obj, 'n', {...})</code>，必须要有一个<strong>n</strong>，才能监听和代理<strong>obj.n</strong>对吧，可是如果前端开发者差点意思，没有给<strong>n</strong>怎么办？比如下面这两个例子:</p>
 <blockquote>
 <p><a href="https://codesandbox.io/s/focused-mayer-o12wo">示例一</a>: <strong>Vue</strong>会给出一个警告</p>
@@ -304,7 +304,7 @@ console.log(language.log);
 <p>Q: 那此时如果我点击<strong>set b</strong>，请问视图中会显示<strong>1</strong>吗?</p>
 <p>A: 不会。因为<strong>Vue</strong>没有办法监听一开始就不存在的<strong>obj.b</strong></p>
 </blockquote>
-<h2 id="heading-6">那怎么办</h2>
+<h2 id="那怎么办">那怎么办</h2>
 <ol>
 <li>
 <p>我把 key 都声明好，后面不再加属性不就行了</p>
@@ -313,7 +313,7 @@ console.log(language.log);
 <p>使用<code>Vue.set</code>或者<code>this.$set</code></p>
 </li>
 </ol>
-<h2 id="vueset--thisset">Vue.set 和 this.$set</h2>
+<h2 id="vueset-和-thisset">Vue.set 和 this.$set</h2>
 <ul>
 <li>作用一: 新增<strong>key</strong></li>
 <li>作用二: 触发<strong>UI</strong>更新(但不会立刻更新)</li>
@@ -326,7 +326,7 @@ this.$set(this.obj, &quot;b&quot;, 1);
 <blockquote>
 <p><a href="https://codesandbox.io/s/competent-noyce-xzpov">完整代码 - 自己试试</a></p>
 </blockquote>
-<h2 id="data-">data 中有数组怎么办</h2>
+<h2 id="data-中有数组怎么办">data 中有数组怎么办</h2>
 <p>Q: 刚才说了如果<strong>data</strong>中新增了<strong>key</strong>有两种方法可以解决，但有没有可能没有办法提前声明好，只能使用<strong>set</strong>呢?比如说<strong>data</strong>里有数组怎么办？</p>
 <p>A: 好问题，继续看。</p>
 <ul>
@@ -365,15 +365,15 @@ this.$set(this.obj, &quot;b&quot;, 1);
 <p>你: <strong>push()</strong> 你变了</p>
 <p><strong>push()</strong>: 没错,我变了。但是，你还是可以像以前对我那样对我[旺柴]</p>
 </blockquote>
-<h1 id="heading-7">总结</h1>
-<h2 id="-key">对象中新增的 key</h2>
+<h1 id="总结">总结</h1>
+<h2 id="对象中新增的-key">对象中新增的 key</h2>
 <ul>
 <li><strong>Vue</strong>没有办法事先监听和代理</li>
 <li>要使用<strong>set</strong>来新增<strong>key</strong>，创建监听和代理，更新<strong>UI</strong></li>
 <li>最好提前把属性都写出来，不要新增<strong>key</strong></li>
 <li>但数组做不到 &ldquo;不新增<strong>key</strong>&rdquo;</li>
 </ul>
-<h2 id="-key-1">数组中新增的 key</h2>
+<h2 id="数组中新增的-key">数组中新增的 key</h2>
 <ul>
 <li>也可以用<strong>set</strong>来新增<strong>key</strong>，更新<strong>UI</strong></li>
 <li>不过尤雨溪篡改了 7 个<strong>API</strong>方便你对数组进行增删</li>
@@ -385,7 +385,7 @@ this.$set(this.obj, &quot;b&quot;, 1);
 <blockquote>
 <p>使用 <strong>Vue</strong> 提供的<a href="https://cn.vuejs.org/v2/guide/list.html#%E5%8F%98%E6%9B%B4%E6%96%B9%E6%B3%95">变更方法</a> <strong>API</strong> 时，会自动添加监听和代理</p>
 </blockquote>
-<h1 id="-vue-">说说对 Vue 数据响应式的理解</h1>
+<h1 id="说说对-vue-数据响应式的理解">说说对 Vue 数据响应式的理解</h1>
 <blockquote>
 <p>好了，写了这么多，最后说说我对<strong>Vue</strong>数据响应式的理解</p>
 </blockquote>
@@ -453,7 +453,7 @@ this.$set(this.obj, &quot;b&quot;, 1);
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>

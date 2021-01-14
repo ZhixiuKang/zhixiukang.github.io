@@ -73,7 +73,7 @@ if (!doNotTrack) {
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
   </head>
 
   
@@ -147,20 +147,20 @@ if (!doNotTrack) {
     </header>
 
     <div>
-      <h1 id="heading">四种方式定义函数</h1>
-<h2 id="heading-1">具名函数</h2>
+      <h1 id="四种方式定义函数">四种方式定义函数</h1>
+<h2 id="具名函数">具名函数</h2>
 <pre><code class="language-javascript">function 函数名(形式参数1, 形式参数2) {
 	语句
 	return 返回值
 }
 </code></pre>
-<h2 id="heading-2">匿名函数</h2>
+<h2 id="匿名函数">匿名函数</h2>
 <ul>
 <li>上面的具名函数，去掉函数名就是匿名函数</li>
 <li><code>let a = function(x, y) {return x+y}</code></li>
 <li>也叫函数表达式</li>
 </ul>
-<h2 id="heading-3">箭头函数</h2>
+<h2 id="箭头函数">箭头函数</h2>
 <pre><code class="language-javascript">let f1 = x =&gt; x*x
 let f2 = (x, y) =&gt; x+y // 圆括号不能省
 let f3 = (x, y) =&gt; {return x+y} //花括号不能省
@@ -169,7 +169,7 @@ let f4 = (x, y) =&gt; ({name:x, age: y})
 <blockquote>
 <p>直接返回对象会出错，需要加个圆括号</p>
 </blockquote>
-<h2 id="heading-4">构造函数</h2>
+<h2 id="构造函数">构造函数</h2>
 <ul>
 <li><code>let f = new Function(‘x’, ‘y’, ‘return x+y’)</code></li>
 <li>所有函数都是Function构造出来的</li>
@@ -178,7 +178,7 @@ let f4 = (x, y) =&gt; ({name:x, age: y})
 <blockquote>
 <p>基本没人用，但是能让你知道函数是谁构造的</p>
 </blockquote>
-<h1 id="heading-5">函数的要素</h1>
+<h1 id="函数的要素">函数的要素</h1>
 <ul>
 <li>调用时机</li>
 <li>作用域</li>
@@ -190,7 +190,7 @@ let f4 = (x, y) =&gt; ({name:x, age: y})
 <li>arguments(除了箭头函数)</li>
 <li>this(除了箭头函数)</li>
 </ul>
-<h2 id="heading-6">调用时机</h2>
+<h2 id="调用时机">调用时机</h2>
 <p>来看三个例子，看看JS有多操蛋。</p>
 <pre><code class="language-javascript">let a = 1
 function fn(){
@@ -226,7 +226,7 @@ for(i = 0; i &lt; 6; i++){
 <p>那这样setTimeout还有什么意义？</p>
 <p>好问题，🈚️意义。</p>
 </blockquote>
-<h2 id="--">作用域：就近原则 &amp; 闭包</h2>
+<h2 id="作用域就近原则--闭包">作用域：就近原则 &amp; 闭包</h2>
 <pre><code class="language-javascript">function fn(){
 	let a = 1
 }
@@ -247,7 +247,7 @@ console.log(a) // a不存在
 <blockquote>
 <p>如果一个函数用到了外部的变量，那么这个函数加这个变量就叫做闭包。上面代码4-7行中的a和f3就组成了闭包。</p>
 </blockquote>
-<h2 id="heading-7">形式参数和返回值</h2>
+<h2 id="形式参数和返回值">形式参数和返回值</h2>
 <ul>
 <li>形参可认为是变量声明，类似于:</li>
 </ul>
@@ -260,8 +260,8 @@ console.log(a) // a不存在
 <ul>
 <li>没return返回值是undefined</li>
 </ul>
-<h2 id="heading-8">递归、调用栈与爆栈</h2>
-<h3 id="heading-9">什么是调用栈</h3>
+<h2 id="递归调用栈与爆栈">递归、调用栈与爆栈</h2>
+<h3 id="什么是调用栈">什么是调用栈</h3>
 <ul>
 <li>JS引擎在调用一个函数前</li>
 <li>需要把函数所在的环境push到一个数组里</li>
@@ -272,7 +272,7 @@ console.log(a) // a不存在
 <blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Call_stack">Call stack（调用栈)  | MDN</a></p>
 </blockquote>
-<h3 id="heading-10">递归函数</h3>
+<h3 id="递归函数">递归函数</h3>
 <pre><code class="language-javascript">// 阶乘
 function f(n){
 	// return n === 1 ? 1 : n * f(n-1)
@@ -293,18 +293,18 @@ function f(n){
 </blockquote>
 <p>想想递归的调用栈(压栈和弹栈):</p>
 <p><img src="https://zhixiukang.com/images/3331586496186_.pic.jpg" alt=""></p>
-<h3 id="heading-11">爆栈</h3>
+<h3 id="爆栈">爆栈</h3>
 <blockquote>
 <p>如果调用栈中压入的帧太多，程序就会崩溃。</p>
 </blockquote>
 <blockquote>
 <p>调用栈大小: Chrome 12578, Firefox 26773, Node 12536（Node和Chrome用的JS引擎都是V8，所以差不多）</p>
 </blockquote>
-<h2 id="heading-12">函数提升</h2>
+<h2 id="函数提升">函数提升</h2>
 <blockquote>
 <p>不管具名函数声明在哪，都会跑到第一行</p>
 </blockquote>
-<h2 id="argumentsthis">arguments和this</h2>
+<h2 id="arguments和this">arguments和this</h2>
 <ul>
 <li>arguments是一个包含该函数所有普通参数的伪数组</li>
 <li>调用当前函数，this默认表示window</li>
@@ -320,7 +320,7 @@ function f(n){
 <blockquote>
 <p>person.sayHi()会隐式地把person作为this传给sayHi</p>
 </blockquote>
-<h3 id="heading-13">两种调用法</h3>
+<h3 id="两种调用法">两种调用法</h3>
 <ul>
 <li>小白调用法</li>
 </ul>
@@ -352,7 +352,7 @@ add.call(undefined, 1, 2) // 传undefined是占位，因为第一个参数要作
 <blockquote>
 <p>一个是显示地指定array是this，一个是隐式地指定array是this。</p>
 </blockquote>
-<h3 id="this">总结一下this的两种使用方法</h3>
+<h3 id="总结一下this的两种使用方法">总结一下this的两种使用方法</h3>
 <ul>
 <li>隐式传递</li>
 </ul>
@@ -365,7 +365,7 @@ obj.child.fn(1) //等价于obj.child.fn.call(obj.child,1)
 <pre><code class="language-javascript">fn.call(undefined, 1, 2)
 fn.apply(undefined, [1,2])
 </code></pre>
-<h3 id="this-1">绑定this</h3>
+<h3 id="绑定this">绑定this</h3>
 <ul>
 <li>使用<code>.bind</code>可以让this不被改变</li>
 </ul>
@@ -388,7 +388,7 @@ f2() // 等价于f1.call({name:'frank'})
 <pre><code class="language-javascript">let f3 = f1.bind({name:'frank'}, 'hi')
 f3() // 等价于f1.call({name:'frank'}, hi)
 </code></pre>
-<h1 id="heading-14">箭头函数</h1>
+<h1 id="箭头函数-1">箭头函数</h1>
 <blockquote>
 <p>箭头函数没有arguments和this</p>
 </blockquote>
@@ -416,11 +416,11 @@ let fn = () =&gt; console.log(b)
 fn(1,2,3)
 // Uncaught ReferenceError: arguments is not defined at fn
 </code></pre>
-<h1 id="heading-15">立即执行函数(生成局部变量的方法)</h1>
+<h1 id="立即执行函数生成局部变量的方法">立即执行函数(生成局部变量的方法)</h1>
 <blockquote>
 <p>只有JS有的变态玩意，现在用得少</p>
 </blockquote>
-<h2 id="heading-16">原理</h2>
+<h2 id="原理">原理</h2>
 <ul>
 <li>ES5时代，为了得到局部变量，必须引入一个函数</li>
 <li>但是这个函数如果有名字，就还会引入一个全局函数，得不偿失</li>
@@ -527,7 +527,7 @@ console.log('hi');  //在他俩之间加分号。注意这是js语言中唯一�
       <footer class="footer">
   <section class="container">
     
-     © 2020
+     © 2021
     
     
   </section>
