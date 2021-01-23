@@ -6,11 +6,11 @@
     <description>Recent content in 理解React on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Apr 2020 15:21:33 -0800</lastBuildDate><atom:link href="https://zhixiukang.com/tags/%E7%90%86%E8%A7%A3react/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 May 2020 15:21:33 -0800</lastBuildDate><atom:link href="https://zhixiukang.com/tags/%E7%90%86%E8%A7%A3react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React: Hooks原理解析</title>
       <link>https://zhixiukang.com/posts/react-hooks-principles/</link>
-      <pubDate>Tue, 21 Apr 2020 15:21:33 -0800</pubDate>
+      <pubDate>Mon, 11 May 2020 15:21:33 -0800</pubDate>
       
       <guid>https://zhixiukang.com/posts/react-hooks-principles/</guid>
       <description>最简单的 useState 实现 useState 原理 import React from &amp;quot;react&amp;quot;; import ReactDOM from &amp;quot;react-dom&amp;quot;; const rootElement = document.getElementById(&amp;quot;root&amp;quot;); function App() { const [n, setN] = React.useState(0); return ( &amp;lt;div className=&amp;quot;App&amp;quot;&amp;gt; &amp;lt;p&amp;gt;{n}&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; &amp;lt;button onClick={() =&amp;gt; setN(n + 1)}&amp;gt;+1&amp;lt;/button&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; ); } ReactDOM.render(&amp;lt;App /&amp;gt;, rootElement);   自己试试 - CodeSandbox
@@ -18,6 +18,16 @@
  这里是实际的情况:
 脑补之后 问自己几个问题  执行setN的时候会发生什么？n会变吗？App() 会重新执行吗？   要重新渲染UI，因为把n变了。n不会变，而是说我要把n变了，这个时候n是不变的，也就是说setN并不会改变n。App() 当然会重新执行
   如果 App() 会重新执行，那么 useState(0) 的时候，n每次的值会有不同吗？   通过console.</description>
+    </item>
+    
+    <item>
+      <title>useState 和 useEffect</title>
+      <link>https://zhixiukang.com/posts/react-usestate-and-useeffect/</link>
+      <pubDate>Tue, 21 Apr 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/react-usestate-and-useeffect/</guid>
+      <description>创建函数组件方式  相比类组件其实更提倡使用函数组件，因为它在很多操作上都是很便捷的，比如说没有 this。创建函数组件的方式如下:
+ // 箭头函数的形式 const Hello = (props) =&amp;gt; { return &amp;lt;div&amp;gt;{props.message}&amp;lt;/div&amp;gt;; }; // 缩写 const Hello = (props) =&amp;gt; &amp;lt;div&amp;gt;{props.message}&amp;lt;/div&amp;gt;; // 普通函数的形式 function Hello(props) { return &amp;lt;div&amp;gt;{props.message}&amp;lt;/div&amp;gt;; }  函数组件代替 class 组件 面临两个问题  没有state 没有生命周期  没有 state  React v16.8.0 推出 Hooks API 其中的一个API叫做useState可以解决问题  没有生命周期  React v16.8.0 推出 Hooks API 其中的一个API叫做useEffect可以解决问题  useEffect  模拟componentDidMount 第一次渲染  useEffect(() =&amp;gt; { console.log(&amp;quot;第一次渲染&amp;quot;); }, []);   模拟componentDidUpdate  useEffect(() =&amp;gt; { console.</description>
     </item>
     
   </channel>
