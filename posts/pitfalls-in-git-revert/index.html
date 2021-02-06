@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/atom-one-dark.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <meta name="author" content="修">
+    <meta name="description" content="修的个人主页">
+    <meta name="keywords" content="Zhixiu Kang, 康知修, 修,笔记">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="git revert再merge的坑"/>
+<meta name="twitter:description" content="用 git 很久了，一直以来都觉得已经玩转了 git 。但是最近遇到了一个 git revert 的一个坑: 使用 git revert 后，如果再 merge 的话，会显示 Already up to date ，但是其实并没有 merge 进去，原因是什么呢？让我们一起一探究竟。
+问题重现 一开始我们有两个分支 : master 和 dev dev: 7a320e3(改动A) / master: 9075d0e -- 2d38af8 -- 7bd9ae8  把 dev 分支 merge 到 master 分支 dev: 7a320e3(改动A) / \ master: 9075d0e -- 2d38af8 -- 7bd9ae8 -- 7a320e3(改动A)  git revert 7bd9ae8 dev: 7a320e3(改动A) / \ master: 9075d0e -- 2d38af8 -- 7bd9ae8 -- 7a320e3(改动A) -- 3575f4c(Revert &quot;改动A&quot;)  现在如果再次把 dev 分支 merge 到 master 分支，会出现 Already up to date  为什么 问题  很多人就会问了(其实我遇到这个问题一开始也是这么想的."/>
+
+    <meta property="og:title" content="git revert再merge的坑" />
+<meta property="og:description" content="用 git 很久了，一直以来都觉得已经玩转了 git 。但是最近遇到了一个 git revert 的一个坑: 使用 git revert 后，如果再 merge 的话，会显示 Already up to date ，但是其实并没有 merge 进去，原因是什么呢？让我们一起一探究竟。
+问题重现 一开始我们有两个分支 : master 和 dev dev: 7a320e3(改动A) / master: 9075d0e -- 2d38af8 -- 7bd9ae8  把 dev 分支 merge 到 master 分支 dev: 7a320e3(改动A) / \ master: 9075d0e -- 2d38af8 -- 7bd9ae8 -- 7a320e3(改动A)  git revert 7bd9ae8 dev: 7a320e3(改动A) / \ master: 9075d0e -- 2d38af8 -- 7bd9ae8 -- 7a320e3(改动A) -- 3575f4c(Revert &quot;改动A&quot;)  现在如果再次把 dev 分支 merge 到 master 分支，会出现 Already up to date  为什么 问题  很多人就会问了(其实我遇到这个问题一开始也是这么想的." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhixiukang.com/posts/pitfalls-in-git-revert/" />
+<meta property="article:published_time" content="2020-05-21T15:21:33-08:00" />
+<meta property="article:modified_time" content="2020-05-21T15:21:33-08:00" />
+
+
+    
+      <base href="https://zhixiukang.com/posts/pitfalls-in-git-revert/">
+    
+    <title>
+git revert再merge的坑 · 修的个人网站
+</title>
+
+    
+      <link rel="canonical" href="https://zhixiukang.com/posts/pitfalls-in-git-revert/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-167283959-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+
+    
+      
+      
+      <link rel="stylesheet" href="https://zhixiukang.com/css/coder.min.5457824bf02b9dfd07df4764b7f0d7addf9f1ed7710cdab59aa37b8348c24a99.css" integrity="sha256-VFeCS/Arnf0H30dkt/DXrd&#43;fHtdxDNq1mqN7g0jCSpk=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://zhixiukang.com/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://zhixiukang.com/">
+      修的个人网站
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/posts/">技术文章</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/explore/">兴趣学习</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/bucket-list/">Bucket List</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/tags/">分类</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://zhixiukang.com/about/">联系我</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">git revert再merge的坑</h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fas fa-calendar"></i>
+            <time datetime='2020-05-21T15:21:33-08:00'>
+              May 21, 2020
+            </time>
+          </span>
+          
+        </div>
+        <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://zhixiukang.com/categories/tech/">Tech</a></div>
+
+        <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://zhixiukang.com/tags/%E8%B8%A9%E7%9A%84%E5%9D%91/">踩的坑</a></div>
+
+      </div>
+    </header>
+
+    <div>
+      <p>用 <strong>git</strong> 很久了，一直以来都觉得已经玩转了 <strong>git</strong> 。但是最近遇到了一个 <strong>git revert</strong> 的一个坑: 使用 <strong>git revert</strong> 后，如果再 <strong>merge</strong> 的话，会显示 <strong>Already up to date</strong> ，但是其实并没有 <strong>merge</strong> 进去，原因是什么呢？让我们一起一探究竟。</p>
+<h1 id="问题重现">问题重现</h1>
+<h2 id="一开始我们有两个分支--master-和-dev">一开始我们有两个分支 : master 和 dev</h2>
+<pre><code>dev:                              7a320e3(改动A)
+                                 /
+master: 9075d0e -- 2d38af8 -- 7bd9ae8
+</code></pre>
+<h2 id="把-dev-分支-merge-到-master-分支">把 dev 分支 merge 到 master 分支</h2>
+<pre><code>dev:                               7a320e3(改动A)
+                                  /        \
+master: 9075d0e -- 2d38af8 -- 7bd9ae8 -- 7a320e3(改动A)
+</code></pre>
+<h2 id="git-revert-7bd9ae8">git revert 7bd9ae8</h2>
+<pre><code>dev:                               7a320e3(改动A)
+                                  /        \
+master: 9075d0e -- 2d38af8 -- 7bd9ae8 -- 7a320e3(改动A) -- 3575f4c(Revert &quot;改动A&quot;)
+</code></pre>
+<h2 id="现在如果再次把-dev-分支-merge-到-master-分支会出现">现在如果再次把 dev 分支 merge 到 master 分支，会出现</h2>
+<pre><code class="language-text">Already up to date
+</code></pre>
+<h1 id="为什么">为什么</h1>
+<h2 id="问题">问题</h2>
+<ul>
+<li>很多人就会问了(其实我遇到这个问题一开始也是这么想的..)，为什么没法 <strong>merge</strong> 呢？不是已经回到 <strong>7bd9ae8</strong> 了吗？</li>
+</ul>
+<blockquote>
+<p>注意: <strong>3575f4c</strong> 和 <strong>7bd9ae8</strong> 具有相同的内容。</p>
+</blockquote>
+<h2 id="答案">答案</h2>
+<ul>
+<li>你说的对，先让我们再看看目前的 <strong>dev</strong> 和 <strong>master</strong> 两个分支的情况:</li>
+</ul>
+<pre><code>dev:                               7a320e3(改动A)
+                                  /        \
+master: 9075d0e -- 2d38af8 -- 7bd9ae8 -- 7a320e3(改动A) -- 3575f4c(Revert &quot;改动A&quot;)
+</code></pre>
+<ul>
+<li>可以看到，<strong>master</strong> 确实回到了 <strong>7bd9ae8</strong>,但是 <strong>master</strong> 还是包含着 <strong>dev</strong> 的所有 <strong>commits</strong> 。</li>
+<li>所以，即使 <strong>dev</strong> 中的 <strong>7a320e3</strong> 和 <strong>3575f4c</strong> 不同，但是 <strong>7a320e3</strong> 不会被 <strong>merge</strong> 到 <strong>3575f4c</strong> 后面。</li>
+<li>相反，因为 <strong>master</strong> 中已经有 <strong>7a320e3</strong> 了，所以会显示 <strong>Already up to date</strong></li>
+</ul>
+<h1 id="如何解决">如何解决</h1>
+<ol>
+<li>进入 <strong>dev</strong> 分支</li>
+</ol>
+<pre><code class="language-bash">git checkout dev
+</code></pre>
+<ol start="2">
+<li>回到 <strong>7bd9ae8</strong> ，记得加上 <strong>mixed</strong> 参数</li>
+</ol>
+<blockquote>
+<p>扩展阅读:</p>
+<p><a href="https://stackoverflow.com/questions/3528245/whats-the-difference-between-git-reset-mixed-soft-and-hard">What’s the difference between git reset —mixed, —soft, and —hard? - Stack Overflow</a></p>
+</blockquote>
+<pre><code class="language-bash">git reset 7bd9ae8 --mixed
+</code></pre>
+<ol start="3">
+<li>把 <strong>7a320e3(改动 A)</strong> 存进 <strong>stash</strong></li>
+</ol>
+<pre><code class="language-bash">git stash -u
+</code></pre>
+<ol start="4">
+<li><strong>Rebase master</strong></li>
+</ol>
+<pre><code class="language-bash">git rebase master
+</code></pre>
+<ol start="5">
+<li>把 <strong>7a320e3</strong> 从 <strong>stash</strong> 中 <strong>pop</strong> 出来</li>
+</ol>
+<pre><code class="language-bash">git stash pop
+</code></pre>
+<ol start="6">
+<li>重新提交 <strong>7a320e3(改动 A)</strong></li>
+</ol>
+<pre><code class="language-bash">git add ./
+git commit -m &quot;改动A&quot;
+</code></pre>
+<ol start="7">
+<li>切换到 <strong>master</strong> 分支</li>
+</ol>
+<pre><code class="language-bash">git checkout master
+</code></pre>
+<ol start="8">
+<li>最后一步，现在才可以把 <strong>dev</strong> 分支 <strong>merge</strong> 到 <strong>master</strong> 分支</li>
+</ol>
+<pre><code class="language-bash">git merge dev
+</code></pre>
+<ol start="9">
+<li>经过了上面的过程，现在的 <strong>dev</strong> 和 <strong>master</strong> 分支长这个样子:</li>
+</ol>
+<pre><code>dev:                             7a320e3(改动A)
+                                 /        \
+master: 9075d0e -- 2d38af8 -- 7bd9ae8 -- 7a320e3(改动A) -- 3575f4c(Revert &quot;改动A&quot;) -- 7f5eedc
+													              ↑                    ↑
+                                                           内容和7bd9ae8一样      内容和7a320e3一样
+</code></pre>
+<h1 id="结论">结论</h1>
+<p><strong>revert</strong> 之后再 <strong>rebase</strong> 之后有坑，使用 <strong>revert</strong> 请谨慎:(</p>
+
+    </div>
+
+    <footer>
+      
+
+
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zhixiukang" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+    </footer>
+  </article>
+
+  
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2021
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-167283959-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

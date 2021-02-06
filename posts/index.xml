@@ -6,7 +6,17 @@
     <description>Recent content in Posts on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 15 May 2020 15:21:33 -0800</lastBuildDate><atom:link href="https://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 May 2020 15:21:33 -0800</lastBuildDate><atom:link href="https://zhixiukang.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git revert再merge的坑</title>
+      <link>https://zhixiukang.com/posts/pitfalls-in-git-revert/</link>
+      <pubDate>Thu, 21 May 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/pitfalls-in-git-revert/</guid>
+      <description>用 git 很久了，一直以来都觉得已经玩转了 git 。但是最近遇到了一个 git revert 的一个坑: 使用 git revert 后，如果再 merge 的话，会显示 Already up to date ，但是其实并没有 merge 进去，原因是什么呢？让我们一起一探究竟。
+问题重现 一开始我们有两个分支 : master 和 dev dev: 7a320e3(改动A) / master: 9075d0e -- 2d38af8 -- 7bd9ae8  把 dev 分支 merge 到 master 分支 dev: 7a320e3(改动A) / \ master: 9075d0e -- 2d38af8 -- 7bd9ae8 -- 7a320e3(改动A)  git revert 7bd9ae8 dev: 7a320e3(改动A) / \ master: 9075d0e -- 2d38af8 -- 7bd9ae8 -- 7a320e3(改动A) -- 3575f4c(Revert &amp;quot;改动A&amp;quot;)  现在如果再次把 dev 分支 merge 到 master 分支，会出现 Already up to date  为什么 问题  很多人就会问了(其实我遇到这个问题一开始也是这么想的.</description>
+    </item>
+    
     <item>
       <title>搭建iOS和Android模拟器</title>
       <link>https://zhixiukang.com/posts/setup-and-test-with-ios-and-android-simulators/</link>
