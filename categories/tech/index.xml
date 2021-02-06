@@ -6,7 +6,16 @@
     <description>Recent content in Tech on 修的个人网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 11 May 2020 15:21:33 -0800</lastBuildDate><atom:link href="https://zhixiukang.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 May 2020 15:21:33 -0800</lastBuildDate><atom:link href="https://zhixiukang.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>搭建iOS和Android模拟器</title>
+      <link>https://zhixiukang.com/posts/setup-and-test-with-ios-and-android-simulators/</link>
+      <pubDate>Fri, 15 May 2020 15:21:33 -0800</pubDate>
+      
+      <guid>https://zhixiukang.com/posts/setup-and-test-with-ios-and-android-simulators/</guid>
+      <description>利用 iOS 模拟器测试 配置准备  下载 Xcode  如何测试  打开模拟器: Xcode -&amp;gt; Open Developer Tool -&amp;gt; Simulator 选择模拟器: 右击 Simulator -&amp;gt; Device -&amp;gt; 选择相应 iOS 系统和手机型号 拖动待测试应用example.app进入 Simulator 安装，并打开 example.app 的待测试页面 test.html 打开 Safari 的 console: 打开 Safari -&amp;gt; Develop -&amp;gt; Simulator -&amp;gt; www.example.com - test.html 这个时候就可以通过在 console 中执行自己的脚本来测试功能了  如何安装不同版本的模拟器  打开 Xcode -&amp;gt; Preference 选择 Components，然后选择想要的 iOS 版本的模拟器 点击 Check and Install Now 更换模拟器: 右击 Simulator -&amp;gt; Device -&amp;gt; 选择相应 iOS 系统和手机型号  利用 Android 模拟器测试 配置准备  下载 android studio 在 android studio 中点击 AVD Manager 选择和添加不同的 Virtual Device:   如何测试  首先在 AVD Manager 中点击 launch ，打开想要的虚拟设备 拖动待测试应用 example.</description>
+    </item>
+    
     <item>
       <title>React: Hooks原理解析</title>
       <link>https://zhixiukang.com/posts/react-hooks-principles/</link>

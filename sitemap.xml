@@ -29,21 +29,31 @@
   
   <url>
     <loc>https://zhixiukang.com/categories/</loc>
-    <lastmod>2020-05-11T15:21:33-08:00</lastmod>
+    <lastmod>2020-05-15T15:21:33-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://zhixiukang.com/posts/</loc>
-    <lastmod>2020-05-11T15:21:33-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://zhixiukang.com/posts/react-hooks-principles/</loc>
-    <lastmod>2020-05-11T15:21:33-08:00</lastmod>
+    <lastmod>2020-05-15T15:21:33-08:00</lastmod>
   </url>
   
   <url>
     <loc>https://zhixiukang.com/categories/tech/</loc>
+    <lastmod>2020-05-15T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/posts/setup-and-test-with-ios-and-android-simulators/</loc>
+    <lastmod>2020-05-15T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2020-05-15T15:21:33-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://zhixiukang.com/posts/react-hooks-principles/</loc>
     <lastmod>2020-05-11T15:21:33-08:00</lastmod>
   </url>
   
